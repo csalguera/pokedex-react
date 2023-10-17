@@ -2,15 +2,15 @@ import { useState, useEffect } from "react"
 import { getPokemonList } from "../services/api-calls"
 import { Link } from "react-router-dom"
 
-const PokemonList = () => {
-  const [pokemonList, setPokemonList] = useState([])
+const GenerationOne = () => {
+  const [generationOne, setGenerationOne] = useState([])
 
   useEffect(() => {
-    const fetchPokemonList = async () => {
+    const fetchPokemonData = async () => {
       const pokemonData = await getPokemonList(151)
-      setPokemonList(pokemonData.results)
+      setGenerationOne(pokemonData.results)
     }
-    fetchPokemonList()
+    fetchPokemonData()
   }, [])
 
   function pascalize(str) {
@@ -19,9 +19,9 @@ const PokemonList = () => {
 
   return (
     <>
-      <h1>Pokemon List</h1>
-      {pokemonList.length ? (
-        pokemonList.map(pokemon => (
+      <h1>Generation One</h1>
+      {generationOne.length ? (
+        generationOne.map(pokemon => (
           <Link
             key={pokemon.name}
             to={`/pokemon/${pokemon.name}`}
@@ -40,4 +40,4 @@ const PokemonList = () => {
   )
 }
 
-export default PokemonList
+export default GenerationOne

@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
 import Landing from './pages/Landing';
-import Pokemon from './pages/PokemonList';
+import Pokemon from './pages/GenerationOne';
 
 function App() {
   return (
