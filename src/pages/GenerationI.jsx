@@ -2,13 +2,13 @@ import { useState, useEffect } from "react"
 import { getPokemonList } from "../services/api-calls"
 import { Link } from "react-router-dom"
 
-const GenerationOne = () => {
-  const [generationOne, setGenerationOne] = useState([])
+const GenerationI = () => {
+  const [generationI, setGenerationI] = useState([])
 
   useEffect(() => {
     const fetchPokemonData = async () => {
-      const pokemonData = await getPokemonList(151)
-      setGenerationOne(pokemonData.results)
+      const pokemonData = await getPokemonList(151, 0)
+      setGenerationI(pokemonData.results)
     }
     fetchPokemonData()
   }, [])
@@ -19,9 +19,9 @@ const GenerationOne = () => {
 
   return (
     <>
-      <h1>Generation One</h1>
-      {generationOne.length ? (
-        generationOne.map(pokemon => (
+      <h1>Generation I</h1>
+      {generationI.length ? (
+        generationI.map(pokemon => (
           <Link
             key={pokemon.name}
             to={`/pokemon/${pokemon.name}`}
@@ -40,4 +40,4 @@ const GenerationOne = () => {
   )
 }
 
-export default GenerationOne
+export default GenerationI

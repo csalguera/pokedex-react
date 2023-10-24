@@ -2,15 +2,22 @@ import './App.css';
 
 import { Route, Routes } from 'react-router-dom';
 
+// pages
 import Landing from './pages/Landing';
-import Pokemon from './pages/GenerationOne';
+import Pokemon from './pages/GenerationI';
+
+// components
+import Nav from './components/Nav';
 
 function App() {
   return (
-    <Routes>
-      <Route path='/' element={<Landing />} />
-      <Route path='pokemon' element={<Pokemon />} />
-    </Routes>
+    <>
+    <Nav />
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='gen-i' element={<Pokemon />} />
+      </Routes>
+    </>
   )
 }
 
