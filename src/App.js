@@ -4,7 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 
 // pages
 import Landing from './pages/Landing';
-import Pokemon from './pages/GenerationI';
+import GenerationI from './pages/GenerationI';
+import GenerationII from './pages/GenerationII';
+import PokemonDetails from './pages/PokemonDetails';
 
 // components
 import Nav from './components/Nav';
@@ -15,7 +17,10 @@ function App() {
     <Nav />
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='gen-i' element={<Pokemon />} />
+        <Route path='gen-i' element={<GenerationI />} />
+        <Route path='gen-i/:pokemonName' element={<PokemonDetails />} />
+        <Route path='gen-ii' element={<GenerationII />} />
+        <Route path='gen-ii/:pokemonName' element={<PokemonDetails />} />
       </Routes>
     </>
   )

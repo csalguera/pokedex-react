@@ -3,25 +3,25 @@ import { getPokemonList } from "../services/api-calls"
 import { Link } from "react-router-dom"
 import { pascalize } from "../utilities/pascalize"
 
-const GenerationI = () => {
-  const [generationI, setGenerationI] = useState([])
+const GenerationII = () => {
+  const [generationII, setGenerationII] = useState([])
 
   useEffect(() => {
     const fetchPokemonList = async () => {
-      const pokemonData = await getPokemonList(151, 0)
-      setGenerationI(pokemonData.results)
+      const pokemonData = await getPokemonList(100, 151)
+      setGenerationII(pokemonData.results)
     }
     fetchPokemonList()
   }, [])
 
   return (
     <>
-      <h1>Generation I</h1>
-      {generationI.length ? (
-        generationI.map(pokemon => (
+      <h1>Generation II</h1>
+      {generationII.length ? (
+        generationII.map(pokemon => (
           <Link
             key={pokemon.name}
-            to={`/gen-i/${pokemon.name}`}
+            to={`/gen-ii/${pokemon.name}`}
             state={pokemon}
             style={{
               display: 'flex',
@@ -38,4 +38,4 @@ const GenerationI = () => {
   )
 }
 
-export default GenerationI
+export default GenerationII
