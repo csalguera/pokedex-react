@@ -1,14 +1,20 @@
+// npm modules
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
+
+// components
+import PokemonType from "../components/PokemonType"
+import PokemonSprite from "../components/PokemonSprite"
+
+// services
 import { getPokemonDetails } from "../services/api-calls"
+
+// utilities
 import { pascalize } from "../utilities/pascalize"
-import TypeContainer from "../components/TypeContainer"
 
 const PokemonDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState({})
   const location = useLocation()
-  const gen1 = (pokemonDetails.id <= 151)
-  const gen2 = (pokemonDetails.id >= 152 && pokemonDetails.id <= 252)
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -17,8 +23,6 @@ const PokemonDetails = () => {
     }
     fetchDetails()
   }, [location.state.url])
-
-  console.log(pokemonDetails);
 
   return (
     <>
@@ -32,15 +36,12 @@ const PokemonDetails = () => {
           }}
         >
           <h1>{pascalize(pokemonDetails.name ?? '')}</h1>
-          {gen1 ? (
-            <img src={pokemonDetails?.sprites?.versions['generation-i']['red-blue']?.front_transparent} alt="" />
-          ) : gen2 ? (
-            <img src={pokemonDetails?.sprites?.versions['generation-ii'].crystal?.front_transparent} alt="" />
-          ) : (
-            <img src="" alt="" />
-          )}
+          <PokemonSprite
+            pokemonDetails={pokemonDetails}
+            path={location.pathname}
+          />
           {pokemonDetails?.types?.map(type => (
-            <TypeContainer
+            <PokemonType
               type={type}
               key={type.slot}
             />

@@ -1,6 +1,8 @@
 import { pascalize } from "../utilities/pascalize"
 
-const TypeContainer = ({type}) => {
+const PokemonType = (props) => {
+  const { type } = props
+
   const normal = (type.type.name === 'normal')
   const fighting = (type.type.name === 'fighting')
   const flying = (type.type.name === 'flying')
@@ -43,6 +45,8 @@ const TypeContainer = ({type}) => {
           dark ? '#705849' :
           fairy ? '#ee99ac' :
           '#67a090',
+        color: 'white',
+        textShadow: 'black 2px 2px 2px',
         width: '75px',
         textAlign: 'center',
         padding: '2px',
@@ -55,4 +59,4 @@ const TypeContainer = ({type}) => {
   )
 }
 
-export default TypeContainer
+export default PokemonType
