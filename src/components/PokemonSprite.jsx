@@ -2,6 +2,7 @@ const PokemonSprite = (props) => {
   const {
     pokemonDetails,
     path,
+    spriteVersion,
   } = props
 
   const gen1 = (path.includes('/gen-i/'))
@@ -23,8 +24,16 @@ const PokemonSprite = (props) => {
             alignItems: 'center'
           }}
         >
-          <img src={spriteRedBlue} alt="" />
-          <img src={spriteYellow} alt="" />
+          <img
+            src={
+              spriteVersion === 0 ? (
+                spriteRedBlue
+              ) : (
+                spriteYellow
+              )
+            }
+            alt=""
+          />
         </div>
       ) : gen2 ? (
         <div
@@ -34,9 +43,18 @@ const PokemonSprite = (props) => {
             alignItems: 'center'
           }}
         >
-          <img src={spriteGold} alt="" />
-          <img src={spriteSilver} alt="" />
-          <img src={spriteCrystal} alt="" />
+          <img
+            src={
+              spriteVersion === 0 ? (
+                spriteGold
+              ) :  spriteVersion === 1 ? (
+                spriteSilver
+              ) : (
+                spriteCrystal
+              )
+            }
+            alt=""
+          />
         </div>
       ) : (
         <></>

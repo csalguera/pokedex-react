@@ -16,6 +16,7 @@ const PokemonEvolutionChain = (props) => {
     stageOne,
     stageTwo,
     stageThree,
+    spriteVersion,
   } = props
 
   const [stageOneDetails, setStageOneDetails] = useState({})
@@ -71,6 +72,7 @@ const PokemonEvolutionChain = (props) => {
           <PokemonSprite
             pokemonDetails={stageOneDetails}
             path={location.pathname}
+            spriteVersion={spriteVersion}
           />
           <h2>{pascalize(stageOne.name) ?? ''}</h2>
         </div>
@@ -89,6 +91,7 @@ const PokemonEvolutionChain = (props) => {
           <PokemonSprite
             pokemonDetails={stageTwoDetails}
             path={location.pathname}
+            spriteVersion={spriteVersion}
           />
           <h2>{pascalize(stageTwo.name) ?? ''}</h2>
         </div>
@@ -107,6 +110,7 @@ const PokemonEvolutionChain = (props) => {
           <PokemonSprite
             pokemonDetails={stageThreeDetails}
             path={location.pathname}
+            spriteVersion={spriteVersion}
           />
           <h2>{pascalize(stageThree.name) ?? ''}</h2>
         </div>

@@ -17,7 +17,12 @@ const PokemonDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState({})
   const [pokemonSpecies, setPokemonSpecies] = useState({})
   const [evolutionChain, setEvolutionChain] = useState({})
+  const [generation, setGeneration] = useState(0)
+  const [spriteVersion, setSpriteVersion] = useState(0)
   const location = useLocation()
+
+  const gen1 = (location.pathname.includes('/gen-i/'))
+  const gen2 = (location.pathname.includes('/gen-ii/'))
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -45,6 +50,19 @@ const PokemonDetails = () => {
     fetchEvolutionChain()
   }, [pokemonSpecies, pokemonSpecies.evolution_chain])
 
+  useEffect(() => {
+    const fetchGeneration = () => {
+      gen1 ? (
+        setGeneration(1)
+      ) : gen2 ? (
+        setGeneration(2)
+      ) : (
+        setGeneration(0)
+      )
+    }
+    fetchGeneration()
+  }, [gen1, gen2])
+
   const stageOne = (evolutionChain.chain?.species)
   const stageTwo = (evolutionChain.chain?.evolves_to[0]?.species)
   const stageThree = (evolutionChain.chain?.evolves_to[0]?.evolves_to[0]?.species)
@@ -61,9 +79,52 @@ const PokemonDetails = () => {
           }}
         >
           <h1>{pascalize(pokemonDetails.name ?? '')}</h1>
+          {generation === 1 ? (
+            <div
+              style={{
+                display: 'flex'
+              }}
+            >
+              <button
+                onClick={() => setSpriteVersion(0)}
+              >
+                RB
+              </button>
+              <button
+                onClick={() => setSpriteVersion(1)}
+              >
+                Y
+              </button>
+            </div>
+          ) : generation === 2 ? (
+            <div
+              style={{
+                display: 'flex'
+              }}
+            >
+              <button
+                onClick={() => setSpriteVersion(0)}
+              >
+                G
+              </button>
+              <button
+                onClick={() => setSpriteVersion(1)}
+              >
+                S
+              </button>
+              <button
+                onClick={() => setSpriteVersion(2)}
+              >
+                C
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
           <PokemonSprite
             pokemonDetails={pokemonDetails}
             path={location.pathname}
+            spriteVersion={spriteVersion}
           />
           {pokemonDetails?.types?.map(type => (
             <PokemonType
@@ -75,6 +136,7 @@ const PokemonDetails = () => {
             stageOne={stageOne}
             stageTwo={stageTwo}
             stageThree={stageThree}
+            spriteVersion={spriteVersion}
           />
         </div>
       ) : (
