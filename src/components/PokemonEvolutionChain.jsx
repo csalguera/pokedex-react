@@ -13,6 +13,7 @@ const PokemonEvolutionChain = (props) => {
     stageOne,
     stageTwo,
     stageThree,
+    stageThreeAlt,
     pokemonSpecies,
     spriteVersion,
   } = props
@@ -23,11 +24,14 @@ const PokemonEvolutionChain = (props) => {
   const [stageTwoSpecies, setStageTwoSpecies] = useState({})
   const [stageThreeDetails, setStageThreeDetails] = useState({})
   const [stageThreeSpecies, setStageThreeSpecies] = useState({})
+  const [stageThreeAltDetails, setStageThreeAltDetails] = useState({})
+  const [stageThreeAltSpecies, setStageThreeAltSpecies] = useState({})
   const location = useLocation()
 
   const stageOneGen = (parseInt(stageOneSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const stageTwoGen = (parseInt(stageTwoSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const stageThreeGen = (parseInt(stageThreeSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+  const stageThreeAltGen = (parseInt(stageThreeAltSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const pokemonSpeciesGen = (parseInt(pokemonSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
 
   useEffect(() => {
@@ -89,6 +93,26 @@ const PokemonEvolutionChain = (props) => {
     }
     fetchStageThreeSpecies()
   }, [stageThree])
+  
+  useEffect(() => {
+    const fetchStageThreeAltDetails = async () => {
+      if (stageThreeAlt) {
+        const stageThreeAltData = await getPokemonDetails(stageThreeAlt.name)
+        setStageThreeAltDetails(stageThreeAltData)
+      }
+    }
+    fetchStageThreeAltDetails()
+  }, [stageThreeAlt])
+
+  useEffect(() => {
+    const fetchStageThreeAltSpecies = async () => {
+      if (stageThreeAlt) {
+        const stageThreeAltData = await getPokemonSpecies(stageThreeAlt.name)
+        setStageThreeAltSpecies(stageThreeAltData)
+      }
+    }
+    fetchStageThreeAltSpecies()
+  }, [stageThreeAlt])
 
   return (
     <div
@@ -146,6 +170,15 @@ const PokemonEvolutionChain = (props) => {
             path={location.pathname}
             spriteVersion={spriteVersion}
           />
+          {stageThreeAltGen <= pokemonSpeciesGen ? (
+            <PokemonSprite
+              pokemonDetails={stageThreeAltDetails}
+              path={location.pathname}
+              spriteVersion={spriteVersion}
+            />
+          ) : (
+            <></>
+          )}
         </div>
       ) : (
         <></>
