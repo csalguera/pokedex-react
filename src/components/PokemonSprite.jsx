@@ -13,8 +13,6 @@ const PokemonSprite = (props) => {
   const spriteSilver = (pokemonDetails?.sprites?.versions['generation-ii'].silver?.front_transparent)
   const spriteCrystal = (pokemonDetails?.sprites?.versions['generation-ii'].crystal?.front_transparent)
 
-  console.log(pokemonDetails);
-
   return (
     <>
       {gen1 ? (

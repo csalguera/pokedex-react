@@ -5,7 +5,17 @@ export async function getPokemonList(x, y) {
   return res.json()
 }
 
-export async function getPokemonDetails(url) {
+export async function getPokemonDetails(name) {
+  const res = await fetch(`${baseURL}/pokemon/${name}`)
+  return res.json()
+}
+
+export async function getPokemonSpecies(name) {
+  const res = await fetch(`${baseURL}/pokemon-species/${name}`)
+  return res.json()
+}
+
+export async function getEvolutionChainData(url) {
   const res = await fetch(url)
   return res.json()
 }
