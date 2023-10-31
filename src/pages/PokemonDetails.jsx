@@ -82,6 +82,7 @@ const PokemonDetails = () => {
           <h1>{pascalize(pokemonDetails.name ?? '')}</h1>
           <SpriteVersionSelector
             generation={generation}
+            spriteVersion={spriteVersion}
             setSpriteVersion={setSpriteVersion}
           />
           <PokemonSprite
