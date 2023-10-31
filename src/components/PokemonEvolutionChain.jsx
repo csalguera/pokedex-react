@@ -6,23 +6,29 @@ import { useLocation } from "react-router-dom";
 import PokemonSprite from "./PokemonSprite";
 
 // services
-import { getPokemonDetails } from "../services/api-calls"
-
-// utilities
-import { pascalize } from "../utilities/pascalize";
+import { getPokemonDetails, getPokemonSpecies } from "../services/api-calls"
 
 const PokemonEvolutionChain = (props) => {
   const {
     stageOne,
     stageTwo,
     stageThree,
+    pokemonSpecies,
     spriteVersion,
   } = props
 
   const [stageOneDetails, setStageOneDetails] = useState({})
+  const [stageOneSpecies, setStageOneSpecies] = useState({})
   const [stageTwoDetails, setStageTwoDetails] = useState({})
+  const [stageTwoSpecies, setStageTwoSpecies] = useState({})
   const [stageThreeDetails, setStageThreeDetails] = useState({})
+  const [stageThreeSpecies, setStageThreeSpecies] = useState({})
   const location = useLocation()
+
+  const stageOneGen = (parseInt(stageOneSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+  const stageTwoGen = (parseInt(stageTwoSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+  const stageThreeGen = (parseInt(stageThreeSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+  const pokemonSpeciesGen = (parseInt(pokemonSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
 
   useEffect(() => {
     const fetchStageOneDetails = async () => {
@@ -32,6 +38,16 @@ const PokemonEvolutionChain = (props) => {
       }
     }
     fetchStageOneDetails()
+  }, [stageOne])
+
+  useEffect(() => {
+    const fetchStageOneSpecies = async () => {
+      if (stageOne) {
+        const stageOneData = await getPokemonSpecies(stageOne.name)
+        setStageOneSpecies(stageOneData)
+      }
+    }
+    fetchStageOneSpecies()
   }, [stageOne])
   
   useEffect(() => {
@@ -45,6 +61,16 @@ const PokemonEvolutionChain = (props) => {
   }, [stageTwo])
 
   useEffect(() => {
+    const fetchStageTwoSpecies = async () => {
+      if (stageTwo) {
+        const stageTwoData = await getPokemonSpecies(stageTwo.name)
+        setStageTwoSpecies(stageTwoData)
+      }
+    }
+    fetchStageTwoSpecies()
+  }, [stageTwo])
+
+  useEffect(() => {
     const fetchStageThreeDetails = async () => {
       if (stageThree) {
         const stageThreeData = await getPokemonDetails(stageThree.name)
@@ -54,13 +80,23 @@ const PokemonEvolutionChain = (props) => {
     fetchStageThreeDetails()
   }, [stageThree])
 
+  useEffect(() => {
+    const fetchStageThreeSpecies = async () => {
+      if (stageThree) {
+        const stageThreeData = await getPokemonSpecies(stageThree.name)
+        setStageThreeSpecies(stageThreeData)
+      }
+    }
+    fetchStageThreeSpecies()
+  }, [stageThree])
+
   return (
     <div
       style={{
         display: 'flex',
       }}
     >
-      {stageOne ? (
+      {stageOne && stageOneGen <= pokemonSpeciesGen ? (
         <div
           style={{
             display: 'flex',
@@ -74,12 +110,11 @@ const PokemonEvolutionChain = (props) => {
             path={location.pathname}
             spriteVersion={spriteVersion}
           />
-          {/* <h2>{pascalize(stageOne.name) ?? ''}</h2> */}
         </div>
       ) : (
         <></>
       )}
-      {stageTwo ? (
+      {stageTwo && stageTwoGen <= pokemonSpeciesGen ? (
         <div
           style={{
             display: 'flex',
@@ -93,12 +128,11 @@ const PokemonEvolutionChain = (props) => {
             path={location.pathname}
             spriteVersion={spriteVersion}
           />
-          {/* <h2>{pascalize(stageTwo.name) ?? ''}</h2> */}
         </div>
       ) : (
         <></>
       )}
-      {stageThree ? (
+      {stageThree && stageThreeGen <= pokemonSpeciesGen ? (
         <div
           style={{
             display: 'flex',
@@ -112,7 +146,6 @@ const PokemonEvolutionChain = (props) => {
             path={location.pathname}
             spriteVersion={spriteVersion}
           />
-          {/* <h2>{pascalize(stageThree.name) ?? ''}</h2> */}
         </div>
       ) : (
         <></>

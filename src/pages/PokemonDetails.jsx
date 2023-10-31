@@ -100,6 +100,7 @@ const PokemonDetails = () => {
             stageOne={stageOne}
             stageTwo={stageTwo}
             stageThree={stageThree}
+            pokemonSpecies={pokemonSpecies}
             spriteVersion={spriteVersion}
           />
         </div>
