@@ -66,6 +66,8 @@ const PokemonDetails = () => {
 
   const stageOne = (evolutionChain.chain?.species)
   const stageTwo = (evolutionChain.chain?.evolves_to[0]?.species)
+  const stageTwoAlt1 = (evolutionChain.chain?.evolves_to[1]?.species)
+  const stageTwoAlt2 = (evolutionChain.chain?.evolves_to[2]?.species)
   const stageThree = (evolutionChain.chain?.evolves_to[0]?.evolves_to[0]?.species)
   const stageThreeAlt = (evolutionChain.chain?.evolves_to[0]?.evolves_to[1]?.species)
 
@@ -100,8 +102,11 @@ const PokemonDetails = () => {
           <PokemonEvolutionChain
             stageOne={stageOne}
             stageTwo={stageTwo}
+            stageTwoAlt1={stageTwoAlt1}
+            stageTwoAlt2={stageTwoAlt2}
             stageThree={stageThree}
             stageThreeAlt={stageThreeAlt}
+            pokemonDetails={pokemonDetails}
             pokemonSpecies={pokemonSpecies}
             spriteVersion={spriteVersion}
           />
