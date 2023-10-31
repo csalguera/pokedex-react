@@ -33,6 +33,7 @@ const PokemonSprite = (props) => {
               )
             }
             alt=""
+            width='96px'
           />
         </div>
       ) : gen2 ? (
@@ -54,6 +55,7 @@ const PokemonSprite = (props) => {
               )
             }
             alt=""
+            width='96px'
           />
         </div>
       ) : (

@@ -74,7 +74,7 @@ const PokemonEvolutionChain = (props) => {
             path={location.pathname}
             spriteVersion={spriteVersion}
           />
-          <h2>{pascalize(stageOne.name) ?? ''}</h2>
+          {/* <h2>{pascalize(stageOne.name) ?? ''}</h2> */}
         </div>
       ) : (
         <></>
@@ -93,7 +93,7 @@ const PokemonEvolutionChain = (props) => {
             path={location.pathname}
             spriteVersion={spriteVersion}
           />
-          <h2>{pascalize(stageTwo.name) ?? ''}</h2>
+          {/* <h2>{pascalize(stageTwo.name) ?? ''}</h2> */}
         </div>
       ) : (
         <></>
@@ -112,7 +112,7 @@ const PokemonEvolutionChain = (props) => {
             path={location.pathname}
             spriteVersion={spriteVersion}
           />
-          <h2>{pascalize(stageThree.name) ?? ''}</h2>
+          {/* <h2>{pascalize(stageThree.name) ?? ''}</h2> */}
         </div>
       ) : (
         <></>

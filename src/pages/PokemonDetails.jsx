@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom"
 import PokemonType from "../components/PokemonType"
 import PokemonSprite from "../components/PokemonSprite"
 import PokemonEvolutionChain from "../components/PokemonEvolutionChain"
+import SpriteVersionSelector from "../components/SpriteVersionSelector"
 
 // services
 import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../services/api-calls"
@@ -79,48 +80,10 @@ const PokemonDetails = () => {
           }}
         >
           <h1>{pascalize(pokemonDetails.name ?? '')}</h1>
-          {generation === 1 ? (
-            <div
-              style={{
-                display: 'flex'
-              }}
-            >
-              <button
-                onClick={() => setSpriteVersion(0)}
-              >
-                RB
-              </button>
-              <button
-                onClick={() => setSpriteVersion(1)}
-              >
-                Y
-              </button>
-            </div>
-          ) : generation === 2 ? (
-            <div
-              style={{
-                display: 'flex'
-              }}
-            >
-              <button
-                onClick={() => setSpriteVersion(0)}
-              >
-                G
-              </button>
-              <button
-                onClick={() => setSpriteVersion(1)}
-              >
-                S
-              </button>
-              <button
-                onClick={() => setSpriteVersion(2)}
-              >
-                C
-              </button>
-            </div>
-          ) : (
-            <></>
-          )}
+          <SpriteVersionSelector
+            generation={generation}
+            setSpriteVersion={setSpriteVersion}
+          />
           <PokemonSprite
             pokemonDetails={pokemonDetails}
             path={location.pathname}
