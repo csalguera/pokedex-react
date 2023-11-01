@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { getPokemonList } from "../services/api-calls"
 import { Link } from "react-router-dom"
-import { pascalize } from "../utilities/pascalize"
+import { leadingZeros, pascalize } from "../utilities/utilities"
 
 const GenerationII = () => {
   const [generationII, setGenerationII] = useState([])
@@ -18,18 +18,32 @@ const GenerationII = () => {
     <>
       <h1>Generation II</h1>
       {generationII.length ? (
-        generationII.map(pokemon => (
-          <Link
+        generationII.map((pokemon, idx) => (
+          <div
             key={pokemon.name}
-            to={`/gen-ii/${pokemon.name}`}
-            state={pokemon}
             style={{
               display: 'flex',
-              width: 'fit-content',
+              alignItems: 'center',
             }}
           >
-            {pascalize(pokemon.name)}
-          </Link>
+            <p
+              style={{
+                margin: '8px'
+              }}
+            >
+              {leadingZeros(idx + 152)}
+            </p>
+            <Link
+              to={`/gen-ii/${pokemon.name}`}
+              state={pokemon}
+              style={{
+                display: 'flex',
+                width: 'fit-content',
+              }}
+            >
+              {pascalize(pokemon.name)}
+            </Link>
+          </div>
         ))
       ) : (
         <h2>Loading...</h2>

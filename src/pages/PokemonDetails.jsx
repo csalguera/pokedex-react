@@ -12,7 +12,7 @@ import SpriteVersionSelector from "../components/SpriteVersionSelector"
 import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../services/api-calls"
 
 // utilities
-import { pascalize } from "../utilities/pascalize"
+import { pascalize } from "../utilities/utilities"
 
 const PokemonDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState({})

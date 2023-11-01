@@ -1,4 +1,4 @@
-import { pascalize } from "../utilities/pascalize"
+import { pascalize } from "../utilities/utilities"
 
 const PokemonType = (props) => {
   const { type } = props
