@@ -26,6 +26,8 @@ const PokemonDetails = () => {
   const gen1 = (location.pathname.includes('/gen-i/'))
   const gen2 = (location.pathname.includes('/gen-ii/'))
   const gen3 = (location.pathname.includes('/gen-iii/'))
+  const gen4 = (location.pathname.includes('/gen-iv/'))
+  const gen5 = (location.pathname.includes('/gen-v/'))
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -104,12 +106,21 @@ const PokemonDetails = () => {
             path={location.pathname}
             spriteVersion={spriteVersion}
           />
-          {pokemonDetails?.types?.map(type => (
-            <PokemonType
+          {generation <= 5 && pokemonDetails?.past_types?.[0] ? (
+            pokemonDetails?.past_types?.[0]?.types?.map(type => (
+              <PokemonType
               type={type}
               key={type.slot}
-            />
-          ))}
+              />
+              ))
+            ) : (
+            pokemonDetails?.types?.map(type => (
+              <PokemonType
+                type={type}
+                key={type.slot}
+              />
+            ))
+          )}
           <PokemonEvolutionChain
             stageOne={stageOne}
             stageTwo={stageTwo}
