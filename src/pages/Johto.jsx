@@ -3,22 +3,22 @@ import { getPokemonList } from "../services/api-calls"
 import { Link } from "react-router-dom"
 import { leadingZeros, pascalize } from "../utilities/utilities"
 
-const GenerationII = () => {
-  const [generationII, setGenerationII] = useState([])
+const Johto = () => {
+  const [johto, setJohto] = useState([])
 
   useEffect(() => {
     const fetchPokemonList = async () => {
       const pokemonData = await getPokemonList(100, 151)
-      setGenerationII(pokemonData.results)
+      setJohto(pokemonData.results)
     }
     fetchPokemonList()
   }, [])
 
   return (
     <>
-      <h1>Generation II</h1>
-      {generationII.length ? (
-        generationII.map((pokemon, idx) => (
+      <h1>Johto</h1>
+      {johto.length ? (
+        johto.map((pokemon, idx) => (
           <div
             key={pokemon.name}
             style={{
@@ -52,4 +52,4 @@ const GenerationII = () => {
   )
 }
 
-export default GenerationII
+export default Johto

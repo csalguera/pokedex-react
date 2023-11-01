@@ -4,8 +4,8 @@ const Nav = () => {
   return (
     <>
       <Link to='/'>Home</Link>
-      <Link to='/gen-i'>Generation I</Link>
-      <Link to='/gen-ii'>Generation II</Link>
+      <Link to='/gen-i'>Kanto</Link>
+      <Link to='/gen-ii'>Johto</Link>
     </>
   )
 }
