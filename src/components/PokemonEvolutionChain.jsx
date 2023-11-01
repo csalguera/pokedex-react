@@ -14,6 +14,8 @@ const PokemonEvolutionChain = (props) => {
     stageTwo,
     stageTwoAlt1,
     stageTwoAlt2,
+    stageTwoAlt3,
+    stageTwoAlt4,
     stageThree,
     stageThreeAlt,
     pokemonDetails,
@@ -26,21 +28,17 @@ const PokemonEvolutionChain = (props) => {
   const [stageTwoDetails, setStageTwoDetails] = useState({})
   const [stageTwoSpecies, setStageTwoSpecies] = useState({})
   const [stageTwoAlt1Details, setStageTwoAlt1Details] = useState({})
-  const [stageTwoAlt1Species, setStageTwoAlt1Species] = useState({})
   const [stageTwoAlt2Details, setStageTwoAlt2Details] = useState({})
-  const [stageTwoAlt2Species, setStageTwoAlt2Species] = useState({})
+  const [stageTwoAlt3Details, setStageTwoAlt3Details] = useState({})
+  const [stageTwoAlt4Details, setStageTwoAlt4Details] = useState({})
   const [stageThreeDetails, setStageThreeDetails] = useState({})
   const [stageThreeSpecies, setStageThreeSpecies] = useState({})
   const [stageThreeAltDetails, setStageThreeAltDetails] = useState({})
-  const [stageThreeAltSpecies, setStageThreeAltSpecies] = useState({})
   const location = useLocation()
 
   const stageOneGen = (parseInt(stageOneSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const stageTwoGen = (parseInt(stageTwoSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageTwoAlt1Gen = (parseInt(stageTwoAlt1Species.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageTwoAlt2Gen = (parseInt(stageTwoAlt2Species.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const stageThreeGen = (parseInt(stageThreeSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageThreeAltGen = (parseInt(stageThreeAltSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const pokemonSpeciesGen = (parseInt(pokemonSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
 
   useEffect(() => {
@@ -94,16 +92,6 @@ const PokemonEvolutionChain = (props) => {
   }, [stageTwoAlt1])
 
   useEffect(() => {
-    const fetchStageTwoAlt1Species = async () => {
-      if (stageTwoAlt1) {
-        const stageTwoAlt1Data = await getPokemonSpecies(stageTwoAlt1.name)
-        setStageTwoAlt1Species(stageTwoAlt1Data)
-      }
-    }
-    fetchStageTwoAlt1Species()
-  }, [stageTwoAlt1])
-
-  useEffect(() => {
     const fetchStageTwoAlt2Details = async () => {
       if (stageTwoAlt2) {
         const stageTwoAlt2Data = await getPokemonDetails(stageTwoAlt2.name)
@@ -114,14 +102,24 @@ const PokemonEvolutionChain = (props) => {
   }, [stageTwoAlt2])
 
   useEffect(() => {
-    const fetchStageTwoAlt2Species = async () => {
-      if (stageTwoAlt2) {
-        const stageTwoAlt2Data = await getPokemonSpecies(stageTwoAlt2.name)
-        setStageTwoAlt2Species(stageTwoAlt2Data)
+    const fetchStageTwoAlt3Details = async () => {
+      if (stageTwoAlt3) {
+        const stageTwoAlt3Data = await getPokemonDetails(stageTwoAlt3.name)
+        setStageTwoAlt3Details(stageTwoAlt3Data)
       }
     }
-    fetchStageTwoAlt2Species()
-  }, [stageTwoAlt2])
+    fetchStageTwoAlt3Details()
+  }, [stageTwoAlt3])
+
+  useEffect(() => {
+    const fetchStageTwoAlt4Details = async () => {
+      if (stageTwoAlt4) {
+        const stageTwoAlt4Data = await getPokemonDetails(stageTwoAlt4.name)
+        setStageTwoAlt4Details(stageTwoAlt4Data)
+      }
+    }
+    fetchStageTwoAlt4Details()
+  }, [stageTwoAlt4])
 
   useEffect(() => {
     const fetchStageThreeDetails = async () => {
@@ -151,16 +149,6 @@ const PokemonEvolutionChain = (props) => {
       }
     }
     fetchStageThreeAltDetails()
-  }, [stageThreeAlt])
-
-  useEffect(() => {
-    const fetchStageThreeAltSpecies = async () => {
-      if (stageThreeAlt) {
-        const stageThreeAltData = await getPokemonSpecies(stageThreeAlt.name)
-        setStageThreeAltSpecies(stageThreeAltData)
-      }
-    }
-    fetchStageThreeAltSpecies()
   }, [stageThreeAlt])
 
   return (
@@ -219,6 +207,16 @@ const PokemonEvolutionChain = (props) => {
               />
               <PokemonSprite
                 pokemonDetails={stageTwoAlt2Details}
+                path={location.pathname}
+                spriteVersion={spriteVersion}
+              />
+              <PokemonSprite
+                pokemonDetails={stageTwoAlt3Details}
+                path={location.pathname}
+                spriteVersion={spriteVersion}
+              />
+              <PokemonSprite
+                pokemonDetails={stageTwoAlt4Details}
                 path={location.pathname}
                 spriteVersion={spriteVersion}
               />
