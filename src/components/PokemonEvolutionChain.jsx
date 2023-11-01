@@ -196,7 +196,8 @@ const PokemonEvolutionChain = (props) => {
             alignItems: 'center',
           }}
         >
-          {stageOneGen > pokemonSpeciesGen ? (
+          {stageOneGen > pokemonSpeciesGen &&
+          pokemonSpecies?.name !== stageThree?.name ? (
             <>
               <PokemonSprite
                 pokemonDetails={pokemonDetails}
