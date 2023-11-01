@@ -19,3 +19,8 @@ export async function getEvolutionChainData(url) {
   const res = await fetch(url)
   return res.json()
 }
+
+export async function getItem(name) {
+  const res = await fetch(`${baseURL}/item/${name}`)
+  return res.json()
+}
