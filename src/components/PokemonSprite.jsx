@@ -75,7 +75,8 @@ const PokemonSprite = (props) => {
               spriteVersion === 0 ? (
                 spriteRubySapphire
               ) :  spriteVersion === 1 ? (
-                spriteFireRedLeafGreen
+                spriteFireRedLeafGreen ??
+                spriteEmerald
               ) : (
                 spriteEmerald
               )
