@@ -13,7 +13,7 @@ import GenerationSelector from "../components/GenerationSelector"
 import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../services/api-calls"
 
 // utilities
-import { pascalize } from "../utilities/utilities"
+import { leadingZeros, pascalize } from "../utilities/utilities"
 
 const PokemonDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState({})
@@ -91,7 +91,28 @@ const PokemonDetails = () => {
             alignItems: 'center'
           }}
         >
-          <h1>{pascalize(pokemonDetails.name ?? '')}</h1>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              width: '250px'
+            }}
+          >
+            <h1
+              style={{
+                margin: '8px',
+              }}
+            >
+              {leadingZeros(pokemonDetails.id ?? '')}
+            </h1>
+            <h1
+              style={{
+                margin: '8px',
+              }}
+            >
+              {pascalize(pokemonDetails.name ?? '')}
+            </h1>
+          </div>
           <GenerationSelector
             pokemonDetails={pokemonDetails}
             pokemonSpecies={pokemonSpecies}
