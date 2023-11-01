@@ -25,6 +25,7 @@ const PokemonDetails = () => {
 
   const gen1 = (location.pathname.includes('/gen-i/'))
   const gen2 = (location.pathname.includes('/gen-ii/'))
+  const gen3 = (location.pathname.includes('/gen-iii/'))
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -58,12 +59,14 @@ const PokemonDetails = () => {
         setGeneration(1)
       ) : gen2 ? (
         setGeneration(2)
+      ) : gen3 ? (
+        setGeneration(3)
       ) : (
         setGeneration(0)
       )
     }
     fetchGeneration()
-  }, [gen1, gen2])
+  }, [gen1, gen2, gen3])
 
   const stageOne = (evolutionChain.chain?.species)
   const stageTwo = (evolutionChain.chain?.evolves_to[0]?.species)
@@ -73,6 +76,7 @@ const PokemonDetails = () => {
   const stageTwoAlt4 = (evolutionChain.chain?.evolves_to[4]?.species)
   const stageThree = (evolutionChain.chain?.evolves_to[0]?.evolves_to[0]?.species)
   const stageThreeAlt = (evolutionChain.chain?.evolves_to[0]?.evolves_to[1]?.species)
+  const stageThreeAltStageTwo = (evolutionChain.chain?.evolves_to[1]?.evolves_to[0]?.species)
 
   return (
     <>
@@ -115,6 +119,7 @@ const PokemonDetails = () => {
             stageTwoAlt4={stageTwoAlt4}
             stageThree={stageThree}
             stageThreeAlt={stageThreeAlt}
+            stageThreeAltStageTwo={stageThreeAltStageTwo}
             pokemonDetails={pokemonDetails}
             pokemonSpecies={pokemonSpecies}
             spriteVersion={spriteVersion}

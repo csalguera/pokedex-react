@@ -104,6 +104,82 @@ const SpriteVersionSelector = (props) => {
             C
           </button>
         </div>
+      ) : generation === 3 ? (
+        <div
+          style={{
+            display: 'flex'
+          }}
+        >
+          <button
+            onClick={() => setSpriteVersion(0)}
+            style={{
+              backgroundImage:
+                spriteVersion === 0 ? (
+                  'linear-gradient(red, blue)'
+                ) : spriteVersion === 1 ? (
+                  'linear-gradient(red, green)'
+                  ) : (
+                  'linear-gradient(green, white)'
+                ),
+              color:
+                spriteVersion === 0 ? (
+                  'white'
+                ) : (
+                  'black'
+                ),
+              width: '50px',
+              borderRadius: '100px'
+            }}
+          >
+            RS
+          </button>
+          <button
+            onClick={() => setSpriteVersion(1)}
+            style={{
+              backgroundImage:
+                spriteVersion === 0 ? (
+                  'linear-gradient(red, blue)'
+                ) : spriteVersion === 1 ? (
+                  'linear-gradient(red, green)'
+                  ) : (
+                  'linear-gradient(green, white)'
+                ),
+              color:
+                spriteVersion === 0 ? (
+                  'white'
+                ) : (
+                  'black'
+                ),
+              width: '50px',
+              borderRadius: '100px'
+            }}
+          >
+            FRLG
+          </button>
+          <button
+            onClick={() => setSpriteVersion(2)}
+            style={{
+              backgroundImage:
+                spriteVersion === 0 ? (
+                  'linear-gradient(red, blue)'
+                ) : spriteVersion === 1 ? (
+                  'linear-gradient(red, green)'
+                  ) : (
+                  'linear-gradient(green, white)'
+                ),
+              color:
+                spriteVersion === 0 ? (
+                  'white'
+                ) : (
+                  'black'
+                ),
+              width: '50px',
+              borderRadius: '100px'
+            }}
+          >
+            E
+          </button>
+        </div>
       ) : (
         <></>
       )}

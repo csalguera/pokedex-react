@@ -33,6 +33,14 @@ const Nav = () => {
       >
         Johto
       </Link>
+      <Link
+        to='/gen-iii'
+        style={{
+          margin: '8px'
+        }}
+      >
+        Hoenn
+      </Link>
     </div>
   )
 }

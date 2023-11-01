@@ -18,6 +18,7 @@ const PokemonEvolutionChain = (props) => {
     stageTwoAlt4,
     stageThree,
     stageThreeAlt,
+    stageThreeAltStageTwo,
     pokemonDetails,
     pokemonSpecies,
     spriteVersion,
@@ -34,6 +35,7 @@ const PokemonEvolutionChain = (props) => {
   const [stageThreeDetails, setStageThreeDetails] = useState({})
   const [stageThreeSpecies, setStageThreeSpecies] = useState({})
   const [stageThreeAltDetails, setStageThreeAltDetails] = useState({})
+  const [stageThreeAltStageTwoDetails, setStageThreeAltStageTwoDetails] = useState({})
   const location = useLocation()
 
   const stageOneGen = (parseInt(stageOneSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
@@ -151,6 +153,16 @@ const PokemonEvolutionChain = (props) => {
     fetchStageThreeAltDetails()
   }, [stageThreeAlt])
 
+  useEffect(() => {
+    const fetchStageThreeAltStageTwoDetails = async () => {
+      if (stageThreeAltStageTwo) {
+        const stageThreeAltStageTwoData = await getPokemonDetails(stageThreeAltStageTwo.name)
+        setStageThreeAltStageTwoDetails(stageThreeAltStageTwoData)
+      }
+    }
+    fetchStageThreeAltStageTwoDetails()
+  }, [stageThreeAltStageTwo])
+
   return (
     <div
       style={{
@@ -242,6 +254,11 @@ const PokemonEvolutionChain = (props) => {
           />
           <PokemonSprite
             pokemonDetails={stageThreeAltDetails}
+            path={location.pathname}
+            spriteVersion={spriteVersion}
+          />
+          <PokemonSprite
+            pokemonDetails={stageThreeAltStageTwoDetails}
             path={location.pathname}
             spriteVersion={spriteVersion}
           />

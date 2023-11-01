@@ -8,8 +8,6 @@ const GenerationSelector = (props) => {
 
   const genNum = (parseInt(pokemonSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
 
-  console.log(genNum);
-
   return (
     <div
       style={{
@@ -45,6 +43,22 @@ const GenerationSelector = (props) => {
         >
           <button>
             Gen 2
+          </button>
+        </Link>
+      ) : (
+        <></>
+      )}
+      {genNum <= 3 ? (
+        <Link
+          to={`/gen-iii/${pokemonDetails.name}`}
+          state={pokemonDetails}
+          style={{
+            margin: '8px',
+            textDecoration: 'none'
+          }}
+        >
+          <button>
+            Gen 3
           </button>
         </Link>
       ) : (
