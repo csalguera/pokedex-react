@@ -1,6 +1,6 @@
 // npm modules
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 // components
 import PokemonSprite from "./PokemonSprite";
@@ -45,7 +45,26 @@ const PokemonEvolutionChain = (props) => {
   const gen1 = (location.pathname.includes('/gen-i/'))
   const gen2 = (location.pathname.includes('/gen-ii/'))
   const gen3 = (location.pathname.includes('/gen-iii/'))
-  const genNum = (gen1 ? 1 : gen2 ? 2 : gen3 ? 3 : null)
+
+  const genNum = (
+    gen1 ? (
+      1 
+    ) : gen2 ? (
+      2
+    ) : gen3 ? (
+      3
+    ) : (
+      null
+    ))
+
+  const genPath = (
+    genNum === 1 ? (
+      'gen-i'
+    ) : genNum === 2 ? (
+      'gen-ii'
+    ) : (
+      'gen-iii'
+    ))
 
   useEffect(() => {
     const fetchStageOneDetails = async () => {
@@ -182,11 +201,16 @@ const PokemonEvolutionChain = (props) => {
             alignItems: 'center',
           }}
         >
-          <PokemonSprite
-            pokemonDetails={stageOneDetails}
-            path={location.pathname}
-            spriteVersion={spriteVersion}
-          />
+          <Link
+            to={`/${genPath}/${stageOneDetails.name}`}
+            state={stageOneDetails}
+          >
+            <PokemonSprite
+              pokemonDetails={stageOneDetails}
+              path={location.pathname}
+              spriteVersion={spriteVersion}
+            />
+          </Link>
         </div>
       ) : (
         <></>
@@ -203,39 +227,69 @@ const PokemonEvolutionChain = (props) => {
           {stageOneGen > genNum &&
           pokemonSpecies?.name !== stageThree?.name ? (
             <>
-              <PokemonSprite
-                pokemonDetails={pokemonDetails}
-                path={location.pathname}
-                spriteVersion={spriteVersion}
-              />
+              <Link
+                to={`/${genPath}/${pokemonDetails.name}`}
+                state={pokemonDetails}
+              >
+                <PokemonSprite
+                  pokemonDetails={pokemonDetails}
+                  path={location.pathname}
+                  spriteVersion={spriteVersion}
+                />
+              </Link>
             </>
           ) : (
             <>
-              <PokemonSprite
-                pokemonDetails={stageTwoDetails}
-                path={location.pathname}
-                spriteVersion={spriteVersion}
-              />
-              <PokemonSprite
-                pokemonDetails={stageTwoAlt1Details}
-                path={location.pathname}
-                spriteVersion={spriteVersion}
-              />
-              <PokemonSprite
-                pokemonDetails={stageTwoAlt2Details}
-                path={location.pathname}
-                spriteVersion={spriteVersion}
-              />
-              <PokemonSprite
-                pokemonDetails={stageTwoAlt3Details}
-                path={location.pathname}
-                spriteVersion={spriteVersion}
-              />
-              <PokemonSprite
-                pokemonDetails={stageTwoAlt4Details}
-                path={location.pathname}
-                spriteVersion={spriteVersion}
-              />
+              <Link
+                to={`/${genPath}/${stageTwoDetails.name}`}
+                state={stageTwoDetails}
+              >
+                <PokemonSprite
+                  pokemonDetails={stageTwoDetails}
+                  path={location.pathname}
+                  spriteVersion={spriteVersion}
+                />
+              </Link>
+              <Link
+                to={`/${genPath}/${stageTwoAlt1Details.name}`}
+                state={stageTwoAlt1Details}
+              >
+                <PokemonSprite
+                  pokemonDetails={stageTwoAlt1Details}
+                  path={location.pathname}
+                  spriteVersion={spriteVersion}
+                />
+              </Link>
+              <Link
+                to={`/${genPath}/${stageTwoAlt2Details.name}`}
+                state={stageTwoAlt2Details}
+              >
+                <PokemonSprite
+                  pokemonDetails={stageTwoAlt2Details}
+                  path={location.pathname}
+                  spriteVersion={spriteVersion}
+                />
+              </Link>
+              <Link
+                to={`/${genPath}/${stageTwoAlt3Details.name}`}
+                state={stageTwoAlt3Details}
+              >
+                <PokemonSprite
+                  pokemonDetails={stageTwoAlt3Details}
+                  path={location.pathname}
+                  spriteVersion={spriteVersion}
+                />
+              </Link>
+              <Link
+                to={`/${genPath}/${stageTwoAlt4Details.name}`}
+                state={stageTwoAlt4Details}
+              >
+                <PokemonSprite
+                  pokemonDetails={stageTwoAlt4Details}
+                  path={location.pathname}
+                  spriteVersion={spriteVersion}
+                />
+              </Link>
             </>
           )}
         </div>
@@ -251,21 +305,36 @@ const PokemonEvolutionChain = (props) => {
             alignItems: 'center',
           }}
         >
-          <PokemonSprite
-            pokemonDetails={stageThreeDetails}
-            path={location.pathname}
-            spriteVersion={spriteVersion}
-          />
-          <PokemonSprite
-            pokemonDetails={stageThreeAltDetails}
-            path={location.pathname}
-            spriteVersion={spriteVersion}
-          />
-          <PokemonSprite
-            pokemonDetails={stageThreeAltStageTwoDetails}
-            path={location.pathname}
-            spriteVersion={spriteVersion}
-          />
+          <Link
+            to={`/${genPath}/${stageThreeDetails.name}`}
+            state={stageThreeDetails}
+          >
+            <PokemonSprite
+              pokemonDetails={stageThreeDetails}
+              path={location.pathname}
+              spriteVersion={spriteVersion}
+            />
+          </Link>
+          <Link
+            to={`/${genPath}/${stageThreeAltDetails.name}`}
+            state={stageThreeAltDetails}
+          >
+            <PokemonSprite
+              pokemonDetails={stageThreeAltDetails}
+              path={location.pathname}
+              spriteVersion={spriteVersion}
+            />
+          </Link>
+          <Link
+            to={`/${genPath}/${stageThreeAltStageTwoDetails.name}`}
+            state={stageThreeAltStageTwoDetails}
+          >
+            <PokemonSprite
+              pokemonDetails={stageThreeAltStageTwoDetails}
+              path={location.pathname}
+              spriteVersion={spriteVersion}
+            />
+          </Link>
         </div>
       ) : (
         <></>
