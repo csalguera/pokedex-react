@@ -70,16 +70,6 @@ const PokemonDetails = () => {
     fetchGeneration()
   }, [gen1, gen2, gen3])
 
-  const stageOne = (evolutionChain.chain?.species)
-  const stageTwo = (evolutionChain.chain?.evolves_to[0]?.species)
-  const stageTwoAlt1 = (evolutionChain.chain?.evolves_to[1]?.species)
-  const stageTwoAlt2 = (evolutionChain.chain?.evolves_to[2]?.species)
-  const stageTwoAlt3 = (evolutionChain.chain?.evolves_to[3]?.species)
-  const stageTwoAlt4 = (evolutionChain.chain?.evolves_to[4]?.species)
-  const stageThree = (evolutionChain.chain?.evolves_to[0]?.evolves_to[0]?.species)
-  const stageThreeAlt = (evolutionChain.chain?.evolves_to[0]?.evolves_to[1]?.species)
-  const stageThreeAltStageTwo = (evolutionChain.chain?.evolves_to[1]?.evolves_to[0]?.species)
-
   return (
     <>
       {pokemonDetails ? (
@@ -143,17 +133,9 @@ const PokemonDetails = () => {
             ))
           )}
           <PokemonEvolutionChain
-            stageOne={stageOne}
-            stageTwo={stageTwo}
-            stageTwoAlt1={stageTwoAlt1}
-            stageTwoAlt2={stageTwoAlt2}
-            stageTwoAlt3={stageTwoAlt3}
-            stageTwoAlt4={stageTwoAlt4}
-            stageThree={stageThree}
-            stageThreeAlt={stageThreeAlt}
-            stageThreeAltStageTwo={stageThreeAltStageTwo}
             pokemonDetails={pokemonDetails}
             pokemonSpecies={pokemonSpecies}
+            evolutionChain={evolutionChain}
             spriteVersion={spriteVersion}
           />
         </div>

@@ -10,17 +10,9 @@ import { getPokemonDetails, getPokemonSpecies } from "../services/api-calls"
 
 const PokemonEvolutionChain = (props) => {
   const {
-    stageOne,
-    stageTwo,
-    stageTwoAlt1,
-    stageTwoAlt2,
-    stageTwoAlt3,
-    stageTwoAlt4,
-    stageThree,
-    stageThreeAlt,
-    stageThreeAltStageTwo,
     pokemonDetails,
     pokemonSpecies,
+    evolutionChain,
     spriteVersion,
   } = props
 
@@ -37,6 +29,16 @@ const PokemonEvolutionChain = (props) => {
   const [stageThreeAltDetails, setStageThreeAltDetails] = useState({})
   const [stageThreeAltStageTwoDetails, setStageThreeAltStageTwoDetails] = useState({})
   const location = useLocation()
+
+  const stageOne = (evolutionChain.chain?.species)
+  const stageTwo = (evolutionChain.chain?.evolves_to[0]?.species)
+  const stageTwoAlt1 = (evolutionChain.chain?.evolves_to[1]?.species)
+  const stageTwoAlt2 = (evolutionChain.chain?.evolves_to[2]?.species)
+  const stageTwoAlt3 = (evolutionChain.chain?.evolves_to[3]?.species)
+  const stageTwoAlt4 = (evolutionChain.chain?.evolves_to[4]?.species)
+  const stageThree = (evolutionChain.chain?.evolves_to[0]?.evolves_to[0]?.species)
+  const stageThreeAlt = (evolutionChain.chain?.evolves_to[0]?.evolves_to[1]?.species)
+  const stageThreeAltStageTwo = (evolutionChain.chain?.evolves_to[1]?.evolves_to[0]?.species)
 
   const stageOneGen = (parseInt(stageOneSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const stageTwoGen = (parseInt(stageTwoSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
