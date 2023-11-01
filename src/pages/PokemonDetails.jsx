@@ -7,6 +7,7 @@ import PokemonType from "../components/PokemonType"
 import PokemonSprite from "../components/PokemonSprite"
 import PokemonEvolutionChain from "../components/PokemonEvolutionChain"
 import SpriteVersionSelector from "../components/SpriteVersionSelector"
+import GenerationSelector from "../components/GenerationSelector"
 
 // services
 import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../services/api-calls"
@@ -85,6 +86,9 @@ const PokemonDetails = () => {
           }}
         >
           <h1>{pascalize(pokemonDetails.name ?? '')}</h1>
+          <GenerationSelector
+            pokemonDetails={pokemonDetails}
+          />
           <SpriteVersionSelector
             generation={generation}
             spriteVersion={spriteVersion}
