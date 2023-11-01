@@ -1,7 +1,13 @@
 const Landing = () => {
   return (
     <>
-      <h1>Landing Page</h1>
+      <h1
+        style={{
+          textAlign: 'center'
+        }}
+      >
+        Landing Page
+      </h1>
     </>
   )
 }

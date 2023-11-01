@@ -16,37 +16,58 @@ const Kanto = () => {
 
   return (
     <>
-      <h1>Kanto</h1>
+      <h1
+        style={{
+          textAlign: 'center'
+        }}
+      >
+        Kanto
+      </h1>
       {kanto.length ? (
         kanto.map((pokemon, idx) => (
           <div
             key={pokemon.name}
             style={{
               display: 'flex',
-              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
-            <p
-              style={{
-                margin: '8px'
-              }}
-            >
-              {leadingZeros(idx + 1)}
-            </p>
-            <Link
-              to={`/gen-i/${pokemon.name}`}
-              state={pokemon}
+            <div
               style={{
                 display: 'flex',
-                width: 'fit-content',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                width: '175px',
               }}
             >
-              {pascalize(pokemon.name)}
-            </Link>
+              <p
+                style={{
+                  margin: '8px'
+                }}
+              >
+                {leadingZeros(idx + 1)}
+              </p>
+              <Link
+                to={`/gen-i/${pokemon.name}`}
+                state={pokemon}
+                style={{
+                  display: 'flex',
+                  width: 'fit-content',
+                }}
+              >
+                {pascalize(pokemon.name)}
+              </Link>
+            </div>
           </div>
         ))
       ) : (
-        <h2>Loading...</h2>
+        <h2
+          style={{
+            textAlign: 'center'
+          }}
+        >
+          Loading...
+        </h2>
       )}
     </>
   )

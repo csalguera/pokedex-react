@@ -16,37 +16,58 @@ const Johto = () => {
 
   return (
     <>
-      <h1>Johto</h1>
+      <h1
+        style={{
+          textAlign: 'center'
+        }}
+      >
+        Johto
+      </h1>
       {johto.length ? (
         johto.map((pokemon, idx) => (
           <div
             key={pokemon.name}
             style={{
               display: 'flex',
-              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
-            <p
-              style={{
-                margin: '8px'
-              }}
-            >
-              {leadingZeros(idx + 152)}
-            </p>
-            <Link
-              to={`/gen-ii/${pokemon.name}`}
-              state={pokemon}
+            <div
               style={{
                 display: 'flex',
-                width: 'fit-content',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                width: '175px'
               }}
             >
-              {pascalize(pokemon.name)}
-            </Link>
+              <p
+                style={{
+                  margin: '8px'
+                }}
+              >
+                {leadingZeros(idx + 152)}
+              </p>
+              <Link
+                to={`/gen-ii/${pokemon.name}`}
+                state={pokemon}
+                style={{
+                  display: 'flex',
+                  width: 'fit-content',
+                }}
+              >
+                {pascalize(pokemon.name)}
+              </Link>
+            </div>
           </div>
         ))
       ) : (
-        <h2>Loading...</h2>
+        <h2
+          style={{
+            textAlign: 'center'
+          }}
+        >
+          Loading...
+        </h2>
       )}
     </>
   )
