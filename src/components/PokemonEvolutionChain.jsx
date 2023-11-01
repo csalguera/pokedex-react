@@ -41,7 +41,11 @@ const PokemonEvolutionChain = (props) => {
   const stageOneGen = (parseInt(stageOneSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const stageTwoGen = (parseInt(stageTwoSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const stageThreeGen = (parseInt(stageThreeSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const pokemonSpeciesGen = (parseInt(pokemonSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+
+  const gen1 = (location.pathname.includes('/gen-i/'))
+  const gen2 = (location.pathname.includes('/gen-ii/'))
+  const gen3 = (location.pathname.includes('/gen-iii/'))
+  const genNum = (gen1 ? 1 : gen2 ? 2 : gen3 ? 3 : null)
 
   useEffect(() => {
     const fetchStageOneDetails = async () => {
@@ -169,7 +173,7 @@ const PokemonEvolutionChain = (props) => {
         display: 'flex',
       }}
     >
-      {stageOne && stageOneGen <= pokemonSpeciesGen ? (
+      {stageOne && stageOneGen <= genNum ? (
         <div
           style={{
             display: 'flex',
@@ -187,7 +191,7 @@ const PokemonEvolutionChain = (props) => {
       ) : (
         <></>
       )}
-      {stageTwo && stageTwoGen <= pokemonSpeciesGen ? (
+      {stageTwo && stageTwoGen <= genNum ? (
         <div
           style={{
             display: 'flex',
@@ -196,7 +200,7 @@ const PokemonEvolutionChain = (props) => {
             alignItems: 'center',
           }}
         >
-          {stageOneGen > pokemonSpeciesGen &&
+          {stageOneGen > genNum &&
           pokemonSpecies?.name !== stageThree?.name ? (
             <>
               <PokemonSprite
@@ -238,7 +242,7 @@ const PokemonEvolutionChain = (props) => {
       ) : (
         <></>
       )}
-      {stageThree && stageThreeGen <= pokemonSpeciesGen ? (
+      {stageThree && stageThreeGen <= genNum ? (
         <div
           style={{
             display: 'flex',
