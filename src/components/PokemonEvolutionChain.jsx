@@ -22,13 +22,19 @@ const PokemonEvolutionChain = (props) => {
   const [stageTwoDetails, setStageTwoDetails] = useState({})
   const [stageTwoSpecies, setStageTwoSpecies] = useState({})
   const [stageTwoAlt1Details, setStageTwoAlt1Details] = useState({})
+  const [stageTwoAlt1Species, setStageTwoAlt1Species] = useState({})
   const [stageTwoAlt2Details, setStageTwoAlt2Details] = useState({})
+  const [stageTwoAlt2Species, setStageTwoAlt2Species] = useState({})
   const [stageTwoAlt3Details, setStageTwoAlt3Details] = useState({})
+  const [stageTwoAlt3Species, setStageTwoAlt3Species] = useState({})
   const [stageTwoAlt4Details, setStageTwoAlt4Details] = useState({})
+  const [stageTwoAlt4Species, setStageTwoAlt4Species] = useState({})
   const [stageThreeDetails, setStageThreeDetails] = useState({})
   const [stageThreeSpecies, setStageThreeSpecies] = useState({})
   const [stageThreeAltDetails, setStageThreeAltDetails] = useState({})
+  const [stageThreeAltSpecies, setStageThreeAltSpecies] = useState({})
   const [stageThreeAltStageTwoDetails, setStageThreeAltStageTwoDetails] = useState({})
+  const [stageThreeAltStageTwoSpecies, setStageThreeAltStageTwoSpecies] = useState({})
   const location = useLocation()
 
   const stageOne = (evolutionChain.chain)
@@ -47,10 +53,18 @@ const PokemonEvolutionChain = (props) => {
   const stageTwoAlt3EvolutionMethod = stageTwoAlt3?.evolution_details[0]
   const stageTwoAlt4EvolutionMethod = stageTwoAlt4?.evolution_details[0]
   const stageThreeEvolutionMethod = stageThree?.evolution_details[0]
+  const stageThreeAltEvolutionMethod = stageThreeAlt?.evolution_details[0]
+  const stageThreeAltStageTwoEvolutionMethod = stageThreeAltStageTwo?.evolution_details[0]
 
   const stageOneGen = (parseInt(stageOneSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const stageTwoGen = (parseInt(stageTwoSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+  const stageTwoAlt1Gen = (parseInt(stageTwoAlt1Species.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+  const stageTwoAlt2Gen = (parseInt(stageTwoAlt2Species.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+  const stageTwoAlt3Gen = (parseInt(stageTwoAlt3Species.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+  const stageTwoAlt4Gen = (parseInt(stageTwoAlt4Species.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
   const stageThreeGen = (parseInt(stageThreeSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+  const stageThreeAltGen = (parseInt(stageThreeAltSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
+  const stageThreeAltStageTwoGen = (parseInt(stageThreeAltStageTwoSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
 
   const gen1 = (location.pathname.includes('/gen-i/'))
   const gen2 = (location.pathname.includes('/gen-ii/'))
@@ -77,123 +91,111 @@ const PokemonEvolutionChain = (props) => {
     ))
 
   useEffect(() => {
-    const fetchStageOneDetails = async () => {
+    const fetchStageOneData = async () => {
       if (stageOne?.species) {
-        const stageOneData = await getPokemonDetails(stageOne?.species.name)
-        setStageOneDetails(stageOneData)
+        const stageOneDetailsData = await getPokemonDetails(stageOne?.species.name)
+        setStageOneDetails(stageOneDetailsData)
+        const stageOneSpeciesData = await getPokemonSpecies(stageOne?.species.name)
+        setStageOneSpecies(stageOneSpeciesData)
       }
     }
-    fetchStageOneDetails()
+    fetchStageOneData()
   }, [stageOne])
 
   useEffect(() => {
-    const fetchStageOneSpecies = async () => {
-      if (stageOne?.species) {
-        const stageOneData = await getPokemonSpecies(stageOne?.species.name)
-        setStageOneSpecies(stageOneData)
-      }
-    }
-    fetchStageOneSpecies()
-  }, [stageOne])
-  
-  useEffect(() => {
-    const fetchStageTwoDetails = async () => {
+    const fetchStageTwoData = async () => {
       if (stageTwo?.species) {
-        const stageTwoData = await getPokemonDetails(stageTwo?.species.name)
-        setStageTwoDetails(stageTwoData)
+        const stageTwoDetailsData = await getPokemonDetails(stageTwo?.species.name)
+        setStageTwoDetails(stageTwoDetailsData)
+        const stageTwoSpeciesData = await getPokemonSpecies(stageTwo?.species.name)
+        setStageTwoSpecies(stageTwoSpeciesData)
       }
     }
-    fetchStageTwoDetails()
+    fetchStageTwoData()
   }, [stageTwo])
 
   useEffect(() => {
-    const fetchStageTwoSpecies = async () => {
-      if (stageTwo?.species) {
-        const stageTwoData = await getPokemonSpecies(stageTwo?.species.name)
-        setStageTwoSpecies(stageTwoData)
-      }
-    }
-    fetchStageTwoSpecies()
-  }, [stageTwo])
-
-  useEffect(() => {
-    const fetchStageTwoAlt1Details = async () => {
+    const fetchStageTwoAlt1Data = async () => {
       if (stageTwoAlt1?.species) {
-        const stageTwoAlt1Data = await getPokemonDetails(stageTwoAlt1?.species.name)
-        setStageTwoAlt1Details(stageTwoAlt1Data)
+        const stageTwoAlt1DetailsData = await getPokemonDetails(stageTwoAlt1?.species.name)
+        setStageTwoAlt1Details(stageTwoAlt1DetailsData)
+        const stageTwoAlt1SpeciesData = await getPokemonSpecies(stageTwoAlt1?.species.name)
+        setStageTwoAlt1Species(stageTwoAlt1SpeciesData)
       }
     }
-    fetchStageTwoAlt1Details()
+    fetchStageTwoAlt1Data()
   }, [stageTwoAlt1])
 
   useEffect(() => {
-    const fetchStageTwoAlt2Details = async () => {
+    const fetchStageTwoAlt2Data = async () => {
       if (stageTwoAlt2?.species) {
-        const stageTwoAlt2Data = await getPokemonDetails(stageTwoAlt2?.species.name)
-        setStageTwoAlt2Details(stageTwoAlt2Data)
+        const stageTwoAlt2DetailsData = await getPokemonDetails(stageTwoAlt2?.species.name)
+        setStageTwoAlt2Details(stageTwoAlt2DetailsData)
+        const stageTwoAlt2SpeciesData = await getPokemonSpecies(stageTwoAlt2?.species.name)
+        setStageTwoAlt2Species(stageTwoAlt2SpeciesData)
       }
     }
-    fetchStageTwoAlt2Details()
+    fetchStageTwoAlt2Data()
   }, [stageTwoAlt2])
 
   useEffect(() => {
-    const fetchStageTwoAlt3Details = async () => {
+    const fetchStageTwoAlt3Data = async () => {
       if (stageTwoAlt3?.species) {
-        const stageTwoAlt3Data = await getPokemonDetails(stageTwoAlt3?.species.name)
-        setStageTwoAlt3Details(stageTwoAlt3Data)
+        const stageTwoAlt3DetailsData = await getPokemonDetails(stageTwoAlt3?.species.name)
+        setStageTwoAlt3Details(stageTwoAlt3DetailsData)
+        const stageTwoAlt3SpeciesData = await getPokemonSpecies(stageTwoAlt3?.species.name)
+        setStageTwoAlt3Species(stageTwoAlt3SpeciesData)
       }
     }
-    fetchStageTwoAlt3Details()
+    fetchStageTwoAlt3Data()
   }, [stageTwoAlt3])
 
   useEffect(() => {
-    const fetchStageTwoAlt4Details = async () => {
+    const fetchStageTwoAlt4Data = async () => {
       if (stageTwoAlt4?.species) {
-        const stageTwoAlt4Data = await getPokemonDetails(stageTwoAlt4?.species.name)
-        setStageTwoAlt4Details(stageTwoAlt4Data)
+        const stageTwoAlt4DetailsData = await getPokemonDetails(stageTwoAlt4?.species.name)
+        setStageTwoAlt4Details(stageTwoAlt4DetailsData)
+        const stageTwoAlt4SpeciesData = await getPokemonSpecies(stageTwoAlt4?.species.name)
+        setStageTwoAlt4Species(stageTwoAlt4SpeciesData)
       }
     }
-    fetchStageTwoAlt4Details()
+    fetchStageTwoAlt4Data()
   }, [stageTwoAlt4])
 
   useEffect(() => {
-    const fetchStageThreeDetails = async () => {
+    const fetchStageThreeData = async () => {
       if (stageThree?.species) {
-        const stageThreeData = await getPokemonDetails(stageThree?.species.name)
-        setStageThreeDetails(stageThreeData)
+        const stageThreeDetailsData = await getPokemonDetails(stageThree?.species.name)
+        setStageThreeDetails(stageThreeDetailsData)
+        const stageThreeSpeciesData = await getPokemonSpecies(stageThree?.species.name)
+        setStageThreeSpecies(stageThreeSpeciesData)
       }
     }
-    fetchStageThreeDetails()
+    fetchStageThreeData()
   }, [stageThree])
 
   useEffect(() => {
-    const fetchStageThreeSpecies = async () => {
-      if (stageThree?.species) {
-        const stageThreeData = await getPokemonSpecies(stageThree?.species.name)
-        setStageThreeSpecies(stageThreeData)
-      }
-    }
-    fetchStageThreeSpecies()
-  }, [stageThree])
-  
-  useEffect(() => {
-    const fetchStageThreeAltDetails = async () => {
+    const fetchStageThreeAltData = async () => {
       if (stageThreeAlt?.species) {
-        const stageThreeAltData = await getPokemonDetails(stageThreeAlt?.species.name)
-        setStageThreeAltDetails(stageThreeAltData)
+        const stageThreeAltDetailsData = await getPokemonDetails(stageThreeAlt?.species.name)
+        setStageThreeAltDetails(stageThreeAltDetailsData)
+        const stageThreeAltSpeciesData = await getPokemonSpecies(stageThreeAlt?.species.name)
+        setStageThreeAltSpecies(stageThreeAltSpeciesData)
       }
     }
-    fetchStageThreeAltDetails()
+    fetchStageThreeAltData()
   }, [stageThreeAlt])
 
   useEffect(() => {
-    const fetchStageThreeAltStageTwoDetails = async () => {
+    const fetchStageThreeAltStageTwoData = async () => {
       if (stageThreeAltStageTwo?.species) {
-        const stageThreeAltStageTwoData = await getPokemonDetails(stageThreeAltStageTwo?.species.name)
-        setStageThreeAltStageTwoDetails(stageThreeAltStageTwoData)
+        const stageThreeAltStageTwoDetailsData = await getPokemonDetails(stageThreeAltStageTwo?.species.name)
+        setStageThreeAltStageTwoDetails(stageThreeAltStageTwoDetailsData)
+        const stageThreeAltStageTwoSpeciesData = await getPokemonSpecies(stageThreeAltStageTwo?.species.name)
+        setStageThreeAltStageTwoSpecies(stageThreeAltStageTwoSpeciesData)
       }
     }
-    fetchStageThreeAltStageTwoDetails()
+    fetchStageThreeAltStageTwoData()
   }, [stageThreeAltStageTwo])
 
   return (
@@ -237,28 +239,28 @@ const PokemonEvolutionChain = (props) => {
             <EvolutionMethod
               evolutionMethod={stageTwoEvolutionMethod}
             />
-            {stageTwoAlt1Details.name ? (
+            {stageTwoAlt1Details.name && stageTwoAlt1Gen <= genNum ? (
               <EvolutionMethod
                 evolutionMethod={stageTwoAlt1EvolutionMethod}
               />
             ) : (
               <></>
             )}
-            {stageTwoAlt2Details.name ? (
+            {stageTwoAlt2Details.name && stageTwoAlt2Gen <= genNum ? (
               <EvolutionMethod
                 evolutionMethod={stageTwoAlt2EvolutionMethod}
               />
             ) : (
               <></>
             )}
-            {stageTwoAlt3Details.name ? (
+            {stageTwoAlt3Details.name && stageTwoAlt3Gen <= genNum ? (
               <EvolutionMethod
                 evolutionMethod={stageTwoAlt3EvolutionMethod}
               />
             ) : (
               <></>
             )}
-            {stageTwoAlt4Details.name ? (
+            {stageTwoAlt4Details.name && stageTwoAlt4Gen <= genNum ? (
               <EvolutionMethod
                 evolutionMethod={stageTwoAlt4EvolutionMethod}
               />
@@ -349,9 +351,32 @@ const PokemonEvolutionChain = (props) => {
       )}
       {stageThree && stageThreeGen <= genNum ? (
         <>
-          <EvolutionMethod
-            evolutionMethod={stageThreeEvolutionMethod}
-          />
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-around',
+              alignItems: 'center'
+            }}
+          >
+            <EvolutionMethod
+              evolutionMethod={stageThreeEvolutionMethod}
+            />
+            {stageThreeAltDetails.name && stageThreeAltGen <= genNum ? (
+              <EvolutionMethod
+                evolutionMethod={stageThreeAltEvolutionMethod}
+              />
+            ) : (
+              <></>
+            )}
+            {stageThreeAltStageTwoDetails.name && stageThreeAltStageTwoGen <= genNum ? (
+              <EvolutionMethod
+                evolutionMethod={stageThreeAltStageTwoEvolutionMethod}
+              />
+            ) : (
+              <></>
+            )}
+          </div>
           <div
             style={{
               display: 'flex',
