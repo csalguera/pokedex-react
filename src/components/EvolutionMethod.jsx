@@ -71,6 +71,14 @@ const EvolutionMethod = (props) => {
     )
   )
 
+  const genderColor = (
+    genderCondition === '♀' ? (
+      'red'
+    ) : (
+      'blue'
+    )
+  )
+
   const heldItemCondition = (
     evolutionMethod.held_item
   )
@@ -160,20 +168,48 @@ const EvolutionMethod = (props) => {
       <p style={{ margin: '2px' }}>
         {levelCondition ?? (
           shedCondition
-        ) ?? (
-          <img
-            src={beautyCondition}
-            alt=""
-            width='20px'
-          />
         )}
       </p>
-      <p style={{ color: `${genderCondition === '♀' ? 'red' : 'blue'}` }}>{genderCondition}</p>
-      <img src={item?.sprites?.default} alt="" />
-      <img src={heldItem?.sprites?.default} alt="" />
-      <p style={{ margin: '0 4px' }}>{friendshipCondition}</p>
-      <p style={{ margin: '0 4px' }}>{timeCondition}</p>
-      <p>{statCondition}</p>
+      {useItemCondition ? (
+        <img src={item?.sprites?.default} alt="" />
+        ) : (
+          null
+      )}
+      {heldItemCondition ? (
+        <img src={heldItem?.sprites?.default} alt="" />
+        ) : (
+          null
+      )}
+      {genderCondition ? (
+        <p style={{ color: genderColor }}>{genderCondition}</p>
+      ) : (
+        null
+      )}
+      {friendshipCondition ? (
+        <p style={{ margin: '0 4px' }}>{friendshipCondition}</p>
+      ) : (
+        null
+      )}
+      {timeCondition ? (
+        <p style={{ margin: '0 4px' }}>{timeCondition}</p>
+      ) : (
+        null
+      )}
+      {statCondition ? (
+        <p>{statCondition}</p>
+      ) : (
+        null
+      )}
+      {beautyCondition ? (
+        <img
+          style={{ margin: '0 8px 0 0' }}
+          src={beautyCondition}
+          alt="" 
+          width='20px'
+        />
+      ) : (
+        null
+      )}
     </div>
   )
 }
