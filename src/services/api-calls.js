@@ -24,3 +24,8 @@ export async function getItem(name) {
   const res = await fetch(`${baseURL}/item/${name}`)
   return res.json()
 }
+
+export async function getEvolutionTrigger(name) {
+  const res = await fetch(`${baseURL}/evolution-trigger/${name}`)
+  return res.json()
+}

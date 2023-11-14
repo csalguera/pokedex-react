@@ -1,102 +1,151 @@
 // services
 import { useEffect, useState } from "react"
-import { getItem } from "../services/api-calls"
+import { getItem, getEvolutionTrigger } from "../services/api-calls"
 
 const EvolutionMethod = (props) => {
   const {
     evolutionMethod
   } = props
 
+  const [trigger, setTrigger] = useState({})
   const [item, setItem] = useState({})
+  const [heldItem, setHeldItem] = useState({})
 
-  const genderRequirement = (evolutionMethod.gender)
-  const heldItemRequirement = (evolutionMethod.held_item)
-  const itemUsageRequirement = (evolutionMethod.item)
-  const learnMoveRequirement = (evolutionMethod.known_move)
-  const learnMoveTypeRequirement = (evolutionMethod.known_move_type)
-  const locationRequirement = (evolutionMethod.location)
-  const affectionRequirement = (evolutionMethod.min_affection)
-  const beautyRequirement = (evolutionMethod.min_beauty)
-  const happinessRequirement = (evolutionMethod.min_happiness)
-  const levelRequirement = (evolutionMethod.min_level)
-  const rainRequirement = (evolutionMethod.needs_overworld_rain)
-  const partyMemberRequirement = (evolutionMethod.party_species)
-  const partyTypeRequirement = (evolutionMethod.party_type)
-  const statRequirement = (evolutionMethod.relative_physical_stats)
-  const timeRequirement = (evolutionMethod.time_of_day)
-  const tradeRequirement = (evolutionMethod.trade_species)
-  const upsideDownRequirement = (evolutionMethod.turn_upside_down)
+  const levelTrigger = (trigger.name === 'level-up')
+  const tradeTrigger = (trigger.name === 'trade')
+  const itemTrigger = (trigger.name === 'use-item')
+  const shedTrigger = (trigger.name === 'shed')
+  const spinTrigger = (trigger.name === 'spin')
+  const towerOfDarknessTrigger = (trigger.name === 'tower-of-darkness')
+  const towerOfWatersTrigger = (trigger.name === 'tower-of-waters')
+  const threeCriticalHitsTrigger = (trigger.name === 'three-critical-hits')
+  const takeDamageTrigger = (trigger.name === 'take-damage')
+  const otherTrigger = (trigger.name === 'other')
+  const agileStyleMoveTrigger = (trigger.name === 'agile-style-move')
+  const strongStyleMoveTrigger = (trigger.name === 'strong-style-move')
+  const recoilDamageTrigger = (trigger.name === 'recoil-damage')
 
-  const primitiveValueRequirements = [
-    genderRequirement,
-    affectionRequirement,
-    beautyRequirement,
-    happinessRequirement,
-    levelRequirement,
-    rainRequirement,
-    statRequirement,
-    timeRequirement,
-    tradeRequirement,
-    upsideDownRequirement
-  ]
-
-  const otherRequirements = [
-    heldItemRequirement,
-    itemUsageRequirement,
-    learnMoveRequirement,
-    learnMoveTypeRequirement,
-    locationRequirement,
-    partyMemberRequirement,
-    partyTypeRequirement,
-  ]
-
-  const typeOfRequirement = (
-    genderRequirement ? (
-      'Gender'
-    ) : heldItemRequirement ? (
-      'Held Item'
-    ) : itemUsageRequirement ? (
-      'Use Item'
-    ) : learnMoveRequirement ? (
-      'Knows Move'
-    ) : learnMoveTypeRequirement ? (
-      'Knows Move'
-    ) : locationRequirement ? (
-      'Level Up Near'
-    ) : affectionRequirement ? (
-      'Affection'
-    ) : beautyRequirement ? (
-      'Beauty'
-    ) : happinessRequirement ? (
-      'Happiness'
-    ) : levelRequirement ? (
+  const triggers = (
+    levelTrigger ? (
       'Lv.'
-    ) : rainRequirement ? (
-      'Level in Rain'
-    ) : partyMemberRequirement ? (
-      'In Your Party'
-    ) : partyTypeRequirement ? (
-      'In Your Party'
-    ) : statRequirement ? (
-      'Stats'
-    ) : timeRequirement ? (
-      'Time'
-    ) : tradeRequirement ? (
+    ) : tradeTrigger ? (
       'Trade'
+    ) : itemTrigger ? (
+      'Use Item'
+    ) : shedTrigger ? (
+      'Lv.'
+    ) : spinTrigger ? (
+      'Spin'
+    ) : towerOfDarknessTrigger ? (
+      'Tower of Darkness'
+    ) : towerOfWatersTrigger ? (
+      'Tower of Waters'
+    ) : threeCriticalHitsTrigger ? (
+      '3 Critical Hits'
+    ) : takeDamageTrigger ? (
+      'Take Damage'
+    ) : otherTrigger ? (
+      'Other'
+    ) : agileStyleMoveTrigger ? (
+      'Agile Style Move'
+    ) : strongStyleMoveTrigger ? (
+      'Strong Style Move'
+    ) : recoilDamageTrigger ? (
+      'Recoil Damage'
     ) : (
-      'Upside Down'
+      null
+    )
+  )
+
+  const levelCondition = (
+    evolutionMethod.min_level
+  )
+
+  const genderCondition = (
+    evolutionMethod.gender === 1 ? (
+      '♀'
+    ) : evolutionMethod.gender === 2 ? (
+      '♂'
+    ) : (
+      null
+    )
+  )
+
+  const heldItemCondition = (
+    evolutionMethod.held_item
+  )
+
+  const useItemCondition = (
+    evolutionMethod.item
+  )
+
+  const friendshipCondition = (
+    evolutionMethod.min_happiness ? (
+      '❤️'
+    ) : (
+      null
+    )
+  )
+
+  const timeCondition = (
+    evolutionMethod.time_of_day === 'day' ? (
+      '☀️'
+    ) : evolutionMethod.time_of_day === 'night' ? (
+      '🌙'
+    ) : (
+      null
+    )
+  )
+
+  const statCondition = (
+    evolutionMethod.relative_physical_stats > 0 ? (
+      'Atk > Def'
+    ) : evolutionMethod.relative_physical_stats < 0 ? (
+      'Atk < Def'
+    ) : evolutionMethod.relative_physical_stats === 0 ? (
+      'Atk = Def'
+    ) : (
+      null
+    )
+  )
+
+  const shedCondition = (
+    trigger.name === 'shed' ? (
+      '20 & Empty Slot in Party'
+    ) : (
+      null
+    )
+  )
+
+  const beautyCondition = (
+    evolutionMethod.min_beauty ? (
+      'https://archives.bulbagarden.net/media/upload/5/5e/Blue_Pok%C3%A9block_Sprite.png'
+    ) : (
+      null
     )
   )
 
   useEffect(() => {
+    const fetchTrigger = async () => {
+      const triggerData = await getEvolutionTrigger(evolutionMethod.trigger.name)
+      setTrigger(triggerData)
+    }
+    fetchTrigger()
+  }, [evolutionMethod.trigger.name])
+
+  useEffect(() => {
     const fetchItem = async () => {
-      if (itemUsageRequirement && itemUsageRequirement.name) {
-        const itemData = await getItem(itemUsageRequirement.name)
+      if (useItemCondition && useItemCondition.name) {
+        const itemData = await getItem(useItemCondition.name)
         setItem(itemData)
+      }
+      if (heldItemCondition && heldItemCondition.name) {
+        const heldItemData = await getItem(heldItemCondition.name)
+        setHeldItem(heldItemData)
       }
     }
     fetchItem()
-  }, [itemUsageRequirement])
+  }, [useItemCondition, heldItemCondition])
 
   return (
     <div
@@ -107,25 +156,24 @@ const EvolutionMethod = (props) => {
         margin: '2px',
       }}
     >
-      <p
-        style={{
-          margin: '2px'
-        }}
-      >
-        {typeOfRequirement}
+      <p style={{ margin: '2px' }}>{triggers}</p>
+      <p style={{ margin: '2px' }}>
+        {levelCondition ?? (
+          shedCondition
+        ) ?? (
+          <img
+            src={beautyCondition}
+            alt=""
+            width='20px'
+          />
+        )}
       </p>
-      {primitiveValueRequirements.map((requirement, idx) => (
-        <p key={typeOfRequirement + idx}>{requirement}</p>
-      ))}
-      {otherRequirements.map((requirement, idx) => (
-        <div key={typeOfRequirement + idx}>
-          {requirement === itemUsageRequirement ? (
-            <img src={item.sprites?.default} alt="" />
-          ) : (
-            <></>
-          )}
-        </div>
-      ))}
+      <p style={{ color: `${genderCondition === '♀' ? 'red' : 'blue'}` }}>{genderCondition}</p>
+      <img src={item?.sprites?.default} alt="" />
+      <img src={heldItem?.sprites?.default} alt="" />
+      <p style={{ margin: '0 4px' }}>{friendshipCondition}</p>
+      <p style={{ margin: '0 4px' }}>{timeCondition}</p>
+      <p>{statCondition}</p>
     </div>
   )
 }

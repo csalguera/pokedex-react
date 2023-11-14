@@ -229,45 +229,49 @@ const PokemonEvolutionChain = (props) => {
       )}
       {stageTwo && stageTwoGen <= genNum ? (
         <>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-around',
-            }}
-          >
-            <EvolutionMethod
-              evolutionMethod={stageTwoEvolutionMethod}
-            />
-            {stageTwoAlt1Details.name && stageTwoAlt1Gen <= genNum ? (
+          {stageOne && stageOneGen <= genNum ? (
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-around',
+              }}
+            >
               <EvolutionMethod
-                evolutionMethod={stageTwoAlt1EvolutionMethod}
+                evolutionMethod={stageTwoEvolutionMethod}
               />
-            ) : (
-              <></>
-            )}
-            {stageTwoAlt2Details.name && stageTwoAlt2Gen <= genNum ? (
-              <EvolutionMethod
-                evolutionMethod={stageTwoAlt2EvolutionMethod}
-              />
-            ) : (
-              <></>
-            )}
-            {stageTwoAlt3Details.name && stageTwoAlt3Gen <= genNum ? (
-              <EvolutionMethod
-                evolutionMethod={stageTwoAlt3EvolutionMethod}
-              />
-            ) : (
-              <></>
-            )}
-            {stageTwoAlt4Details.name && stageTwoAlt4Gen <= genNum ? (
-              <EvolutionMethod
-                evolutionMethod={stageTwoAlt4EvolutionMethod}
-              />
-            ) : (
-              <></>
-            )}
-          </div>
+              {stageTwoAlt1Details.name && stageTwoAlt1Gen <= genNum ? (
+                <EvolutionMethod
+                  evolutionMethod={stageTwoAlt1EvolutionMethod}
+                />
+              ) : (
+                <></>
+              )}
+              {stageTwoAlt2Details.name && stageTwoAlt2Gen <= genNum ? (
+                <EvolutionMethod
+                  evolutionMethod={stageTwoAlt2EvolutionMethod}
+                />
+              ) : (
+                <></>
+              )}
+              {stageTwoAlt3Details.name && stageTwoAlt3Gen <= genNum ? (
+                <EvolutionMethod
+                  evolutionMethod={stageTwoAlt3EvolutionMethod}
+                />
+              ) : (
+                <></>
+              )}
+              {stageTwoAlt4Details.name && stageTwoAlt4Gen <= genNum ? (
+                <EvolutionMethod
+                  evolutionMethod={stageTwoAlt4EvolutionMethod}
+                />
+              ) : (
+                <></>
+              )}
+            </div>
+          ) : (
+            <></>
+          )}
           <div
             style={{
               display: 'flex',
