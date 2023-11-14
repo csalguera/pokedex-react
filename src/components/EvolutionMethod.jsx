@@ -70,7 +70,7 @@ const EvolutionMethod = (props) => {
     ) : happinessRequirement ? (
       'Happiness'
     ) : levelRequirement ? (
-      'Level'
+      'Lv.'
     ) : rainRequirement ? (
       'Level in Rain'
     ) : partyMemberRequirement ? (
@@ -103,7 +103,8 @@ const EvolutionMethod = (props) => {
       style={{
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: '2px',
       }}
     >
       <p
