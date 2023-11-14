@@ -44,6 +44,8 @@ const PokemonEvolutionChain = (props) => {
   const stageTwoEvolutionMethod = stageTwo?.evolution_details[0]
   const stageTwoAlt1EvolutionMethod = stageTwoAlt1?.evolution_details[0]
   const stageTwoAlt2EvolutionMethod = stageTwoAlt2?.evolution_details[0]
+  const stageTwoAlt3EvolutionMethod = stageTwoAlt3?.evolution_details[0]
+  const stageTwoAlt4EvolutionMethod = stageTwoAlt4?.evolution_details[0]
   const stageThreeEvolutionMethod = stageThree?.evolution_details[0]
 
   const stageOneGen = (parseInt(stageOneSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
@@ -245,6 +247,20 @@ const PokemonEvolutionChain = (props) => {
             {stageTwoAlt2Details.name ? (
               <EvolutionMethod
                 evolutionMethod={stageTwoAlt2EvolutionMethod}
+              />
+            ) : (
+              <></>
+            )}
+            {stageTwoAlt3Details.name ? (
+              <EvolutionMethod
+                evolutionMethod={stageTwoAlt3EvolutionMethod}
+              />
+            ) : (
+              <></>
+            )}
+            {stageTwoAlt4Details.name ? (
+              <EvolutionMethod
+                evolutionMethod={stageTwoAlt4EvolutionMethod}
               />
             ) : (
               <></>
