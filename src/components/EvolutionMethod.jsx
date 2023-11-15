@@ -2,6 +2,9 @@
 import { useEffect, useState } from "react"
 import { getItem, getEvolutionTrigger } from "../services/api-calls"
 
+// utilities
+import { removeHyphens } from "../utilities/utilities"
+
 const EvolutionMethod = (props) => {
   const {
     evolutionMethod
@@ -133,6 +136,16 @@ const EvolutionMethod = (props) => {
     )
   )
 
+  const knownMove = (evolutionMethod.known_move?.name)
+
+  const knownMoveCondition = (
+    knownMove ? (
+      `w/ ${removeHyphens(knownMove)}`
+    ) : (
+      null
+    )
+  )
+
   useEffect(() => {
     const fetchTrigger = async () => {
       const triggerData = await getEvolutionTrigger(evolutionMethod.trigger.name)
@@ -209,6 +222,11 @@ const EvolutionMethod = (props) => {
         />
       ) : (
         null
+      )}
+      {knownMoveCondition ? (
+        <p>{knownMoveCondition}</p>
+      ) : (
+        <></>
       )}
     </div>
   )

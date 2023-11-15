@@ -23,7 +23,8 @@ const PokemonDetails = () => {
   const [spriteVersion, setSpriteVersion] = useState(0)
   const [genPath, setGenPath] = useState(location.state.genPath)
   const { genNum } = location.state
-
+  const pastTypes = (pokemonDetails?.past_types?.[0])
+  
   let currentGen
 
   switch (genPath) {
@@ -126,8 +127,15 @@ const PokemonDetails = () => {
             spriteVersion={spriteVersion}
             genPath={genPath}
           />
-          {genNum <= 5 && pokemonDetails?.past_types?.[0] ? (
-            pokemonDetails?.past_types?.[0]?.types?.map(type => (
+          {currentGen > 1 && pastTypes?.generation.name === 'generation-i' ? (
+            pokemonDetails?.types?.map(type => (
+              <PokemonType
+                type={type}
+                key={type.slot}
+              />
+            ))
+          ) : currentGen <= 5 && pastTypes ? (
+            pastTypes?.types?.map(type => (
               <PokemonType
                 type={type}
                 key={type.slot}
