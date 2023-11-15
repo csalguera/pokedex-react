@@ -8,5 +8,9 @@ export function leadingZeros(idx) {
 
 export function removeHyphens(str) {
   const arr = str.split('-')
-  return `${pascalize(arr[0])} ${pascalize(arr[1])}`
+  let newStr = []
+  for (let i = 0; i < arr.length; i++) {
+    newStr.push(pascalize(arr[i]))
+  }
+  return newStr.join(' ')
 }

@@ -137,10 +137,18 @@ const EvolutionMethod = (props) => {
   )
 
   const knownMove = (evolutionMethod.known_move?.name)
-
   const knownMoveCondition = (
     knownMove ? (
       `w/ ${removeHyphens(knownMove)}`
+    ) : (
+      null
+    )
+  )
+
+  const evolveLocation = (evolutionMethod.location?.name)
+  const locationCondition = (
+    evolveLocation ? (
+      `at ${removeHyphens(evolveLocation)}`
     ) : (
       null
     )
@@ -225,6 +233,11 @@ const EvolutionMethod = (props) => {
       )}
       {knownMoveCondition ? (
         <p>{knownMoveCondition}</p>
+      ) : (
+        <></>
+      )}
+      {locationCondition ? (
+        <p>{locationCondition}</p>
       ) : (
         <></>
       )}
