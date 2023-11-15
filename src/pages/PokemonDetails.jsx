@@ -120,11 +120,11 @@ const PokemonDetails = () => {
           {generation <= 5 && pokemonDetails?.past_types?.[0] ? (
             pokemonDetails?.past_types?.[0]?.types?.map(type => (
               <PokemonType
-              type={type}
-              key={type.slot}
+                type={type}
+                key={type.slot}
               />
-              ))
-            ) : (
+            ))
+          ) : (
             pokemonDetails?.types?.map(type => (
               <PokemonType
                 type={type}

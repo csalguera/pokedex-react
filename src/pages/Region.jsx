@@ -1,18 +1,27 @@
 import { useState, useEffect } from "react"
+import { useLocation } from "react-router-dom"
 import { getPokemonList } from "../services/api-calls"
 import { Link } from "react-router-dom"
-import { leadingZeros, pascalize } from "../utilities/utilities"
+import { pascalize, leadingZeros } from "../utilities/utilities"
 
-const Johto = () => {
-  const [johto, setJohto] = useState([])
+const Region = () => {
+  const location = useLocation()
+  const {
+    regionName,
+    dexOffset,
+    dexLimit,
+    genPath,
+    genNum,
+  } = location.state
+  const [region, setRegion] = useState([])
 
   useEffect(() => {
     const fetchPokemonList = async () => {
-      const pokemonData = await getPokemonList(100, 151)
-      setJohto(pokemonData.results)
+      const pokemonData = await getPokemonList(dexLimit, dexOffset)
+      setRegion(pokemonData.results)
     }
     fetchPokemonList()
-  }, [])
+  }, [dexLimit, dexOffset])
 
   return (
     <>
@@ -21,10 +30,10 @@ const Johto = () => {
           textAlign: 'center'
         }}
       >
-        Johto
+        {regionName}
       </h1>
-      {johto.length ? (
-        johto.map((pokemon, idx) => (
+      {region.length ? (
+        region.map((pokemon, idx) => (
           <div
             key={pokemon.name}
             style={{
@@ -37,7 +46,7 @@ const Johto = () => {
                 display: 'flex',
                 justifyContent: 'flex-start',
                 alignItems: 'center',
-                width: '175px'
+                width: '175px',
               }}
             >
               <p
@@ -45,10 +54,10 @@ const Johto = () => {
                   margin: '8px'
                 }}
               >
-                {leadingZeros(idx + 152)}
+                {leadingZeros(dexOffset + idx + 1)}
               </p>
               <Link
-                to={`/gen-ii/${pokemon.name}`}
+                to={`/${genPath}/${pokemon.name}`}
                 state={pokemon}
                 style={{
                   display: 'flex',
@@ -73,4 +82,4 @@ const Johto = () => {
   )
 }
 
-export default Johto
+export default Region

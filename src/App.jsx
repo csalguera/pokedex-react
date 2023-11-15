@@ -4,9 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 // pages
 import Landing from './pages/Landing';
-import Kanto from './pages/Kanto';
-import Johto from './pages/Johto';
-import Hoenn from './pages/Hoenn';
+import Region from './pages/Region';
 import PokemonDetails from './pages/PokemonDetails';
 
 // components
@@ -18,11 +16,11 @@ function App() {
     <Nav />
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='gen-i' element={<Kanto />} />
+        <Route path='gen-i' element={<Region />} />
         <Route path='gen-i/:pokemonName' element={<PokemonDetails />} />
-        <Route path='gen-ii' element={<Johto />} />
+        <Route path='gen-ii' element={<Region />} />
         <Route path='gen-ii/:pokemonName' element={<PokemonDetails />} />
-        <Route path='gen-iii' element={<Hoenn />} />
+        <Route path='gen-iii' element={<Region />} />
         <Route path='gen-iii/:pokemonName' element={<PokemonDetails />} />
       </Routes>
     </>
