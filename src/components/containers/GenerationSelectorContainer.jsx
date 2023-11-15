@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom"
-
+// components
 import GenerationSelector from "../buttons/GenerationSelector"
 
 const GenerationSelectorContainer = (props) => {
