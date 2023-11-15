@@ -11,56 +11,57 @@ const EvolutionMethod = (props) => {
   const [item, setItem] = useState({})
   const [heldItem, setHeldItem] = useState({})
 
-  const levelTrigger = (trigger.name === 'level-up')
-  const tradeTrigger = (trigger.name === 'trade')
-  const itemTrigger = (trigger.name === 'use-item')
-  const shedTrigger = (trigger.name === 'shed')
-  const spinTrigger = (trigger.name === 'spin')
-  const towerOfDarknessTrigger = (trigger.name === 'tower-of-darkness')
-  const towerOfWatersTrigger = (trigger.name === 'tower-of-waters')
-  const threeCriticalHitsTrigger = (trigger.name === 'three-critical-hits')
-  const takeDamageTrigger = (trigger.name === 'take-damage')
-  const otherTrigger = (trigger.name === 'other')
-  const agileStyleMoveTrigger = (trigger.name === 'agile-style-move')
-  const strongStyleMoveTrigger = (trigger.name === 'strong-style-move')
-  const recoilDamageTrigger = (trigger.name === 'recoil-damage')
+  let triggers
 
-  const triggers = (
-    levelTrigger ? (
-      'Lv.'
-    ) : tradeTrigger ? (
-      'Trade'
-    ) : itemTrigger ? (
-      'Use Item'
-    ) : shedTrigger ? (
-      'Lv.'
-    ) : spinTrigger ? (
-      'Spin'
-    ) : towerOfDarknessTrigger ? (
-      'Tower of Darkness'
-    ) : towerOfWatersTrigger ? (
-      'Tower of Waters'
-    ) : threeCriticalHitsTrigger ? (
-      '3 Critical Hits'
-    ) : takeDamageTrigger ? (
-      'Take Damage'
-    ) : otherTrigger ? (
-      'Other'
-    ) : agileStyleMoveTrigger ? (
-      'Agile Style Move'
-    ) : strongStyleMoveTrigger ? (
-      'Strong Style Move'
-    ) : recoilDamageTrigger ? (
-      'Recoil Damage'
-    ) : (
-      null
-    )
-  )
+  switch (trigger.name) {
+    case 'level-up':
+      triggers = 'Lv.'
+      break
+    case 'trade':
+      triggers = 'Trade'
+      break
+    case 'use-item':
+      triggers = 'Use Item'
+      break
+    case 'held-item':
+      triggers = 'Lv.'
+      break
+    case 'spin':
+      triggers = 'Spin'
+      break
+    case 'tower-of-darkness':
+      triggers = 'Tower of Darkness'
+      break
+    case 'tower-of-waters':
+      triggers = 'Tower of Waters'
+      break
+    case 'three-critical-hits':
+      triggers = '3 Critical Hits'
+      break
+    case 'take-damage':
+      triggers = 'Take Damage'
+      break
+    case 'other':
+      triggers = 'Other'
+      break
+    case 'agile-style-move':
+      triggers = 'Agile Style Move'
+      break
+    case 'strong-style-move':
+      triggers = 'Strong Style Move'
+      break
+    case 'recoil-damage':
+      triggers = 'Recoil Damage'
+      break
+    default:
+      triggers = null
+  }
 
   const levelCondition = (
     evolutionMethod.min_level
   )
 
+  
   const genderCondition = (
     evolutionMethod.gender === 1 ? (
       '♀'
