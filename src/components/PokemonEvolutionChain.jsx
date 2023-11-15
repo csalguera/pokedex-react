@@ -1,6 +1,6 @@
 // npm modules
 import { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // components
 import PokemonSprite from "./PokemonSprite";
@@ -17,27 +17,45 @@ const PokemonEvolutionChain = (props) => {
     spriteVersion,
     genNum,
     genPath,
+    currentGen,
   } = props
 
+  // stage one
   const [stageOneDetails, setStageOneDetails] = useState({})
   const [stageOneSpecies, setStageOneSpecies] = useState({})
+  const [stageOneGen, setStageOneGen] = useState(0)
+  // stage two
   const [stageTwoDetails, setStageTwoDetails] = useState({})
   const [stageTwoSpecies, setStageTwoSpecies] = useState({})
+  const [stageTwoGen, setStageTwoGen] = useState(0)
+  // stage two alt 1
   const [stageTwoAlt1Details, setStageTwoAlt1Details] = useState({})
   const [stageTwoAlt1Species, setStageTwoAlt1Species] = useState({})
+  const [stageTwoAlt1Gen, setStageTwoAlt1Gen] = useState(0)
+  // stage two alt 2
   const [stageTwoAlt2Details, setStageTwoAlt2Details] = useState({})
   const [stageTwoAlt2Species, setStageTwoAlt2Species] = useState({})
+  const [stageTwoAlt2Gen, setStageTwoAlt2Gen] = useState(0)
+  // stage two alt 3
   const [stageTwoAlt3Details, setStageTwoAlt3Details] = useState({})
   const [stageTwoAlt3Species, setStageTwoAlt3Species] = useState({})
+  const [stageTwoAlt3Gen, setStageTwoAlt3Gen] = useState(0)
+  // stage two alt 4
   const [stageTwoAlt4Details, setStageTwoAlt4Details] = useState({})
   const [stageTwoAlt4Species, setStageTwoAlt4Species] = useState({})
+  const [stageTwoAlt4Gen, setStageTwoAlt4Gen] = useState(0)
+  // stage three
   const [stageThreeDetails, setStageThreeDetails] = useState({})
   const [stageThreeSpecies, setStageThreeSpecies] = useState({})
+  const [stageThreeGen, setStageThreeGen] = useState(0)
+  // stage three alt
   const [stageThreeAltDetails, setStageThreeAltDetails] = useState({})
   const [stageThreeAltSpecies, setStageThreeAltSpecies] = useState({})
+  const [stageThreeAltGen, setStageThreeAltGen] = useState(0)
+  // stage three alt stage two
   const [stageThreeAltStageTwoDetails, setStageThreeAltStageTwoDetails] = useState({})
   const [stageThreeAltStageTwoSpecies, setStageThreeAltStageTwoSpecies] = useState({})
-  const location = useLocation()
+  const [stageThreeAltStageTwoGen, setStageThreeAltStageTwoGen] = useState(0)
 
   const stageOne = (evolutionChain.chain)
   const stageTwo = (evolutionChain.chain?.evolves_to[0])
@@ -57,16 +75,6 @@ const PokemonEvolutionChain = (props) => {
   const stageThreeEvolutionMethod = stageThree?.evolution_details[0]
   const stageThreeAltEvolutionMethod = stageThreeAlt?.evolution_details[0]
   const stageThreeAltStageTwoEvolutionMethod = stageThreeAltStageTwo?.evolution_details[0]
-
-  const stageOneGen = (parseInt(stageOneSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageTwoGen = (parseInt(stageTwoSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageTwoAlt1Gen = (parseInt(stageTwoAlt1Species.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageTwoAlt2Gen = (parseInt(stageTwoAlt2Species.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageTwoAlt3Gen = (parseInt(stageTwoAlt3Species.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageTwoAlt4Gen = (parseInt(stageTwoAlt4Species.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageThreeGen = (parseInt(stageThreeSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageThreeAltGen = (parseInt(stageThreeAltSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
-  const stageThreeAltStageTwoGen = (parseInt(stageThreeAltStageTwoSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
 
   useEffect(() => {
     const fetchStageOneData = async () => {
@@ -176,13 +184,39 @@ const PokemonEvolutionChain = (props) => {
     fetchStageThreeAltStageTwoData()
   }, [stageThreeAltStageTwo])
 
+  useEffect(() => {
+    const extractGenNum = (obj) => {
+      const url = 'https://pokeapi.co/api/v2/generation/'
+      return parseInt(obj?.generation?.url.replace(`${url}`, '').replace('/', ''))
+    }
+    setStageOneGen(extractGenNum(stageOneSpecies))
+    setStageTwoGen(extractGenNum(stageTwoSpecies))
+    setStageTwoAlt1Gen(extractGenNum(stageTwoAlt1Species))
+    setStageTwoAlt2Gen(extractGenNum(stageTwoAlt2Species))
+    setStageTwoAlt3Gen(extractGenNum(stageTwoAlt3Species))
+    setStageTwoAlt4Gen(extractGenNum(stageTwoAlt4Species))
+    setStageThreeGen(extractGenNum(stageThreeSpecies))
+    setStageThreeAltGen(extractGenNum(stageThreeAltSpecies))
+    setStageThreeAltStageTwoGen(extractGenNum(stageThreeAltStageTwoSpecies))
+  }, [
+    stageOneSpecies,
+    stageTwoSpecies,
+    stageThreeSpecies,
+    stageTwoAlt1Species,
+    stageTwoAlt2Species,
+    stageTwoAlt3Species,
+    stageTwoAlt4Species,
+    stageThreeAltSpecies,
+    stageThreeAltStageTwoSpecies,
+  ])
+
   return (
     <div
       style={{
         display: 'flex',
       }}
     >
-      {stageOne && stageOneGen <= genNum ? (
+      {stageOne && stageOneGen <= currentGen ? (
         <div
           style={{
             display: 'flex',
@@ -193,7 +227,7 @@ const PokemonEvolutionChain = (props) => {
         >
           <Link
             to={`/${genPath}/${stageOneDetails.name}`}
-            state={{ ...stageOneDetails, genNum }}
+            state={{ ...stageOneDetails, genNum: stageOneGen, genPath }}
           >
             <PokemonSprite
               pokemonDetails={stageOneDetails}
@@ -205,9 +239,9 @@ const PokemonEvolutionChain = (props) => {
       ) : (
         <></>
       )}
-      {stageTwo && stageTwoGen <= genNum ? (
+      {stageTwo && stageTwoGen <= currentGen ? (
         <>
-          {stageOne && stageOneGen <= genNum ? (
+          {stageOne && stageOneGen <= currentGen ? (
             <div
               style={{
                 display: 'flex',
@@ -218,28 +252,28 @@ const PokemonEvolutionChain = (props) => {
               <EvolutionMethod
                 evolutionMethod={stageTwoEvolutionMethod}
               />
-              {stageTwoAlt1Details.name && stageTwoAlt1Gen <= genNum ? (
+              {stageTwoAlt1Details.name && stageTwoAlt1Gen <= currentGen ? (
                 <EvolutionMethod
                   evolutionMethod={stageTwoAlt1EvolutionMethod}
                 />
               ) : (
                 <></>
               )}
-              {stageTwoAlt2Details.name && stageTwoAlt2Gen <= genNum ? (
+              {stageTwoAlt2Details.name && stageTwoAlt2Gen <= currentGen ? (
                 <EvolutionMethod
                   evolutionMethod={stageTwoAlt2EvolutionMethod}
                 />
               ) : (
                 <></>
               )}
-              {stageTwoAlt3Details.name && stageTwoAlt3Gen <= genNum ? (
+              {stageTwoAlt3Details.name && stageTwoAlt3Gen <= currentGen ? (
                 <EvolutionMethod
                   evolutionMethod={stageTwoAlt3EvolutionMethod}
                 />
               ) : (
                 <></>
               )}
-              {stageTwoAlt4Details.name && stageTwoAlt4Gen <= genNum ? (
+              {stageTwoAlt4Details.name && stageTwoAlt4Gen <= currentGen ? (
                 <EvolutionMethod
                   evolutionMethod={stageTwoAlt4EvolutionMethod}
                 />
@@ -258,12 +292,12 @@ const PokemonEvolutionChain = (props) => {
               alignItems: 'center',
             }}
           >
-            {stageOneGen > genNum &&
+            {stageOneGen > currentGen &&
             pokemonSpecies?.name !== stageThree?.name ? (
               <>
                 <Link
                   to={`/${genPath}/${pokemonDetails.name}`}
-                  state={{ ...pokemonDetails, genNum }}
+                  state={{ ...pokemonDetails, genNum, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={pokemonDetails}
@@ -276,7 +310,7 @@ const PokemonEvolutionChain = (props) => {
               <>
                 <Link
                   to={`/${genPath}/${stageTwoDetails.name}`}
-                  state={{ ...stageTwoDetails, genNum }}
+                  state={{ ...stageTwoDetails, genNum: stageTwoGen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoDetails}
@@ -286,7 +320,7 @@ const PokemonEvolutionChain = (props) => {
                 </Link>
                 <Link
                   to={`/${genPath}/${stageTwoAlt1Details.name}`}
-                  state={{ ...stageTwoAlt1Details, genNum }}
+                  state={{ ...stageTwoAlt1Details, genNum: stageTwoAlt1Gen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt1Details}
@@ -296,7 +330,7 @@ const PokemonEvolutionChain = (props) => {
                 </Link>
                 <Link
                   to={`/${genPath}/${stageTwoAlt2Details.name}`}
-                  state={{ ...stageTwoAlt2Details, genNum }}
+                  state={{ ...stageTwoAlt2Details, genNum: stageTwoAlt2Gen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt2Details}
@@ -306,7 +340,7 @@ const PokemonEvolutionChain = (props) => {
                 </Link>
                 <Link
                   to={`/${genPath}/${stageTwoAlt3Details.name}`}
-                  state={{ ...stageTwoAlt3Details, genNum }}
+                  state={{ ...stageTwoAlt3Details, genNum: stageTwoAlt3Gen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt3Details}
@@ -316,7 +350,7 @@ const PokemonEvolutionChain = (props) => {
                 </Link>
                 <Link
                   to={`/${genPath}/${stageTwoAlt4Details.name}`}
-                  state={{ ...stageTwoAlt4Details, genNum }}
+                  state={{ ...stageTwoAlt4Details, genNum: stageTwoAlt4Gen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt4Details}
@@ -331,7 +365,7 @@ const PokemonEvolutionChain = (props) => {
       ) : (
         <></>
       )}
-      {stageThree && stageThreeGen <= genNum ? (
+      {stageThree && stageThreeGen <= currentGen ? (
         <>
           <div
             style={{
@@ -344,14 +378,14 @@ const PokemonEvolutionChain = (props) => {
             <EvolutionMethod
               evolutionMethod={stageThreeEvolutionMethod}
             />
-            {stageThreeAltDetails.name && stageThreeAltGen <= genNum ? (
+            {stageThreeAltDetails.name && stageThreeAltGen <= currentGen ? (
               <EvolutionMethod
                 evolutionMethod={stageThreeAltEvolutionMethod}
               />
             ) : (
               <></>
             )}
-            {stageThreeAltStageTwoDetails.name && stageThreeAltStageTwoGen <= genNum ? (
+            {stageThreeAltStageTwoDetails.name && stageThreeAltStageTwoGen <= currentGen ? (
               <EvolutionMethod
                 evolutionMethod={stageThreeAltStageTwoEvolutionMethod}
               />
@@ -369,7 +403,7 @@ const PokemonEvolutionChain = (props) => {
           >
             <Link
               to={`/${genPath}/${stageThreeDetails.name}`}
-              state={{ ...stageThreeDetails, genNum }}
+              state={{ ...stageThreeDetails, genNum: stageThreeGen, genPath }}
             >
               <PokemonSprite
                 pokemonDetails={stageThreeDetails}
@@ -379,7 +413,7 @@ const PokemonEvolutionChain = (props) => {
             </Link>
             <Link
               to={`/${genPath}/${stageThreeAltDetails.name}`}
-              state={{ ...stageThreeAltDetails, genNum }}
+              state={{ ...stageThreeAltDetails, genNum: stageThreeAltGen, genPath }}
             >
               <PokemonSprite
                 pokemonDetails={stageThreeAltDetails}
@@ -389,7 +423,7 @@ const PokemonEvolutionChain = (props) => {
             </Link>
             <Link
               to={`/${genPath}/${stageThreeAltStageTwoDetails.name}`}
-              state={{ ...stageThreeAltStageTwoDetails, genNum }}
+              state={{ ...stageThreeAltStageTwoDetails, genNum: stageThreeAltStageTwoGen, genPath }}
             >
               <PokemonSprite
                 pokemonDetails={stageThreeAltStageTwoDetails}

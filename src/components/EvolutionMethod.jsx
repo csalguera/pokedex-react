@@ -61,7 +61,6 @@ const EvolutionMethod = (props) => {
     evolutionMethod.min_level
   )
 
-  
   const genderCondition = (
     evolutionMethod.gender === 1 ? (
       '♀'

@@ -24,6 +24,26 @@ const PokemonDetails = () => {
   const [genPath, setGenPath] = useState(location.state.genPath)
   const { genNum } = location.state
 
+  let currentGen
+
+  switch (genPath) {
+    case 'gen-i':
+      currentGen = 1
+      break;
+    case 'gen-ii':
+      currentGen = 2
+      break;
+    case 'gen-iii':
+      currentGen = 3
+      break;
+    case 'gen-iv':
+      currentGen = 4
+      break;
+    default:
+      currentGen = 0
+      break;
+  }
+
   useEffect(() => {
     const fetchDetails = async () => {
       const pokemonData = await getPokemonDetails(location.state.name)
@@ -93,7 +113,6 @@ const PokemonDetails = () => {
           </div>
           <GenerationSelector
             pokemonDetails={pokemonDetails}
-            pokemonSpecies={pokemonSpecies}
             genNum={genNum}
           />
           <SpriteVersionSelector
@@ -129,6 +148,7 @@ const PokemonDetails = () => {
             spriteVersion={spriteVersion}
             genNum={genNum}
             genPath={genPath}
+            currentGen={currentGen}
           />
         </div>
       ) : (
