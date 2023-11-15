@@ -1,9 +1,9 @@
 // services
 import { useEffect, useState } from "react"
-import { getItem, getEvolutionTrigger } from "../services/api-calls"
+import { getItem, getEvolutionTrigger } from "../../services/api-calls"
 
 // utilities
-import { removeHyphens } from "../utilities/utilities"
+import { removeHyphens } from "../../utilities/utilities"
 
 const EvolutionMethod = (props) => {
   const {

@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom"
 
 // components
-import EvolutionMethod from "../EvolutionMethod"
+import EvolutionMethod from "./EvolutionMethod"
 import PokemonSprite from "../PokemonSprite"
 
 const StageThreeChain = (props) => {
