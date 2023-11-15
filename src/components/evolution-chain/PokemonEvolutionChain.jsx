@@ -44,6 +44,14 @@ const PokemonEvolutionChain = (props) => {
   const [stageTwoAlt4Details, setStageTwoAlt4Details] = useState({})
   const [stageTwoAlt4Species, setStageTwoAlt4Species] = useState({})
   const [stageTwoAlt4Gen, setStageTwoAlt4Gen] = useState(0)
+  // stage two alt 5
+  const [stageTwoAlt5Details, setStageTwoAlt5Details] = useState({})
+  const [stageTwoAlt5Species, setStageTwoAlt5Species] = useState({})
+  const [stageTwoAlt5Gen, setStageTwoAlt5Gen] = useState(0)
+  // stage two alt 6
+  const [stageTwoAlt6Details, setStageTwoAlt6Details] = useState({})
+  const [stageTwoAlt6Species, setStageTwoAlt6Species] = useState({})
+  const [stageTwoAlt6Gen, setStageTwoAlt6Gen] = useState(0)
   // stage three
   const [stageThreeDetails, setStageThreeDetails] = useState({})
   const [stageThreeSpecies, setStageThreeSpecies] = useState({})
@@ -63,6 +71,8 @@ const PokemonEvolutionChain = (props) => {
   const stageTwoAlt2 = (evolutionChain.chain?.evolves_to[2])
   const stageTwoAlt3 = (evolutionChain.chain?.evolves_to[3])
   const stageTwoAlt4 = (evolutionChain.chain?.evolves_to[4])
+  const stageTwoAlt5 = (evolutionChain.chain?.evolves_to[5])
+  const stageTwoAlt6 = (evolutionChain.chain?.evolves_to[6])
   const stageThree = (evolutionChain.chain?.evolves_to[0]?.evolves_to[0])
   const stageThreeAlt = (evolutionChain.chain?.evolves_to[0]?.evolves_to[1])
   const stageThreeAltStageTwo = (evolutionChain.chain?.evolves_to[1]?.evolves_to[0])
@@ -72,6 +82,8 @@ const PokemonEvolutionChain = (props) => {
   const stageTwoAlt2EvolutionMethod = stageTwoAlt2?.evolution_details[0]
   const stageTwoAlt3EvolutionMethod = stageTwoAlt3?.evolution_details[0]
   const stageTwoAlt4EvolutionMethod = stageTwoAlt4?.evolution_details[0]
+  const stageTwoAlt5EvolutionMethod = stageTwoAlt5?.evolution_details[0]
+  const stageTwoAlt6EvolutionMethod = stageTwoAlt6?.evolution_details[0]
   const stageThreeEvolutionMethod = stageThree?.evolution_details[0]
   const stageThreeAltEvolutionMethod = stageThreeAlt?.evolution_details[0]
   const stageThreeAltStageTwoEvolutionMethod = stageThreeAltStageTwo?.evolution_details[0]
@@ -149,6 +161,30 @@ const PokemonEvolutionChain = (props) => {
   }, [stageTwoAlt4])
 
   useEffect(() => {
+    const fetchStageTwoAlt5Data = async () => {
+      if (stageTwoAlt5?.species) {
+        const stageTwoAlt5DetailsData = await getPokemonDetails(stageTwoAlt5?.species.name)
+        setStageTwoAlt5Details(stageTwoAlt5DetailsData)
+        const stageTwoAlt5SpeciesData = await getPokemonSpecies(stageTwoAlt5?.species.name)
+        setStageTwoAlt5Species(stageTwoAlt5SpeciesData)
+      }
+    }
+    fetchStageTwoAlt5Data()
+  }, [stageTwoAlt5])
+
+  useEffect(() => {
+    const fetchStageTwoAlt6Data = async () => {
+      if (stageTwoAlt6?.species) {
+        const stageTwoAlt6DetailsData = await getPokemonDetails(stageTwoAlt6?.species.name)
+        setStageTwoAlt6Details(stageTwoAlt6DetailsData)
+        const stageTwoAlt6SpeciesData = await getPokemonSpecies(stageTwoAlt6?.species.name)
+        setStageTwoAlt6Species(stageTwoAlt6SpeciesData)
+      }
+    }
+    fetchStageTwoAlt6Data()
+  }, [stageTwoAlt6])
+
+  useEffect(() => {
     const fetchStageThreeData = async () => {
       if (stageThree?.species) {
         const stageThreeDetailsData = await getPokemonDetails(stageThree?.species.name)
@@ -195,6 +231,8 @@ const PokemonEvolutionChain = (props) => {
     setStageTwoAlt2Gen(extractGenNum(stageTwoAlt2Species))
     setStageTwoAlt3Gen(extractGenNum(stageTwoAlt3Species))
     setStageTwoAlt4Gen(extractGenNum(stageTwoAlt4Species))
+    setStageTwoAlt5Gen(extractGenNum(stageTwoAlt5Species))
+    setStageTwoAlt6Gen(extractGenNum(stageTwoAlt6Species))
     setStageThreeGen(extractGenNum(stageThreeSpecies))
     setStageThreeAltGen(extractGenNum(stageThreeAltSpecies))
     setStageThreeAltStageTwoGen(extractGenNum(stageThreeAltStageTwoSpecies))
@@ -206,6 +244,8 @@ const PokemonEvolutionChain = (props) => {
     stageTwoAlt2Species,
     stageTwoAlt3Species,
     stageTwoAlt4Species,
+    stageTwoAlt5Species,
+    stageTwoAlt6Species,
     stageThreeAltSpecies,
     stageThreeAltStageTwoSpecies,
   ])
@@ -245,6 +285,12 @@ const PokemonEvolutionChain = (props) => {
         stageTwoAlt4Gen={stageTwoAlt4Gen}
         stageTwoAlt4Details={stageTwoAlt4Details}
         stageTwoAlt4EvolutionMethod={stageTwoAlt4EvolutionMethod}
+        stageTwoAlt5Gen={stageTwoAlt5Gen}
+        stageTwoAlt5Details={stageTwoAlt5Details}
+        stageTwoAlt5EvolutionMethod={stageTwoAlt5EvolutionMethod}
+        stageTwoAlt6Gen={stageTwoAlt6Gen}
+        stageTwoAlt6Details={stageTwoAlt6Details}
+        stageTwoAlt6EvolutionMethod={stageTwoAlt6EvolutionMethod}
         stageThree={stageThree}
         genNum={genNum}
         genPath={genPath}

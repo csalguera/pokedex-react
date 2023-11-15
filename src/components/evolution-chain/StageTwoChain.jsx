@@ -27,6 +27,12 @@ const StageTwoChain = (props) => {
     stageTwoAlt4Gen,
     stageTwoAlt4Details,
     stageTwoAlt4EvolutionMethod,
+    stageTwoAlt5Gen,
+    stageTwoAlt5Details,
+    stageTwoAlt5EvolutionMethod,
+    stageTwoAlt6Gen,
+    stageTwoAlt6Details,
+    stageTwoAlt6EvolutionMethod,
     stageThree,
     genNum,
     genPath,
@@ -73,6 +79,20 @@ const StageTwoChain = (props) => {
               {stageTwoAlt4Details.name && stageTwoAlt4Gen <= currentGen ? (
                 <EvolutionMethod
                   evolutionMethod={stageTwoAlt4EvolutionMethod}
+                />
+              ) : (
+                <></>
+              )}
+              {stageTwoAlt5Details.name && stageTwoAlt5Gen <= currentGen ? (
+                <EvolutionMethod
+                  evolutionMethod={stageTwoAlt5EvolutionMethod}
+                />
+              ) : (
+                <></>
+              )}
+              {stageTwoAlt6Details.name && stageTwoAlt6Gen <= currentGen ? (
+                <EvolutionMethod
+                  evolutionMethod={stageTwoAlt6EvolutionMethod}
                 />
               ) : (
                 <></>
@@ -151,6 +171,26 @@ const StageTwoChain = (props) => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt4Details}
+                    spriteVersion={spriteVersion}
+                    genPath={genPath}
+                  />
+                </Link>
+                <Link
+                  to={`/${genPath}/${stageTwoAlt5Details.name}`}
+                  state={{ ...stageTwoAlt5Details, genNum: stageTwoAlt5Gen, genPath }}
+                >
+                  <PokemonSprite
+                    pokemonDetails={stageTwoAlt5Details}
+                    spriteVersion={spriteVersion}
+                    genPath={genPath}
+                  />
+                </Link>
+                <Link
+                  to={`/${genPath}/${stageTwoAlt6Details.name}`}
+                  state={{ ...stageTwoAlt6Details, genNum: stageTwoAlt6Gen, genPath }}
+                >
+                  <PokemonSprite
+                    pokemonDetails={stageTwoAlt6Details}
                     spriteVersion={spriteVersion}
                     genPath={genPath}
                   />
