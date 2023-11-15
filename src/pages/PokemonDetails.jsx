@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom"
 // components
 import PokemonType from "../components/PokemonType"
 import PokemonSprite from "../components/PokemonSprite"
-import PokemonEvolutionChain from "../components/PokemonEvolutionChain"
+import PokemonEvolutionChain from "../components/evolution-chain/PokemonEvolutionChain"
 import VersionSelector from "../components/buttons/VersionSelector"
 import GenerationSelectorContainer from "../components/containers/GenerationSelectorContainer"
 

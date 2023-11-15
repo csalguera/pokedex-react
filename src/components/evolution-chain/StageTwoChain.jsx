@@ -1,0 +1,169 @@
+// npm modules
+import { Link } from "react-router-dom"
+
+// components
+import EvolutionMethod from "../EvolutionMethod"
+import PokemonSprite from "../PokemonSprite"
+
+const StageTwoChain = (props) => {
+  const {
+    pokemonDetails,
+    pokemonSpecies,
+    stageOne,
+    stageOneGen,
+    stageTwo,
+    stageTwoGen,
+    stageTwoDetails,
+    stageTwoEvolutionMethod,
+    stageTwoAlt1Gen,
+    stageTwoAlt1Details,
+    stageTwoAlt1EvolutionMethod,
+    stageTwoAlt2Gen,
+    stageTwoAlt2Details,
+    stageTwoAlt2EvolutionMethod,
+    stageTwoAlt3Gen,
+    stageTwoAlt3Details,
+    stageTwoAlt3EvolutionMethod,
+    stageTwoAlt4Gen,
+    stageTwoAlt4Details,
+    stageTwoAlt4EvolutionMethod,
+    stageThree,
+    genNum,
+    genPath,
+    currentGen,
+    spriteVersion,
+  } = props
+
+  return (
+    <>
+      {stageTwo && stageTwoGen <= currentGen ? (
+        <>
+          {stageOne && stageOneGen <= currentGen ? (
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-around',
+              }}
+            >
+              <EvolutionMethod
+                evolutionMethod={stageTwoEvolutionMethod}
+              />
+              {stageTwoAlt1Details.name && stageTwoAlt1Gen <= currentGen ? (
+                <EvolutionMethod
+                  evolutionMethod={stageTwoAlt1EvolutionMethod}
+                />
+              ) : (
+                <></>
+              )}
+              {stageTwoAlt2Details.name && stageTwoAlt2Gen <= currentGen ? (
+                <EvolutionMethod
+                  evolutionMethod={stageTwoAlt2EvolutionMethod}
+                />
+              ) : (
+                <></>
+              )}
+              {stageTwoAlt3Details.name && stageTwoAlt3Gen <= currentGen ? (
+                <EvolutionMethod
+                  evolutionMethod={stageTwoAlt3EvolutionMethod}
+                />
+              ) : (
+                <></>
+              )}
+              {stageTwoAlt4Details.name && stageTwoAlt4Gen <= currentGen ? (
+                <EvolutionMethod
+                  evolutionMethod={stageTwoAlt4EvolutionMethod}
+                />
+              ) : (
+                <></>
+              )}
+            </div>
+          ) : (
+            <></>
+          )}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            {stageOneGen > currentGen &&
+            pokemonSpecies?.name !== stageThree?.name ? (
+              <>
+                <Link
+                  to={`/${genPath}/${pokemonDetails.name}`}
+                  state={{ ...pokemonDetails, genNum, genPath }}
+                >
+                  <PokemonSprite
+                    pokemonDetails={pokemonDetails}
+                    spriteVersion={spriteVersion}
+                    genPath={genPath}
+                  />
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  to={`/${genPath}/${stageTwoDetails.name}`}
+                  state={{ ...stageTwoDetails, genNum: stageTwoGen, genPath }}
+                >
+                  <PokemonSprite
+                    pokemonDetails={stageTwoDetails}
+                    spriteVersion={spriteVersion}
+                    genPath={genPath}
+                  />
+                </Link>
+                <Link
+                  to={`/${genPath}/${stageTwoAlt1Details.name}`}
+                  state={{ ...stageTwoAlt1Details, genNum: stageTwoAlt1Gen, genPath }}
+                >
+                  <PokemonSprite
+                    pokemonDetails={stageTwoAlt1Details}
+                    spriteVersion={spriteVersion}
+                    genPath={genPath}
+                  />
+                </Link>
+                <Link
+                  to={`/${genPath}/${stageTwoAlt2Details.name}`}
+                  state={{ ...stageTwoAlt2Details, genNum: stageTwoAlt2Gen, genPath }}
+                >
+                  <PokemonSprite
+                    pokemonDetails={stageTwoAlt2Details}
+                    spriteVersion={spriteVersion}
+                    genPath={genPath}
+                  />
+                </Link>
+                <Link
+                  to={`/${genPath}/${stageTwoAlt3Details.name}`}
+                  state={{ ...stageTwoAlt3Details, genNum: stageTwoAlt3Gen, genPath }}
+                >
+                  <PokemonSprite
+                    pokemonDetails={stageTwoAlt3Details}
+                    spriteVersion={spriteVersion}
+                    genPath={genPath}
+                  />
+                </Link>
+                <Link
+                  to={`/${genPath}/${stageTwoAlt4Details.name}`}
+                  state={{ ...stageTwoAlt4Details, genNum: stageTwoAlt4Gen, genPath }}
+                >
+                  <PokemonSprite
+                    pokemonDetails={stageTwoAlt4Details}
+                    spriteVersion={spriteVersion}
+                    genPath={genPath}
+                  />
+                </Link>
+              </>
+            )}
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
+    </>
+  )
+}
+
+export default StageTwoChain
