@@ -1,4 +1,4 @@
-const SpriteVersionSelector = (props) => {
+const VersionSelector = (props) => {
   const {
     genPath,
     spriteVersion,
@@ -263,4 +263,4 @@ const SpriteVersionSelector = (props) => {
   )
 }
 
-export default SpriteVersionSelector
+export default VersionSelector

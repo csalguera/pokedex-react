@@ -6,8 +6,8 @@ import { useLocation } from "react-router-dom"
 import PokemonType from "../components/PokemonType"
 import PokemonSprite from "../components/PokemonSprite"
 import PokemonEvolutionChain from "../components/PokemonEvolutionChain"
-import SpriteVersionSelector from "../components/SpriteVersionSelector"
-import GenerationSelector from "../components/GenerationSelector"
+import VersionSelector from "../components/buttons/VersionSelector"
+import GenerationSelectorContainer from "../components/containers/GenerationSelectorContainer"
 
 // services
 import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../services/api-calls"
@@ -112,11 +112,11 @@ const PokemonDetails = () => {
               {pascalize(pokemonDetails.name ?? '')}
             </h1>
           </div>
-          <GenerationSelector
+          <GenerationSelectorContainer
             pokemonDetails={pokemonDetails}
             genNum={genNum}
           />
-          <SpriteVersionSelector
+          <VersionSelector
             spriteVersion={spriteVersion}
             setSpriteVersion={setSpriteVersion}
             genNum={genNum}
