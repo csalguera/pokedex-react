@@ -3,10 +3,8 @@ import { Link } from "react-router-dom"
 const GenerationSelector = (props) => {
   const {
     pokemonDetails,
-    pokemonSpecies
+    genNum,
   } = props
-
-  const genNum = (parseInt(pokemonSpecies.generation?.url.replace('https://pokeapi.co/api/v2/generation/', '').replace('/', '')))
 
   return (
     <div
@@ -19,7 +17,7 @@ const GenerationSelector = (props) => {
       {genNum <= 1 ? (
         <Link
           to={`/gen-i/${pokemonDetails.name}`}
-          state={pokemonDetails}
+          state={{ ...pokemonDetails, genNum }}
           style={{
             margin: '8px',
             textDecoration: 'none'
@@ -35,7 +33,7 @@ const GenerationSelector = (props) => {
       {genNum <= 2 ? (
         <Link
           to={`/gen-ii/${pokemonDetails.name}`}
-          state={pokemonDetails}
+          state={{ ...pokemonDetails, genNum }}
           style={{
             margin: '8px',
             textDecoration: 'none'
@@ -51,7 +49,7 @@ const GenerationSelector = (props) => {
       {genNum <= 3 ? (
         <Link
           to={`/gen-iii/${pokemonDetails.name}`}
-          state={pokemonDetails}
+          state={{ ...pokemonDetails, genNum }}
           style={{
             margin: '8px',
             textDecoration: 'none'
@@ -59,6 +57,22 @@ const GenerationSelector = (props) => {
         >
           <button>
             Gen 3
+          </button>
+        </Link>
+      ) : (
+        <></>
+      )}
+      {genNum <= 4 ? (
+        <Link
+          to={`/gen-iv/${pokemonDetails.name}`}
+          state={{ ...pokemonDetails, genNum }}
+          style={{
+            margin: '8px',
+            textDecoration: 'none'
+          }}
+        >
+          <button>
+            Gen 4
           </button>
         </Link>
       ) : (

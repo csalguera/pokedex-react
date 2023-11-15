@@ -25,6 +25,14 @@ const Nav = () => {
     genNum: 3,
   }
 
+  const gen4 = {
+    regionName: 'Sinnoh',
+    dexOffset: 386,
+    dexLimit: 107,
+    genPath: 'gen-iv',
+    genNum: 4,
+  }
+
   return (
     <div
       style={{
@@ -67,6 +75,15 @@ const Nav = () => {
         }}
       >
         Hoenn
+      </Link>
+      <Link
+        to='/gen-iv'
+        state={gen4}
+        style={{
+          margin: '8px'
+        }}
+      >
+        Sinnoh
       </Link>
     </div>
   )

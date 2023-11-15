@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { pascalize, leadingZeros } from "../utilities/utilities"
 
 const Region = () => {
+  const [region, setRegion] = useState([])
   const location = useLocation()
   const {
     regionName,
@@ -13,7 +14,6 @@ const Region = () => {
     genPath,
     genNum,
   } = location.state
-  const [region, setRegion] = useState([])
 
   useEffect(() => {
     const fetchPokemonList = async () => {
@@ -58,7 +58,7 @@ const Region = () => {
               </p>
               <Link
                 to={`/${genPath}/${pokemon.name}`}
-                state={pokemon}
+                state={{ ...pokemon, genNum, genPath }}
                 style={{
                   display: 'flex',
                   width: 'fit-content',

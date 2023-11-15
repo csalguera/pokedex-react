@@ -16,18 +16,13 @@ import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../
 import { leadingZeros, pascalize } from "../utilities/utilities"
 
 const PokemonDetails = () => {
+  const location = useLocation()
   const [pokemonDetails, setPokemonDetails] = useState({})
   const [pokemonSpecies, setPokemonSpecies] = useState({})
   const [evolutionChain, setEvolutionChain] = useState({})
-  const [generation, setGeneration] = useState(0)
   const [spriteVersion, setSpriteVersion] = useState(0)
-  const location = useLocation()
-
-  const gen1 = (location.pathname.includes('/gen-i/'))
-  const gen2 = (location.pathname.includes('/gen-ii/'))
-  const gen3 = (location.pathname.includes('/gen-iii/'))
-  const gen4 = (location.pathname.includes('/gen-iv/'))
-  const gen5 = (location.pathname.includes('/gen-v/'))
+  const [genPath, setGenPath] = useState(location.state.genPath)
+  const { genNum } = location.state
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -56,19 +51,12 @@ const PokemonDetails = () => {
   }, [pokemonSpecies, pokemonSpecies.evolution_chain])
 
   useEffect(() => {
-    const fetchGeneration = () => {
-      gen1 ? (
-        setGeneration(1)
-      ) : gen2 ? (
-        setGeneration(2)
-      ) : gen3 ? (
-        setGeneration(3)
-      ) : (
-        setGeneration(0)
-      )
+    const updateGenPath = () => {
+      const newPath = (location.pathname.replace(`/${pokemonDetails.name}`, '').replace('/', ''))
+      setGenPath(newPath)
     }
-    fetchGeneration()
-  }, [gen1, gen2, gen3])
+    updateGenPath()
+  }, [location.pathname, pokemonDetails.name])
 
   return (
     <>
@@ -106,18 +94,20 @@ const PokemonDetails = () => {
           <GenerationSelector
             pokemonDetails={pokemonDetails}
             pokemonSpecies={pokemonSpecies}
+            genNum={genNum}
           />
           <SpriteVersionSelector
-            generation={generation}
             spriteVersion={spriteVersion}
             setSpriteVersion={setSpriteVersion}
+            genNum={genNum}
+            genPath={genPath}
           />
           <PokemonSprite
             pokemonDetails={pokemonDetails}
-            path={location.pathname}
             spriteVersion={spriteVersion}
+            genPath={genPath}
           />
-          {generation <= 5 && pokemonDetails?.past_types?.[0] ? (
+          {genNum <= 5 && pokemonDetails?.past_types?.[0] ? (
             pokemonDetails?.past_types?.[0]?.types?.map(type => (
               <PokemonType
                 type={type}
@@ -137,6 +127,8 @@ const PokemonDetails = () => {
             pokemonSpecies={pokemonSpecies}
             evolutionChain={evolutionChain}
             spriteVersion={spriteVersion}
+            genNum={genNum}
+            genPath={genPath}
           />
         </div>
       ) : (

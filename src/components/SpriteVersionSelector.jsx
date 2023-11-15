@@ -1,13 +1,13 @@
 const SpriteVersionSelector = (props) => {
   const {
-    generation,
+    genPath,
     spriteVersion,
     setSpriteVersion,
   } = props
 
   return (
     <>
-      {generation === 1 ? (
+      {genPath === 'gen-i' ? (
         <div
           style={{
             display: 'flex'
@@ -46,7 +46,7 @@ const SpriteVersionSelector = (props) => {
             Y
           </button>
         </div>
-      ) : generation === 2 ? (
+      ) : genPath === 'gen-ii' ? (
         <div
           style={{
             display: 'flex'
@@ -104,7 +104,7 @@ const SpriteVersionSelector = (props) => {
             C
           </button>
         </div>
-      ) : generation === 3 ? (
+      ) : genPath === 'gen-iii' ? (
         <div
           style={{
             display: 'flex'
@@ -178,6 +178,82 @@ const SpriteVersionSelector = (props) => {
             }}
           >
             E
+          </button>
+        </div>
+      ) : genPath === 'gen-iv' ? (
+        <div
+          style={{
+            display: 'flex'
+          }}
+        >
+          <button
+            onClick={() => setSpriteVersion(0)}
+            style={{
+              backgroundImage:
+                spriteVersion === 0 ? (
+                  'linear-gradient(red, blue)'
+                ) : spriteVersion === 1 ? (
+                  'linear-gradient(red, green)'
+                  ) : (
+                  'linear-gradient(green, white)'
+                ),
+              color:
+                spriteVersion === 0 ? (
+                  'white'
+                ) : (
+                  'black'
+                ),
+              width: '50px',
+              borderRadius: '100px'
+            }}
+          >
+            DP
+          </button>
+          <button
+            onClick={() => setSpriteVersion(1)}
+            style={{
+              backgroundImage:
+                spriteVersion === 0 ? (
+                  'linear-gradient(red, blue)'
+                ) : spriteVersion === 1 ? (
+                  'linear-gradient(red, green)'
+                  ) : (
+                  'linear-gradient(green, white)'
+                ),
+              color:
+                spriteVersion === 0 ? (
+                  'white'
+                ) : (
+                  'black'
+                ),
+              width: '50px',
+              borderRadius: '100px'
+            }}
+          >
+            HGSS
+          </button>
+          <button
+            onClick={() => setSpriteVersion(2)}
+            style={{
+              backgroundImage:
+                spriteVersion === 0 ? (
+                  'linear-gradient(red, blue)'
+                ) : spriteVersion === 1 ? (
+                  'linear-gradient(red, green)'
+                  ) : (
+                  'linear-gradient(green, white)'
+                ),
+              color:
+                spriteVersion === 0 ? (
+                  'white'
+                ) : (
+                  'black'
+                ),
+              width: '50px',
+              borderRadius: '100px'
+            }}
+          >
+            Pt
           </button>
         </div>
       ) : (
