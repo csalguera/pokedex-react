@@ -5,112 +5,116 @@ const PokemonSprite = (props) => {
     genPath,
   } = props
 
-  const spriteRedBlue = (pokemonDetails?.sprites?.versions['generation-i']['red-blue']?.front_transparent)
-  const spriteYellow = (pokemonDetails?.sprites?.versions['generation-i'].yellow?.front_transparent)
-  const spriteGold = (pokemonDetails?.sprites?.versions['generation-ii'].gold?.front_transparent)
-  const spriteSilver = (pokemonDetails?.sprites?.versions['generation-ii'].silver?.front_transparent)
-  const spriteCrystal = (pokemonDetails?.sprites?.versions['generation-ii'].crystal?.front_transparent)
-  const spriteRubySapphire = (pokemonDetails?.sprites?.versions['generation-iii']['ruby-sapphire']?.front_default)
-  const spriteFireRedLeafGreen = (pokemonDetails?.sprites?.versions['generation-iii']['firered-leafgreen']?.front_default)
-  const spriteEmerald = (pokemonDetails?.sprites?.versions['generation-iii'].emerald?.front_default)
-  const spriteDiamondPearl = (pokemonDetails?.sprites?.versions['generation-iv']['diamond-pearl']?.front_default)
-  const spriteHeartGoldSoulSilver = (pokemonDetails?.sprites?.versions['generation-iv']['heartgold-soulsilver']?.front_default)
-  const spritePlatinum = (pokemonDetails?.sprites?.versions['generation-iv'].platinum?.front_default)
+  function determineSprite(path, version) {
+    const baseNotation = (pokemonDetails?.sprites?.versions)
+
+    let generation = ''
+    switch (path) {
+      case 'gen-i':
+        generation = baseNotation?.['generation-i']
+        break
+      case 'gen-ii':
+        generation = baseNotation?.['generation-ii']
+        break
+      case 'gen-iii':
+        generation = baseNotation?.['generation-iii']
+        break
+      case 'gen-iv':
+        generation = baseNotation?.['generation-iv']
+        break
+      default:
+        generation = baseNotation?.['generation-i']
+        break
+    }
+
+    if (path === 'gen-i') {
+      let sprite = ''
+      switch (version) {
+        case 0:
+          sprite = generation?.['red-blue']?.front_transparent
+          break
+        case 1:
+          sprite = generation?.yellow?.front_transparent
+          break
+        default:
+          sprite = generation?.['red-blue']?.front_transparent
+          break
+      }
+      return sprite
+    }
+
+    if (path === 'gen-ii') {
+      let sprite = ''
+      switch (version) {
+        case 0:
+          sprite = generation?.gold.front_transparent
+          break;
+        case 1:
+          sprite = generation?.silver.front_transparent
+          break;
+        case 2:
+          sprite = generation?.crystal.front_transparent
+          break;
+        default:
+          sprite = generation?.crystal.front_transparent
+          break;
+      }
+      return sprite
+    }
+
+    if (path === 'gen-iii') {
+      let sprite = ''
+      switch (version) {
+        case 0:
+          sprite = generation?.['ruby-sapphire'].front_default
+          break
+        case 1:
+          sprite = generation?.['firered-leafgreen'].front_default
+          break
+        case 2:
+          sprite = generation?.emerald.front_default
+          break
+          default:
+          sprite = generation?.emerald.front_default
+          break
+      }
+      return sprite
+    }
+
+    if (path === 'gen-iv') {
+      let sprite = ''
+      switch (version) {
+        case 0:
+          sprite = generation?.['diamond-pearl'].front_default
+          break;
+        case 1:
+          sprite = generation?.['heartgold-soulsilver'].front_default
+          break;
+        case 2:
+          sprite = generation?.platinum.front_default
+          break;
+        default:
+          sprite = generation?.platinum.front_default
+          break;
+      }
+      return sprite
+    }
+  }
 
   return (
-    <>
-      {genPath === 'gen-i' ? (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <img
-            src={
-              spriteVersion === 0 ? (
-                spriteRedBlue
-              ) : (
-                spriteYellow
-              )
-            }
-            alt=""
-            width='96px'
-          />
-        </div>
-      ) : genPath === 'gen-ii' ? (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <img
-            src={
-              spriteVersion === 0 ? (
-                spriteGold
-              ) :  spriteVersion === 1 ? (
-                spriteSilver
-              ) : (
-                spriteCrystal
-              )
-            }
-            alt=""
-            width='96px'
-          />
-        </div>
-      ) : genPath === 'gen-iii' ? (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <img
-            src={
-              spriteVersion === 0 ? (
-                spriteRubySapphire
-              ) :  spriteVersion === 1 ? (
-                spriteFireRedLeafGreen ??
-                spriteEmerald
-              ) : (
-                spriteEmerald
-              )
-            }
-            alt=""
-            width='96px'
-          />
-        </div>
-      ) : genPath === 'gen-iv' ? (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <img
-            src={
-              spriteVersion === 0 ? (
-                spriteDiamondPearl
-              ) :  spriteVersion === 1 ? (
-                spriteHeartGoldSoulSilver ??
-                spritePlatinum
-              ) : (
-                spritePlatinum
-              )
-            }
-            alt=""
-            width='96px'
-          />
-        </div>
-      ) : (
-        <></>
-      )}
-    </>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <img
+        src={determineSprite(genPath, spriteVersion)}
+        alt=""
+        width='96px'
+      />
+    </div>
   )
 }
 
