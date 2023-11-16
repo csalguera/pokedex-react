@@ -1,8 +1,14 @@
 const VersionSelector = (props) => {
   const {
     genPath,
-    spriteVersion,
-    setSpriteVersion,
+    spriteGen1,
+    spriteGen2,
+    spriteGen3,
+    spriteGen4,
+    setSpriteGen1,
+    setSpriteGen2,
+    setSpriteGen3,
+    setSpriteGen4,
   } = props
 
   return (
@@ -14,15 +20,15 @@ const VersionSelector = (props) => {
           }}
         >
           <button
-            onClick={() => setSpriteVersion(0)}
+            onClick={() => setSpriteGen1(0)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen1 === 0 ? (
                   'linear-gradient(to left, red, blue)'
                 ) : (
                   'linear-gradient(to right, yellow, orange)'
                 ),
-              color: spriteVersion === 0 ? 'white' : 'black',
+              color: spriteGen1 === 0 ? 'white' : 'black',
               width: '50px',
               borderRadius: '100px'
             }}
@@ -30,15 +36,15 @@ const VersionSelector = (props) => {
             RB
           </button>
           <button
-            onClick={() => setSpriteVersion(1)}
+            onClick={() => setSpriteGen1(1)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen1 === 0 ? (
                   'linear-gradient(to right, red, blue)'
                 ) : (
                   'linear-gradient(to left, yellow, orange)'
                 ),
-              color: spriteVersion === 0 ? 'white' : 'black',
+              color: spriteGen1 === 0 ? 'white' : 'black',
               width: '50px',
               borderRadius: '100px'
             }}
@@ -53,12 +59,12 @@ const VersionSelector = (props) => {
           }}
         >
           <button
-            onClick={() => setSpriteVersion(0)}
+            onClick={() => setSpriteGen2(0)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen2 === 0 ? (
                   'linear-gradient(gold, goldenrod)'
-                ) : spriteVersion === 1 ? (
+                ) : spriteGen2 === 1 ? (
                   'linear-gradient(lightgray, gray)'
                   ) : (
                   'linear-gradient(#b2c0ef, #7186c2)'
@@ -70,12 +76,12 @@ const VersionSelector = (props) => {
             G
           </button>
           <button
-            onClick={() => setSpriteVersion(1)}
+            onClick={() => setSpriteGen2(1)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen2 === 0 ? (
                   'linear-gradient(gold, goldenrod)'
-                ) : spriteVersion === 1 ? (
+                ) : spriteGen2 === 1 ? (
                   'linear-gradient(lightgray, gray)'
                   ) : (
                   'linear-gradient(#b2c0ef, #7186c2)'
@@ -87,12 +93,12 @@ const VersionSelector = (props) => {
             S
           </button>
           <button
-            onClick={() => setSpriteVersion(2)}
+            onClick={() => setSpriteGen2(2)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen2 === 0 ? (
                   'linear-gradient(gold, goldenrod)'
-                ) : spriteVersion === 1 ? (
+                ) : spriteGen2 === 1 ? (
                   'linear-gradient(lightgray, gray)'
                   ) : (
                   'linear-gradient(#b2c0ef, #7186c2)'
@@ -111,18 +117,18 @@ const VersionSelector = (props) => {
           }}
         >
           <button
-            onClick={() => setSpriteVersion(0)}
+            onClick={() => setSpriteGen3(0)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen3 === 0 ? (
                   'linear-gradient(red, blue)'
-                ) : spriteVersion === 1 ? (
+                ) : spriteGen3 === 1 ? (
                   'linear-gradient(red, green)'
                   ) : (
                   'linear-gradient(green, white)'
                 ),
               color:
-                spriteVersion === 0 ? (
+                spriteGen3 === 0 ? (
                   'white'
                 ) : (
                   'black'
@@ -134,18 +140,18 @@ const VersionSelector = (props) => {
             RS
           </button>
           <button
-            onClick={() => setSpriteVersion(1)}
+            onClick={() => setSpriteGen3(1)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen3 === 0 ? (
                   'linear-gradient(red, blue)'
-                ) : spriteVersion === 1 ? (
+                ) : spriteGen3 === 1 ? (
                   'linear-gradient(red, green)'
                   ) : (
                   'linear-gradient(green, white)'
                 ),
               color:
-                spriteVersion === 0 ? (
+                spriteGen3 === 0 ? (
                   'white'
                 ) : (
                   'black'
@@ -157,18 +163,18 @@ const VersionSelector = (props) => {
             FRLG
           </button>
           <button
-            onClick={() => setSpriteVersion(2)}
+            onClick={() => setSpriteGen3(2)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen3 === 0 ? (
                   'linear-gradient(red, blue)'
-                ) : spriteVersion === 1 ? (
+                ) : spriteGen3 === 1 ? (
                   'linear-gradient(red, green)'
                   ) : (
                   'linear-gradient(green, white)'
                 ),
               color:
-                spriteVersion === 0 ? (
+                spriteGen3 === 0 ? (
                   'white'
                 ) : (
                   'black'
@@ -187,18 +193,18 @@ const VersionSelector = (props) => {
           }}
         >
           <button
-            onClick={() => setSpriteVersion(0)}
+            onClick={() => setSpriteGen4(0)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen4 === 0 ? (
                   'linear-gradient(red, blue)'
-                ) : spriteVersion === 1 ? (
+                ) : spriteGen4 === 1 ? (
                   'linear-gradient(red, green)'
                   ) : (
                   'linear-gradient(green, white)'
                 ),
               color:
-                spriteVersion === 0 ? (
+                spriteGen4 === 0 ? (
                   'white'
                 ) : (
                   'black'
@@ -210,18 +216,18 @@ const VersionSelector = (props) => {
             DP
           </button>
           <button
-            onClick={() => setSpriteVersion(1)}
+            onClick={() => setSpriteGen4(1)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen4 === 0 ? (
                   'linear-gradient(red, blue)'
-                ) : spriteVersion === 1 ? (
+                ) : spriteGen4 === 1 ? (
                   'linear-gradient(red, green)'
                   ) : (
                   'linear-gradient(green, white)'
                 ),
               color:
-                spriteVersion === 0 ? (
+                spriteGen4 === 0 ? (
                   'white'
                 ) : (
                   'black'
@@ -233,18 +239,18 @@ const VersionSelector = (props) => {
             HGSS
           </button>
           <button
-            onClick={() => setSpriteVersion(2)}
+            onClick={() => setSpriteGen4(2)}
             style={{
               backgroundImage:
-                spriteVersion === 0 ? (
+                spriteGen4 === 0 ? (
                   'linear-gradient(red, blue)'
-                ) : spriteVersion === 1 ? (
+                ) : spriteGen4 === 1 ? (
                   'linear-gradient(red, green)'
                   ) : (
                   'linear-gradient(green, white)'
                 ),
               color:
-                spriteVersion === 0 ? (
+                spriteGen4 === 0 ? (
                   'white'
                 ) : (
                   'black'

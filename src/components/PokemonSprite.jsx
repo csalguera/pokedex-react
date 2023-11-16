@@ -1,11 +1,19 @@
 const PokemonSprite = (props) => {
   const {
     pokemonDetails,
-    spriteVersion,
+    spriteGen1,
+    spriteGen2,
+    spriteGen3,
+    spriteGen4,
     genPath,
   } = props
 
-  function determineSprite(path, version) {
+  console.log(spriteGen1, '1');
+  console.log(spriteGen2, '2');
+  console.log(spriteGen3, '3');
+  console.log(spriteGen4, '4');
+
+  function determineSprite(path, gen1Ver, gen2Ver, gen3Ver, gen4Ver) {
     const baseNotation = (pokemonDetails?.sprites?.versions)
 
     let generation = ''
@@ -29,7 +37,7 @@ const PokemonSprite = (props) => {
 
     if (path === 'gen-i') {
       let sprite = ''
-      switch (version) {
+      switch (gen1Ver) {
         case 0:
           sprite = generation?.['red-blue']?.front_transparent
           break
@@ -45,7 +53,7 @@ const PokemonSprite = (props) => {
 
     if (path === 'gen-ii') {
       let sprite = ''
-      switch (version) {
+      switch (gen2Ver) {
         case 0:
           sprite = generation?.gold.front_transparent
           break;
@@ -64,7 +72,7 @@ const PokemonSprite = (props) => {
 
     if (path === 'gen-iii') {
       let sprite = ''
-      switch (version) {
+      switch (gen3Ver) {
         case 0:
           sprite = generation?.['ruby-sapphire'].front_default
           break
@@ -83,7 +91,7 @@ const PokemonSprite = (props) => {
 
     if (path === 'gen-iv') {
       let sprite = ''
-      switch (version) {
+      switch (gen4Ver) {
         case 0:
           sprite = generation?.['diamond-pearl'].front_default
           break;
@@ -110,7 +118,7 @@ const PokemonSprite = (props) => {
       }}
     >
       <img
-        src={determineSprite(genPath, spriteVersion)}
+        src={determineSprite(genPath, spriteGen1, spriteGen2, spriteGen3, spriteGen4)}
         alt=""
         width='96px'
       />

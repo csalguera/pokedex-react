@@ -14,7 +14,10 @@ const PokemonEvolutionChain = (props) => {
     pokemonDetails,
     pokemonSpecies,
     evolutionChain,
-    spriteVersion,
+    spriteGen1,
+    spriteGen2,
+    spriteGen3,
+    spriteGen4,
     genNum,
     genPath,
     currentGen,
@@ -262,7 +265,10 @@ const PokemonEvolutionChain = (props) => {
         stageOneGen={stageOneGen}
         genPath={genPath}
         currentGen={currentGen}
-        spriteVersion={spriteVersion}
+        spriteGen1={spriteGen1}
+        spriteGen2={spriteGen2}
+        spriteGen3={spriteGen3}
+        spriteGen4={spriteGen4}
       />
       <StageTwoChain
         pokemonDetails={pokemonDetails}
@@ -295,7 +301,10 @@ const PokemonEvolutionChain = (props) => {
         genNum={genNum}
         genPath={genPath}
         currentGen={currentGen}
-        spriteVersion={spriteVersion}
+        spriteGen1={spriteGen1}
+        spriteGen2={spriteGen2}
+        spriteGen3={spriteGen3}
+        spriteGen4={spriteGen4}
       />
       <StageThreeChain
         stageThree={stageThree}
@@ -310,7 +319,10 @@ const PokemonEvolutionChain = (props) => {
         stageThreeAltStageTwoEvolutionMethod={stageThreeAltStageTwoEvolutionMethod}
         genPath={genPath}
         currentGen={currentGen}
-        spriteVersion={spriteVersion}
+        spriteGen1={spriteGen1}
+        spriteGen2={spriteGen2}
+        spriteGen3={spriteGen3}
+        spriteGen4={spriteGen4}
       />
     </div>
   )

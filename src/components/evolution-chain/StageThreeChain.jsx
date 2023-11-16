@@ -19,7 +19,10 @@ const StageThreeChain = (props) => {
     stageThreeAltStageTwoEvolutionMethod,
     genPath,
     currentGen,
-    spriteVersion,
+    spriteGen1,
+    spriteGen2,
+    spriteGen3,
+    spriteGen4,
   } = props
 
   return (
@@ -66,7 +69,10 @@ const StageThreeChain = (props) => {
             >
               <PokemonSprite
                 pokemonDetails={stageThreeDetails}
-                spriteVersion={spriteVersion}
+                spriteGen1={spriteGen1}
+                spriteGen2={spriteGen2}
+                spriteGen3={spriteGen3}
+                spriteGen4={spriteGen4}
                 genPath={genPath}
               />
             </Link>
@@ -76,7 +82,10 @@ const StageThreeChain = (props) => {
             >
               <PokemonSprite
                 pokemonDetails={stageThreeAltDetails}
-                spriteVersion={spriteVersion}
+                spriteGen1={spriteGen1}
+                spriteGen2={spriteGen2}
+                spriteGen3={spriteGen3}
+                spriteGen4={spriteGen4}
                 genPath={genPath}
               />
             </Link>
@@ -86,7 +95,10 @@ const StageThreeChain = (props) => {
             >
               <PokemonSprite
                 pokemonDetails={stageThreeAltStageTwoDetails}
-                spriteVersion={spriteVersion}
+                spriteGen1={spriteGen1}
+                spriteGen2={spriteGen2}
+                spriteGen3={spriteGen3}
+                spriteGen4={spriteGen4}
                 genPath={genPath}
               />
             </Link>

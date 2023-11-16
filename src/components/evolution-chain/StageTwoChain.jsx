@@ -37,7 +37,10 @@ const StageTwoChain = (props) => {
     genNum,
     genPath,
     currentGen,
-    spriteVersion,
+    spriteGen1,
+    spriteGen2,
+    spriteGen3,
+    spriteGen4,
   } = props
 
   return (
@@ -118,7 +121,10 @@ const StageTwoChain = (props) => {
                 >
                   <PokemonSprite
                     pokemonDetails={pokemonDetails}
-                    spriteVersion={spriteVersion}
+                    spriteGen1={spriteGen1}
+                    spriteGen2={spriteGen2}
+                    spriteGen3={spriteGen3}
+                    spriteGen4={spriteGen4}
                     genPath={genPath}
                   />
                 </Link>
@@ -131,7 +137,10 @@ const StageTwoChain = (props) => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoDetails}
-                    spriteVersion={spriteVersion}
+                    spriteGen1={spriteGen1}
+                    spriteGen2={spriteGen2}
+                    spriteGen3={spriteGen3}
+                    spriteGen4={spriteGen4}
                     genPath={genPath}
                   />
                 </Link>
@@ -141,7 +150,10 @@ const StageTwoChain = (props) => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt1Details}
-                    spriteVersion={spriteVersion}
+                    spriteGen1={spriteGen1}
+                    spriteGen2={spriteGen2}
+                    spriteGen3={spriteGen3}
+                    spriteGen4={spriteGen4}
                     genPath={genPath}
                   />
                 </Link>
@@ -151,7 +163,10 @@ const StageTwoChain = (props) => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt2Details}
-                    spriteVersion={spriteVersion}
+                    spriteGen1={spriteGen1}
+                    spriteGen2={spriteGen2}
+                    spriteGen3={spriteGen3}
+                    spriteGen4={spriteGen4}
                     genPath={genPath}
                   />
                 </Link>
@@ -161,7 +176,10 @@ const StageTwoChain = (props) => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt3Details}
-                    spriteVersion={spriteVersion}
+                    spriteGen1={spriteGen1}
+                    spriteGen2={spriteGen2}
+                    spriteGen3={spriteGen3}
+                    spriteGen4={spriteGen4}
                     genPath={genPath}
                   />
                 </Link>
@@ -171,7 +189,10 @@ const StageTwoChain = (props) => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt4Details}
-                    spriteVersion={spriteVersion}
+                    spriteGen1={spriteGen1}
+                    spriteGen2={spriteGen2}
+                    spriteGen3={spriteGen3}
+                    spriteGen4={spriteGen4}
                     genPath={genPath}
                   />
                 </Link>
@@ -181,7 +202,10 @@ const StageTwoChain = (props) => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt5Details}
-                    spriteVersion={spriteVersion}
+                    spriteGen1={spriteGen1}
+                    spriteGen2={spriteGen2}
+                    spriteGen3={spriteGen3}
+                    spriteGen4={spriteGen4}
                     genPath={genPath}
                   />
                 </Link>
@@ -191,7 +215,10 @@ const StageTwoChain = (props) => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt6Details}
-                    spriteVersion={spriteVersion}
+                    spriteGen1={spriteGen1}
+                    spriteGen2={spriteGen2}
+                    spriteGen3={spriteGen3}
+                    spriteGen4={spriteGen4}
                     genPath={genPath}
                   />
                 </Link>

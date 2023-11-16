@@ -20,7 +20,10 @@ const PokemonDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState({})
   const [pokemonSpecies, setPokemonSpecies] = useState({})
   const [evolutionChain, setEvolutionChain] = useState({})
-  const [spriteVersion, setSpriteVersion] = useState(0)
+  const [spriteGen1, setSpriteGen1] = useState(0)
+  const [spriteGen2, setSpriteGen2] = useState(0)
+  const [spriteGen3, setSpriteGen3] = useState(0)
+  const [spriteGen4, setSpriteGen4] = useState(0)
   const [genPath, setGenPath] = useState(location.state.genPath)
   const { genNum } = location.state
   const pastTypes = (pokemonDetails?.past_types?.[0])
@@ -117,14 +120,23 @@ const PokemonDetails = () => {
             genNum={genNum}
           />
           <VersionSelector
-            spriteVersion={spriteVersion}
-            setSpriteVersion={setSpriteVersion}
+            spriteGen1={spriteGen1}
+            spriteGen2={spriteGen2}
+            spriteGen3={spriteGen3}
+            spriteGen4={spriteGen4}
+            setSpriteGen1={setSpriteGen1}
+            setSpriteGen2={setSpriteGen2}
+            setSpriteGen3={setSpriteGen3}
+            setSpriteGen4={setSpriteGen4}
             genNum={genNum}
             genPath={genPath}
           />
           <PokemonSprite
             pokemonDetails={pokemonDetails}
-            spriteVersion={spriteVersion}
+            spriteGen1={spriteGen1}
+            spriteGen2={spriteGen2}
+            spriteGen3={spriteGen3}
+            spriteGen4={spriteGen4}
             genPath={genPath}
           />
           {currentGen > 1 && pastTypes?.generation.name === 'generation-i' ? (
@@ -153,7 +165,10 @@ const PokemonDetails = () => {
             pokemonDetails={pokemonDetails}
             pokemonSpecies={pokemonSpecies}
             evolutionChain={evolutionChain}
-            spriteVersion={spriteVersion}
+            spriteGen1={spriteGen1}
+            spriteGen2={spriteGen2}
+            spriteGen3={spriteGen3}
+            spriteGen4={spriteGen4}
             genNum={genNum}
             genPath={genPath}
             currentGen={currentGen}
