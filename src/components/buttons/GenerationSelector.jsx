@@ -12,21 +12,19 @@ const GenerationSelector = (props) => {
   let display = genNum <= val ? 'initial' : 'none'
 
   return (
-    <>
-      <Link
-        to={`/${path}/${pokemonDetails.name}`}
-        state={{ ...pokemonDetails, genNum }}
-        style={{
-          margin: '8px',
-          textDecoration: 'none',
-          display: display
-        }}
-        >
-          <button>
-            {`Gen ${val}`}
-          </button>
-        </Link>
-    </>
+    <Link
+      to={`/${path}/${pokemonDetails.name}`}
+      state={{ ...pokemonDetails, genNum }}
+      style={{
+        margin: '8px',
+        textDecoration: 'none',
+        display: display
+      }}
+    >
+      <button>
+        {`Gen ${val}`}
+      </button>
+    </Link>
   )
 }
 
