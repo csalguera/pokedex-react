@@ -8,11 +8,6 @@ const PokemonSprite = (props) => {
     genPath,
   } = props
 
-  console.log(spriteGen1, '1');
-  console.log(spriteGen2, '2');
-  console.log(spriteGen3, '3');
-  console.log(spriteGen4, '4');
-
   function determineSprite(path, gen1Ver, gen2Ver, gen3Ver, gen4Ver) {
     const baseNotation = (pokemonDetails?.sprites?.versions)
 
