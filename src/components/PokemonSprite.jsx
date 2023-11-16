@@ -72,12 +72,12 @@ const PokemonSprite = (props) => {
           sprite = generation?.['ruby-sapphire'].front_default
           break
         case 1:
-          sprite = generation?.['firered-leafgreen'].front_default
+          sprite = generation?.['firered-leafgreen'].front_default ?? generation?.emerald.front_default
           break
         case 2:
           sprite = generation?.emerald.front_default
           break
-          default:
+        default:
           sprite = generation?.emerald.front_default
           break
       }
