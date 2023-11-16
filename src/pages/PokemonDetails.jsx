@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom"
 import PokemonType from "../components/PokemonType"
 import PokemonSprite from "../components/PokemonSprite"
 import PokemonEvolutionChain from "../components/evolution-chain/PokemonEvolutionChain"
-import VersionSelector from "../components/buttons/VersionSelector"
+import VersionSelectorContainer from "../components/containers/VersionSelectorContainer"
 import GenerationSelectorContainer from "../components/containers/GenerationSelectorContainer"
 
 // services
@@ -119,11 +119,7 @@ const PokemonDetails = () => {
             pokemonDetails={pokemonDetails}
             genNum={genNum}
           />
-          <VersionSelector
-            spriteGen1={spriteGen1}
-            spriteGen2={spriteGen2}
-            spriteGen3={spriteGen3}
-            spriteGen4={spriteGen4}
+          <VersionSelectorContainer
             setSpriteGen1={setSpriteGen1}
             setSpriteGen2={setSpriteGen2}
             setSpriteGen3={setSpriteGen3}
