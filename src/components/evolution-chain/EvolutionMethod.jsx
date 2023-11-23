@@ -2,8 +2,12 @@
 import { useEffect, useState } from "react"
 import { getItem, getEvolutionTrigger } from "../../services/api-calls"
 
+// components
+import ConditionText from "./ConditionText"
+
 // utilities
 import { removeHyphens } from "../../utilities/utilities"
+import ConditionImg from "./ConditionImg"
 
 const EvolutionMethod = (props) => {
   const {
@@ -122,7 +126,7 @@ const EvolutionMethod = (props) => {
 
   const shedCondition = (
     trigger.name === 'shed' ? (
-      '20 & Empty Slot in Party'
+      'Lv. 20 & Empty Slot in Party'
     ) : (
       null
     )
@@ -186,41 +190,28 @@ const EvolutionMethod = (props) => {
       }}
     >
       <p style={{ margin: '2px' }}>{triggers}</p>
-      <p style={{ margin: '2px' }}>
-        {levelCondition ?? (
-          shedCondition
-        )}
-      </p>
-      {useItemCondition ? (
-        <img src={item?.sprites?.default} alt="" />
-        ) : (
-          null
-      )}
-      {heldItemCondition ? (
-        <img src={heldItem?.sprites?.default} alt="" />
-        ) : (
-          null
-      )}
-      {genderCondition ? (
-        <p style={{ color: genderColor }}>{genderCondition}</p>
-      ) : (
-        null
-      )}
-      {friendshipCondition ? (
-        <p style={{ margin: '0 4px' }}>{friendshipCondition}</p>
-      ) : (
-        null
-      )}
-      {timeCondition ? (
-        <p style={{ margin: '0 4px' }}>{timeCondition}</p>
-      ) : (
-        null
-      )}
-      {statCondition ? (
-        <p>{statCondition}</p>
-      ) : (
-        null
-      )}
+      <p style={{ margin: '2px' }}>{levelCondition ?? shedCondition}</p>
+      <ConditionImg
+        condition={useItemCondition}
+        item={item}
+      />
+      <ConditionImg
+        condition={heldItemCondition}
+        item={heldItem}
+      />
+      <ConditionText
+        condition={genderCondition}
+        color={genderColor}
+      />
+      <ConditionText
+        condition={friendshipCondition}
+      />
+      <ConditionText
+        condition={timeCondition}
+      />
+      <ConditionText
+        condition={statCondition}
+      />
       {beautyCondition ? (
         <img
           style={{ margin: '0 8px 0 0' }}
@@ -231,16 +222,12 @@ const EvolutionMethod = (props) => {
       ) : (
         null
       )}
-      {knownMoveCondition ? (
-        <p>{knownMoveCondition}</p>
-      ) : (
-        <></>
-      )}
-      {locationCondition ? (
-        <p>{locationCondition}</p>
-      ) : (
-        <></>
-      )}
+      <ConditionText
+        condition={knownMoveCondition}
+      />
+      <ConditionText
+        condition={locationCondition}
+      />
     </div>
   )
 }
