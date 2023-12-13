@@ -43,6 +43,8 @@ const StageTwoChain = (props) => {
     spriteGen4,
   } = props
 
+  console.log(pokemonSpecies?.name !== stageThree?.name);
+
   return (
     <>
       {stageTwo && stageTwoGen <= currentGen ? (
@@ -112,8 +114,8 @@ const StageTwoChain = (props) => {
               alignItems: 'center',
             }}
           >
-            {stageOneGen > currentGen &&
-            pokemonSpecies?.name !== stageThree?.name ? (
+            {(stageOneGen > currentGen) &&
+            (pokemonSpecies?.name === stageThree?.name) ? (
               <>
                 <Link
                   to={`/${genPath}/${pokemonDetails.name}`}
