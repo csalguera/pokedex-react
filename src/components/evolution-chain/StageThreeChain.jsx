@@ -1,11 +1,25 @@
 // npm modules
 import { Link } from "react-router-dom"
+import { useContext } from "react"
 
 // components
 import EvolutionMethod from "./EvolutionMethod"
 import PokemonSprite from "../PokemonSprite"
 
-const StageThreeChain = (props) => {
+// context
+import { PokemonEvolutionChainContext } from "../../pages/PokemonDetails"
+import { StageThreeChainContext } from "./PokemonEvolutionChain"
+
+const StageThreeChain = () => {
+  const {
+    spriteGen1,
+    spriteGen2,
+    spriteGen3,
+    spriteGen4,
+    genPath,
+    currentGen,
+  } = useContext(PokemonEvolutionChainContext)
+
   const {
     stageThree,
     stageThreeGen,
@@ -17,13 +31,7 @@ const StageThreeChain = (props) => {
     stageThreeAltStageTwoGen,
     stageThreeAltStageTwoDetails,
     stageThreeAltStageTwoEvolutionMethod,
-    genPath,
-    currentGen,
-    spriteGen1,
-    spriteGen2,
-    spriteGen3,
-    spriteGen4,
-  } = props
+  } = useContext(StageThreeChainContext)
 
   return (
     <>

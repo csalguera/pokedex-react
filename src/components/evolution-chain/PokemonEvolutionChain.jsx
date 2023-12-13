@@ -1,5 +1,5 @@
 // npm modules
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
 
 // components
 import StageOneChain from "./StageOneChain";
@@ -9,19 +9,14 @@ import StageTwoChain from "./StageTwoChain";
 import { getPokemonDetails, getPokemonSpecies } from "../../services/api-calls"
 import StageThreeChain from "./StageThreeChain";
 
-const PokemonEvolutionChain = (props) => {
-  const {
-    pokemonDetails,
-    pokemonSpecies,
-    evolutionChain,
-    spriteGen1,
-    spriteGen2,
-    spriteGen3,
-    spriteGen4,
-    genNum,
-    genPath,
-    currentGen,
-  } = props
+// context
+import { PokemonEvolutionChainContext } from "../../pages/PokemonDetails";
+export const StageOneChainContext = createContext()
+export const StageTwoChainContext = createContext()
+export const StageThreeChainContext = createContext()
+
+const PokemonEvolutionChain = () => {
+  const { evolutionChain } = useContext(PokemonEvolutionChainContext)
 
   // stage one
   const [stageOneDetails, setStageOneDetails] = useState({})
@@ -259,71 +254,62 @@ const PokemonEvolutionChain = (props) => {
         display: 'flex',
       }}
     >
-      <StageOneChain
-        stageOne={stageOne}
-        stageOneDetails={stageOneDetails}
-        stageOneGen={stageOneGen}
-        genPath={genPath}
-        currentGen={currentGen}
-        spriteGen1={spriteGen1}
-        spriteGen2={spriteGen2}
-        spriteGen3={spriteGen3}
-        spriteGen4={spriteGen4}
-      />
-      <StageTwoChain
-        pokemonDetails={pokemonDetails}
-        pokemonSpecies={pokemonSpecies}
-        stageOne={stageOne}
-        stageOneGen={stageOneGen}
-        stageTwo={stageTwo}
-        stageTwoGen={stageTwoGen}
-        stageTwoDetails={stageTwoDetails}
-        stageTwoEvolutionMethod={stageTwoEvolutionMethod}
-        stageTwoAlt1Gen={stageTwoAlt1Gen}
-        stageTwoAlt1Details={stageTwoAlt1Details}
-        stageTwoAlt1EvolutionMethod={stageTwoAlt1EvolutionMethod}
-        stageTwoAlt2Gen={stageTwoAlt2Gen}
-        stageTwoAlt2Details={stageTwoAlt2Details}
-        stageTwoAlt2EvolutionMethod={stageTwoAlt2EvolutionMethod}
-        stageTwoAlt3Gen={stageTwoAlt3Gen}
-        stageTwoAlt3Details={stageTwoAlt3Details}
-        stageTwoAlt3EvolutionMethod={stageTwoAlt3EvolutionMethod}
-        stageTwoAlt4Gen={stageTwoAlt4Gen}
-        stageTwoAlt4Details={stageTwoAlt4Details}
-        stageTwoAlt4EvolutionMethod={stageTwoAlt4EvolutionMethod}
-        stageTwoAlt5Gen={stageTwoAlt5Gen}
-        stageTwoAlt5Details={stageTwoAlt5Details}
-        stageTwoAlt5EvolutionMethod={stageTwoAlt5EvolutionMethod}
-        stageTwoAlt6Gen={stageTwoAlt6Gen}
-        stageTwoAlt6Details={stageTwoAlt6Details}
-        stageTwoAlt6EvolutionMethod={stageTwoAlt6EvolutionMethod}
-        stageThree={stageThree}
-        genNum={genNum}
-        genPath={genPath}
-        currentGen={currentGen}
-        spriteGen1={spriteGen1}
-        spriteGen2={spriteGen2}
-        spriteGen3={spriteGen3}
-        spriteGen4={spriteGen4}
-      />
-      <StageThreeChain
-        stageThree={stageThree}
-        stageThreeGen={stageThreeGen}
-        stageThreeDetails={stageThreeDetails}
-        stageThreeEvolutionMethod={stageThreeEvolutionMethod}
-        stageThreeAltGen={stageThreeAltGen}
-        stageThreeAltDetails={stageThreeAltDetails}
-        stageThreeAltEvolutionMethod={stageThreeAltEvolutionMethod}
-        stageThreeAltStageTwoGen={stageThreeAltStageTwoGen}
-        stageThreeAltStageTwoDetails={stageThreeAltStageTwoDetails}
-        stageThreeAltStageTwoEvolutionMethod={stageThreeAltStageTwoEvolutionMethod}
-        genPath={genPath}
-        currentGen={currentGen}
-        spriteGen1={spriteGen1}
-        spriteGen2={spriteGen2}
-        spriteGen3={spriteGen3}
-        spriteGen4={spriteGen4}
-      />
+      <StageOneChainContext.Provider
+        value={{
+          stageOne,
+          stageOneDetails,
+          stageOneGen,
+        }}
+      >
+        <StageOneChain />
+      </StageOneChainContext.Provider>
+      <StageTwoChainContext.Provider
+        value={{
+          stageOne,
+          stageOneGen,
+          stageTwo,
+          stageTwoGen,
+          stageTwoDetails,
+          stageTwoEvolutionMethod,
+          stageTwoAlt1Gen,
+          stageTwoAlt1Details,
+          stageTwoAlt1EvolutionMethod,
+          stageTwoAlt2Gen,
+          stageTwoAlt2Details,
+          stageTwoAlt2EvolutionMethod,
+          stageTwoAlt3Gen,
+          stageTwoAlt3Details,
+          stageTwoAlt3EvolutionMethod,
+          stageTwoAlt4Gen,
+          stageTwoAlt4Details,
+          stageTwoAlt4EvolutionMethod,
+          stageTwoAlt5Gen,
+          stageTwoAlt5Details,
+          stageTwoAlt5EvolutionMethod,
+          stageTwoAlt6Gen,
+          stageTwoAlt6Details,
+          stageTwoAlt6EvolutionMethod,
+          stageThree,
+        }}
+      >
+        <StageTwoChain />
+      </StageTwoChainContext.Provider>
+      <StageThreeChainContext.Provider
+        value={{
+          stageThree,
+          stageThreeGen,
+          stageThreeDetails,
+          stageThreeEvolutionMethod,
+          stageThreeAltGen,
+          stageThreeAltDetails,
+          stageThreeAltEvolutionMethod,
+          stageThreeAltStageTwoGen,
+          stageThreeAltStageTwoDetails,
+          stageThreeAltStageTwoEvolutionMethod,
+        }}
+      >
+        <StageThreeChain />
+      </StageThreeChainContext.Provider>
     </div>
   )
 }

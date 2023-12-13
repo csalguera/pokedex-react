@@ -1,5 +1,5 @@
 // npm modules
-import { useState, useEffect } from "react"
+import { useState, useEffect, createContext } from "react"
 import { useLocation } from "react-router-dom"
 
 // components
@@ -15,6 +15,9 @@ import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../
 
 // utilities
 import { leadingZeros, pascalize } from "../utilities/utilities"
+
+// context
+export const PokemonEvolutionChainContext = createContext()
 
 const PokemonDetails = () => {
   const location = useLocation()
@@ -161,18 +164,22 @@ const PokemonDetails = () => {
               />
             ))
           )}
-          <PokemonEvolutionChain
-            pokemonDetails={pokemonDetails}
-            pokemonSpecies={pokemonSpecies}
-            evolutionChain={evolutionChain}
-            spriteGen1={spriteGen1}
-            spriteGen2={spriteGen2}
-            spriteGen3={spriteGen3}
-            spriteGen4={spriteGen4}
-            genNum={genNum}
-            genPath={genPath}
-            currentGen={currentGen}
-          />
+          <PokemonEvolutionChainContext.Provider
+            value={{
+              pokemonDetails,
+              pokemonSpecies,
+              evolutionChain,
+              spriteGen1,
+              spriteGen2,
+              spriteGen3,
+              spriteGen4,
+              genNum,
+              genPath,
+              currentGen,
+            }}
+          >
+            <PokemonEvolutionChain />
+          </PokemonEvolutionChainContext.Provider>
         </div>
       ) : (
         <h1>Loading...</h1>

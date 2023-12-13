@@ -4,18 +4,27 @@ import { Link } from "react-router-dom"
 // components
 import PokemonSprite from "../PokemonSprite"
 
-const StageOneChain = (props) => {
+// context
+import { PokemonEvolutionChainContext } from "../../pages/PokemonDetails"
+import { StageOneChainContext } from "./PokemonEvolutionChain"
+import { useContext } from "react"
+
+const StageOneChain = () => {
   const {
-    stageOne,
-    stageOneDetails,
-    stageOneGen,
-    genPath,
-    currentGen,
     spriteGen1,
     spriteGen2,
     spriteGen3,
     spriteGen4,
-  } = props
+    genPath,
+    currentGen,
+  } = useContext(PokemonEvolutionChainContext)
+
+  const {
+    stageOne,
+    stageOneDetails,
+    stageOneGen,
+  } = useContext(StageOneChainContext)
+
 
   return (
     <>
