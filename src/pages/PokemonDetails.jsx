@@ -8,6 +8,7 @@ import PokemonSprite from "../components/PokemonSprite"
 import PokemonEvolutionChain from "../components/evolution-chain/PokemonEvolutionChain"
 import VersionSelectorContainer from "../components/containers/VersionSelectorContainer"
 import GenerationSelectorContainer from "../components/containers/GenerationSelectorContainer"
+import Cry from "../components/buttons/Cry"
 
 // services
 import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../services/api-calls"
@@ -134,6 +135,9 @@ const PokemonDetails = () => {
             spriteGen3={spriteGen3}
             spriteGen4={spriteGen4}
             genPath={genPath}
+          />
+          <Cry
+            name={location.state.name}
           />
           {currentGen > 1 && pastTypes?.generation.name === 'generation-i' ? (
             pokemonDetails?.types?.map(type => (

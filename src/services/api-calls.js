@@ -1,4 +1,4 @@
-export const baseURL = process.env.REACT_APP_BASE_URL
+export const baseURL = process.env.REACT_APP_API_BASE_URL
 
 export async function getPokemonList(x, y) {
   const res = await fetch(`${baseURL}/pokemon/?limit=${x}&offset=${y}`)
