@@ -43,8 +43,6 @@ const StageTwoChain = (props) => {
     spriteGen4,
   } = props
 
-  console.log(pokemonSpecies?.name !== stageThree?.name);
-
   return (
     <>
       {stageTwo && stageTwoGen <= currentGen ? (
