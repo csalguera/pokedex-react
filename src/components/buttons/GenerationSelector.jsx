@@ -1,10 +1,17 @@
 // npm modules
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+
+// context
+import { GenerationSelectorContainerContext } from "../../pages/PokemonDetails"
 
 const GenerationSelector = (props) => {
   const {
     pokemonDetails,
     genNum,
+  } = useContext(GenerationSelectorContainerContext)
+
+  const {
     path,
     val,
   } = props

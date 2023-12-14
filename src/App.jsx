@@ -1,6 +1,8 @@
-import './App.css';
-
+// npm modules
 import { Route, Routes } from 'react-router-dom';
+
+// stylesheets
+import './App.css';
 
 // pages
 import Landing from './pages/Landing';

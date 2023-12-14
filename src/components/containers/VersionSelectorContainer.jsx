@@ -1,14 +1,20 @@
+// npm modules
+import { useContext } from "react"
+
 // components
 import VersionSelector from "../buttons/VersionSelector"
 
-const VersionSelectorContainer = (props) => {
+// context
+import { VersionSelectorContainerContext } from "../../pages/PokemonDetails"
+
+const VersionSelectorContainer = () => {
   const {
     genPath,
     setSpriteGen1,
     setSpriteGen2,
     setSpriteGen3,
     setSpriteGen4,
-  } = props
+  } = useContext(VersionSelectorContainerContext)
 
   return (
     <div style={{ display: 'flex' }}>

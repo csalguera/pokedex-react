@@ -1,11 +1,7 @@
 // components
 import GenerationSelector from "../buttons/GenerationSelector"
 
-const GenerationSelectorContainer = (props) => {
-  const {
-    pokemonDetails,
-    genNum,
-  } = props
+const GenerationSelectorContainer = () => {
 
   return (
     <div
@@ -16,26 +12,18 @@ const GenerationSelectorContainer = (props) => {
       }}
     >
       <GenerationSelector
-        pokemonDetails={pokemonDetails}
-        genNum={genNum}
         path={'gen-i'}
         val={1}
       />
       <GenerationSelector
-        pokemonDetails={pokemonDetails}
-        genNum={genNum}
         path={'gen-ii'}
         val={2}
       />
       <GenerationSelector
-        pokemonDetails={pokemonDetails}
-        genNum={genNum}
         path={'gen-iii'}
         val={3}
       />
       <GenerationSelector
-        pokemonDetails={pokemonDetails}
-        genNum={genNum}
         path={'gen-iv'}
         val={4}
       />

@@ -220,8 +220,8 @@ const PokemonEvolutionChain = () => {
 
   useEffect(() => {
     const extractGenNum = (obj) => {
-      const url = 'https://pokeapi.co/api/v2/generation/'
-      return parseInt(obj?.generation?.url.replace(`${url}`, '').replace('/', ''))
+      const url = process.env.REACT_APP_API_BASE_URL
+      return parseInt(obj?.generation?.url.replace(`${url}/generation`, '').replace('/', ''))
     }
     setStageOneGen(extractGenNum(stageOneSpecies))
     setStageTwoGen(extractGenNum(stageTwoSpecies))

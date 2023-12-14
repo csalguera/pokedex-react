@@ -17,6 +17,9 @@ import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../
 import { leadingZeros, pascalize } from "../utilities/utilities"
 
 // context
+export const GenerationSelectorContainerContext = createContext()
+export const VersionSelectorContainerContext = createContext()
+export const PokemonSpriteContext = createContext()
 export const PokemonEvolutionChainContext = createContext()
 
 const PokemonDetails = () => {
@@ -119,18 +122,25 @@ const PokemonDetails = () => {
               {pascalize(pokemonDetails.name ?? '')}
             </h1>
           </div>
-          <GenerationSelectorContainer
-            pokemonDetails={pokemonDetails}
-            genNum={genNum}
-          />
-          <VersionSelectorContainer
-            setSpriteGen1={setSpriteGen1}
-            setSpriteGen2={setSpriteGen2}
-            setSpriteGen3={setSpriteGen3}
-            setSpriteGen4={setSpriteGen4}
-            genNum={genNum}
-            genPath={genPath}
-          />
+          <GenerationSelectorContainerContext.Provider
+            value={{
+              pokemonDetails,
+              genNum,
+            }}
+          >
+            <GenerationSelectorContainer />
+          </GenerationSelectorContainerContext.Provider>
+          <VersionSelectorContainerContext.Provider
+            value={{
+              genPath,
+              setSpriteGen1,
+              setSpriteGen2,
+              setSpriteGen3,
+              setSpriteGen4,
+            }}
+          >
+            <VersionSelectorContainer />
+          </VersionSelectorContainerContext.Provider>
           <PokemonSprite
             pokemonDetails={pokemonDetails}
             spriteGen1={spriteGen1}
