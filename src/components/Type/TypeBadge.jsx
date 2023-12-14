@@ -1,6 +1,6 @@
-import { pascalize } from "../utilities/utilities"
+import { pascalize } from "../../utilities/utilities"
 
-const PokemonType = (props) => {
+const TypeBadge = (props) => {
   const { type } = props
 
   let color = ''
@@ -83,4 +83,4 @@ const PokemonType = (props) => {
   )
 }
 
-export default PokemonType
+export default TypeBadge

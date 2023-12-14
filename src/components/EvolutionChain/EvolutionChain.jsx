@@ -4,22 +4,22 @@ import StageTwoChain from "./StageTwoChain";
 import StageThreeChain from "./StageThreeChain";
 
 // context
-import PokemonEvolutionChainProvider from "../../context/PokemonEvolutionChainProvider";
+import EvolutionChainProvider from "../../context/EvolutionChainProvider";
 
-const PokemonEvolutionChain = () => {
+const EvolutionChain = () => {
   return (
     <div
       style={{
         display: 'flex',
       }}
     >
-      <PokemonEvolutionChainProvider>
+      <EvolutionChainProvider>
         <StageOneChain />
         <StageTwoChain />
         <StageThreeChain />
-      </PokemonEvolutionChainProvider>
+      </EvolutionChainProvider>
     </div>
   )
 }
 
-export default PokemonEvolutionChain
+export default EvolutionChain

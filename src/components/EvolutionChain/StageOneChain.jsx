@@ -3,11 +3,11 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 
 // components
-import PokemonSprite from "../PokemonSprite"
+import PokemonSprite from "../common/PokemonSprite"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
-import { PokemonEvolutionChainContext } from "../../context/PokemonEvolutionChainProvider"
+import { EvolutionChainContext } from "../../context/EvolutionChainProvider"
 
 const StageOneChain = () => {
   const {
@@ -19,7 +19,7 @@ const StageOneChain = () => {
     stageOne,
     stageOneDetails,
     stageOneGen,
-  } = useContext(PokemonEvolutionChainContext)
+  } = useContext(EvolutionChainContext)
 
 
   return (

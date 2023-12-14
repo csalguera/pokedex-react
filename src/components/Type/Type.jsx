@@ -2,12 +2,12 @@
 import { useContext } from "react"
 
 // components
-import PokemonType from "../PokemonType"
+import TypeBadge from "./TypeBadge"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
-const PokemonTypeContainer = () => {
+const Type = () => {
   const {
     currentGen,
     pastTypes,
@@ -18,21 +18,21 @@ const PokemonTypeContainer = () => {
     <>
       {currentGen > 1 && pastTypes?.generation.name === 'generation-i' ? (
         pokemonDetails?.types?.map(type => (
-          <PokemonType
+          <TypeBadge
             type={type}
             key={type.slot}
           />
         ))
       ) : currentGen <= 5 && pastTypes ? (
         pastTypes?.types?.map(type => (
-          <PokemonType
+          <TypeBadge
             type={type}
             key={type.slot}
           />
         ))
       ) : (
         pokemonDetails?.types?.map(type => (
-          <PokemonType
+          <TypeBadge
             type={type}
             key={type.slot}
           />
@@ -42,4 +42,4 @@ const PokemonTypeContainer = () => {
   )
 }
 
-export default PokemonTypeContainer
+export default Type

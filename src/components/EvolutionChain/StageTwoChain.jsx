@@ -3,12 +3,12 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 
 // components
-import EvolutionMethod from "./EvolutionMethod"
-import PokemonSprite from "../PokemonSprite"
+import EvolutionMethod from "../EvolutionMethod/EvolutionMethod"
+import PokemonSprite from "../common/PokemonSprite"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
-import { PokemonEvolutionChainContext } from "../../context/PokemonEvolutionChainProvider"
+import { EvolutionChainContext } from "../../context/EvolutionChainProvider"
 
 const StageTwoChain = () => {
   const {
@@ -45,7 +45,7 @@ const StageTwoChain = () => {
     stageTwoAlt6Details,
     stageTwoAlt6EvolutionMethod,
     stageThree,
-  } = useContext(PokemonEvolutionChainContext)
+  } = useContext(EvolutionChainContext)
 
   return (
     <>

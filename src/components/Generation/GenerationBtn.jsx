@@ -5,7 +5,7 @@ import { useContext } from "react"
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
-const GenerationSelector = (props) => {
+const GenerationBtn = (props) => {
   const {
     pokemonDetails,
     genNum,
@@ -35,4 +35,4 @@ const GenerationSelector = (props) => {
   )
 }
 
-export default GenerationSelector
+export default GenerationBtn

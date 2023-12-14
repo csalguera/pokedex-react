@@ -6,9 +6,9 @@ import { getPokemonDetails, getPokemonSpecies } from "../services/api-calls"
 
 // context
 import { PokemonDetailsContext } from "./PokemonDetailsProvider";
-export const PokemonEvolutionChainContext = createContext()
+export const EvolutionChainContext = createContext()
 
-const PokemonEvolutionChainProvider = ({ children }) => {
+const EvolutionChainProvider = ({ children }) => {
   const { evolutionChain } = useContext(PokemonDetailsContext)
   // stage one
   const [stageOneDetails, setStageOneDetails] = useState({})
@@ -279,12 +279,12 @@ const PokemonEvolutionChainProvider = ({ children }) => {
   }
 
   return (
-    <PokemonEvolutionChainContext.Provider
+    <EvolutionChainContext.Provider
       value={contextValues}
     >
       {children}
-    </PokemonEvolutionChainContext.Provider>
+    </EvolutionChainContext.Provider>
   )
 }
 
-export default PokemonEvolutionChainProvider
+export default EvolutionChainProvider

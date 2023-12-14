@@ -2,12 +2,12 @@
 import { useContext } from "react"
 
 // components
-import VersionSelector from "../buttons/VersionSelector"
+import VersionBtn from "./VersionBtn"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
-const VersionSelectorContainer = () => {
+const Version = () => {
   const {
     genPath,
     setSpriteGen1,
@@ -18,67 +18,67 @@ const VersionSelectorContainer = () => {
 
   return (
     <div style={{ display: 'flex' }}>
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen1(0)}
         chars='RB'
         actualPath={genPath}
         thisPath='gen-i'
       />
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen1(1)}
         chars='Y'
         actualPath={genPath}
         thisPath='gen-i'
       />
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen2(0)}
         chars='G'
         actualPath={genPath}
         thisPath='gen-ii'
       />
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen2(1)}
         chars='S'
         actualPath={genPath}
         thisPath='gen-ii'
       />
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen2(2)}
         chars='C'
         actualPath={genPath}
         thisPath='gen-ii'
       />
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen3(0)}
         chars='RS'
         actualPath={genPath}
         thisPath='gen-iii'
       />
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen3(1)}
         chars='FRLG'
         actualPath={genPath}
         thisPath='gen-iii'
       />
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen3(2)}
         chars='E'
         actualPath={genPath}
         thisPath='gen-iii'
       />
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen4(0)}
         chars='DP'
         actualPath={genPath}
         thisPath='gen-iv'
       />
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen4(1)}
         chars='HGSS'
         actualPath={genPath}
         thisPath='gen-iv'
       />
-      <VersionSelector
+      <VersionBtn
         setSprite={() => setSpriteGen4(2)}
         chars='Pt'
         actualPath={genPath}
@@ -88,4 +88,4 @@ const VersionSelectorContainer = () => {
   )
 }
 
-export default VersionSelectorContainer
+export default Version
