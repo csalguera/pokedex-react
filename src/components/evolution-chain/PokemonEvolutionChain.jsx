@@ -10,11 +10,11 @@ import { getPokemonDetails, getPokemonSpecies } from "../../services/api-calls"
 import StageThreeChain from "./StageThreeChain";
 
 // context
-import { PokemonEvolutionChainContext } from "../../pages/PokemonDetails";
-export const ChainContext = createContext()
+import { PokemonDetailsContext } from "../../pages/PokemonDetails";
+export const PokemonEvolutionChainContext = createContext()
 
 const PokemonEvolutionChain = () => {
-  const { evolutionChain } = useContext(PokemonEvolutionChainContext)
+  const { evolutionChain } = useContext(PokemonDetailsContext)
 
   // stage one
   const [stageOneDetails, setStageOneDetails] = useState({})
@@ -290,13 +290,13 @@ const PokemonEvolutionChain = () => {
         display: 'flex',
       }}
     >
-      <ChainContext.Provider
+      <PokemonEvolutionChainContext.Provider
         value={contextValues}
       >
         <StageOneChain />
         <StageTwoChain />
         <StageThreeChain />
-      </ChainContext.Provider>
+      </PokemonEvolutionChainContext.Provider>
     </div>
   )
 }

@@ -5,8 +5,8 @@ import { Link } from "react-router-dom"
 import PokemonSprite from "../PokemonSprite"
 
 // context
-import { PokemonEvolutionChainContext } from "../../pages/PokemonDetails"
-import { ChainContext } from "./PokemonEvolutionChain"
+import { PokemonDetailsContext } from "../../pages/PokemonDetails"
+import { PokemonEvolutionChainContext } from "./PokemonEvolutionChain"
 import { useContext } from "react"
 
 const StageOneChain = () => {
@@ -17,13 +17,13 @@ const StageOneChain = () => {
     spriteGen4,
     genPath,
     currentGen,
-  } = useContext(PokemonEvolutionChainContext)
+  } = useContext(PokemonDetailsContext)
 
   const {
     stageOne,
     stageOneDetails,
     stageOneGen,
-  } = useContext(ChainContext)
+  } = useContext(PokemonEvolutionChainContext)
 
 
   return (

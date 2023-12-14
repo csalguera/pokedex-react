@@ -7,8 +7,8 @@ import EvolutionMethod from "./EvolutionMethod"
 import PokemonSprite from "../PokemonSprite"
 
 // context
-import { PokemonEvolutionChainContext } from "../../pages/PokemonDetails"
-import { ChainContext } from "./PokemonEvolutionChain"
+import { PokemonDetailsContext } from "../../pages/PokemonDetails"
+import { PokemonEvolutionChainContext } from "./PokemonEvolutionChain"
 
 const StageTwoChain = () => {
   const {
@@ -21,7 +21,7 @@ const StageTwoChain = () => {
     genNum,
     genPath,
     currentGen,
-  } = useContext(PokemonEvolutionChainContext)
+  } = useContext(PokemonDetailsContext)
 
   const {
     stageOne,
@@ -49,7 +49,7 @@ const StageTwoChain = () => {
     stageTwoAlt6Details,
     stageTwoAlt6EvolutionMethod,
     stageThree,
-  } = useContext(ChainContext)
+  } = useContext(PokemonEvolutionChainContext)
 
   return (
     <>

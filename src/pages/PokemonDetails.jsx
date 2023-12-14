@@ -19,6 +19,7 @@ export const GenerationSelectorContainerContext = createContext()
 export const VersionSelectorContainerContext = createContext()
 export const PokemonSpriteContext = createContext()
 export const PokemonEvolutionChainContext = createContext()
+export const PokemonDetailsContext = createContext()
 
 const PokemonDetails = () => {
   const location = useLocation()
@@ -87,6 +88,23 @@ const PokemonDetails = () => {
     updateGenPath()
   }, [location.pathname, pokemonDetails.name])
 
+  const contextValues = {
+    pokemonDetails,
+    genNum,
+    genPath,
+    setSpriteGen1,
+    setSpriteGen2,
+    setSpriteGen3,
+    setSpriteGen4,
+    pokemonSpecies,
+    evolutionChain,
+    spriteGen1,
+    spriteGen2,
+    spriteGen3,
+    spriteGen4,
+    currentGen,
+  }
+
   return (
     <>
       {pokemonDetails ? (
@@ -98,58 +116,30 @@ const PokemonDetails = () => {
             alignItems: 'center'
           }}
         >
-          <Header pokemonDetails={pokemonDetails} />
-          <GenerationSelectorContainerContext.Provider
-            value={{
-              pokemonDetails,
-              genNum,
-            }}
+          <PokemonDetailsContext.Provider
+            value={contextValues}
           >
+            <Header pokemonDetails={pokemonDetails} />
             <GenerationSelectorContainer />
-          </GenerationSelectorContainerContext.Provider>
-          <VersionSelectorContainerContext.Provider
-            value={{
-              genPath,
-              setSpriteGen1,
-              setSpriteGen2,
-              setSpriteGen3,
-              setSpriteGen4,
-            }}
-          >
             <VersionSelectorContainer />
-          </VersionSelectorContainerContext.Provider>
-          <PokemonSprite
-            pokemonDetails={pokemonDetails}
-            spriteGen1={spriteGen1}
-            spriteGen2={spriteGen2}
-            spriteGen3={spriteGen3}
-            spriteGen4={spriteGen4}
-            genPath={genPath}
-          />
-          <Cry
-            name={location.state.name}
-          />
-          <PokemonTypeContainer
-            currentGen={currentGen}
-            pastTypes={pastTypes}
-            pokemonDetails={pokemonDetails}
-          />
-          <PokemonEvolutionChainContext.Provider
-            value={{
-              pokemonDetails,
-              pokemonSpecies,
-              evolutionChain,
-              spriteGen1,
-              spriteGen2,
-              spriteGen3,
-              spriteGen4,
-              genNum,
-              genPath,
-              currentGen,
-            }}
-          >
+            <PokemonSprite
+              pokemonDetails={pokemonDetails}
+              spriteGen1={spriteGen1}
+              spriteGen2={spriteGen2}
+              spriteGen3={spriteGen3}
+              spriteGen4={spriteGen4}
+              genPath={genPath}
+            />
+            <Cry
+              name={location.state.name}
+            />
+            <PokemonTypeContainer
+              currentGen={currentGen}
+              pastTypes={pastTypes}
+              pokemonDetails={pokemonDetails}
+            />
             <PokemonEvolutionChain />
-          </PokemonEvolutionChainContext.Provider>
+          </PokemonDetailsContext.Provider>
         </div>
       ) : (
         <h1>Loading...</h1>

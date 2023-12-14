@@ -5,7 +5,7 @@ import { useContext } from "react"
 import VersionSelector from "../buttons/VersionSelector"
 
 // context
-import { VersionSelectorContainerContext } from "../../pages/PokemonDetails"
+import { PokemonDetailsContext } from "../../pages/PokemonDetails"
 
 const VersionSelectorContainer = () => {
   const {
@@ -14,7 +14,7 @@ const VersionSelectorContainer = () => {
     setSpriteGen2,
     setSpriteGen3,
     setSpriteGen4,
-  } = useContext(VersionSelectorContainerContext)
+  } = useContext(PokemonDetailsContext)
 
   return (
     <div style={{ display: 'flex' }}>
