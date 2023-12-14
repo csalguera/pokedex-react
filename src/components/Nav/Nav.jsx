@@ -1,6 +1,8 @@
 // npm modules
 import { Link } from "react-router-dom"
 import { useState } from "react"
+
+// mui components
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -12,7 +14,6 @@ import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 import ComputerIcon from '@mui/icons-material/Computer'
-
 
 const Nav = () => {
   const gen1 = {
@@ -63,7 +64,6 @@ const Nav = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
   }
-
 
   return (
     <AppBar position="static">
