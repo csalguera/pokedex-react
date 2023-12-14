@@ -43,16 +43,20 @@ const PokemonDetailsProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchDetails = async () => {
-      const pokemonData = await getPokemonDetails(location.state?.name)
-      setPokemonDetails(pokemonData)
+      if (location.state?.name) {
+        const pokemonData = await getPokemonDetails(location.state?.name)
+        setPokemonDetails(pokemonData)
+      }
     }
     fetchDetails()
   }, [location.state?.name])
 
   useEffect(() => {
     const fetchPokemonSpecies = async () => {
-      const pokemonSpeciesData = await getPokemonSpecies(location.state?.name)
-      setPokemonSpecies(pokemonSpeciesData)
+      if (location.state?.name) {
+        const pokemonSpeciesData = await getPokemonSpecies(location.state?.name)
+        setPokemonSpecies(pokemonSpeciesData)
+      }
     }
     fetchPokemonSpecies()
   }, [location.state?.name])

@@ -8,7 +8,7 @@ import PokemonSprite from "../PokemonSprite"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
-import { PokemonEvolutionChainContext } from "./PokemonEvolutionChain"
+import { PokemonEvolutionChainContext } from "../../context/PokemonEvolutionChainProvider"
 
 const StageTwoChain = () => {
   const {
