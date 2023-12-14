@@ -13,19 +13,19 @@ const Generation = () => {
     >
       <GenerationBtn
         path={'gen-i'}
-        val={1}
+        generationVal={1}
       />
       <GenerationBtn
         path={'gen-ii'}
-        val={2}
+        generationVal={2}
       />
       <GenerationBtn
         path={'gen-iii'}
-        val={3}
+        generationVal={3}
       />
       <GenerationBtn
         path={'gen-iv'}
-        val={4}
+        generationVal={4}
       />
     </div>
   )

@@ -1,5 +1,6 @@
 // npm modules
 import { useState, useEffect } from "react"
+import { Button } from "@mui/material"
 
 // services
 import { getPokemonCry } from "../../services/pokemon-cries"
@@ -20,11 +21,15 @@ const Cry = (props) => {
   const cry = new Audio(pokemonCry.url)
 
   return (
-    <button
+    <Button
+      sx={{
+        margin: '8px',
+      }}
+      variant="contained"
       onClick={() => cry.play()}
     >
       Play Cry
-    </button>
+    </Button>
   )
 }
 

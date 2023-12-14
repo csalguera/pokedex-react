@@ -1,6 +1,7 @@
 // npm modules
 import { Link } from "react-router-dom"
 import { useContext } from "react"
+import { Button } from "@mui/material"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -9,28 +10,30 @@ const GenerationBtn = (props) => {
   const {
     pokemonDetails,
     genNum,
+    currentGen,
   } = useContext(PokemonDetailsContext)
 
   const {
     path,
-    val,
+    generationVal,
   } = props
 
-  let display = genNum <= val ? 'initial' : 'none'
+  let display = genNum <= generationVal
 
   return (
     <Link
-      to={`/${path}/${pokemonDetails.name}`}
+      to={display ? `/${path}/${pokemonDetails.name}` : '#'}
       state={{ ...pokemonDetails, genNum }}
       style={{
         margin: '8px',
-        textDecoration: 'none',
-        display: display
       }}
     >
-      <button>
-        {`Gen ${val}`}
-      </button>
+      <Button
+        variant={currentGen === generationVal ? 'contained' : 'outlined'}
+        disabled={display ? false : true}
+      >
+        {`Gen ${generationVal}`}
+      </Button>
     </Link>
   )
 }
