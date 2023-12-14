@@ -5,7 +5,7 @@ import { useContext } from "react"
 import VersionSelector from "../buttons/VersionSelector"
 
 // context
-import { PokemonDetailsContext } from "../../pages/PokemonDetails"
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const VersionSelectorContainer = () => {
   const {

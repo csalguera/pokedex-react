@@ -1,6 +1,5 @@
 // npm modules
-import { useState, useEffect, createContext } from "react"
-import { useLocation } from "react-router-dom"
+import { useContext } from "react"
 
 // components
 import Header from "../components/Header"
@@ -11,100 +10,14 @@ import PokemonEvolutionChain from "../components/evolution-chain/PokemonEvolutio
 import VersionSelectorContainer from "../components/containers/VersionSelectorContainer"
 import GenerationSelectorContainer from "../components/containers/GenerationSelectorContainer"
 
-// services
-import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../services/api-calls"
-
 // context
-export const GenerationSelectorContainerContext = createContext()
-export const VersionSelectorContainerContext = createContext()
-export const PokemonSpriteContext = createContext()
-export const PokemonEvolutionChainContext = createContext()
-export const PokemonDetailsContext = createContext()
+import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
 
 const PokemonDetails = () => {
-  const location = useLocation()
-  const [pokemonDetails, setPokemonDetails] = useState({})
-  const [pokemonSpecies, setPokemonSpecies] = useState({})
-  const [evolutionChain, setEvolutionChain] = useState({})
-  const [spriteGen1, setSpriteGen1] = useState(0)
-  const [spriteGen2, setSpriteGen2] = useState(0)
-  const [spriteGen3, setSpriteGen3] = useState(0)
-  const [spriteGen4, setSpriteGen4] = useState(0)
-  const [genPath, setGenPath] = useState(location.state.genPath)
-  const { genNum } = location.state
-  const pastTypes = (pokemonDetails?.past_types?.[0])
-  
-  let currentGen
-
-  switch (genPath) {
-    case 'gen-i':
-      currentGen = 1
-      break;
-    case 'gen-ii':
-      currentGen = 2
-      break;
-    case 'gen-iii':
-      currentGen = 3
-      break;
-    case 'gen-iv':
-      currentGen = 4
-      break;
-    default:
-      currentGen = 0
-      break;
-  }
-
-  useEffect(() => {
-    const fetchDetails = async () => {
-      const pokemonData = await getPokemonDetails(location.state.name)
-      setPokemonDetails(pokemonData)
-    }
-    fetchDetails()
-  }, [location.state.name])
-
-  useEffect(() => {
-    const fetchPokemonSpecies = async () => {
-      const pokemonSpeciesData = await getPokemonSpecies(location.state.name)
-      setPokemonSpecies(pokemonSpeciesData)
-    }
-    fetchPokemonSpecies()
-  }, [location.state.name])
-
-  useEffect(() => {
-    const fetchEvolutionChain = async () => {
-      if (pokemonSpecies && pokemonSpecies.evolution_chain) {
-        const evolutionChainData = await getEvolutionChainData(pokemonSpecies.evolution_chain.url)
-        setEvolutionChain(evolutionChainData)
-      }
-    }
-    fetchEvolutionChain()
-  }, [pokemonSpecies, pokemonSpecies.evolution_chain])
-
-  useEffect(() => {
-    const updateGenPath = () => {
-      const newPath = (location.pathname.replace(`/${pokemonDetails.name}`, '').replace('/', ''))
-      setGenPath(newPath)
-    }
-    updateGenPath()
-  }, [location.pathname, pokemonDetails.name])
-
-  const contextValues = {
+  const {
+    location,
     pokemonDetails,
-    genNum,
-    genPath,
-    pastTypes,
-    setSpriteGen1,
-    setSpriteGen2,
-    setSpriteGen3,
-    setSpriteGen4,
-    pokemonSpecies,
-    evolutionChain,
-    spriteGen1,
-    spriteGen2,
-    spriteGen3,
-    spriteGen4,
-    currentGen,
-  }
+  } = useContext(PokemonDetailsContext)
 
   return (
     <>
@@ -117,9 +30,7 @@ const PokemonDetails = () => {
             alignItems: 'center'
           }}
         >
-          <PokemonDetailsContext.Provider
-            value={contextValues}
-          >
+          <PokemonDetailsProvider>
             <Header />
             <GenerationSelectorContainer />
             <VersionSelectorContainer />
@@ -131,7 +42,7 @@ const PokemonDetails = () => {
             />
             <PokemonTypeContainer />
             <PokemonEvolutionChain />
-          </PokemonDetailsContext.Provider>
+          </PokemonDetailsProvider>
         </div>
       ) : (
         <h1>Loading...</h1>

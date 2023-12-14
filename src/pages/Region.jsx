@@ -1,7 +1,12 @@
+// npm modules
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
-import { getPokemonList } from "../services/api-calls"
 import { Link } from "react-router-dom"
+
+// services
+import { getPokemonList } from "../services/api-calls"
+
+// utilities
 import { pascalize, leadingZeros } from "../utilities/utilities"
 
 const Region = () => {

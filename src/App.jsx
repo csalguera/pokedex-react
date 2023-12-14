@@ -12,21 +12,26 @@ import PokemonDetails from './pages/PokemonDetails';
 // components
 import Nav from './components/Nav';
 
+// context
+import PokemonDetailsProvider from './context/PokemonDetailsProvider';
+
 function App() {
   return (
     <>
-    <Nav />
-      <Routes>
-        <Route path='/' element={<Landing />} />
-        <Route path='gen-i' element={<Region />} />
-        <Route path='gen-i/:pokemonName' element={<PokemonDetails />} />
-        <Route path='gen-ii' element={<Region />} />
-        <Route path='gen-ii/:pokemonName' element={<PokemonDetails />} />
-        <Route path='gen-iii' element={<Region />} />
-        <Route path='gen-iii/:pokemonName' element={<PokemonDetails />} />
-        <Route path='gen-iv' element={<Region />} />
-        <Route path='gen-iv/:pokemonName' element={<PokemonDetails />} />
-      </Routes>
+      <PokemonDetailsProvider>
+        <Nav />
+        <Routes>
+          <Route path='/' element={<Landing />} />
+          <Route path='gen-i' element={<Region />} />
+          <Route path='gen-i/:pokemonName' element={<PokemonDetails />} />
+          <Route path='gen-ii' element={<Region />} />
+          <Route path='gen-ii/:pokemonName' element={<PokemonDetails />} />
+          <Route path='gen-iii' element={<Region />} />
+          <Route path='gen-iii/:pokemonName' element={<PokemonDetails />} />
+          <Route path='gen-iv' element={<Region />} />
+          <Route path='gen-iv/:pokemonName' element={<PokemonDetails />} />
+        </Routes>
+      </PokemonDetailsProvider>
     </>
   )
 }

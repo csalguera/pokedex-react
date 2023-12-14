@@ -2,7 +2,7 @@
 import { useContext } from "react"
 
 // context
-import { PokemonDetailsContext } from "../pages/PokemonDetails"
+import { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
 
 // utilities
 import { leadingZeros, pascalize } from "../utilities/utilities"

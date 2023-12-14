@@ -10,7 +10,7 @@ import { getPokemonDetails, getPokemonSpecies } from "../../services/api-calls"
 import StageThreeChain from "./StageThreeChain";
 
 // context
-import { PokemonDetailsContext } from "../../pages/PokemonDetails";
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider";
 export const PokemonEvolutionChainContext = createContext()
 
 const PokemonEvolutionChain = () => {
