@@ -8,7 +8,7 @@ import PokemonSprite from "../PokemonSprite"
 
 // context
 import { PokemonEvolutionChainContext } from "../../pages/PokemonDetails"
-import { StageThreeChainContext } from "./PokemonEvolutionChain"
+import { ChainContext } from "./PokemonEvolutionChain"
 
 const StageThreeChain = () => {
   const {
@@ -31,7 +31,7 @@ const StageThreeChain = () => {
     stageThreeAltStageTwoGen,
     stageThreeAltStageTwoDetails,
     stageThreeAltStageTwoEvolutionMethod,
-  } = useContext(StageThreeChainContext)
+  } = useContext(ChainContext)
 
   return (
     <>

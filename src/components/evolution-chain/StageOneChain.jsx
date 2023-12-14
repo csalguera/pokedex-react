@@ -6,7 +6,7 @@ import PokemonSprite from "../PokemonSprite"
 
 // context
 import { PokemonEvolutionChainContext } from "../../pages/PokemonDetails"
-import { StageOneChainContext } from "./PokemonEvolutionChain"
+import { ChainContext } from "./PokemonEvolutionChain"
 import { useContext } from "react"
 
 const StageOneChain = () => {
@@ -23,7 +23,7 @@ const StageOneChain = () => {
     stageOne,
     stageOneDetails,
     stageOneGen,
-  } = useContext(StageOneChainContext)
+  } = useContext(ChainContext)
 
 
   return (

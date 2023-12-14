@@ -11,9 +11,7 @@ import StageThreeChain from "./StageThreeChain";
 
 // context
 import { PokemonEvolutionChainContext } from "../../pages/PokemonDetails";
-export const StageOneChainContext = createContext()
-export const StageTwoChainContext = createContext()
-export const StageThreeChainContext = createContext()
+export const ChainContext = createContext()
 
 const PokemonEvolutionChain = () => {
   const { evolutionChain } = useContext(PokemonEvolutionChainContext)
@@ -248,68 +246,57 @@ const PokemonEvolutionChain = () => {
     stageThreeAltStageTwoSpecies,
   ])
 
+  const contextValues = {
+    stageOne,
+    stageOneDetails,
+    stageOneGen,
+    stageTwo,
+    stageTwoGen,
+    stageTwoDetails,
+    stageTwoEvolutionMethod,
+    stageTwoAlt1Gen,
+    stageTwoAlt1Details,
+    stageTwoAlt1EvolutionMethod,
+    stageTwoAlt2Gen,
+    stageTwoAlt2Details,
+    stageTwoAlt2EvolutionMethod,
+    stageTwoAlt3Gen,
+    stageTwoAlt3Details,
+    stageTwoAlt3EvolutionMethod,
+    stageTwoAlt4Gen,
+    stageTwoAlt4Details,
+    stageTwoAlt4EvolutionMethod,
+    stageTwoAlt5Gen,
+    stageTwoAlt5Details,
+    stageTwoAlt5EvolutionMethod,
+    stageTwoAlt6Gen,
+    stageTwoAlt6Details,
+    stageTwoAlt6EvolutionMethod,
+    stageThree,
+    stageThreeGen,
+    stageThreeDetails,
+    stageThreeEvolutionMethod,
+    stageThreeAltGen,
+    stageThreeAltDetails,
+    stageThreeAltEvolutionMethod,
+    stageThreeAltStageTwoGen,
+    stageThreeAltStageTwoDetails,
+    stageThreeAltStageTwoEvolutionMethod,
+  }
+
   return (
     <div
       style={{
         display: 'flex',
       }}
     >
-      <StageOneChainContext.Provider
-        value={{
-          stageOne,
-          stageOneDetails,
-          stageOneGen,
-        }}
+      <ChainContext.Provider
+        value={contextValues}
       >
         <StageOneChain />
-      </StageOneChainContext.Provider>
-      <StageTwoChainContext.Provider
-        value={{
-          stageOne,
-          stageOneGen,
-          stageTwo,
-          stageTwoGen,
-          stageTwoDetails,
-          stageTwoEvolutionMethod,
-          stageTwoAlt1Gen,
-          stageTwoAlt1Details,
-          stageTwoAlt1EvolutionMethod,
-          stageTwoAlt2Gen,
-          stageTwoAlt2Details,
-          stageTwoAlt2EvolutionMethod,
-          stageTwoAlt3Gen,
-          stageTwoAlt3Details,
-          stageTwoAlt3EvolutionMethod,
-          stageTwoAlt4Gen,
-          stageTwoAlt4Details,
-          stageTwoAlt4EvolutionMethod,
-          stageTwoAlt5Gen,
-          stageTwoAlt5Details,
-          stageTwoAlt5EvolutionMethod,
-          stageTwoAlt6Gen,
-          stageTwoAlt6Details,
-          stageTwoAlt6EvolutionMethod,
-          stageThree,
-        }}
-      >
         <StageTwoChain />
-      </StageTwoChainContext.Provider>
-      <StageThreeChainContext.Provider
-        value={{
-          stageThree,
-          stageThreeGen,
-          stageThreeDetails,
-          stageThreeEvolutionMethod,
-          stageThreeAltGen,
-          stageThreeAltDetails,
-          stageThreeAltEvolutionMethod,
-          stageThreeAltStageTwoGen,
-          stageThreeAltStageTwoDetails,
-          stageThreeAltStageTwoEvolutionMethod,
-        }}
-      >
         <StageThreeChain />
-      </StageThreeChainContext.Provider>
+      </ChainContext.Provider>
     </div>
   )
 }
