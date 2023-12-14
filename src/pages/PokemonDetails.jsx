@@ -92,6 +92,7 @@ const PokemonDetails = () => {
     pokemonDetails,
     genNum,
     genPath,
+    pastTypes,
     setSpriteGen1,
     setSpriteGen2,
     setSpriteGen3,
