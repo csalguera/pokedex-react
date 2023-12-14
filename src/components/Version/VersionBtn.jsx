@@ -1,4 +1,4 @@
-const VersionSelector = (props) => {
+const VersionBtn = (props) => {
   const {
     setSprite,
     chars,
@@ -31,4 +31,4 @@ const VersionSelector = (props) => {
   )
 }
 
-export default VersionSelector
+export default VersionBtn

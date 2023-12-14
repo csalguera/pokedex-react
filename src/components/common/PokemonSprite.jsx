@@ -2,7 +2,7 @@
 import { useContext } from "react"
 
 // context
-import { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const PokemonSprite = (props) => {
   const {

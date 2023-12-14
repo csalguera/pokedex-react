@@ -2,10 +2,10 @@
 import { useContext } from "react"
 
 // context
-import { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 // utilities
-import { leadingZeros, pascalize } from "../utilities/utilities"
+import { leadingZeros, pascalize } from "../../utilities/utilities"
 
 const Header = () => {
   const {

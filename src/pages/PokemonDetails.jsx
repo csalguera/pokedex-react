@@ -2,13 +2,13 @@
 import { useContext } from "react"
 
 // components
-import Header from "../components/Header"
-import PokemonSprite from "../components/PokemonSprite"
-import Cry from "../components/buttons/Cry"
-import PokemonTypeContainer from "../components/containers/PokemonTypeContainer"
-import PokemonEvolutionChain from "../components/evolution-chain/PokemonEvolutionChain"
-import VersionSelectorContainer from "../components/containers/VersionSelectorContainer"
-import GenerationSelectorContainer from "../components/containers/GenerationSelectorContainer"
+import Header from "../components/PokemonDetails/Header"
+import PokemonSprite from "../components/common/PokemonSprite"
+import Cry from "../components/PokemonDetails/Cry"
+import Type from "../components/Type/Type"
+import EvolutionChain from "../components/EvolutionChain/EvolutionChain"
+import Version from "../components/Version/Version"
+import Generation from "../components/Generation/Generation"
 
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
@@ -32,16 +32,16 @@ const PokemonDetails = () => {
         >
           <PokemonDetailsProvider>
             <Header />
-            <GenerationSelectorContainer />
-            <VersionSelectorContainer />
+            <Generation />
+            <Version />
             <PokemonSprite
               pokemonDetails={pokemonDetails}
             />
             <Cry
               name={location.state.name}
             />
-            <PokemonTypeContainer />
-            <PokemonEvolutionChain />
+            <Type />
+            <EvolutionChain />
           </PokemonDetailsProvider>
         </div>
       ) : (

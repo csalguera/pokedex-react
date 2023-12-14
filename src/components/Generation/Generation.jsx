@@ -1,7 +1,7 @@
 // components
-import GenerationSelector from "../buttons/GenerationSelector"
+import GenerationBtn from "./GenerationBtn"
 
-const GenerationSelectorContainer = () => {
+const Generation = () => {
 
   return (
     <div
@@ -11,19 +11,19 @@ const GenerationSelectorContainer = () => {
         alignItems: 'center'
       }}
     >
-      <GenerationSelector
+      <GenerationBtn
         path={'gen-i'}
         val={1}
       />
-      <GenerationSelector
+      <GenerationBtn
         path={'gen-ii'}
         val={2}
       />
-      <GenerationSelector
+      <GenerationBtn
         path={'gen-iii'}
         val={3}
       />
-      <GenerationSelector
+      <GenerationBtn
         path={'gen-iv'}
         val={4}
       />
@@ -31,4 +31,4 @@ const GenerationSelectorContainer = () => {
   )
 }
 
-export default GenerationSelectorContainer
+export default Generation

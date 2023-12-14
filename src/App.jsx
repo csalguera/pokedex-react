@@ -10,7 +10,7 @@ import Region from './pages/Region';
 import PokemonDetails from './pages/PokemonDetails';
 
 // components
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav';
 
 // context
 import PokemonDetailsProvider from './context/PokemonDetailsProvider';
