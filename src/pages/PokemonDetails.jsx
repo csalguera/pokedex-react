@@ -3,18 +3,16 @@ import { useState, useEffect, createContext } from "react"
 import { useLocation } from "react-router-dom"
 
 // components
-import PokemonType from "../components/PokemonType"
+import Header from "../components/Header"
 import PokemonSprite from "../components/PokemonSprite"
+import Cry from "../components/buttons/Cry"
+import PokemonTypeContainer from "../components/containers/PokemonTypeContainer"
 import PokemonEvolutionChain from "../components/evolution-chain/PokemonEvolutionChain"
 import VersionSelectorContainer from "../components/containers/VersionSelectorContainer"
 import GenerationSelectorContainer from "../components/containers/GenerationSelectorContainer"
-import Cry from "../components/buttons/Cry"
 
 // services
 import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../services/api-calls"
-
-// utilities
-import { leadingZeros, pascalize } from "../utilities/utilities"
 
 // context
 export const GenerationSelectorContainerContext = createContext()
@@ -100,28 +98,7 @@ const PokemonDetails = () => {
             alignItems: 'center'
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              width: '250px'
-            }}
-          >
-            <h1
-              style={{
-                margin: '8px',
-              }}
-            >
-              {leadingZeros(pokemonDetails.id ?? '')}
-            </h1>
-            <h1
-              style={{
-                margin: '8px',
-              }}
-            >
-              {pascalize(pokemonDetails.name ?? '')}
-            </h1>
-          </div>
+          <Header pokemonDetails={pokemonDetails} />
           <GenerationSelectorContainerContext.Provider
             value={{
               pokemonDetails,
@@ -152,28 +129,11 @@ const PokemonDetails = () => {
           <Cry
             name={location.state.name}
           />
-          {currentGen > 1 && pastTypes?.generation.name === 'generation-i' ? (
-            pokemonDetails?.types?.map(type => (
-              <PokemonType
-                type={type}
-                key={type.slot}
-              />
-            ))
-          ) : currentGen <= 5 && pastTypes ? (
-            pastTypes?.types?.map(type => (
-              <PokemonType
-                type={type}
-                key={type.slot}
-              />
-            ))
-          ) : (
-            pokemonDetails?.types?.map(type => (
-              <PokemonType
-                type={type}
-                key={type.slot}
-              />
-            ))
-          )}
+          <PokemonTypeContainer
+            currentGen={currentGen}
+            pastTypes={pastTypes}
+            pokemonDetails={pokemonDetails}
+          />
           <PokemonEvolutionChainContext.Provider
             value={{
               pokemonDetails,
