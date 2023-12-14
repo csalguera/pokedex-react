@@ -119,25 +119,16 @@ const PokemonDetails = () => {
           <PokemonDetailsContext.Provider
             value={contextValues}
           >
-            <Header pokemonDetails={pokemonDetails} />
+            <Header />
             <GenerationSelectorContainer />
             <VersionSelectorContainer />
             <PokemonSprite
               pokemonDetails={pokemonDetails}
-              spriteGen1={spriteGen1}
-              spriteGen2={spriteGen2}
-              spriteGen3={spriteGen3}
-              spriteGen4={spriteGen4}
-              genPath={genPath}
             />
             <Cry
               name={location.state.name}
             />
-            <PokemonTypeContainer
-              currentGen={currentGen}
-              pastTypes={pastTypes}
-              pokemonDetails={pokemonDetails}
-            />
+            <PokemonTypeContainer />
             <PokemonEvolutionChain />
           </PokemonDetailsContext.Provider>
         </div>

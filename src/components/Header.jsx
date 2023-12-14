@@ -1,7 +1,17 @@
+// npm modules
+import { useContext } from "react"
+
+// context
+import { PokemonDetailsContext } from "../pages/PokemonDetails"
+
 // utilities
 import { leadingZeros, pascalize } from "../utilities/utilities"
 
-const Header = ({ pokemonDetails }) => {
+const Header = () => {
+  const {
+    pokemonDetails
+  } = useContext(PokemonDetailsContext)
+
   return (
     <div
       style={{

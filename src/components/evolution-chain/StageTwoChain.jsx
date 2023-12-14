@@ -14,10 +14,6 @@ const StageTwoChain = () => {
   const {
     pokemonDetails,
     pokemonSpecies,
-    spriteGen1,
-    spriteGen2,
-    spriteGen3,
-    spriteGen4,
     genNum,
     genPath,
     currentGen,
@@ -129,11 +125,6 @@ const StageTwoChain = () => {
                 >
                   <PokemonSprite
                     pokemonDetails={pokemonDetails}
-                    spriteGen1={spriteGen1}
-                    spriteGen2={spriteGen2}
-                    spriteGen3={spriteGen3}
-                    spriteGen4={spriteGen4}
-                    genPath={genPath}
                   />
                 </Link>
               </>
@@ -145,11 +136,6 @@ const StageTwoChain = () => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoDetails}
-                    spriteGen1={spriteGen1}
-                    spriteGen2={spriteGen2}
-                    spriteGen3={spriteGen3}
-                    spriteGen4={spriteGen4}
-                    genPath={genPath}
                   />
                 </Link>
                 <Link
@@ -158,11 +144,6 @@ const StageTwoChain = () => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt1Details}
-                    spriteGen1={spriteGen1}
-                    spriteGen2={spriteGen2}
-                    spriteGen3={spriteGen3}
-                    spriteGen4={spriteGen4}
-                    genPath={genPath}
                   />
                 </Link>
                 <Link
@@ -171,11 +152,6 @@ const StageTwoChain = () => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt2Details}
-                    spriteGen1={spriteGen1}
-                    spriteGen2={spriteGen2}
-                    spriteGen3={spriteGen3}
-                    spriteGen4={spriteGen4}
-                    genPath={genPath}
                   />
                 </Link>
                 <Link
@@ -184,11 +160,6 @@ const StageTwoChain = () => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt3Details}
-                    spriteGen1={spriteGen1}
-                    spriteGen2={spriteGen2}
-                    spriteGen3={spriteGen3}
-                    spriteGen4={spriteGen4}
-                    genPath={genPath}
                   />
                 </Link>
                 <Link
@@ -197,11 +168,6 @@ const StageTwoChain = () => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt4Details}
-                    spriteGen1={spriteGen1}
-                    spriteGen2={spriteGen2}
-                    spriteGen3={spriteGen3}
-                    spriteGen4={spriteGen4}
-                    genPath={genPath}
                   />
                 </Link>
                 <Link
@@ -210,11 +176,6 @@ const StageTwoChain = () => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt5Details}
-                    spriteGen1={spriteGen1}
-                    spriteGen2={spriteGen2}
-                    spriteGen3={spriteGen3}
-                    spriteGen4={spriteGen4}
-                    genPath={genPath}
                   />
                 </Link>
                 <Link
@@ -223,11 +184,6 @@ const StageTwoChain = () => {
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt6Details}
-                    spriteGen1={spriteGen1}
-                    spriteGen2={spriteGen2}
-                    spriteGen3={spriteGen3}
-                    spriteGen4={spriteGen4}
-                    genPath={genPath}
                   />
                 </Link>
               </>

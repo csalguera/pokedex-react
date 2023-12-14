@@ -43,11 +43,6 @@ const StageOneChain = () => {
           >
             <PokemonSprite
               pokemonDetails={stageOneDetails}
-              spriteGen1={spriteGen1}
-              spriteGen2={spriteGen2}
-              spriteGen3={spriteGen3}
-              spriteGen4={spriteGen4}
-              genPath={genPath}
             />
           </Link>
         </div>

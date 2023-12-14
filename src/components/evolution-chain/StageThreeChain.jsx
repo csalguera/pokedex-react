@@ -12,10 +12,6 @@ import { PokemonEvolutionChainContext } from "./PokemonEvolutionChain"
 
 const StageThreeChain = () => {
   const {
-    spriteGen1,
-    spriteGen2,
-    spriteGen3,
-    spriteGen4,
     genPath,
     currentGen,
   } = useContext(PokemonDetailsContext)
@@ -77,11 +73,6 @@ const StageThreeChain = () => {
             >
               <PokemonSprite
                 pokemonDetails={stageThreeDetails}
-                spriteGen1={spriteGen1}
-                spriteGen2={spriteGen2}
-                spriteGen3={spriteGen3}
-                spriteGen4={spriteGen4}
-                genPath={genPath}
               />
             </Link>
             <Link
@@ -90,11 +81,6 @@ const StageThreeChain = () => {
             >
               <PokemonSprite
                 pokemonDetails={stageThreeAltDetails}
-                spriteGen1={spriteGen1}
-                spriteGen2={spriteGen2}
-                spriteGen3={spriteGen3}
-                spriteGen4={spriteGen4}
-                genPath={genPath}
               />
             </Link>
             <Link
@@ -103,11 +89,6 @@ const StageThreeChain = () => {
             >
               <PokemonSprite
                 pokemonDetails={stageThreeAltStageTwoDetails}
-                spriteGen1={spriteGen1}
-                spriteGen2={spriteGen2}
-                spriteGen3={spriteGen3}
-                spriteGen4={spriteGen4}
-                genPath={genPath}
               />
             </Link>
           </div>

@@ -1,12 +1,19 @@
+// npm modules
+import { useContext } from "react"
+
 // components
 import PokemonType from "../PokemonType"
 
-const PokemonTypeContainer = (props) => {
+// context
+import { PokemonDetailsContext } from "../../pages/PokemonDetails"
+
+const PokemonTypeContainer = () => {
   const {
     currentGen,
     pastTypes,
     pokemonDetails,
-  } = props
+  } = useContext(PokemonDetailsContext)
+
   return (
     <>
       {currentGen > 1 && pastTypes?.generation.name === 'generation-i' ? (

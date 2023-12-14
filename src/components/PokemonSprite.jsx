@@ -1,11 +1,20 @@
+// npm modules
+import { useContext } from "react"
+
+// context
+import { PokemonDetailsContext } from "../pages/PokemonDetails"
+
 const PokemonSprite = (props) => {
   const {
-    pokemonDetails,
     spriteGen1,
     spriteGen2,
     spriteGen3,
     spriteGen4,
     genPath,
+  } = useContext(PokemonDetailsContext)
+
+  const {
+    pokemonDetails
   } = props
 
   function determineSprite(path, gen1Ver, gen2Ver, gen3Ver, gen4Ver) {
