@@ -9,7 +9,8 @@ const HeaderWrapper = ({ children }) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        mt: 3
+        my: 3,
+        mx: 1,
       }}
     >
       <Typography
