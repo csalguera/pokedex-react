@@ -74,13 +74,11 @@ const Region = () => {
           </div>
         ))
       ) : (
-        <h2
-          style={{
-            textAlign: 'center'
-          }}
+        <HeaderWrapper
+          otherVariant='h5'
         >
           Loading...
-        </h2>
+        </HeaderWrapper>
       )}
     </>
   )

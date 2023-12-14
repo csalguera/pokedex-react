@@ -9,6 +9,7 @@ import Type from "../components/Type/Type"
 import EvolutionChain from "../components/EvolutionChain/EvolutionChain"
 import Version from "../components/Version/Version"
 import Generation from "../components/Generation/Generation"
+import HeaderWrapper from "../components/common/HeaderWrapper"
 
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
@@ -45,7 +46,11 @@ const PokemonDetails = () => {
           </PokemonDetailsProvider>
         </div>
       ) : (
-        <h1>Loading...</h1>
+        <HeaderWrapper
+          otherVariant='h5'
+        >
+          Loading...
+        </HeaderWrapper>
       )}
     </>
   )
