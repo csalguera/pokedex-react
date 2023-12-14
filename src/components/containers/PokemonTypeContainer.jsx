@@ -5,7 +5,7 @@ import { useContext } from "react"
 import PokemonType from "../PokemonType"
 
 // context
-import { PokemonDetailsContext } from "../../pages/PokemonDetails"
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const PokemonTypeContainer = () => {
   const {

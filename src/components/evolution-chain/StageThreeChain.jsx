@@ -1,14 +1,14 @@
 // npm modules
-import { Link } from "react-router-dom"
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 
 // components
 import EvolutionMethod from "./EvolutionMethod"
 import PokemonSprite from "../PokemonSprite"
 
 // context
-import { PokemonDetailsContext } from "../../pages/PokemonDetails"
-import { PokemonEvolutionChainContext } from "./PokemonEvolutionChain"
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
+import { PokemonEvolutionChainContext } from "../../context/PokemonEvolutionChainProvider"
 
 const StageThreeChain = () => {
   const {

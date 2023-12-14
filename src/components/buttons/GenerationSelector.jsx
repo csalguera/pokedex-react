@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 
 // context
-import { PokemonDetailsContext } from "../../pages/PokemonDetails"
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const GenerationSelector = (props) => {
   const {

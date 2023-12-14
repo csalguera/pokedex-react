@@ -1,20 +1,16 @@
 // npm modules
+import { useContext } from "react"
 import { Link } from "react-router-dom"
 
 // components
 import PokemonSprite from "../PokemonSprite"
 
 // context
-import { PokemonDetailsContext } from "../../pages/PokemonDetails"
-import { PokemonEvolutionChainContext } from "./PokemonEvolutionChain"
-import { useContext } from "react"
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
+import { PokemonEvolutionChainContext } from "../../context/PokemonEvolutionChainProvider"
 
 const StageOneChain = () => {
   const {
-    spriteGen1,
-    spriteGen2,
-    spriteGen3,
-    spriteGen4,
     genPath,
     currentGen,
   } = useContext(PokemonDetailsContext)

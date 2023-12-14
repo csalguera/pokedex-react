@@ -7,8 +7,8 @@ import EvolutionMethod from "./EvolutionMethod"
 import PokemonSprite from "../PokemonSprite"
 
 // context
-import { PokemonDetailsContext } from "../../pages/PokemonDetails"
-import { PokemonEvolutionChainContext } from "./PokemonEvolutionChain"
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
+import { PokemonEvolutionChainContext } from "../../context/PokemonEvolutionChainProvider"
 
 const StageTwoChain = () => {
   const {
