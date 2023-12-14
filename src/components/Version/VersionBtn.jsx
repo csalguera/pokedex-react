@@ -1,8 +1,11 @@
 // npm modules
+import { useContext } from "react"
+
+// mui components
 import { Button } from "@mui/material"
 
+// context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
-import { useContext } from "react"
 
 const VersionBtn = (props) => {
   const {
