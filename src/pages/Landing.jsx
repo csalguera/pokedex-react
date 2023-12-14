@@ -1,14 +1,26 @@
+// mui components
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+
 const Landing = () => {
   return (
-    <>
-      <h1
-        style={{
-          textAlign: 'center'
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        mt: 3
+      }}
+    >
+      <Typography
+        variant="h4"
+        sx={{
+          fontWeight: '600',
         }}
       >
-        Landing Page
-      </h1>
-    </>
+        PokéDex
+      </Typography>
+    </Box>
   )
 }
 
