@@ -4,6 +4,7 @@ import { useContext } from "react"
 // components
 import PokemonSprite from "../common/PokemonSprite"
 import LinkWrapper from "../common/LinkWrapper"
+import FlexCenterWrapper from "../common/FlexCenterWrapper"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -25,14 +26,7 @@ const StageOneChain = () => {
   return (
     <>
       {stageOne && stageOneGen <= currentGen ? (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <FlexCenterWrapper>
           <LinkWrapper
             to={`/${genPath}/${stageOneDetails.name}`}
             state={{ ...stageOneDetails, genNum: stageOneGen, genPath }}
@@ -41,7 +35,7 @@ const StageOneChain = () => {
               pokemonDetails={stageOneDetails}
             />
           </LinkWrapper>
-        </div>
+        </FlexCenterWrapper>
       ) : (
         <></>
       )}

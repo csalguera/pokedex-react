@@ -5,6 +5,7 @@ import { useContext } from "react"
 import EvolutionMethod from "../EvolutionMethod/EvolutionMethod"
 import PokemonSprite from "../common/PokemonSprite"
 import LinkWrapper from "../common/LinkWrapper"
+import FlexCenterWrapper from "../common/FlexCenterWrapper"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -52,9 +53,8 @@ const StageTwoChain = () => {
       {stageTwo && stageTwoGen <= currentGen ? (
         <>
           {stageOne && stageOneGen <= currentGen ? (
-            <div
-              style={{
-                display: 'flex',
+            <FlexCenterWrapper
+              additionalStyles={{
                 flexDirection: 'column',
                 justifyContent: 'space-around',
               }}
@@ -104,16 +104,13 @@ const StageTwoChain = () => {
               ) : (
                 <></>
               )}
-            </div>
+            </FlexCenterWrapper>
           ) : (
             <></>
           )}
-          <div
-            style={{
-              display: 'flex',
+          <FlexCenterWrapper
+            additionalStyles={{
               flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
             }}
           >
             {(stageOneGen > currentGen) &&
@@ -188,7 +185,7 @@ const StageTwoChain = () => {
                 </LinkWrapper>
               </>
             )}
-          </div>
+          </FlexCenterWrapper>
         </>
       ) : (
         <></>
