@@ -1,10 +1,10 @@
 // npm modules
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
-import { Link } from "react-router-dom"
 
 // components
 import HeaderWrapper from "../components/common/HeaderWrapper"
+import LinkWrapper from "../components/common/LinkWrapper"
 
 // services
 import { getPokemonList } from "../services/api-calls"
@@ -60,7 +60,7 @@ const Region = () => {
               >
                 {leadingZeros(dexOffset + idx + 1)}
               </p>
-              <Link
+              <LinkWrapper
                 to={`/${genPath}/${pokemon.name}`}
                 state={{ ...pokemon, genNum, genPath }}
                 style={{
@@ -69,7 +69,7 @@ const Region = () => {
                 }}
               >
                 {pascalize(pokemon.name)}
-              </Link>
+              </LinkWrapper>
             </div>
           </div>
         ))

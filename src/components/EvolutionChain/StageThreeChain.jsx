@@ -1,10 +1,10 @@
 // npm modules
 import { useContext } from "react"
-import { Link } from "react-router-dom"
 
 // components
 import EvolutionMethod from "../EvolutionMethod/EvolutionMethod"
 import PokemonSprite from "../common/PokemonSprite"
+import LinkWrapper from "../common/LinkWrapper"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -67,30 +67,30 @@ const StageThreeChain = () => {
               alignItems: 'center',
             }}
           >
-            <Link
+            <LinkWrapper
               to={`/${genPath}/${stageThreeDetails.name}`}
               state={{ ...stageThreeDetails, genNum: stageThreeGen, genPath }}
             >
               <PokemonSprite
                 pokemonDetails={stageThreeDetails}
               />
-            </Link>
-            <Link
+            </LinkWrapper>
+            <LinkWrapper
               to={`/${genPath}/${stageThreeAltDetails.name}`}
               state={{ ...stageThreeAltDetails, genNum: stageThreeAltGen, genPath }}
             >
               <PokemonSprite
                 pokemonDetails={stageThreeAltDetails}
               />
-            </Link>
-            <Link
+            </LinkWrapper>
+            <LinkWrapper
               to={`/${genPath}/${stageThreeAltStageTwoDetails.name}`}
               state={{ ...stageThreeAltStageTwoDetails, genNum: stageThreeAltStageTwoGen, genPath }}
             >
               <PokemonSprite
                 pokemonDetails={stageThreeAltStageTwoDetails}
               />
-            </Link>
+            </LinkWrapper>
           </div>
         </>
       ) : (

@@ -1,6 +1,7 @@
 // npm modules
-import { Link } from "react-router-dom"
 import { useState } from "react"
+
+import LinkWrapper from "../common/LinkWrapper"
 
 // mui components
 import AppBar from '@mui/material/AppBar'
@@ -119,16 +120,12 @@ const Nav = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page.genPath} onClick={handleCloseNavMenu}>
-                  <Link
+                  <LinkWrapper
                     to={page.genPath}
                     state={page}
-                    style={{
-                      textDecoration: 'none',
-                      color: 'initial',
-                    }}
                   >
                     {page.regionName}
-                  </Link>
+                  </LinkWrapper>
                 </MenuItem>
               ))}
             </Menu>
@@ -154,13 +151,10 @@ const Nav = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link
+              <LinkWrapper
                 key={page.genPath}
                 to={page.genPath}
                 state={page}
-                style={{
-                  textDecoration: 'none'
-                }}
               >
                 <Button
                   sx={{
@@ -171,7 +165,7 @@ const Nav = () => {
                 >
                   {page.regionName}
                 </Button>
-              </Link>
+              </LinkWrapper>
             ))}
           </Box>
         </Toolbar>
