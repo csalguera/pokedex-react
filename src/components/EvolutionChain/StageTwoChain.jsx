@@ -1,10 +1,10 @@
 // npm modules
-import { Link } from "react-router-dom"
 import { useContext } from "react"
 
 // components
 import EvolutionMethod from "../EvolutionMethod/EvolutionMethod"
 import PokemonSprite from "../common/PokemonSprite"
+import LinkWrapper from "../common/LinkWrapper"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -119,73 +119,73 @@ const StageTwoChain = () => {
             {(stageOneGen > currentGen) &&
             (pokemonSpecies?.name === stageThree?.name) ? (
               <>
-                <Link
+                <LinkWrapper
                   to={`/${genPath}/${pokemonDetails.name}`}
                   state={{ ...pokemonDetails, genNum, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={pokemonDetails}
                   />
-                </Link>
+                </LinkWrapper>
               </>
             ) : (
               <>
-                <Link
+                <LinkWrapper
                   to={`/${genPath}/${stageTwoDetails.name}`}
                   state={{ ...stageTwoDetails, genNum: stageTwoGen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoDetails}
                   />
-                </Link>
-                <Link
+                </LinkWrapper>
+                <LinkWrapper
                   to={`/${genPath}/${stageTwoAlt1Details.name}`}
                   state={{ ...stageTwoAlt1Details, genNum: stageTwoAlt1Gen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt1Details}
                   />
-                </Link>
-                <Link
+                </LinkWrapper>
+                <LinkWrapper
                   to={`/${genPath}/${stageTwoAlt2Details.name}`}
                   state={{ ...stageTwoAlt2Details, genNum: stageTwoAlt2Gen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt2Details}
                   />
-                </Link>
-                <Link
+                </LinkWrapper>
+                <LinkWrapper
                   to={`/${genPath}/${stageTwoAlt3Details.name}`}
                   state={{ ...stageTwoAlt3Details, genNum: stageTwoAlt3Gen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt3Details}
                   />
-                </Link>
-                <Link
+                </LinkWrapper>
+                <LinkWrapper
                   to={`/${genPath}/${stageTwoAlt4Details.name}`}
                   state={{ ...stageTwoAlt4Details, genNum: stageTwoAlt4Gen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt4Details}
                   />
-                </Link>
-                <Link
+                </LinkWrapper>
+                <LinkWrapper
                   to={`/${genPath}/${stageTwoAlt5Details.name}`}
                   state={{ ...stageTwoAlt5Details, genNum: stageTwoAlt5Gen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt5Details}
                   />
-                </Link>
-                <Link
+                </LinkWrapper>
+                <LinkWrapper
                   to={`/${genPath}/${stageTwoAlt6Details.name}`}
                   state={{ ...stageTwoAlt6Details, genNum: stageTwoAlt6Gen, genPath }}
                 >
                   <PokemonSprite
                     pokemonDetails={stageTwoAlt6Details}
                   />
-                </Link>
+                </LinkWrapper>
               </>
             )}
           </div>
