@@ -6,6 +6,7 @@ import EvolutionMethod from "../EvolutionMethod/EvolutionMethod"
 import PokemonSprite from "../common/PokemonSprite"
 import LinkWrapper from "../common/LinkWrapper"
 import FlexCenterWrapper from "../common/FlexCenterWrapper"
+import StageTwoAlt from "../StageTwoAlt/StageTwoAlt"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -62,13 +63,11 @@ const StageTwoChain = () => {
               <EvolutionMethod
                 evolutionMethod={stageTwoEvolutionMethod}
               />
-              {stageTwoAlt1Details.name && stageTwoAlt1Gen <= currentGen ? (
-                <EvolutionMethod
-                  evolutionMethod={stageTwoAlt1EvolutionMethod}
-                />
-              ) : (
-                <></>
-              )}
+              <StageTwoAlt
+                stageTwoAltDetails={stageTwoAlt1Details}
+                stageTwoAltGen={stageTwoAlt1Gen}
+                stageTwoAltEvolutionMethod={stageTwoAlt1EvolutionMethod}
+              />
               {stageTwoAlt2Details.name && stageTwoAlt2Gen <= currentGen ? (
                 <EvolutionMethod
                   evolutionMethod={stageTwoAlt2EvolutionMethod}
