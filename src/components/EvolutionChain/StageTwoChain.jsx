@@ -95,6 +95,8 @@ const StageTwoChain = () => {
     alt6,
   ]
 
+  const validAlts = alts.filter(alt => alt.details.name)
+
   return (
     <>
       {stageTwo && stageTwoGen <= currentGen ? (
@@ -109,7 +111,7 @@ const StageTwoChain = () => {
               <EvolutionMethod
                 evolutionMethod={stageTwoEvolutionMethod}
               />
-              {alts.map(alt => (
+              {validAlts.map(alt => (
                 <StageTwoAlt
                   key={alt.details.name}
                   stageTwoAltDetails={alt.details}
@@ -148,7 +150,7 @@ const StageTwoChain = () => {
                     pokemonDetails={stageTwoDetails}
                   />
                 </LinkWrapper>
-                {alts.map(alt => (
+                {validAlts.map(alt => (
                   <StageTwoAltSprite
                     key={alt.details.name}
                     stageTwoAltDetails={alt.details}
