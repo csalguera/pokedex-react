@@ -7,6 +7,7 @@ import PokemonSprite from "../common/PokemonSprite"
 import LinkWrapper from "../common/LinkWrapper"
 import FlexCenterWrapper from "../common/FlexCenterWrapper"
 import StageTwoAlt from "../StageTwoAlt/StageTwoAlt"
+import StageTwoAltSprite from "../StageTwoAlt/StageTwoAltSprite"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -49,6 +50,51 @@ const StageTwoChain = () => {
     stageThree,
   } = useContext(EvolutionChainContext)
 
+  const alt1 = {
+    gen: stageTwoAlt1Gen,
+    details: stageTwoAlt1Details,
+    method: stageTwoAlt1EvolutionMethod,
+  }
+
+  const alt2 = {
+    gen: stageTwoAlt2Gen,
+    details: stageTwoAlt2Details,
+    method: stageTwoAlt2EvolutionMethod,
+  }
+
+  const alt3 = {
+    gen: stageTwoAlt3Gen,
+    details: stageTwoAlt3Details,
+    method: stageTwoAlt3EvolutionMethod,
+  }
+
+  const alt4 = {
+    gen: stageTwoAlt4Gen,
+    details: stageTwoAlt4Details,
+    method: stageTwoAlt4EvolutionMethod,
+  }
+
+  const alt5 = {
+    gen: stageTwoAlt5Gen,
+    details: stageTwoAlt5Details,
+    method: stageTwoAlt5EvolutionMethod,
+  }
+
+  const alt6 = {
+    gen: stageTwoAlt6Gen,
+    details: stageTwoAlt6Details,
+    method: stageTwoAlt6EvolutionMethod,
+  }
+
+  const alts = [
+    alt1,
+    alt2,
+    alt3,
+    alt4,
+    alt5,
+    alt6,
+  ]
+
   return (
     <>
       {stageTwo && stageTwoGen <= currentGen ? (
@@ -63,46 +109,14 @@ const StageTwoChain = () => {
               <EvolutionMethod
                 evolutionMethod={stageTwoEvolutionMethod}
               />
-              <StageTwoAlt
-                stageTwoAltDetails={stageTwoAlt1Details}
-                stageTwoAltGen={stageTwoAlt1Gen}
-                stageTwoAltEvolutionMethod={stageTwoAlt1EvolutionMethod}
-              />
-              {stageTwoAlt2Details.name && stageTwoAlt2Gen <= currentGen ? (
-                <EvolutionMethod
-                  evolutionMethod={stageTwoAlt2EvolutionMethod}
+              {alts.map(alt => (
+                <StageTwoAlt
+                  key={alt.details.name}
+                  stageTwoAltDetails={alt.details}
+                  stageTwoAltGen={alt.gen}
+                  stageTwoAltEvolutionMethod={alt.method}
                 />
-              ) : (
-                <></>
-              )}
-              {stageTwoAlt3Details.name && stageTwoAlt3Gen <= currentGen ? (
-                <EvolutionMethod
-                  evolutionMethod={stageTwoAlt3EvolutionMethod}
-                />
-              ) : (
-                <></>
-              )}
-              {stageTwoAlt4Details.name && stageTwoAlt4Gen <= currentGen ? (
-                <EvolutionMethod
-                  evolutionMethod={stageTwoAlt4EvolutionMethod}
-                />
-              ) : (
-                <></>
-              )}
-              {stageTwoAlt5Details.name && stageTwoAlt5Gen <= currentGen ? (
-                <EvolutionMethod
-                  evolutionMethod={stageTwoAlt5EvolutionMethod}
-                />
-              ) : (
-                <></>
-              )}
-              {stageTwoAlt6Details.name && stageTwoAlt6Gen <= currentGen ? (
-                <EvolutionMethod
-                  evolutionMethod={stageTwoAlt6EvolutionMethod}
-                />
-              ) : (
-                <></>
-              )}
+              ))}
             </FlexCenterWrapper>
           ) : (
             <></>
@@ -134,54 +148,13 @@ const StageTwoChain = () => {
                     pokemonDetails={stageTwoDetails}
                   />
                 </LinkWrapper>
-                <LinkWrapper
-                  to={`/${genPath}/${stageTwoAlt1Details.name}`}
-                  state={{ ...stageTwoAlt1Details, genNum: stageTwoAlt1Gen, genPath }}
-                >
-                  <PokemonSprite
-                    pokemonDetails={stageTwoAlt1Details}
+                {alts.map(alt => (
+                  <StageTwoAltSprite
+                    key={alt.details.name}
+                    stageTwoAltDetails={alt.details}
+                    stageTwoAltGen={alt.gen}
                   />
-                </LinkWrapper>
-                <LinkWrapper
-                  to={`/${genPath}/${stageTwoAlt2Details.name}`}
-                  state={{ ...stageTwoAlt2Details, genNum: stageTwoAlt2Gen, genPath }}
-                >
-                  <PokemonSprite
-                    pokemonDetails={stageTwoAlt2Details}
-                  />
-                </LinkWrapper>
-                <LinkWrapper
-                  to={`/${genPath}/${stageTwoAlt3Details.name}`}
-                  state={{ ...stageTwoAlt3Details, genNum: stageTwoAlt3Gen, genPath }}
-                >
-                  <PokemonSprite
-                    pokemonDetails={stageTwoAlt3Details}
-                  />
-                </LinkWrapper>
-                <LinkWrapper
-                  to={`/${genPath}/${stageTwoAlt4Details.name}`}
-                  state={{ ...stageTwoAlt4Details, genNum: stageTwoAlt4Gen, genPath }}
-                >
-                  <PokemonSprite
-                    pokemonDetails={stageTwoAlt4Details}
-                  />
-                </LinkWrapper>
-                <LinkWrapper
-                  to={`/${genPath}/${stageTwoAlt5Details.name}`}
-                  state={{ ...stageTwoAlt5Details, genNum: stageTwoAlt5Gen, genPath }}
-                >
-                  <PokemonSprite
-                    pokemonDetails={stageTwoAlt5Details}
-                  />
-                </LinkWrapper>
-                <LinkWrapper
-                  to={`/${genPath}/${stageTwoAlt6Details.name}`}
-                  state={{ ...stageTwoAlt6Details, genNum: stageTwoAlt6Gen, genPath }}
-                >
-                  <PokemonSprite
-                    pokemonDetails={stageTwoAlt6Details}
-                  />
-                </LinkWrapper>
+                ))}
               </>
             )}
           </FlexCenterWrapper>
