@@ -2,6 +2,8 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 
+import LinkWrapper from "../common/LinkWrapper"
+
 // mui components
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -119,16 +121,12 @@ const Nav = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page.genPath} onClick={handleCloseNavMenu}>
-                  <Link
+                  <LinkWrapper
                     to={page.genPath}
                     state={page}
-                    style={{
-                      textDecoration: 'none',
-                      color: 'initial',
-                    }}
                   >
                     {page.regionName}
-                  </Link>
+                  </LinkWrapper>
                 </MenuItem>
               ))}
             </Menu>
