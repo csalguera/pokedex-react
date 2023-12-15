@@ -3,6 +3,9 @@ import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 
+// components
+import HeaderWrapper from "../components/common/HeaderWrapper"
+
 // services
 import { getPokemonList } from "../services/api-calls"
 
@@ -30,13 +33,9 @@ const Region = () => {
 
   return (
     <>
-      <h1
-        style={{
-          textAlign: 'center'
-        }}
-      >
+      <HeaderWrapper>
         {regionName}
-      </h1>
+      </HeaderWrapper>
       {region.length ? (
         region.map((pokemon, idx) => (
           <div
@@ -75,13 +74,11 @@ const Region = () => {
           </div>
         ))
       ) : (
-        <h2
-          style={{
-            textAlign: 'center'
-          }}
+        <HeaderWrapper
+          otherVariant='h5'
         >
           Loading...
-        </h2>
+        </HeaderWrapper>
       )}
     </>
   )

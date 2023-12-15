@@ -6,6 +6,7 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 // utilities
 import { leadingZeros, pascalize } from "../../utilities/utilities"
+import HeaderWrapper from "../common/HeaderWrapper"
 
 const Header = () => {
   const {
@@ -20,20 +21,9 @@ const Header = () => {
         width: '300px',
       }}
     >
-      <h1
-        style={{
-          margin: '8px',
-        }}
-      >
-        {leadingZeros(pokemonDetails.id ?? '')}
-      </h1>
-      <h1
-        style={{
-          margin: '8px',
-        }}
-      >
-        {pascalize(pokemonDetails.name ?? '')}
-      </h1>
+      <HeaderWrapper>
+        {leadingZeros(pokemonDetails.id ?? '')} - {pascalize(pokemonDetails.name ?? '')}
+      </HeaderWrapper>
     </div>
   )
 }
