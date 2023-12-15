@@ -1,6 +1,9 @@
 // npm modules
 import { useContext } from "react"
 
+// components
+import FlexCenterWrapper from "./FlexCenterWrapper"
+
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
@@ -114,19 +117,20 @@ const PokemonSprite = (props) => {
   }
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
+    <FlexCenterWrapper
+      // will implement after refactor:
+      // additionalStyles={{
+      //   borderRadius: '10px',
+      //   backgroundColor: 'rgb(210,210,210)',
+      //   p: 2,
+      // }}
     >
       <img
         src={determineSprite(genPath, spriteGen1, spriteGen2, spriteGen3, spriteGen4)}
         alt=""
         width='96px'
       />
-    </div>
+    </FlexCenterWrapper>
   )
 }
 

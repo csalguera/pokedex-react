@@ -10,6 +10,7 @@ import EvolutionChain from "../components/EvolutionChain/EvolutionChain"
 import Version from "../components/Version/Version"
 import Generation from "../components/Generation/Generation"
 import HeaderWrapper from "../components/common/HeaderWrapper"
+import BorderWrapper from "../components/common/FlexCenterWrapper"
 
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
