@@ -22,10 +22,7 @@ const Header = () => {
       }}
     >
       <HeaderWrapper>
-        {leadingZeros(pokemonDetails.id ?? '')}
-      </HeaderWrapper>
-      <HeaderWrapper>
-        {pascalize(pokemonDetails.name ?? '')}
+        {leadingZeros(pokemonDetails.id ?? '')} - {pascalize(pokemonDetails.name ?? '')}
       </HeaderWrapper>
     </div>
   )
