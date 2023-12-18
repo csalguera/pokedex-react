@@ -30,7 +30,7 @@ const PrevBtn = () => {
 
   useEffect(() => {
     const fetchPrevData = async () => {
-      if (pokemonDetails.id) {
+      if (pokemonDetails.id && pokemonDetails.id !== 1) {
         const prevPokemonDetailsData = await getPokemonDetails(pokemonDetails.id - 1)
         setPrevPokemonDetails(prevPokemonDetailsData)
         const prevPokemonSpeciesData = await getPokemonSpecies(pokemonDetails.id - 1)
@@ -49,6 +49,7 @@ const PrevBtn = () => {
     }
   }, [prevPokemonSpecies, prevPokemonSpecies.generation, prevPath, genPath, currentGen])
 
+  if (pokemonDetails.id === 1) return
 
   return (
     <LinkWrapper
