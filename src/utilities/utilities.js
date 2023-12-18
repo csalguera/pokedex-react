@@ -35,3 +35,12 @@ export function determineGenNum(str) {
         return 1
   }
 }
+
+export function validateSpecies(name) {
+  switch (name) {
+    case 'deoxys-normal':
+      return 'deoxys'
+    default:
+      return name
+  }
+}
