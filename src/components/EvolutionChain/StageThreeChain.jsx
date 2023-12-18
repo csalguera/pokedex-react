@@ -45,14 +45,14 @@ const StageThreeChain = () => {
               evolutionMethod={stageThreeEvolutionMethod}
             />
             <StageThreeAlt
-              stageThreeAltDetails={stageThreeAltDetails}
-              stageThreeAltGen={stageThreeAltGen}
-              stageThreeAltEvolutionMethod={stageThreeAltEvolutionMethod}
+              altDetails={stageThreeAltDetails}
+              altGen={stageThreeAltGen}
+              altMethod={stageThreeAltEvolutionMethod}
             />
             <StageThreeAlt
-              stageThreeAltDetails={stageThreeAltStageTwoDetails}
-              stageThreeAltGen={stageThreeAltStageTwoGen}
-              stageThreeEvolutionMethod={stageThreeAltStageTwoEvolutionMethod}
+              altDetails={stageThreeAltStageTwoDetails}
+              altGen={stageThreeAltStageTwoGen}
+              altMethod={stageThreeAltStageTwoEvolutionMethod}
             />
           </FlexCenterWrapper>
           <FlexCenterWrapper

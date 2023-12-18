@@ -114,9 +114,9 @@ const StageTwoChain = () => {
               {validAlts.map(alt => (
                 <StageTwoAlt
                   key={alt.details.name}
-                  stageTwoAltDetails={alt.details}
-                  stageTwoAltGen={alt.gen}
-                  stageTwoAltEvolutionMethod={alt.method}
+                  altDetails={alt.details}
+                  altGen={alt.gen}
+                  altMethod={alt.method}
                 />
               ))}
             </FlexCenterWrapper>

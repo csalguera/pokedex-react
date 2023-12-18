@@ -9,9 +9,9 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const StageTwoAlt = (props) => {
   const {
-    stageTwoAltDetails,
-    stageTwoAltGen,
-    stageTwoAltEvolutionMethod,
+    altDetails,
+    altGen,
+    altMethod,
   } = props
 
   const {
@@ -20,9 +20,9 @@ const StageTwoAlt = (props) => {
 
   return (
     <>
-      {stageTwoAltDetails.name && stageTwoAltGen <= currentGen ? (
+      {altDetails.name && altGen <= currentGen ? (
         <EvolutionMethod
-          evolutionMethod={stageTwoAltEvolutionMethod}
+          evolutionMethod={altMethod}
         />
       ) : (
         <></>
