@@ -66,6 +66,7 @@ const StageThreeChain = () => {
             />
             {validAlts.map(alt => (
               <StageThreeAlt
+                key={alt.details.name}
                 altDetails={alt.details}
                 altGen={alt.gen}
                 altMethod={alt.method}
@@ -87,6 +88,7 @@ const StageThreeChain = () => {
             </LinkWrapper>
             {validAlts.map(alt => (
               <StageThreeAltSprite
+                key={alt.details.name}
                 altDetails={alt.details}
                 altGen={alt.gen}
               />
