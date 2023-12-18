@@ -1,18 +1,21 @@
+// npm modules
 import { useContext } from "react"
 
+// components
 import LinkWrapper from "../common/LinkWrapper"
 import PokemonSprite from "../common/PokemonSprite"
 
+// context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
-const StageTwoAltSprite = (props) => {
+const StageThreeAltSprite = (props) => {
   const {
     altDetails,
     altGen,
   } = props
 
   const {
-    genPath
+    genPath,
   } = useContext(PokemonDetailsContext)
 
   return (
@@ -27,4 +30,4 @@ const StageTwoAltSprite = (props) => {
   )
 }
 
-export default StageTwoAltSprite
+export default StageThreeAltSprite

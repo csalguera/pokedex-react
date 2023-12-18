@@ -153,8 +153,8 @@ const StageTwoChain = () => {
                 {validAlts.map(alt => (
                   <StageTwoAltSprite
                     key={alt.details.name}
-                    stageTwoAltDetails={alt.details}
-                    stageTwoAltGen={alt.gen}
+                    altDetails={alt.details}
+                    altGen={alt.gen}
                   />
                 ))}
               </>
