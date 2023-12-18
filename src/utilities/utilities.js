@@ -41,7 +41,7 @@ export function determinePath(path, currPath, currGen) {
   }
 }
 
-export function determineGenNum(path, currGen) {
+export function determineGenNum(path) {
   const pathName = path.replace('eration', '')
 
   switch (pathName) {
