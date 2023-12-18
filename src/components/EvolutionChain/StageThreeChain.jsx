@@ -5,6 +5,7 @@ import { useContext } from "react"
 import EvolutionMethod from "../EvolutionMethod/EvolutionMethod"
 import PokemonSprite from "../common/PokemonSprite"
 import LinkWrapper from "../common/LinkWrapper"
+import StageThreeAlt from "../StageThreeAlt/StageThreeAlt"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -34,24 +35,25 @@ const StageThreeChain = () => {
     <>
       {stageThree && stageThreeGen <= currentGen ? (
         <>
-          <FlexCenterWrapper>
+          <FlexCenterWrapper
+            additionalStyles={{
+              flexDirection: 'column',
+              justifyContent: 'space-around',
+            }}
+          >
             <EvolutionMethod
               evolutionMethod={stageThreeEvolutionMethod}
             />
-            {stageThreeAltDetails.name && stageThreeAltGen <= currentGen ? (
-              <EvolutionMethod
-                evolutionMethod={stageThreeAltEvolutionMethod}
-              />
-            ) : (
-              <></>
-            )}
-            {stageThreeAltStageTwoDetails.name && stageThreeAltStageTwoGen <= currentGen ? (
-              <EvolutionMethod
-                evolutionMethod={stageThreeAltStageTwoEvolutionMethod}
-              />
-            ) : (
-              <></>
-            )}
+            <StageThreeAlt
+              stageThreeAltDetails={stageThreeAltDetails}
+              stageThreeAltGen={stageThreeAltGen}
+              stageThreeAltEvolutionMethod={stageThreeAltEvolutionMethod}
+            />
+            <StageThreeAlt
+              stageThreeAltDetails={stageThreeAltStageTwoDetails}
+              stageThreeAltGen={stageThreeAltStageTwoGen}
+              stageThreeEvolutionMethod={stageThreeAltStageTwoEvolutionMethod}
+            />
           </FlexCenterWrapper>
           <FlexCenterWrapper
             additionalStyles={{
