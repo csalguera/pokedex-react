@@ -9,6 +9,7 @@ import LinkWrapper from "../common/LinkWrapper"
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 import { EvolutionChainContext } from "../../context/EvolutionChainProvider"
+import FlexCenterWrapper from "../common/FlexCenterWrapper"
 
 const StageThreeChain = () => {
   const {
@@ -33,14 +34,7 @@ const StageThreeChain = () => {
     <>
       {stageThree && stageThreeGen <= currentGen ? (
         <>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-around',
-              alignItems: 'center'
-            }}
-          >
+          <FlexCenterWrapper>
             <EvolutionMethod
               evolutionMethod={stageThreeEvolutionMethod}
             />
@@ -58,13 +52,10 @@ const StageThreeChain = () => {
             ) : (
               <></>
             )}
-          </div>
-          <div
-            style={{
-              display: 'flex',
+          </FlexCenterWrapper>
+          <FlexCenterWrapper
+            additionalStyles={{
               flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
             }}
           >
             <LinkWrapper
@@ -91,7 +82,7 @@ const StageThreeChain = () => {
                 pokemonDetails={stageThreeAltStageTwoDetails}
               />
             </LinkWrapper>
-          </div>
+          </FlexCenterWrapper>
         </>
       ) : (
         <></>
