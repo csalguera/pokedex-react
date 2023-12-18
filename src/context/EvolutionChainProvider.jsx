@@ -4,6 +4,9 @@ import { createContext, useContext, useState, useEffect } from "react";
 // services
 import { getPokemonDetails, getPokemonSpecies } from "../services/api-calls"
 
+// utilities
+import { validateDetails, validateSpecies } from "../utilities/utilities";
+
 // context
 import { PokemonDetailsContext } from "./PokemonDetailsProvider";
 export const EvolutionChainContext = createContext()
@@ -81,9 +84,9 @@ const EvolutionChainProvider = ({ children }) => {
   useEffect(() => {
     const fetchStageOneData = async () => {
       if (stageOne?.species) {
-        const stageOneDetailsData = await getPokemonDetails(stageOne?.species.name)
+        const stageOneDetailsData = await getPokemonDetails(validateDetails(stageOne?.species.name))
         setStageOneDetails(stageOneDetailsData)
-        const stageOneSpeciesData = await getPokemonSpecies(stageOne?.species.name)
+        const stageOneSpeciesData = await getPokemonSpecies(validateSpecies(stageOne?.species.name))
         setStageOneSpecies(stageOneSpeciesData)
       }
     }

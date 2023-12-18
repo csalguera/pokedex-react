@@ -44,3 +44,12 @@ export function validateSpecies(name) {
       return name
   }
 }
+
+export function validateDetails(name) {
+  switch (name) {
+    case 'deoxys':
+      return 'deoxys-normal'
+    default:
+      return name
+  }
+}
