@@ -85,14 +85,12 @@ const StageThreeChain = () => {
                 pokemonDetails={stageThreeDetails}
               />
             </LinkWrapper>
-            <StageThreeAltSprite
-              altDetails={stageThreeAltDetails}
-              altGen={stageThreeAltGen}
-            />
-            <StageThreeAltSprite
-              altDetails={stageThreeAltStageTwoDetails}
-              altGen={stageThreeAltStageTwoGen}
-            />
+            {validAlts.map(alt => (
+              <StageThreeAltSprite
+                altDetails={alt.details}
+                altGen={alt.gen}
+              />
+            ))}
           </FlexCenterWrapper>
         </>
       ) : (
