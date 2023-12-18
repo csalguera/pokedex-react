@@ -49,7 +49,7 @@ const PrevBtn = () => {
     }
   }, [prevPokemonSpecies, prevPokemonSpecies.generation, prevPath, genPath, currentGen])
 
-  if (pokemonDetails.id === 1) return
+  if (pokemonDetails.id === 1) return <div></div>
 
   return (
     <LinkWrapper
