@@ -100,6 +100,9 @@ const EvolutionChainProvider = ({ children }) => {
         setStageTwoDetails(stageTwoDetailsData)
         const stageTwoSpeciesData = await getPokemonSpecies(validateSpecies(stageTwo?.species.name))
         setStageTwoSpecies(stageTwoSpeciesData)
+      } else {
+        setStageTwoDetails({})
+        setStageTwoSpecies({})
       }
     }
     fetchStageTwoData()
@@ -112,6 +115,9 @@ const EvolutionChainProvider = ({ children }) => {
         setStageTwoAlt1Details(stageTwoAlt1DetailsData)
         const stageTwoAlt1SpeciesData = await getPokemonSpecies(stageTwoAlt1?.species.name)
         setStageTwoAlt1Species(stageTwoAlt1SpeciesData)
+      } else {
+        setStageTwoAlt1Details({})
+        setStageTwoAlt1Species({})
       }
     }
     fetchStageTwoAlt1Data()
@@ -124,6 +130,9 @@ const EvolutionChainProvider = ({ children }) => {
         setStageTwoAlt2Details(stageTwoAlt2DetailsData)
         const stageTwoAlt2SpeciesData = await getPokemonSpecies(stageTwoAlt2?.species.name)
         setStageTwoAlt2Species(stageTwoAlt2SpeciesData)
+      } else {
+        setStageTwoAlt2Details({})
+        setStageTwoAlt2Species({})
       }
     }
     fetchStageTwoAlt2Data()
@@ -136,6 +145,9 @@ const EvolutionChainProvider = ({ children }) => {
         setStageTwoAlt3Details(stageTwoAlt3DetailsData)
         const stageTwoAlt3SpeciesData = await getPokemonSpecies(stageTwoAlt3?.species.name)
         setStageTwoAlt3Species(stageTwoAlt3SpeciesData)
+      } else {
+        setStageTwoAlt3Details({})
+        setStageTwoAlt3Species({})
       }
     }
     fetchStageTwoAlt3Data()
@@ -148,6 +160,9 @@ const EvolutionChainProvider = ({ children }) => {
         setStageTwoAlt4Details(stageTwoAlt4DetailsData)
         const stageTwoAlt4SpeciesData = await getPokemonSpecies(stageTwoAlt4?.species.name)
         setStageTwoAlt4Species(stageTwoAlt4SpeciesData)
+      } else {
+        setStageTwoAlt4Details({})
+        setStageTwoAlt4Species({})
       }
     }
     fetchStageTwoAlt4Data()
@@ -160,6 +175,9 @@ const EvolutionChainProvider = ({ children }) => {
         setStageTwoAlt5Details(stageTwoAlt5DetailsData)
         const stageTwoAlt5SpeciesData = await getPokemonSpecies(stageTwoAlt5?.species.name)
         setStageTwoAlt5Species(stageTwoAlt5SpeciesData)
+      } else {
+        setStageTwoAlt5Details({})
+        setStageTwoAlt5Species({})
       }
     }
     fetchStageTwoAlt5Data()
@@ -172,6 +190,9 @@ const EvolutionChainProvider = ({ children }) => {
         setStageTwoAlt6Details(stageTwoAlt6DetailsData)
         const stageTwoAlt6SpeciesData = await getPokemonSpecies(stageTwoAlt6?.species.name)
         setStageTwoAlt6Species(stageTwoAlt6SpeciesData)
+      } else {
+        setStageTwoAlt6Details({})
+        setStageTwoAlt6Species({})
       }
     }
     fetchStageTwoAlt6Data()
@@ -184,6 +205,9 @@ const EvolutionChainProvider = ({ children }) => {
         setStageThreeDetails(stageThreeDetailsData)
         const stageThreeSpeciesData = await getPokemonSpecies(stageThree?.species.name)
         setStageThreeSpecies(stageThreeSpeciesData)
+      } else {
+        setStageThreeDetails({})
+        setStageThreeSpecies({})
       }
     }
     fetchStageThreeData()
@@ -196,6 +220,9 @@ const EvolutionChainProvider = ({ children }) => {
         setStageThreeAltDetails(stageThreeAltDetailsData)
         const stageThreeAltSpeciesData = await getPokemonSpecies(stageThreeAlt?.species.name)
         setStageThreeAltSpecies(stageThreeAltSpeciesData)
+      } else {
+        setStageThreeAltDetails({})
+        setStageThreeAltSpecies({})
       }
     }
     fetchStageThreeAltData()
@@ -208,6 +235,9 @@ const EvolutionChainProvider = ({ children }) => {
         setStageThreeAltStageTwoDetails(stageThreeAltStageTwoDetailsData)
         const stageThreeAltStageTwoSpeciesData = await getPokemonSpecies(stageThreeAltStageTwo?.species.name)
         setStageThreeAltStageTwoSpecies(stageThreeAltStageTwoSpeciesData)
+      } else {
+        setStageThreeAltStageTwoDetails({})
+        setStageThreeAltStageTwoSpecies({})
       }
     }
     fetchStageThreeAltStageTwoData()
