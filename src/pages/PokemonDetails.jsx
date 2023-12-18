@@ -14,6 +14,10 @@ import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
 import NextBtn from "../components/PokemonDetails/NextBtn"
 import PrevBtn from "../components/PokemonDetails/PrevBtn"
 
+// mui components
+import AppBar from "@mui/material/AppBar"
+import Container from "@mui/material/Container"
+
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
 
@@ -32,11 +36,20 @@ const PokemonDetails = () => {
           }}
         >
           <PokemonDetailsProvider>
-            <FlexCenterWrapper>
-              <PrevBtn />
-              <Header />
-              <NextBtn />
-            </FlexCenterWrapper>
+            <AppBar position="static" color="">
+              <Container maxWidth='xl'>
+                <FlexCenterWrapper
+                  additionalStyles={{
+                    width: '100%',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <PrevBtn />
+                  <NextBtn />
+                </FlexCenterWrapper>
+              </Container>
+            </AppBar>
+            <Header />
             <Generation />
             <Version />
             <PokemonSprite

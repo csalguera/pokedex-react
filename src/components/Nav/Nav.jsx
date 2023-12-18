@@ -1,7 +1,9 @@
 // npm modules
 import { useState } from "react"
 
+// components
 import LinkWrapper from "../common/LinkWrapper"
+import ImageMd from "../common/ImageMd"
 
 // mui components
 import AppBar from '@mui/material/AppBar'
@@ -14,7 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
-import ComputerIcon from '@mui/icons-material/Computer'
+import ImageXs from "../common/ImageXs"
 
 const Nav = () => {
   const gen1 = {
@@ -70,7 +72,10 @@ const Nav = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <ComputerIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <ImageMd
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png"
+            width='30px'
+          />
           <Typography
             variant="h6"
             noWrap
@@ -130,7 +135,10 @@ const Nav = () => {
               ))}
             </Menu>
           </Box>
-          <ComputerIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <ImageXs
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png"
+            width='30px'
+          />
           <Typography
             variant="h5"
             noWrap

@@ -1,6 +1,9 @@
 // npm modules
 import { useContext } from "react"
 
+// components
+import FlexCenterWrapper from "../common/FlexCenterWrapper"
+
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
@@ -14,17 +17,11 @@ const Header = () => {
   } = useContext(PokemonDetailsContext)
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        // width: '300px',
-      }}
-    >
+    <FlexCenterWrapper>
       <HeaderWrapper>
         {leadingZeros(pokemonDetails.id ?? '')} - {pascalize(pokemonDetails.name ?? '')}
       </HeaderWrapper>
-    </div>
+    </FlexCenterWrapper>
   )
 }
 
