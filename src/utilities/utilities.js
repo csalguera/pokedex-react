@@ -40,6 +40,8 @@ export function validateSpecies(name) {
   switch (name) {
     case 'deoxys-normal':
       return 'deoxys'
+    case 'wormadam-plant':
+      return 'wormadam'
     default:
       return name
   }
@@ -49,6 +51,8 @@ export function validateDetails(name) {
   switch (name) {
     case 'deoxys':
       return 'deoxys-normal'
+      case 'wormadam':
+      return 'wormadam-plant'
     default:
       return name
   }

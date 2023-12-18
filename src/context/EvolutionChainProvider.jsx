@@ -96,9 +96,9 @@ const EvolutionChainProvider = ({ children }) => {
   useEffect(() => {
     const fetchStageTwoData = async () => {
       if (stageTwo?.species) {
-        const stageTwoDetailsData = await getPokemonDetails(stageTwo?.species.name)
+        const stageTwoDetailsData = await getPokemonDetails(validateDetails(stageTwo?.species.name))
         setStageTwoDetails(stageTwoDetailsData)
-        const stageTwoSpeciesData = await getPokemonSpecies(stageTwo?.species.name)
+        const stageTwoSpeciesData = await getPokemonSpecies(validateSpecies(stageTwo?.species.name))
         setStageTwoSpecies(stageTwoSpeciesData)
       }
     }

@@ -65,13 +65,13 @@ const EvolutionMethod = (props) => {
   }
 
   const levelCondition = (
-    evolutionMethod.min_level
+    evolutionMethod?.min_level
   )
 
   const genderCondition = (
-    evolutionMethod.gender === 1 ? (
+    evolutionMethod?.gender === 1 ? (
       '♀'
-    ) : evolutionMethod.gender === 2 ? (
+    ) : evolutionMethod?.gender === 2 ? (
       '♂'
     ) : (
       null
@@ -87,15 +87,15 @@ const EvolutionMethod = (props) => {
   )
 
   const heldItemCondition = (
-    evolutionMethod.held_item
+    evolutionMethod?.held_item
   )
 
   const useItemCondition = (
-    evolutionMethod.item
+    evolutionMethod?.item
   )
 
   const friendshipCondition = (
-    evolutionMethod.min_happiness ? (
+    evolutionMethod?.min_happiness ? (
       '❤️'
     ) : (
       null
@@ -103,9 +103,9 @@ const EvolutionMethod = (props) => {
   )
 
   const timeCondition = (
-    evolutionMethod.time_of_day === 'day' ? (
+    evolutionMethod?.time_of_day === 'day' ? (
       '☀️'
-    ) : evolutionMethod.time_of_day === 'night' ? (
+    ) : evolutionMethod?.time_of_day === 'night' ? (
       '🌙'
     ) : (
       null
@@ -113,11 +113,11 @@ const EvolutionMethod = (props) => {
   )
 
   const statCondition = (
-    evolutionMethod.relative_physical_stats > 0 ? (
+    evolutionMethod?.relative_physical_stats > 0 ? (
       'Atk > Def'
-    ) : evolutionMethod.relative_physical_stats < 0 ? (
+    ) : evolutionMethod?.relative_physical_stats < 0 ? (
       'Atk < Def'
-    ) : evolutionMethod.relative_physical_stats === 0 ? (
+    ) : evolutionMethod?.relative_physical_stats === 0 ? (
       'Atk = Def'
     ) : (
       null
@@ -133,14 +133,14 @@ const EvolutionMethod = (props) => {
   )
 
   const beautyCondition = (
-    evolutionMethod.min_beauty ? (
+    evolutionMethod?.min_beauty ? (
       'https://archives.bulbagarden.net/media/upload/5/5e/Blue_Pok%C3%A9block_Sprite.png'
     ) : (
       null
     )
   )
 
-  const knownMove = (evolutionMethod.known_move?.name)
+  const knownMove = (evolutionMethod?.known_move?.name)
   const knownMoveCondition = (
     knownMove ? (
       `w/ ${removeHyphens(knownMove)}`
@@ -149,7 +149,7 @@ const EvolutionMethod = (props) => {
     )
   )
 
-  const evolveLocation = (evolutionMethod.location?.name)
+  const evolveLocation = (evolutionMethod?.location?.name)
   const locationCondition = (
     evolveLocation ? (
       `at ${removeHyphens(evolveLocation)}`
@@ -160,11 +160,13 @@ const EvolutionMethod = (props) => {
 
   useEffect(() => {
     const fetchTrigger = async () => {
-      const triggerData = await getEvolutionTrigger(evolutionMethod.trigger.name)
-      setTrigger(triggerData)
+      if (evolutionMethod?.trigger?.name) {
+        const triggerData = await getEvolutionTrigger(evolutionMethod?.trigger?.name)
+        setTrigger(triggerData)
+      }
     }
     fetchTrigger()
-  }, [evolutionMethod.trigger.name])
+  }, [evolutionMethod?.trigger?.name])
 
   useEffect(() => {
     const fetchItem = async () => {
