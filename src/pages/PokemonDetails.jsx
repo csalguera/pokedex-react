@@ -10,7 +10,8 @@ import EvolutionChain from "../components/EvolutionChain/EvolutionChain"
 import Version from "../components/Version/Version"
 import Generation from "../components/Generation/Generation"
 import HeaderWrapper from "../components/common/HeaderWrapper"
-import BorderWrapper from "../components/common/FlexCenterWrapper"
+import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
+import NextBtn from "../components/PokemonDetails/NextBtn"
 
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
@@ -24,16 +25,16 @@ const PokemonDetails = () => {
   return (
     <>
       {pokemonDetails ? (
-        <div
-          style={{
-            display: 'flex',
+        <FlexCenterWrapper
+          additionalStyles={{
             flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center'
           }}
         >
           <PokemonDetailsProvider>
-            <Header />
+            <FlexCenterWrapper>
+              <Header />
+              <NextBtn />
+            </FlexCenterWrapper>
             <Generation />
             <Version />
             <PokemonSprite
@@ -45,7 +46,7 @@ const PokemonDetails = () => {
             <Type />
             <EvolutionChain />
           </PokemonDetailsProvider>
-        </div>
+        </FlexCenterWrapper>
       ) : (
         <HeaderWrapper
           otherVariant='h5'
