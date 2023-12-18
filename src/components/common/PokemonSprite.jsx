@@ -118,11 +118,12 @@ const PokemonSprite = (props) => {
 
   return (
     <FlexCenterWrapper
-      // additionalStyles={{
-      //   borderRadius: '10px',
-      //   backgroundColor: 'rgb(210,210,210)',
-      //   p: 2,
-      // }}
+      additionalStyles={{
+        borderRadius: '10px',
+        backgroundColor: 'rgb(210,210,210)',
+        p: 2,
+        m:2,
+      }}
     >
       <img
         src={determineSprite(genPath, spriteGen1, spriteGen2, spriteGen3, spriteGen4)}

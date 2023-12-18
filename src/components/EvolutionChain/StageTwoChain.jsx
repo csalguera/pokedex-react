@@ -95,7 +95,7 @@ const StageTwoChain = () => {
     alt6,
   ]
 
-  const validAlts = alts.filter(alt => alt.details.name)
+  const validAlts = alts.filter(alt => alt.details.name).filter(alt => alt.gen <= currentGen)
 
   return (
     <>
