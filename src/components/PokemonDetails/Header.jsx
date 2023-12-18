@@ -18,7 +18,7 @@ const Header = () => {
       style={{
         display: 'flex',
         alignItems: 'center',
-        width: '300px',
+        // width: '300px',
       }}
     >
       <HeaderWrapper>

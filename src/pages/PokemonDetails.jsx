@@ -12,6 +12,7 @@ import Generation from "../components/Generation/Generation"
 import HeaderWrapper from "../components/common/HeaderWrapper"
 import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
 import NextBtn from "../components/PokemonDetails/NextBtn"
+import PrevBtn from "../components/PokemonDetails/PrevBtn"
 
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
@@ -32,6 +33,7 @@ const PokemonDetails = () => {
         >
           <PokemonDetailsProvider>
             <FlexCenterWrapper>
+              <PrevBtn />
               <Header />
               <NextBtn />
             </FlexCenterWrapper>
