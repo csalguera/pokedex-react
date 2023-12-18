@@ -15,12 +15,36 @@ export function removeHyphens(str) {
   return newStr.join(' ')
 }
 
-export function determinePath(str) {
-  return str.replace('eration', '')
+export function determinePath(path, currPath, currGen) {
+  const pathName = path.replace('eration', '')
+  let pathNum
+
+  switch (pathName) {
+    case 'gen-i':
+      pathNum = 1
+      break
+    case 'gen-ii':
+      pathNum = 2
+      break
+    case 'gen-iii':
+      pathNum = 3
+      break
+    default:
+      pathNum = 1
+      break
+  }
+
+  if (pathNum < currGen) {
+    return currPath
+  } else {
+    return pathName
+  }
 }
 
-export function determineGenNum(str) {
-  switch (str) {
+export function determineGenNum(path, currGen) {
+  const pathName = path.replace('eration', '')
+
+  switch (pathName) {
     case 'gen-i':
       return 1
     case 'gen-ii':
@@ -31,8 +55,8 @@ export function determineGenNum(str) {
       return 4
     case 'gen-v':
       return 5
-      default:
-        return 1
+    default:
+      return 1
   }
 }
 

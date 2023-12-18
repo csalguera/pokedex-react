@@ -19,6 +19,8 @@ import { leadingZeros, determinePath, determineGenNum } from "../../utilities/ut
 const NextBtn = () => {
   const {
     pokemonDetails,
+    currentGen,
+    genPath,
   } = useContext(PokemonDetailsContext)
 
   const [nextPokemonDetails, setNextPokemonDetails] = useState({})
@@ -42,11 +44,11 @@ const NextBtn = () => {
   useEffect(() => {
     if (nextPokemonSpecies && nextPokemonSpecies.generation) {
       const genName = nextPokemonSpecies.generation.name
-      setNextPath(determinePath(genName))
-      setNextGenNum(determineGenNum(nextPath))
+      setNextPath(determinePath(genName, genPath, currentGen))
+      setNextGenNum(determineGenNum(genName))
     }
-  }, [nextPokemonSpecies, nextPokemonSpecies.generation, nextPath])
-  
+  }, [nextPokemonSpecies, nextPokemonSpecies.generation, nextPath, genPath, currentGen])
+
   return (
     <LinkWrapper
       to={`/${nextPath}/${nextPokemonDetails.name}`}
