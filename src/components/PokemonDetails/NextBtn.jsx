@@ -8,36 +8,49 @@ import LinkWrapper from "../common/LinkWrapper"
 import { Button } from "@mui/material"
 
 // services
-import { getPokemonDetails } from "../../services/api-calls"
+import { getPokemonDetails, getPokemonSpecies } from "../../services/api-calls"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 // utilities
-import { leadingZeros } from "../../utilities/utilities"
+import { leadingZeros, determinePath, determineGenNum } from "../../utilities/utilities"
 
 const NextBtn = () => {
   const {
     pokemonDetails,
-    genPath,
   } = useContext(PokemonDetailsContext)
 
   const [nextPokemonDetails, setNextPokemonDetails] = useState({})
+  const [nextPokemonSpecies, setNextPokemonSpecies] = useState({})
+  const [nextGenNum, setNextGenNum] = useState(0)
+  const [nextPath, setNextPath] = useState('')
 
   useEffect(() => {
-    const fetchDetails = async () => {
+    const fetchNextData = async () => {
       if (pokemonDetails.id) {
-        const nextPokemonData = await getPokemonDetails(pokemonDetails.id + 1)
-        setNextPokemonDetails(nextPokemonData)
+        const nextPokemonDetailsData = await getPokemonDetails(pokemonDetails.id + 1)
+        setNextPokemonDetails(nextPokemonDetailsData)
+        const nextPokemonSpeciesData = await getPokemonSpecies(pokemonDetails.id + 1)
+        setNextPokemonSpecies(nextPokemonSpeciesData)
       }
     }
-    fetchDetails()
+    fetchNextData()
   }, [pokemonDetails.id])
 
+  
+  useEffect(() => {
+    if (nextPokemonSpecies && nextPokemonSpecies.generation) {
+      const genName = nextPokemonSpecies.generation.name
+      setNextPath(determinePath(genName))
+      setNextGenNum(determineGenNum(nextPath))
+    }
+  }, [nextPokemonSpecies, nextPokemonSpecies.generation, nextPath])
+  
   return (
     <LinkWrapper
-      to={`/${genPath}/${nextPokemonDetails.name}`}
-      state={{ ...nextPokemonDetails, genNum: 1, genPath }}
+      to={`/${nextPath}/${nextPokemonDetails.name}`}
+      state={{ ...nextPokemonDetails, genNum: nextGenNum, nextPath }}
     >
       <Button>
         {`Next - ${leadingZeros(nextPokemonDetails.id)} ${nextPokemonDetails.name}`}
