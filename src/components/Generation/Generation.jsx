@@ -8,6 +8,7 @@ const Generation = () => {
     { path: 'gen-ii', val: 2 },
     { path: 'gen-iii', val: 3 },
     { path: 'gen-iv', val: 4 },
+    { path: 'gen-v', val: 5 },
   ]
   return (
     <FlexCenterWrapper>

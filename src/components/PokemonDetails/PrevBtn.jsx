@@ -14,7 +14,7 @@ import { getPokemonDetails, getPokemonSpecies } from "../../services/api-calls"
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 // utilities
-import { leadingZeros, determinePath, determineGenNum } from "../../utilities/utilities"
+import { leadingZeros, determinePath, determineGenNum, validateSpecies } from "../../utilities/utilities"
 
 const PrevBtn = () => {
   const {
@@ -57,7 +57,7 @@ const PrevBtn = () => {
       state={{ ...prevPokemonDetails, genNum: prevGenNum, prevPath }}
     >
       <Button>
-        {`Prev - ${leadingZeros(prevPokemonDetails.id)} ${prevPokemonDetails.name}`}
+        {`Prev - ${leadingZeros(prevPokemonDetails.id)} ${validateSpecies(prevPokemonDetails.name)}`}
       </Button>
     </LinkWrapper>
   )

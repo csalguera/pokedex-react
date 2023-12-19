@@ -36,6 +36,8 @@ function App() {
           <Route path='gen-iii/:pokemonName' element={<PokemonDetails />} />
           <Route path='gen-iv' element={<Region />} />
           <Route path='gen-iv/:pokemonName' element={<PokemonDetails />} />
+          <Route path='gen-v' element={<Region />} />
+          <Route path='gen-v/:pokemonName' element={<PokemonDetails />} />
         </Routes>
       </PokemonDetailsProvider>
     </>

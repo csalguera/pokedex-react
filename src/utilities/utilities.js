@@ -70,6 +70,20 @@ export function validateSpecies(name) {
       return 'giratina'
     case 'shaymin-land':
       return 'shaymin'
+    case 'basculin-red-striped':
+      return 'basculin'
+    case 'darmanitan-standard':
+      return 'darmanitan'
+    case 'tornadus-incarnate':
+      return 'tornadus'
+    case 'thundurus-incarnate':
+      return 'thundurus'
+    case 'landorus-incarnate':
+      return 'landorus'
+    case 'keldeo-ordinary':
+      return 'keldeo'
+    case 'meloetta-aria':
+      return 'meloetta'
     default:
       return name
   }
@@ -83,8 +97,22 @@ export function validateDetails(name) {
       return 'wormadam-plant'
     case 'giratina':
       return 'giratina-altered'
-    case 'shaymin':
-      return 'shaymin-land'
+    case 'shaymin-land':
+      return 'shaymin'
+      case 'basculin':
+      return 'basculin-red-striped'
+    case 'darmanitan':
+      return 'darmanitan-standard'
+    case 'tornadus':
+      return 'tornadus-incarnate'
+    case 'thundurus':
+      return 'thundurus-incarnate'
+    case 'landorus':
+      return 'landorus-incarnate'
+    case 'keldeo':
+      return 'keldeo-ordinary'
+    case 'meloetta':
+      return 'meloetta-aria'
     default:
       return name
   }

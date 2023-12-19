@@ -14,6 +14,7 @@ const PokemonSprite = (props) => {
     spriteGen2,
     spriteGen3,
     spriteGen4,
+    spriteGen5,
     genPath,
   } = useContext(PokemonDetailsContext)
 
@@ -21,7 +22,7 @@ const PokemonSprite = (props) => {
     pokemonDetails
   } = props
 
-  function determineSprite(path, gen1Ver, gen2Ver, gen3Ver, gen4Ver) {
+  function determineSprite(path, gen1Ver, gen2Ver, gen3Ver, gen4Ver, gen5Ver) {
     const baseNotation = (pokemonDetails?.sprites?.versions)
 
     let generation = ''
@@ -37,6 +38,9 @@ const PokemonSprite = (props) => {
         break
       case 'gen-iv':
         generation = baseNotation?.['generation-iv']
+        break
+      case 'gen-v':
+        generation = baseNotation?.['generation-v']
         break
       default:
         generation = baseNotation?.['generation-i']
@@ -115,6 +119,19 @@ const PokemonSprite = (props) => {
       }
       return sprite
     }
+
+    if (path === 'gen-v') {
+      let sprite = ''
+      switch (gen5Ver) {
+        case 0:
+          sprite = generation?.['black-white'].animated?.front_default
+          break
+        default:
+          sprite = generation?.['black-white'].animated
+          break
+      }
+      return sprite
+    }
   }
 
   return (
@@ -123,12 +140,13 @@ const PokemonSprite = (props) => {
         borderRadius: '10px',
         backgroundColor: 'rgb(240,240,240)',
         p: 2,
-        m:2,
+        m: 2,
+        width: '96px',
+        height: '96px',
       }}
     >
       <ImageWrapper
-        src={determineSprite(genPath, spriteGen1, spriteGen2, spriteGen3, spriteGen4)}
-        width='96px'
+        src={determineSprite(genPath, spriteGen1, spriteGen2, spriteGen3, spriteGen4, spriteGen5)}
       />
     </FlexCenterWrapper>
   )

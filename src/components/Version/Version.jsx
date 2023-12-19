@@ -15,6 +15,7 @@ const Version = () => {
     setSpriteGen2,
     setSpriteGen3,
     setSpriteGen4,
+    setSpriteGen5,
   } = useContext(PokemonDetailsContext)
 
   const versions = [
@@ -29,6 +30,7 @@ const Version = () => {
     { val: 0, thisPath: 'gen-iv', chars: 'DP', setSprite: setSpriteGen4 },
     { val: 1, thisPath: 'gen-iv', chars: 'HGSS', setSprite: setSpriteGen4 },
     { val: 2, thisPath: 'gen-iv', chars: 'Pt', setSprite: setSpriteGen4 },
+    { val: 0, thisPath: 'gen-v', chars: 'BW / B2W2', setSprite: setSpriteGen5 },
   ]
 
   return (

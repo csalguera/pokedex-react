@@ -17,6 +17,7 @@ const PokemonDetailsProvider = ({ children }) => {
   const [spriteGen2, setSpriteGen2] = useState(0)
   const [spriteGen3, setSpriteGen3] = useState(0)
   const [spriteGen4, setSpriteGen4] = useState(0)
+  const [spriteGen5, setSpriteGen5] = useState(0)
   const [genPath, setGenPath] = useState('')
   const { genNum } = location.state || {}
   const pastTypes = (pokemonDetails?.past_types?.[0])
@@ -35,6 +36,9 @@ const PokemonDetailsProvider = ({ children }) => {
       break;
     case 'gen-iv':
       currentGen = 4
+      break;
+    case 'gen-v':
+      currentGen = 5
       break;
     default:
       currentGen = 0
@@ -100,6 +104,8 @@ const PokemonDetailsProvider = ({ children }) => {
     setSpriteGen3,
     spriteGen4,
     setSpriteGen4,
+    spriteGen5,
+    setSpriteGen5,
   }
 
   return (

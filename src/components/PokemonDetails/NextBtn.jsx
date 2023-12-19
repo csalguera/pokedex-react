@@ -14,7 +14,7 @@ import { getPokemonDetails, getPokemonSpecies } from "../../services/api-calls"
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 // utilities
-import { leadingZeros, determinePath, determineGenNum } from "../../utilities/utilities"
+import { leadingZeros, determinePath, determineGenNum, validateSpecies } from "../../utilities/utilities"
 
 const NextBtn = () => {
   const {
@@ -55,7 +55,7 @@ const NextBtn = () => {
       state={{ ...nextPokemonDetails, genNum: nextGenNum, nextPath }}
     >
       <Button>
-        {`Next - ${leadingZeros(nextPokemonDetails.id)} ${nextPokemonDetails.name}`}
+        {`Next - ${leadingZeros(nextPokemonDetails.id)} ${validateSpecies(nextPokemonDetails.name)}`}
       </Button>
     </LinkWrapper>
   )
