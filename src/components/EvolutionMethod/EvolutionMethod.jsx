@@ -4,18 +4,19 @@ import { getItem, getEvolutionTrigger } from "../../services/api-calls"
 
 // components
 import ConditionText from "./ConditionText"
+import ConditionImg from "./ConditionImg"
 import FlexCenterWrapper from "../common/FlexCenterWrapper"
+import ImageWrapper from "../common/ImageWrapper"
 
 // mui components
 import Typography from "@mui/material/Typography"
 
 // utilities
 import { removeHyphens } from "../../utilities/utilities"
-import ConditionImg from "./ConditionImg"
 
 const EvolutionMethod = (props) => {
   const {
-    evolutionMethod
+    evolutionMethod,
   } = props
 
   const [trigger, setTrigger] = useState({})
@@ -210,12 +211,15 @@ const EvolutionMethod = (props) => {
     },
     {
       condition: statCondition,
+      color: 'primary.main',
     },
     {
       condition: knownMoveCondition,
+      color: 'primary.main',
     },
     {
       condition: locationCondition,
+      color: 'primary.main',
     },
   ]
 
@@ -257,10 +261,8 @@ const EvolutionMethod = (props) => {
         />
       ))}
       {beautyCondition ? (
-        <img
-          style={{ margin: '0 8px 0 0' }}
+        <ImageWrapper
           src={beautyCondition}
-          alt="" 
           width='20px'
         />
       ) : (

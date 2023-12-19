@@ -1,20 +1,17 @@
+// mui components
+import ImageWrapper from "../common/ImageWrapper"
+
 const ConditionImg = (props) => {
   const {
     condition,
     item,
   } = props
 
+  if (!condition) return
   return (
-    <>
-      {condition ? (
-        <img
-          src={item?.sprites?.default}
-          alt="" 
-        />
-      ) : (
-        null
-      )}
-    </>
+    <ImageWrapper
+      src={item?.sprites?.default}
+    />
   )
 }
 
