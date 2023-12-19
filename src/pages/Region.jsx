@@ -5,6 +5,10 @@ import { useLocation } from "react-router-dom"
 // components
 import HeaderWrapper from "../components/common/HeaderWrapper"
 import LinkWrapper from "../components/common/LinkWrapper"
+import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
+
+// mui components
+import { Typography } from "@mui/material"
 
 // services
 import { getPokemonList } from "../services/api-calls"
@@ -38,28 +42,22 @@ const Region = () => {
       </HeaderWrapper>
       {region.length ? (
         region.map((pokemon, idx) => (
-          <div
+          <FlexCenterWrapper
             key={pokemon.name}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
           >
-            <div
-              style={{
-                display: 'flex',
+            <FlexCenterWrapper
+              additionalStyles={{
                 justifyContent: 'flex-start',
-                alignItems: 'center',
                 width: '175px',
               }}
             >
-              <p
-                style={{
-                  margin: '8px'
+              <Typography
+                sx={{
+                  m: 1,
                 }}
               >
                 {leadingZeros(dexOffset + idx + 1)}
-              </p>
+              </Typography>
               <LinkWrapper
                 to={`/${genPath}/${pokemon.name}`}
                 state={{ ...pokemon, genNum, genPath }}
@@ -70,8 +68,8 @@ const Region = () => {
               >
                 {pascalize(validateSpecies(pokemon.name))}
               </LinkWrapper>
-            </div>
-          </div>
+            </FlexCenterWrapper>
+          </FlexCenterWrapper>
         ))
       ) : (
         <HeaderWrapper
