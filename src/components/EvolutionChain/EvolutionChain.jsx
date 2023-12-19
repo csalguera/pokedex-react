@@ -2,20 +2,25 @@
 import StageOneChain from "./StageOneChain";
 import StageTwoChain from "./StageTwoChain";
 import StageThreeChain from "./StageThreeChain";
-import FlexCenterWrapper from "../common/FlexCenterWrapper";
+
+import Box from "@mui/material/Box";
 
 // context
 import EvolutionChainProvider from "../../context/EvolutionChainProvider";
 
 const EvolutionChain = () => {
   return (
-    <FlexCenterWrapper>
+    <Box
+      sx={{
+        display: 'flex'
+      }}
+    >
       <EvolutionChainProvider>
         <StageOneChain />
         <StageTwoChain />
         <StageThreeChain />
       </EvolutionChainProvider>
-    </FlexCenterWrapper>
+    </Box>
   )
 }
 
