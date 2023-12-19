@@ -50,49 +50,13 @@ const StageTwoChain = () => {
     stageThree,
   } = useContext(EvolutionChainContext)
 
-  const alt1 = {
-    gen: stageTwoAlt1Gen,
-    details: stageTwoAlt1Details,
-    method: stageTwoAlt1EvolutionMethod,
-  }
-
-  const alt2 = {
-    gen: stageTwoAlt2Gen,
-    details: stageTwoAlt2Details,
-    method: stageTwoAlt2EvolutionMethod,
-  }
-
-  const alt3 = {
-    gen: stageTwoAlt3Gen,
-    details: stageTwoAlt3Details,
-    method: stageTwoAlt3EvolutionMethod,
-  }
-
-  const alt4 = {
-    gen: stageTwoAlt4Gen,
-    details: stageTwoAlt4Details,
-    method: stageTwoAlt4EvolutionMethod,
-  }
-
-  const alt5 = {
-    gen: stageTwoAlt5Gen,
-    details: stageTwoAlt5Details,
-    method: stageTwoAlt5EvolutionMethod,
-  }
-
-  const alt6 = {
-    gen: stageTwoAlt6Gen,
-    details: stageTwoAlt6Details,
-    method: stageTwoAlt6EvolutionMethod,
-  }
-
   const alts = [
-    alt1,
-    alt2,
-    alt3,
-    alt4,
-    alt5,
-    alt6,
+    { gen: stageTwoAlt1Gen, details: stageTwoAlt1Details, method: stageTwoAlt1EvolutionMethod },
+    { gen: stageTwoAlt2Gen, details: stageTwoAlt2Details, method: stageTwoAlt2EvolutionMethod },
+    { gen: stageTwoAlt3Gen, details: stageTwoAlt3Details, method: stageTwoAlt3EvolutionMethod },
+    { gen: stageTwoAlt4Gen, details: stageTwoAlt4Details, method: stageTwoAlt4EvolutionMethod },
+    { gen: stageTwoAlt5Gen, details: stageTwoAlt5Details, method: stageTwoAlt5EvolutionMethod },
+    { gen: stageTwoAlt6Gen, details: stageTwoAlt6Details, method: stageTwoAlt6EvolutionMethod },
   ]
 
   const validAlts = alts.filter(alt => alt.details.name).filter(alt => alt.gen <= currentGen)

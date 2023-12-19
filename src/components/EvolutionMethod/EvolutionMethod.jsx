@@ -188,39 +188,17 @@ const EvolutionMethod = (props) => {
   }, [useItemCondition, heldItemCondition])
 
   const itemConditions = [
-    {
-      item: useItemCondition,
-      sprite: item,
-    },
-    {
-      item: heldItemCondition,
-      sprite: heldItem,
-    },
+    { item: useItemCondition, sprite: item },
+    { item: heldItemCondition, sprite: heldItem },
   ]
 
   const otherConditions = [
-    {
-      condition: genderCondition,
-      color: genderColor,
-    },
-    {
-      condition: friendshipCondition,
-    },
-    {
-      condition: timeCondition,
-    },
-    {
-      condition: statCondition,
-      color: 'primary.main',
-    },
-    {
-      condition: knownMoveCondition,
-      color: 'primary.main',
-    },
-    {
-      condition: locationCondition,
-      color: 'primary.main',
-    },
+    { condition: genderCondition, color: genderColor },
+    { condition: friendshipCondition },
+    { condition: timeCondition },
+    { condition: statCondition, color: 'primary.main' },
+    { condition: knownMoveCondition, color: 'primary.main' },
+    { condition: locationCondition, color: 'primary.main' },
   ]
 
   const validItemCoditions = itemConditions.filter(item => item.sprite.name)

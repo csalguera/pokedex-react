@@ -3,25 +3,21 @@ import GenerationBtn from "./GenerationBtn"
 import FlexCenterWrapper from "../common/FlexCenterWrapper"
 
 const Generation = () => {
-
+  const generations = [
+    { path: 'gen-i', val: 1 },
+    { path: 'gen-ii', val: 2 },
+    { path: 'gen-iii', val: 3 },
+    { path: 'gen-iv', val: 4 },
+  ]
   return (
     <FlexCenterWrapper>
-      <GenerationBtn
-        path={'gen-i'}
-        generationVal={1}
-      />
-      <GenerationBtn
-        path={'gen-ii'}
-        generationVal={2}
-      />
-      <GenerationBtn
-        path={'gen-iii'}
-        generationVal={3}
-      />
-      <GenerationBtn
-        path={'gen-iv'}
-        generationVal={4}
-      />
+      {generations.map(generation => (
+        <GenerationBtn
+          key={generation.path}
+          path={generation.path}
+          generationVal={generation.val}
+        />
+      ))}
     </FlexCenterWrapper>
   )
 }

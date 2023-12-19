@@ -25,7 +25,7 @@ const Cry = (props) => {
   return (
     <Button
       sx={{
-        margin: '8px',
+        m: 1,
       }}
       variant="contained"
       onClick={() => cry.play()}

@@ -1,3 +1,7 @@
+// mui components
+import Box from "@mui/material/Box"
+
+// utilities
 import { pascalize } from "../../utilities/utilities"
 
 const TypeBadge = (props) => {
@@ -66,7 +70,7 @@ const TypeBadge = (props) => {
   }
 
   return (
-    <div
+    <Box
       style={{
         backgroundColor: color,
         color: 'white',
@@ -79,7 +83,7 @@ const TypeBadge = (props) => {
       }}
     >
       {pascalize(type.type.name)}
-    </div>
+    </Box>
   )
 }
 

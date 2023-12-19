@@ -32,21 +32,9 @@ const StageThreeChain = () => {
     stageThreeAltStageTwoEvolutionMethod,
   } = useContext(EvolutionChainContext)
 
-  const alt1 = {
-    gen: stageThreeAltGen,
-    details: stageThreeAltDetails,
-    method: stageThreeAltEvolutionMethod,
-  }
-
-  const alt2 = {
-    gen: stageThreeAltStageTwoGen,
-    details: stageThreeAltStageTwoDetails,
-    method: stageThreeAltStageTwoEvolutionMethod,
-  }
-
   const alts =[
-    alt1,
-    alt2,
+    { gen: stageThreeAltGen, details: stageThreeAltDetails, method: stageThreeAltEvolutionMethod },
+    { gen: stageThreeAltStageTwoGen, details: stageThreeAltStageTwoDetails, method: stageThreeAltStageTwoEvolutionMethod },
   ]
 
   const validAlts = alts.filter(alt => alt.details.name).filter(alt => alt.gen <= currentGen)
