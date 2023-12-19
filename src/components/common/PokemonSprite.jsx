@@ -3,6 +3,7 @@ import { useContext } from "react"
 
 // components
 import FlexCenterWrapper from "./FlexCenterWrapper"
+import ImageWrapper from "./ImageWrapper"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -125,9 +126,8 @@ const PokemonSprite = (props) => {
         m:2,
       }}
     >
-      <img
+      <ImageWrapper
         src={determineSprite(genPath, spriteGen1, spriteGen2, spriteGen3, spriteGen4)}
-        alt=""
         width='96px'
       />
     </FlexCenterWrapper>

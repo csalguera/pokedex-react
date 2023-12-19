@@ -22,24 +22,18 @@ const StageOneChain = () => {
     stageOneGen,
   } = useContext(EvolutionChainContext)
 
-
+  if (!stageOne || !(stageOneGen <= currentGen)) return
   return (
-    <>
-      {stageOne && stageOneGen <= currentGen ? (
-        <FlexCenterWrapper>
-          <LinkWrapper
-            to={`/${genPath}/${stageOneDetails.name}`}
-            state={{ ...stageOneDetails, genNum: stageOneGen, genPath }}
-          >
-            <PokemonSprite
-              pokemonDetails={stageOneDetails}
-            />
-          </LinkWrapper>
-        </FlexCenterWrapper>
-      ) : (
-        <></>
-      )}
-    </>
+    <FlexCenterWrapper>
+      <LinkWrapper
+        to={`/${genPath}/${stageOneDetails.name}`}
+        state={{ ...stageOneDetails, genNum: stageOneGen, genPath }}
+      >
+        <PokemonSprite
+          pokemonDetails={stageOneDetails}
+        />
+      </LinkWrapper>
+    </FlexCenterWrapper>
   )
 }
 

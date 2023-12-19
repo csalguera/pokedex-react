@@ -51,53 +51,48 @@ const StageThreeChain = () => {
 
   const validAlts = alts.filter(alt => alt.details.name).filter(alt => alt.gen <= currentGen)
 
+  if (!stageThree || !(stageThreeGen <= currentGen)) return
   return (
     <>
-      {stageThree && stageThreeGen <= currentGen ? (
-        <>
-          <FlexCenterWrapper
-            additionalStyles={{
-              flexDirection: 'column',
-              justifyContent: 'space-around',
-            }}
-          >
-            <EvolutionMethod
-              evolutionMethod={stageThreeEvolutionMethod}
-            />
-            {validAlts.map(alt => (
-              <StageThreeAlt
-                key={alt.details.name}
-                altDetails={alt.details}
-                altGen={alt.gen}
-                altMethod={alt.method}
-              />
-            ))}
-          </FlexCenterWrapper>
-          <FlexCenterWrapper
-            additionalStyles={{
-              flexDirection: 'column',
-            }}
-          >
-            <LinkWrapper
-              to={`/${genPath}/${stageThreeDetails.name}`}
-              state={{ ...stageThreeDetails, genNum: stageThreeGen, genPath }}
-            >
-              <PokemonSprite
-                pokemonDetails={stageThreeDetails}
-              />
-            </LinkWrapper>
-            {validAlts.map(alt => (
-              <StageThreeAltSprite
-                key={alt.details.name}
-                altDetails={alt.details}
-                altGen={alt.gen}
-              />
-            ))}
-          </FlexCenterWrapper>
-        </>
-      ) : (
-        <></>
-      )}
+      <FlexCenterWrapper
+        additionalStyles={{
+          flexDirection: 'column',
+          justifyContent: 'space-around',
+        }}
+      >
+        <EvolutionMethod
+          evolutionMethod={stageThreeEvolutionMethod}
+        />
+        {validAlts.map(alt => (
+          <StageThreeAlt
+            key={alt.details.name}
+            altDetails={alt.details}
+            altGen={alt.gen}
+            altMethod={alt.method}
+          />
+        ))}
+      </FlexCenterWrapper>
+      <FlexCenterWrapper
+        additionalStyles={{
+          flexDirection: 'column',
+        }}
+      >
+        <LinkWrapper
+          to={`/${genPath}/${stageThreeDetails.name}`}
+          state={{ ...stageThreeDetails, genNum: stageThreeGen, genPath }}
+        >
+          <PokemonSprite
+            pokemonDetails={stageThreeDetails}
+          />
+        </LinkWrapper>
+        {validAlts.map(alt => (
+          <StageThreeAltSprite
+            key={alt.details.name}
+            altDetails={alt.details}
+            altGen={alt.gen}
+          />
+        ))}
+      </FlexCenterWrapper>
     </>
   )
 }

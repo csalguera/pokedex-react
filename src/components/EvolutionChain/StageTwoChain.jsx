@@ -97,73 +97,68 @@ const StageTwoChain = () => {
 
   const validAlts = alts.filter(alt => alt.details.name).filter(alt => alt.gen <= currentGen)
 
+  if (!stageTwo || !(stageTwoGen <= currentGen)) return
   return (
     <>
-      {stageTwo && stageTwoGen <= currentGen ? (
-        <>
-          {stageOne && stageOneGen <= currentGen ? (
-            <FlexCenterWrapper
-              additionalStyles={{
-                flexDirection: 'column',
-                justifyContent: 'space-around',
-              }}
-            >
-              <EvolutionMethod
-                evolutionMethod={stageTwoEvolutionMethod}
-              />
-              {validAlts.map(alt => (
-                <StageTwoAlt
-                  key={alt.details.name}
-                  altDetails={alt.details}
-                  altGen={alt.gen}
-                  altMethod={alt.method}
-                />
-              ))}
-            </FlexCenterWrapper>
-          ) : (
-            <></>
-          )}
-          <FlexCenterWrapper
-            additionalStyles={{
-              flexDirection: 'column',
-            }}
-          >
-            {(stageOneGen > currentGen) &&
-            (pokemonSpecies?.name === stageThree?.name) ? (
-              <>
-                <LinkWrapper
-                  to={`/${genPath}/${pokemonDetails.name}`}
-                  state={{ ...pokemonDetails, genNum, genPath }}
-                >
-                  <PokemonSprite
-                    pokemonDetails={pokemonDetails}
-                  />
-                </LinkWrapper>
-              </>
-            ) : (
-              <>
-                <LinkWrapper
-                  to={`/${genPath}/${stageTwoDetails.name}`}
-                  state={{ ...stageTwoDetails, genNum: stageTwoGen, genPath }}
-                >
-                  <PokemonSprite
-                    pokemonDetails={stageTwoDetails}
-                  />
-                </LinkWrapper>
-                {validAlts.map(alt => (
-                  <StageTwoAltSprite
-                    key={alt.details.name}
-                    altDetails={alt.details}
-                    altGen={alt.gen}
-                  />
-                ))}
-              </>
-            )}
-          </FlexCenterWrapper>
-        </>
+      {stageOne && stageOneGen <= currentGen ? (
+        <FlexCenterWrapper
+          additionalStyles={{
+            flexDirection: 'column',
+            justifyContent: 'space-around',
+          }}
+        >
+          <EvolutionMethod
+            evolutionMethod={stageTwoEvolutionMethod}
+          />
+          {validAlts.map(alt => (
+            <StageTwoAlt
+              key={alt.details.name}
+              altDetails={alt.details}
+              altGen={alt.gen}
+              altMethod={alt.method}
+            />
+          ))}
+        </FlexCenterWrapper>
       ) : (
         <></>
       )}
+      <FlexCenterWrapper
+        additionalStyles={{
+          flexDirection: 'column',
+        }}
+      >
+        {(stageOneGen > currentGen) &&
+        (pokemonSpecies?.name === stageThree?.name) ? (
+          <>
+            <LinkWrapper
+              to={`/${genPath}/${pokemonDetails.name}`}
+              state={{ ...pokemonDetails, genNum, genPath }}
+            >
+              <PokemonSprite
+                pokemonDetails={pokemonDetails}
+              />
+            </LinkWrapper>
+          </>
+        ) : (
+          <>
+            <LinkWrapper
+              to={`/${genPath}/${stageTwoDetails.name}`}
+              state={{ ...stageTwoDetails, genNum: stageTwoGen, genPath }}
+            >
+              <PokemonSprite
+                pokemonDetails={stageTwoDetails}
+              />
+            </LinkWrapper>
+            {validAlts.map(alt => (
+              <StageTwoAltSprite
+                key={alt.details.name}
+                altDetails={alt.details}
+                altGen={alt.gen}
+              />
+            ))}
+          </>
+        )}
+      </FlexCenterWrapper>
     </>
   )
 }

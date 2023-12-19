@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom"
 import HeaderWrapper from "../components/common/HeaderWrapper"
 import LinkWrapper from "../components/common/LinkWrapper"
 import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
+import Loading from "../components/common/Loading"
 
 // mui components
 import { Typography } from "@mui/material"
@@ -35,49 +36,42 @@ const Region = () => {
     fetchPokemonList()
   }, [dexLimit, dexOffset])
 
+  if (!region.length) return <Loading />
   return (
     <>
       <HeaderWrapper>
         {regionName}
       </HeaderWrapper>
-      {region.length ? (
-        region.map((pokemon, idx) => (
+      {region.map((pokemon, idx) => (
+        <FlexCenterWrapper
+          key={pokemon.name}
+        >
           <FlexCenterWrapper
-            key={pokemon.name}
+            additionalStyles={{
+              justifyContent: 'flex-start',
+              width: '175px',
+            }}
           >
-            <FlexCenterWrapper
-              additionalStyles={{
-                justifyContent: 'flex-start',
-                width: '175px',
+            <Typography
+              sx={{
+                m: 1,
               }}
             >
-              <Typography
-                sx={{
-                  m: 1,
-                }}
-              >
-                {leadingZeros(dexOffset + idx + 1)}
-              </Typography>
-              <LinkWrapper
-                to={`/${genPath}/${pokemon.name}`}
-                state={{ ...pokemon, genNum, genPath }}
-                style={{
-                  display: 'flex',
-                  width: 'fit-content',
-                }}
-              >
-                {pascalize(validateSpecies(pokemon.name))}
-              </LinkWrapper>
-            </FlexCenterWrapper>
+              {leadingZeros(dexOffset + idx + 1)}
+            </Typography>
+            <LinkWrapper
+              to={`/${genPath}/${pokemon.name}`}
+              state={{ ...pokemon, genNum, genPath }}
+              style={{
+                display: 'flex',
+                width: 'fit-content',
+              }}
+            >
+              {pascalize(validateSpecies(pokemon.name))}
+            </LinkWrapper>
           </FlexCenterWrapper>
-        ))
-      ) : (
-        <HeaderWrapper
-          otherVariant='h5'
-        >
-          Loading...
-        </HeaderWrapper>
-      )}
+        </FlexCenterWrapper>
+      ))}
     </>
   )
 }

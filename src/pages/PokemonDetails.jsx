@@ -9,10 +9,10 @@ import Type from "../components/Type/Type"
 import EvolutionChain from "../components/EvolutionChain/EvolutionChain"
 import Version from "../components/Version/Version"
 import Generation from "../components/Generation/Generation"
-import HeaderWrapper from "../components/common/HeaderWrapper"
 import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
 import NextBtn from "../components/PokemonDetails/NextBtn"
 import PrevBtn from "../components/PokemonDetails/PrevBtn"
+import Loading from "../components/common/Loading"
 
 // mui components
 import AppBar from "@mui/material/AppBar"
@@ -27,49 +27,40 @@ const PokemonDetails = () => {
     pokemonDetails,
   } = useContext(PokemonDetailsContext)
 
+  if (!pokemonDetails) return <Loading />
   return (
-    <>
-      {pokemonDetails ? (
-        <FlexCenterWrapper
-          additionalStyles={{
-            flexDirection: 'column',
-          }}
-        >
-          <PokemonDetailsProvider>
-            <AppBar position="static" color="">
-              <Container maxWidth='xl'>
-                <FlexCenterWrapper
-                  additionalStyles={{
-                    width: '100%',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <PrevBtn />
-                  <NextBtn />
-                </FlexCenterWrapper>
-              </Container>
-            </AppBar>
-            <Header />
-            <Generation />
-            <Version />
-            <PokemonSprite
-              pokemonDetails={pokemonDetails}
-            />
-            <Cry
-              name={location.state.name}
-            />
-            <Type />
-            <EvolutionChain />
-          </PokemonDetailsProvider>
-        </FlexCenterWrapper>
-      ) : (
-        <HeaderWrapper
-          otherVariant='h5'
-        >
-          Loading...
-        </HeaderWrapper>
-      )}
-    </>
+    <FlexCenterWrapper
+      additionalStyles={{
+        flexDirection: 'column',
+      }}
+    >
+      <PokemonDetailsProvider>
+        <AppBar position="static" color="">
+          <Container maxWidth='xl'>
+            <FlexCenterWrapper
+              additionalStyles={{
+                width: '100%',
+                justifyContent: 'space-between',
+              }}
+            >
+              <PrevBtn />
+              <NextBtn />
+            </FlexCenterWrapper>
+          </Container>
+        </AppBar>
+        <Header />
+        <Generation />
+        <Version />
+        <PokemonSprite
+          pokemonDetails={pokemonDetails}
+        />
+        <Cry
+          name={location.state.name}
+        />
+        <Type />
+        <EvolutionChain />
+      </PokemonDetailsProvider>
+    </FlexCenterWrapper>
   )
 }
 
