@@ -18,16 +18,11 @@ const StageTwoAlt = (props) => {
     currentGen
   } = useContext(PokemonDetailsContext)
 
+  if(!altDetails.name || !(altGen <= currentGen)) return
   return (
-    <>
-      {altDetails.name && altGen <= currentGen ? (
-        <EvolutionMethod
-          evolutionMethod={altMethod}
-        />
-      ) : (
-        <></>
-      )}
-    </>
+    <EvolutionMethod
+      evolutionMethod={altMethod}
+    />
   )
 }
 

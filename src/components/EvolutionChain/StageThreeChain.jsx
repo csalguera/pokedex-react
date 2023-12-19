@@ -49,7 +49,7 @@ const StageThreeChain = () => {
     alt2,
   ]
 
-  const validAlts = alts.filter(alt => alt.details.name)
+  const validAlts = alts.filter(alt => alt.details.name).filter(alt => alt.gen <= currentGen)
 
   return (
     <>

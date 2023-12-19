@@ -2,23 +2,20 @@
 import StageOneChain from "./StageOneChain";
 import StageTwoChain from "./StageTwoChain";
 import StageThreeChain from "./StageThreeChain";
+import FlexCenterWrapper from "../common/FlexCenterWrapper";
 
 // context
 import EvolutionChainProvider from "../../context/EvolutionChainProvider";
 
 const EvolutionChain = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-      }}
-    >
+    <FlexCenterWrapper>
       <EvolutionChainProvider>
         <StageOneChain />
         <StageTwoChain />
         <StageThreeChain />
       </EvolutionChainProvider>
-    </div>
+    </FlexCenterWrapper>
   )
 }
 

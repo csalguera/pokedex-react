@@ -1,16 +1,11 @@
 // components
 import GenerationBtn from "./GenerationBtn"
+import FlexCenterWrapper from "../common/FlexCenterWrapper"
 
 const Generation = () => {
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
+    <FlexCenterWrapper>
       <GenerationBtn
         path={'gen-i'}
         generationVal={1}
@@ -27,7 +22,7 @@ const Generation = () => {
         path={'gen-iv'}
         generationVal={4}
       />
-    </div>
+    </FlexCenterWrapper>
   )
 }
 

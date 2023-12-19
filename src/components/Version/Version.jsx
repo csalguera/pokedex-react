@@ -3,6 +3,7 @@ import { useContext } from "react"
 
 // components
 import VersionBtn from "./VersionBtn"
+import FlexCenterWrapper from "../common/FlexCenterWrapper"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -16,86 +17,33 @@ const Version = () => {
     setSpriteGen4,
   } = useContext(PokemonDetailsContext)
 
+  const versions = [
+    { val: 0, thisPath: 'gen-i', chars: 'RB', setSprite: setSpriteGen1 },
+    { val: 1, thisPath: 'gen-i', chars: 'Y', setSprite: setSpriteGen1 },
+    { val: 0, thisPath: 'gen-ii', chars: 'G', setSprite: setSpriteGen2 },
+    { val: 1, thisPath: 'gen-ii', chars: 'S', setSprite: setSpriteGen2 },
+    { val: 2, thisPath: 'gen-ii', chars: 'C', setSprite: setSpriteGen2 },
+    { val: 0, thisPath: 'gen-iii', chars: 'RS', setSprite: setSpriteGen3 },
+    { val: 1, thisPath: 'gen-iii', chars: 'FRLG', setSprite: setSpriteGen3 },
+    { val: 2, thisPath: 'gen-iii', chars: 'E', setSprite: setSpriteGen3 },
+    { val: 0, thisPath: 'gen-iv', chars: 'DP', setSprite: setSpriteGen4 },
+    { val: 1, thisPath: 'gen-iv', chars: 'HGSS', setSprite: setSpriteGen4 },
+    { val: 2, thisPath: 'gen-iv', chars: 'Pt', setSprite: setSpriteGen4 },
+  ]
+
   return (
-    <div style={{ display: 'flex' }}>
-      <VersionBtn
-        setSprite={() => setSpriteGen1(0)}
-        versionVal={0}
-        chars='RB'
-        actualPath={genPath}
-        thisPath='gen-i'
-      />
-      <VersionBtn
-        setSprite={() => setSpriteGen1(1)}
-        versionVal={1}
-        chars='Y'
-        actualPath={genPath}
-        thisPath='gen-i'
-      />
-      <VersionBtn
-        setSprite={() => setSpriteGen2(0)}
-        versionVal={0}
-        chars='G'
-        actualPath={genPath}
-        thisPath='gen-ii'
-      />
-      <VersionBtn
-        setSprite={() => setSpriteGen2(1)}
-        versionVal={1}
-        chars='S'
-        actualPath={genPath}
-        thisPath='gen-ii'
-      />
-      <VersionBtn
-        setSprite={() => setSpriteGen2(2)}
-        versionVal={2}
-        chars='C'
-        actualPath={genPath}
-        thisPath='gen-ii'
-      />
-      <VersionBtn
-        setSprite={() => setSpriteGen3(0)}
-        versionVal={0}
-        chars='RS'
-        actualPath={genPath}
-        thisPath='gen-iii'
-      />
-      <VersionBtn
-        setSprite={() => setSpriteGen3(1)}
-        versionVal={1}
-        chars='FRLG'
-        actualPath={genPath}
-        thisPath='gen-iii'
-      />
-      <VersionBtn
-        setSprite={() => setSpriteGen3(2)}
-        versionVal={2}
-        chars='E'
-        actualPath={genPath}
-        thisPath='gen-iii'
-      />
-      <VersionBtn
-        setSprite={() => setSpriteGen4(0)}
-        versionVal={0}
-        chars='DP'
-        actualPath={genPath}
-        thisPath='gen-iv'
-      />
-      <VersionBtn
-        setSprite={() => setSpriteGen4(1)}
-        versionVal={1}
-        chars='HGSS'
-        actualPath={genPath}
-        thisPath='gen-iv'
-      />
-      <VersionBtn
-        setSprite={() => setSpriteGen4(2)}
-        versionVal={2}
-        chars='Pt'
-        actualPath={genPath}
-        thisPath='gen-iv'
-      />
-    </div>
+    <FlexCenterWrapper>
+      {versions.map(version => (
+        <VersionBtn
+          key={`${version.thisPath}-${version.val}`}
+          setSprite={() => version.setSprite(version.val)}
+          versionVal={version.val}
+          chars={version.chars}
+          actualPath={genPath}
+          thisPath={version.thisPath}
+        />
+      ))}
+    </FlexCenterWrapper>
   )
 }
 
