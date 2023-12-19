@@ -6,14 +6,14 @@ const ConditionImg = (props) => {
 
   return (
     <>
-      {condition ? (
+      {/* {condition ? (
         <img
           src={item?.sprites?.default}
           alt="" 
         />
-        ) : (
+      ) : (
         null
-      )}
+      )} */}
     </>
   )
 }

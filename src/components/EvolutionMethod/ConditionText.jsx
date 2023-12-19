@@ -1,3 +1,6 @@
+// mui components
+import Typography from "@mui/material/Typography"
+
 const ConditionText = (props) => {
   const {
     condition,
@@ -7,7 +10,15 @@ const ConditionText = (props) => {
   return (
     <>
       {condition ? (
-        <p style={{ margin: '0 4px', color: color }}>{condition}</p>
+        <Typography
+          sx={{
+            my: 0,
+            mx: 0.5,
+            color: color,
+          }}
+        >
+          {condition}
+        </Typography>
       ) : (
         null
       )}

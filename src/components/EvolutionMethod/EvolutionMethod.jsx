@@ -4,6 +4,10 @@ import { getItem, getEvolutionTrigger } from "../../services/api-calls"
 
 // components
 import ConditionText from "./ConditionText"
+import FlexCenterWrapper from "../common/FlexCenterWrapper"
+
+// mui components
+import Typography from "@mui/material/Typography"
 
 // utilities
 import { removeHyphens } from "../../utilities/utilities"
@@ -182,38 +186,76 @@ const EvolutionMethod = (props) => {
     fetchItem()
   }, [useItemCondition, heldItemCondition])
 
+  const itemConditions = [
+    {
+      item: useItemCondition,
+      sprite: item,
+    },
+    {
+      item: heldItemCondition,
+      sprite: heldItem,
+    },
+  ]
+
+  const otherConditions = [
+    {
+      condition: genderCondition,
+      color: genderColor,
+    },
+    {
+      condition: friendshipCondition,
+    },
+    {
+      condition: timeCondition,
+    },
+    {
+      condition: statCondition,
+    },
+    {
+      condition: knownMoveCondition,
+    },
+    {
+      condition: locationCondition,
+    },
+  ]
+
+  const validItemCoditions = itemConditions.filter(item => item.sprite.name)
+  const validOtherConditions = otherConditions.filter(other => other.condition)
+
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '2px',
+    <FlexCenterWrapper
+      additionalStyles={{
+        m: 0.25,
       }}
     >
-      <p style={{ margin: '2px' }}>{triggers}</p>
-      <p style={{ margin: '2px' }}>{levelCondition ?? shedCondition}</p>
-      <ConditionImg
-        condition={useItemCondition}
-        item={item}
-      />
-      <ConditionImg
-        condition={heldItemCondition}
-        item={heldItem}
-      />
-      <ConditionText
-        condition={genderCondition}
-        color={genderColor}
-      />
-      <ConditionText
-        condition={friendshipCondition}
-      />
-      <ConditionText
-        condition={timeCondition}
-      />
-      <ConditionText
-        condition={statCondition}
-      />
+      <Typography
+        sx={{
+          m: 0.25,
+        }}
+      >
+        {triggers}
+      </Typography>
+      <Typography
+        sx={{
+          m: 0.25,
+        }}
+      >
+        {levelCondition ?? shedCondition}
+      </Typography>
+      {validItemCoditions.map(item => (
+        <ConditionImg
+          key={item.sprite.name}
+          condition={item}
+          item={item.sprite}
+        />
+      ))}
+      {validOtherConditions.map(other => (
+        <ConditionText
+          key={other.condition}
+          condition={other.condition}
+          color={other.color}
+        />
+      ))}
       {beautyCondition ? (
         <img
           style={{ margin: '0 8px 0 0' }}
@@ -224,13 +266,7 @@ const EvolutionMethod = (props) => {
       ) : (
         null
       )}
-      <ConditionText
-        condition={knownMoveCondition}
-      />
-      <ConditionText
-        condition={locationCondition}
-      />
-    </div>
+    </FlexCenterWrapper>
   )
 }
 
