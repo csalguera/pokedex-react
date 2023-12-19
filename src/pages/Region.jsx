@@ -10,7 +10,7 @@ import LinkWrapper from "../components/common/LinkWrapper"
 import { getPokemonList } from "../services/api-calls"
 
 // utilities
-import { pascalize, leadingZeros } from "../utilities/utilities"
+import { pascalize, leadingZeros, validateSpecies } from "../utilities/utilities"
 
 const Region = () => {
   const [region, setRegion] = useState([])
@@ -68,7 +68,7 @@ const Region = () => {
                   width: 'fit-content',
                 }}
               >
-                {pascalize(pokemon.name)}
+                {pascalize(validateSpecies(pokemon.name))}
               </LinkWrapper>
             </div>
           </div>

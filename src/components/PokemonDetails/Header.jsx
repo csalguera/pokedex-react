@@ -8,7 +8,7 @@ import FlexCenterWrapper from "../common/FlexCenterWrapper"
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 // utilities
-import { leadingZeros, pascalize } from "../../utilities/utilities"
+import { leadingZeros, pascalize, validateSpecies } from "../../utilities/utilities"
 import HeaderWrapper from "../common/HeaderWrapper"
 
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <FlexCenterWrapper>
       <HeaderWrapper>
-        {leadingZeros(pokemonDetails.id ?? '')} - {pascalize(pokemonDetails.name ?? '')}
+        {leadingZeros(pokemonDetails.id ?? '')} - {pascalize(validateSpecies(pokemonDetails.name) ?? '')}
       </HeaderWrapper>
     </FlexCenterWrapper>
   )
