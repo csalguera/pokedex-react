@@ -5,8 +5,8 @@ import { getItem, getEvolutionTrigger } from "../../services/api-calls"
 // components
 import ConditionText from "./ConditionText"
 import ConditionImg from "./ConditionImg"
+import ConditionBeauty from "./ConditionBeauty"
 import FlexCenterWrapper from "../common/FlexCenterWrapper"
-import ImageWrapper from "../common/ImageWrapper"
 
 // mui components
 import Typography from "@mui/material/Typography"
@@ -260,14 +260,9 @@ const EvolutionMethod = (props) => {
           color={other.color}
         />
       ))}
-      {beautyCondition ? (
-        <ImageWrapper
-          src={beautyCondition}
-          width='20px'
-        />
-      ) : (
-        null
-      )}
+      <ConditionBeauty
+        beautyCondition={beautyCondition}
+      />
     </FlexCenterWrapper>
   )
 }
