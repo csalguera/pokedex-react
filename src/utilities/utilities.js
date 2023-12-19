@@ -66,6 +66,10 @@ export function validateSpecies(name) {
       return 'deoxys'
     case 'wormadam-plant':
       return 'wormadam'
+    case 'giratina-altered':
+      return 'giratina'
+    case 'shaymin-land':
+      return 'shaymin'
     default:
       return name
   }
@@ -75,8 +79,12 @@ export function validateDetails(name) {
   switch (name) {
     case 'deoxys':
       return 'deoxys-normal'
-      case 'wormadam':
+    case 'wormadam':
       return 'wormadam-plant'
+    case 'giratina':
+      return 'giratina-altered'
+    case 'shaymin':
+      return 'shaymin-land'
     default:
       return name
   }
