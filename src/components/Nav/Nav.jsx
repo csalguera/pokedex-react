@@ -19,43 +19,11 @@ import MenuItem from '@mui/material/MenuItem'
 import ImageXs from "../common/ImageXs"
 
 const Nav = () => {
-  const gen1 = {
-    regionName: 'Kanto',
-    dexOffset: 0,
-    dexLimit: 151,
-    genPath: 'gen-i',
-    genNum: 1,
-  }
-
-  const gen2 = {
-    regionName: 'Johto',
-    dexOffset: 151,
-    dexLimit: 100,
-    genPath: 'gen-ii',
-    genNum: 2,
-  }
-
-  const gen3 = {
-    regionName: 'Hoenn',
-    dexOffset: 251,
-    dexLimit: 135,
-    genPath: 'gen-iii',
-    genNum: 3,
-  }
-
-  const gen4 = {
-    regionName: 'Sinnoh',
-    dexOffset: 386,
-    dexLimit: 107,
-    genPath: 'gen-iv',
-    genNum: 4,
-  }
-
   const pages = [
-    gen1,
-    gen2,
-    gen3,
-    gen4,
+    { regionName: 'Kanto', dexOffset: 0, dexLimit: 151, genPath: 'gen-i', genNum: 1 },
+    { regionName: 'Johto', dexOffset: 151, dexLimit: 100, genPath: 'gen-ii', genNum: 2 },
+    { regionName: 'Hoenn', dexOffset: 251, dexLimit: 135, genPath: 'gen-iii', genNum: 3 },
+    { regionName: 'Sinnoh', dexOffset: 386, dexLimit: 107, genPath: 'gen-iv', genNum: 4 },
   ]
 
   const [anchorElNav, setAnchorElNav] = useState(null)
