@@ -10,10 +10,10 @@ const SearchField = () => {
           input: { color: 'primary.dark' },
           backgroundColor: 'background.default',
           borderRadius: '100px',
-          display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           "& fieldset": { border: 'none' },
+          display: { xs: 'none', md: 'flex' }
         }}
         placeholder='Search...'
         autoComplete="off"
