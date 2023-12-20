@@ -54,7 +54,7 @@ const NextBtn = () => {
       to={`/${nextPath}/${nextPokemonDetails.name}`}
       state={{ ...nextPokemonDetails, genNum: nextGenNum, nextPath }}
     >
-      <Button>
+      <Button sx={{ color: 'primary.contrastText' }}>
         {`Next - ${leadingZeros(nextPokemonDetails.id)} ${validateSpecies(nextPokemonDetails.name)}`}
       </Button>
     </LinkWrapper>

@@ -138,7 +138,7 @@ const PokemonSprite = (props) => {
     <FlexCenterWrapper
       additionalStyles={{
         borderRadius: '10px',
-        backgroundColor: 'rgb(240,240,240)',
+        backgroundColor: 'background.border',
         p: 2,
         m: 2,
         width: '96px',
