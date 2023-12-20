@@ -35,7 +35,7 @@ const PokemonDetails = () => {
       }}
     >
       <PokemonDetailsProvider>
-        <AppBar position="static" color="">
+        <AppBar position="static" sx={{ backgroundColor: 'background.paper' }}>
           <Container maxWidth='xl'>
             <FlexCenterWrapper
               additionalStyles={{

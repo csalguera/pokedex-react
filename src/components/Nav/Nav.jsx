@@ -4,6 +4,7 @@ import { useState } from "react"
 // components
 import LinkWrapper from "../common/LinkWrapper"
 import ImageMd from "../common/ImageMd"
+import SearchField from "../common/SearchField"
 
 // mui components
 import AppBar from '@mui/material/AppBar'
@@ -145,6 +146,7 @@ const Nav = () => {
               </LinkWrapper>
             ))}
           </Box>
+          <SearchField />
         </Toolbar>
       </Container>
     </AppBar>
