@@ -117,3 +117,13 @@ export function validateDetails(name) {
       return name
   }
 }
+
+export function determineLimit(arr) {
+  let sum = 0
+
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].dexLimit
+  }
+
+  return sum
+}
