@@ -1,8 +1,22 @@
+// npm modules
+import { useState } from "react"
+
 // mui components
 import { Search } from "@mui/icons-material"
 import TextField from "@mui/material/TextField"
 
 const SearchField = () => {
+  const [search, setSearch] = useState({
+    search: ''
+  })
+
+  function handleChange(evt) {
+    setSearch({
+      ...search,
+      [evt.target.name]: evt.target.value
+    })
+  }
+
   return (
     <>
       <TextField
@@ -18,9 +32,13 @@ const SearchField = () => {
         placeholder='Search...'
         autoComplete="off"
         size="small"
+        required
         InputProps={{
           startAdornment: <Search sx={{ color: 'primary.dark' }} />
         }}
+        name="search"
+        value={search.name}
+        onChange={handleChange}
       />
     </>
   )
