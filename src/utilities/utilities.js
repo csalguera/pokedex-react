@@ -151,6 +151,20 @@ export function romanNumeralize(num) {
   return numerals.join('').replace('VIIII', 'IX').replace('IIII', 'IV')
 }
 
-export function pathFromLimit(num) {
+export function pathForResults(num) {
   return `gen-${romanNumeralize(num).toLowerCase()}`
+}
+
+export function numForResults(num) {
+  if (num <= 151) {
+    return 1
+  } else if (num >= 152 && num <= 251) {
+    return 2
+  } else if (num >= 252 && num <= 386) {
+    return 3
+  } else if (num >= 387 && num <= 493) {
+    return 4
+  } else if (num >= 494 && num <= 649) {
+    return 5
+  }
 }

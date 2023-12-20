@@ -10,7 +10,7 @@ import Loading from "../components/common/Loading"
 import { getPokemonList } from "../services/api-calls"
 
 // utilities
-import { determineLimit, pascalize, validateSpecies, pathFromLimit } from "../utilities/utilities"
+import { determineLimit, pascalize, validateSpecies, pathForResults, numForResults } from "../utilities/utilities"
 
 // other
 import { pages } from "../components/Nav/Nav"
@@ -19,8 +19,7 @@ import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
 const Results = () => {
   const [results, setResults] = useState([])
   const dexLimit = determineLimit(pages)
-  const genPath = pathFromLimit(pages.length)
-  const genNum = pages.length
+  const genPath = pathForResults(pages.length)
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -36,7 +35,7 @@ const Results = () => {
       <HeaderWrapper>
         Results
       </HeaderWrapper>
-      {results.results.map(result => (
+      {results.results.map((result, idx) => (
         <FlexCenterWrapper key={result.name}>
           <FlexCenterWrapper
             additionalStyles={{
@@ -46,7 +45,7 @@ const Results = () => {
           >
             <LinkWrapper
               to={`/${genPath}/${result.name}`}
-              state={{ ...result, genNum, genPath }}
+              state={{ ...result, genNum: numForResults(idx + 1), genPath }}
               style={{
                 display: 'flex',
                 width: 'fit-content',
