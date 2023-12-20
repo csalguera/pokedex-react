@@ -127,3 +127,30 @@ export function determineLimit(arr) {
 
   return sum
 }
+
+export function romanNumeralize(num) {
+  const numerals = []
+
+  const i = 'I'
+  const v = 'V'
+  const x = 'X'
+
+  while (num > 0) {
+    if (num - 10 >= 0) {
+      num -= 10
+      numerals.push(x)
+    } else if (num - 5 >= 0) {
+      num -= 5
+      numerals.push(v)
+    } else if (num - 1 >= 0) {
+      num -= 1
+      numerals.push(i)
+    }
+  }
+
+  return numerals.join('').replace('VIIII', 'IX').replace('IIII', 'IV')
+}
+
+export function pathFromLimit(num) {
+  return `gen-${romanNumeralize(num).toLowerCase()}`
+}
