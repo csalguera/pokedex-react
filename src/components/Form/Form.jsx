@@ -11,6 +11,8 @@ const Form = () => {
     search: ''
   })
 
+  const invalidQuery = (search.search.length <= 1)
+
   function handleChange(evt) {
     setSearch({
       ...search,
@@ -37,10 +39,13 @@ const Form = () => {
           <SearchField
             handleChange={handleChange}
             search={search}
+            clearSearch={clearSearch}
+            invalidQuery={invalidQuery}
           />
           <SubmitBtn
             search={search}
             clearSearch={clearSearch}
+            invalidQuery={invalidQuery}
           />
         </FlexCenterWrapper>
       </form>

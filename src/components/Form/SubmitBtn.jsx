@@ -8,6 +8,7 @@ const SubmitBtn = (props) => {
   const {
     search,
     clearSearch,
+    invalidQuery,
   } = props
 
   return (
@@ -16,10 +17,12 @@ const SubmitBtn = (props) => {
         to='/results'
         state={search}
         sx={{ color: 'background.default' }}
+        style={{ pointerEvents: invalidQuery ? 'none' : 'auto' }}
       >
         <Button
           sx={{ color: 'background.default' }}
           onClick={clearSearch}
+          disabled={invalidQuery ? true : false}
         >
           Submit
         </Button>
