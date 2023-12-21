@@ -4,7 +4,6 @@ import { useState } from "react"
 // components
 import LinkWrapper from "../common/LinkWrapper"
 import ImageMd from "../common/ImageMd"
-import SearchField from "../Form/SearchField"
 import Form from "../Form/Form"
 
 // mui components
