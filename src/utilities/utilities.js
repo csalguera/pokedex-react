@@ -155,7 +155,8 @@ export function pathForResults(num) {
   return `gen-${romanNumeralize(num).toLowerCase()}`
 }
 
-export function numForResults(num) {
+export function numForResults(result) {
+  const num = parseInt(result.url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', ''))
   if (num <= 151) {
     return 1
   } else if (num >= 152 && num <= 251) {

@@ -42,7 +42,7 @@ const Results = () => {
       <HeaderWrapper>
         Results
       </HeaderWrapper>
-      {filteredResults?.map((result, idx) => (
+      {filteredResults?.map(result => (
         <FlexCenterWrapper key={result.name}>
           <FlexCenterWrapper
             additionalStyles={{
@@ -52,7 +52,7 @@ const Results = () => {
           >
             <LinkWrapper
               to={`/${genPath}/${result.name}`}
-              state={{ ...result, genNum: numForResults(idx + 1), genPath }}
+              state={{ ...result, genNum: numForResults(result), genPath }}
               style={{
                 display: 'flex',
                 width: 'fit-content',
