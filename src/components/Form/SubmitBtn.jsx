@@ -7,6 +7,7 @@ import Button from "@mui/material/Button"
 const SubmitBtn = (props) => {
   const {
     search,
+    clearSearch,
   } = props
 
   return (
@@ -18,6 +19,7 @@ const SubmitBtn = (props) => {
       >
         <Button
           sx={{ color: 'background.default' }}
+          onClick={clearSearch}
         >
           Submit
         </Button>

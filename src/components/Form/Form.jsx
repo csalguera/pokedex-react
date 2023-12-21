@@ -20,6 +20,9 @@ const Form = () => {
 
   function handleSubmit(evt) {
     evt.preventDefault()
+  }
+
+  function clearSearch() {
     setSearch({
       search: ''
     })
@@ -37,6 +40,7 @@ const Form = () => {
           />
           <SubmitBtn
             search={search}
+            clearSearch={clearSearch}
           />
         </FlexCenterWrapper>
       </form>
