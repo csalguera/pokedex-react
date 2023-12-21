@@ -1,3 +1,6 @@
+// environment variables
+import { baseURL } from "../services/api-calls"
+
 export function pascalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
@@ -156,7 +159,7 @@ export function pathForResults(num) {
 }
 
 export function numForResults(result) {
-  const num = parseInt(result.url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', ''))
+  const num = parseInt(result.url.replace(`${baseURL}/pokemon/`, '').replace('/', ''))
   if (num <= 151) {
     return 1
   } else if (num >= 152 && num <= 251) {
