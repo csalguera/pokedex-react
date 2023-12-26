@@ -36,6 +36,10 @@ const Region = () => {
     fetchPokemonList()
   }, [dexLimit, dexOffset])
 
+  useEffect(() => {
+    document.title = `PokéDex - ${regionName}`
+  })
+
   if (!region.length) return <Loading />
   return (
     <>

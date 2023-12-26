@@ -1,5 +1,5 @@
 // npm modules
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 
 // components
 import Header from "../components/PokemonDetails/Header"
@@ -24,11 +24,18 @@ import Container from "@mui/material/Container"
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
 
+// utilities
+import { pascalize } from "../utilities/utilities"
+
 const PokemonDetails = () => {
   const {
     location,
     pokemonDetails,
   } = useContext(PokemonDetailsContext)
+
+  useEffect(() => {
+    document.title = `PokéDex - ${pascalize(pokemonDetails.name)}`
+  })
 
   if (!pokemonDetails) return <Loading />
   return (
