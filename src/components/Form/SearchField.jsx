@@ -1,8 +1,29 @@
+// npm modules
+import { useNavigate } from "react-router-dom"
+
 // mui components
 import { Search } from "@mui/icons-material"
 import TextField from "@mui/material/TextField"
 
-const SearchField = () => {
+const SearchField = (props) => {
+  const {
+    handleChange,
+    search,
+    clearSearch,
+    invalidQuery
+  } = props
+
+  const navigate = useNavigate()
+
+  function handleOnKeyDown(evt) {
+    if (invalidQuery) return
+
+    if (evt.key === 'Enter') {
+      navigate('/results', { state: search })
+      clearSearch()
+    }
+  }
+
   return (
     <>
       <TextField
@@ -21,6 +42,10 @@ const SearchField = () => {
         InputProps={{
           startAdornment: <Search sx={{ color: 'primary.dark' }} />
         }}
+        name="search"
+        value={search.search}
+        onChange={handleChange}
+        onKeyDown={handleOnKeyDown}
       />
     </>
   )

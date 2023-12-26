@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom"
 // mui components
 import { Link as MuiLink } from "@mui/material"
 
-const LinkWrapper = ({ children, to, state }) => {
+const LinkWrapper = ({ children, to, state, sx }) => {
   return (
     <MuiLink
       component={RouterLink}
@@ -12,6 +12,7 @@ const LinkWrapper = ({ children, to, state }) => {
       state={state}
       sx={{
         textDecoration: 'none',
+        ...sx
       }}
     >
       {children}

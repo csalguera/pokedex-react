@@ -14,6 +14,7 @@ import '@fontsource/roboto/700.css';
 import Landing from './pages/Landing';
 import Region from './pages/Region';
 import PokemonDetails from './pages/PokemonDetails';
+import Results from './pages/Results';
 
 // components
 import Nav from './components/Nav/Nav';
@@ -48,6 +49,7 @@ function App() {
           <Nav />
           <Routes>
             <Route path='/' element={<Landing />} />
+            <Route path='results' element={<Results />} />
             <Route path='gen-i' element={<Region />} />
             <Route path='gen-i/:pokemonName' element={<PokemonDetails />} />
             <Route path='gen-ii' element={<Region />} />

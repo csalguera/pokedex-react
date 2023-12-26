@@ -1,3 +1,6 @@
+// environment variables
+import { baseURL } from "../services/api-calls"
+
 export function pascalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
@@ -115,5 +118,61 @@ export function validateDetails(name) {
       return 'meloetta-aria'
     default:
       return name
+  }
+}
+
+export function determineLimit(arr) {
+  let sum = 0
+
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].dexLimit
+  }
+
+  return sum
+}
+
+export function romanNumeralize(num) {
+  const numerals = []
+
+  const i = 'I'
+  const v = 'V'
+  const x = 'X'
+
+  while (num > 0) {
+    if (num - 10 >= 0) {
+      num -= 10
+      numerals.push(x)
+    } else if (num - 5 >= 0) {
+      num -= 5
+      numerals.push(v)
+    } else if (num - 1 >= 0) {
+      num -= 1
+      numerals.push(i)
+    }
+  }
+
+  return numerals.join('').replace('VIIII', 'IX').replace('IIII', 'IV')
+}
+
+export function pathForResults(num) {
+  return `gen-${romanNumeralize(num).toLowerCase()}`
+}
+
+export function retrieveId(result) {
+  return parseInt(result.url.replace(`${baseURL}/pokemon/`, '').replace('/', ''))
+}
+
+export function numForResults(result) {
+  const num = retrieveId(result)
+  if (num <= 151) {
+    return 1
+  } else if (num >= 152 && num <= 251) {
+    return 2
+  } else if (num >= 252 && num <= 386) {
+    return 3
+  } else if (num >= 387 && num <= 493) {
+    return 4
+  } else if (num >= 494 && num <= 649) {
+    return 5
   }
 }
