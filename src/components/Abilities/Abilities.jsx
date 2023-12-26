@@ -1,14 +1,15 @@
 // npm modules
 import { useContext } from "react"
 
+// components
+import Ability from "./Ability"
+import HiddenAbility from "./HiddenAbility"
+import FlexCenterWrapper from "../common/FlexCenterWrapper"
+
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
-import { Typography } from "@mui/material"
 
-// utilities
-import { removeHyphens } from "../../utilities/utilities"
-
-const Ability = () => {
+const Abilities = () => {
   const {
     currentGen,
     pokemonDetails,
@@ -18,15 +19,19 @@ const Ability = () => {
   return (
     <>
       {pokemonDetails?.abilities?.map(ability => (
-        <Typography
+        <FlexCenterWrapper
           key={ability.slot}
-          color='primary'
         >
-          {removeHyphens(ability.ability.name)}
-        </Typography>
+          <Ability
+            ability={ability}
+          />
+          <HiddenAbility
+            ability={ability}
+          />
+        </FlexCenterWrapper>
       ))}
     </>
   )
 }
 
-export default Ability
+export default Abilities

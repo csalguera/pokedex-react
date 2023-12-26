@@ -13,7 +13,7 @@ import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
 import NextBtn from "../components/PokemonDetails/NextBtn"
 import PrevBtn from "../components/PokemonDetails/PrevBtn"
 import Loading from "../components/common/Loading"
-import Ability from "../components/Ability/Ability"
+import Abilities from "../components/Abilities/Abilities"
 
 // mui components
 import AppBar from "@mui/material/AppBar"
@@ -59,7 +59,7 @@ const PokemonDetails = () => {
           name={location.state.name}
         />
         <Type />
-        <Ability />
+        <Abilities />
         <EvolutionChain />
       </PokemonDetailsProvider>
     </FlexCenterWrapper>
