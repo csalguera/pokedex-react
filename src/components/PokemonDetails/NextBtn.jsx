@@ -16,6 +16,9 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 // utilities
 import { leadingZeros, determinePath, determineGenNum, validateSpecies } from "../../utilities/utilities"
 
+// other
+import { pages } from "../Nav/Nav"
+
 const NextBtn = () => {
   const {
     pokemonDetails,
@@ -27,6 +30,10 @@ const NextBtn = () => {
   const [nextPokemonSpecies, setNextPokemonSpecies] = useState({})
   const [nextGenNum, setNextGenNum] = useState(0)
   const [nextPath, setNextPath] = useState('')
+  const finalPage = pages[pages.length - 1]
+  const offset = finalPage.dexOffset
+  const limit = finalPage.dexLimit
+  const finalId = offset + limit
 
   useEffect(() => {
     const fetchNextData = async () => {
@@ -40,7 +47,6 @@ const NextBtn = () => {
     fetchNextData()
   }, [pokemonDetails.id])
 
-  
   useEffect(() => {
     if (nextPokemonSpecies && nextPokemonSpecies.generation) {
       const genName = nextPokemonSpecies.generation.name
@@ -48,6 +54,8 @@ const NextBtn = () => {
       setNextGenNum(determineGenNum(genName))
     }
   }, [nextPokemonSpecies, nextPokemonSpecies.generation, nextPath, genPath, currentGen])
+
+  if (pokemonDetails.id === finalId) return
 
   return (
     <LinkWrapper

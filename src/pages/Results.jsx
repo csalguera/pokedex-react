@@ -7,6 +7,10 @@ import HeaderWrapper from "../components/common/HeaderWrapper"
 import LinkWrapper from "../components/common/LinkWrapper"
 import Loading from "../components/common/Loading"
 import NoResults from "./NoResults"
+import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
+
+// mui components
+import { Typography } from "@mui/material"
 
 // services
 import { getPokemonList } from "../services/api-calls"
@@ -16,8 +20,6 @@ import { determineLimit, pascalize, validateSpecies, pathForResults, numForResul
 
 // other
 import { pages } from "../components/Nav/Nav"
-import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
-import { Typography } from "@mui/material"
 
 const Results = () => {
   const location = useLocation()
