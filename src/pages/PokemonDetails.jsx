@@ -34,8 +34,10 @@ const PokemonDetails = () => {
   } = useContext(PokemonDetailsContext)
 
   useEffect(() => {
-    document.title = `PokéDex - ${pascalize(pokemonDetails.name)}`
-  })
+    if (pokemonDetails && pokemonDetails.name) {
+      document.title = `PokéDex - ${pascalize(pokemonDetails?.name)}`
+    }
+  }, [pokemonDetails])
 
   if (!pokemonDetails) return <Loading />
   return (
