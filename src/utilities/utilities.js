@@ -158,8 +158,12 @@ export function pathForResults(num) {
   return `gen-${romanNumeralize(num).toLowerCase()}`
 }
 
+export function retrieveId(result) {
+  return parseInt(result.url.replace(`${baseURL}/pokemon/`, '').replace('/', ''))
+}
+
 export function numForResults(result) {
-  const num = parseInt(result.url.replace(`${baseURL}/pokemon/`, '').replace('/', ''))
+  const num = retrieveId(result)
   if (num <= 151) {
     return 1
   } else if (num >= 152 && num <= 251) {

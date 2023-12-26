@@ -12,11 +12,12 @@ import NoResults from "./NoResults"
 import { getPokemonList } from "../services/api-calls"
 
 // utilities
-import { determineLimit, pascalize, validateSpecies, pathForResults, numForResults } from "../utilities/utilities"
+import { determineLimit, pascalize, validateSpecies, pathForResults, numForResults, leadingZeros, retrieveId } from "../utilities/utilities"
 
 // other
 import { pages } from "../components/Nav/Nav"
 import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
+import { Typography } from "@mui/material"
 
 const Results = () => {
   const location = useLocation()
@@ -43,17 +44,26 @@ const Results = () => {
         Results
       </HeaderWrapper>
       {filteredResults?.map(result => (
-        <FlexCenterWrapper key={result.name}>
+        <FlexCenterWrapper
+          key={result.name}
+        >
           <FlexCenterWrapper
             additionalStyles={{
               justifyContent: 'flex-start',
-              wdith: '175px'
+              width: '175px',
             }}
           >
+            <Typography
+              sx={{
+                m: 1,
+              }}
+            >
+              {leadingZeros(retrieveId(result))}
+            </Typography>
             <LinkWrapper
               to={`/${genPath}/${result.name}`}
               state={{ ...result, genNum: numForResults(result), genPath }}
-              style={{
+              sx={{
                 display: 'flex',
                 width: 'fit-content',
               }}

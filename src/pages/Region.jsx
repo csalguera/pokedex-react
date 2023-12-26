@@ -62,7 +62,7 @@ const Region = () => {
             <LinkWrapper
               to={`/${genPath}/${pokemon.name}`}
               state={{ ...pokemon, genNum, genPath }}
-              style={{
+              sx={{
                 display: 'flex',
                 width: 'fit-content',
               }}
