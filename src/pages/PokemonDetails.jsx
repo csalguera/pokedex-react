@@ -14,6 +14,8 @@ import NextBtn from "../components/PokemonDetails/NextBtn"
 import PrevBtn from "../components/PokemonDetails/PrevBtn"
 import Loading from "../components/common/Loading"
 import Abilities from "../components/Abilities/Abilities"
+import Height from "../components/Height/Height"
+import Weight from "../components/Weight/Weight"
 
 // mui components
 import AppBar from "@mui/material/AppBar"
@@ -60,6 +62,8 @@ const PokemonDetails = () => {
         />
         <Type />
         <Abilities />
+        <Height />
+        <Weight />
         <EvolutionChain />
       </PokemonDetailsProvider>
     </FlexCenterWrapper>
