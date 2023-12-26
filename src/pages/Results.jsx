@@ -38,7 +38,7 @@ const Results = () => {
 
   useEffect(() => {
     document.title = `PokéDex - Results`
-  })
+  }, [])
   
   const filteredResults = results?.results?.filter(result => result.name.includes(search))
   

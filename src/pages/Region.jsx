@@ -38,7 +38,7 @@ const Region = () => {
 
   useEffect(() => {
     document.title = `PokéDex - ${regionName}`
-  })
+  }, [regionName])
 
   if (!region.length) return <Loading />
   return (
