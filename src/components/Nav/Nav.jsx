@@ -44,7 +44,7 @@ const Nav = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <ImageMd
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png"
+            src="/pokeball-icon.png"
             width='30px'
           />
           <Typography
@@ -107,7 +107,7 @@ const Nav = () => {
             </Menu>
           </Box>
           <ImageXs
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/2052px-Pok%C3%A9_Ball_icon.svg.png"
+            src="/pokeball-icon.png"
             width='30px'
           />
           <Typography
