@@ -2,7 +2,7 @@
 import { useContext, useEffect } from "react"
 
 // components
-import Header from "../components/PokemonDetails/Header"
+import Name from "../components/PokemonDetails/Name"
 import PokemonSprite from "../components/common/PokemonSprite"
 import Cry from "../components/PokemonDetails/Cry"
 import Type from "../components/Type/Type"
@@ -16,6 +16,7 @@ import Loading from "../components/common/Loading"
 import Abilities from "../components/Abilities/Abilities"
 import Height from "../components/Height/Height"
 import Weight from "../components/Weight/Weight"
+import Classification from "../components/Classification/Classification"
 
 // mui components
 import AppBar from "@mui/material/AppBar"
@@ -60,7 +61,8 @@ const PokemonDetails = () => {
             </FlexCenterWrapper>
           </Container>
         </AppBar>
-        <Header />
+        <Name />
+        <Classification />
         <Generation />
         <Version />
         <PokemonSprite

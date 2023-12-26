@@ -11,7 +11,7 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 import { leadingZeros, pascalize, validateSpecies } from "../../utilities/utilities"
 import HeaderWrapper from "../common/HeaderWrapper"
 
-const Header = () => {
+const Name = () => {
   const {
     pokemonDetails
   } = useContext(PokemonDetailsContext)
@@ -25,4 +25,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Name
