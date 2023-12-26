@@ -1,5 +1,6 @@
 // mui components
 import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
 
 // utilities
 import { pascalize } from "../../utilities/utilities"
@@ -82,7 +83,9 @@ const TypeBadge = (props) => {
         borderRadius: '100px'
       }}
     >
-      {pascalize(type.type.name)}
+      <Typography>
+        {pascalize(type.type.name)}
+      </Typography>
     </Box>
   )
 }
