@@ -3,7 +3,6 @@ import { useState } from "react"
 
 // components
 import SearchField from "./SearchField"
-import SubmitBtn from "./SubmitBtn"
 import FlexCenterWrapper from "../common/FlexCenterWrapper"
 
 const Form = () => {
@@ -38,11 +37,6 @@ const Form = () => {
         <FlexCenterWrapper>
           <SearchField
             handleChange={handleChange}
-            search={search}
-            clearSearch={clearSearch}
-            invalidQuery={invalidQuery}
-          />
-          <SubmitBtn
             search={search}
             clearSearch={clearSearch}
             invalidQuery={invalidQuery}
