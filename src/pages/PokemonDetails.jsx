@@ -2,10 +2,9 @@
 import { useContext, useEffect } from "react"
 
 // components
-import Name from "../components/PokemonDetails/Name"
+import Header from "../components/PokemonDetails/Header"
 import PokemonSprite from "../components/common/PokemonSprite"
 import Cry from "../components/PokemonDetails/Cry"
-import Type from "../components/Type/Type"
 import EvolutionChain from "../components/EvolutionChain/EvolutionChain"
 import Version from "../components/Version/Version"
 import Generation from "../components/Generation/Generation"
@@ -13,10 +12,7 @@ import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
 import NextBtn from "../components/PokemonDetails/NextBtn"
 import PrevBtn from "../components/PokemonDetails/PrevBtn"
 import Loading from "../components/common/Loading"
-import Abilities from "../components/Abilities/Abilities"
-import Height from "../components/Height/Height"
-import Weight from "../components/Weight/Weight"
-import Classification from "../components/Classification/Classification"
+import Info from "../components/Info/Info"
 
 // mui components
 import AppBar from "@mui/material/AppBar"
@@ -61,8 +57,7 @@ const PokemonDetails = () => {
             </FlexCenterWrapper>
           </Container>
         </AppBar>
-        <Name />
-        <Classification />
+        <Header />
         <Generation />
         <Version />
         <PokemonSprite
@@ -71,10 +66,7 @@ const PokemonDetails = () => {
         <Cry
           name={location.state.name}
         />
-        <Type />
-        <Abilities />
-        <Height />
-        <Weight />
+        <Info />
         <EvolutionChain />
       </PokemonDetailsProvider>
     </FlexCenterWrapper>

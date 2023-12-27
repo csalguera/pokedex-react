@@ -8,10 +8,10 @@ import FlexCenterWrapper from "../common/FlexCenterWrapper"
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 // utilities
-import { leadingZeros, pascalize, validateSpecies } from "../../utilities/utilities"
+import { pascalize, validateSpecies } from "../../utilities/utilities"
 import HeaderWrapper from "../common/HeaderWrapper"
 
-const Name = () => {
+const Header = () => {
   const {
     pokemonDetails
   } = useContext(PokemonDetailsContext)
@@ -19,10 +19,10 @@ const Name = () => {
   return (
     <FlexCenterWrapper>
       <HeaderWrapper>
-        {leadingZeros(pokemonDetails.id ?? '')} - {pascalize(validateSpecies(pokemonDetails.name) ?? '')}
+        {pascalize(validateSpecies(pokemonDetails.name) ?? '')}
       </HeaderWrapper>
     </FlexCenterWrapper>
   )
 }
 
-export default Name
+export default Header

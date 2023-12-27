@@ -4,6 +4,10 @@ import { useContext } from "react"
 // components
 import TypeBadge from "./TypeBadge"
 
+// mui components
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
@@ -15,7 +19,8 @@ const Type = () => {
   } = useContext(PokemonDetailsContext)
 
   return (
-    <>
+    <ListItem>
+      <ListItemText primary='Type' />
       {currentGen > 1 && pastTypes?.generation.name === 'generation-i' ? (
         pokemonDetails?.types?.map(type => (
           <TypeBadge
@@ -38,7 +43,7 @@ const Type = () => {
           />
         ))
       )}
-    </>
+    </ListItem>
   )
 }
 

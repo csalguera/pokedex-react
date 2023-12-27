@@ -9,19 +9,22 @@ import ListItemText from "@mui/material/ListItemText"
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
-const Classification = () => {
-  const { pokemonSpecies } = useContext(PokemonDetailsContext)
+// utilities
+import { pascalize } from "../../utilities/utilities"
+
+const Name = () => {
+  const { pokemonDetails } = useContext(PokemonDetailsContext)
 
   return (
     <ListItem>
-      <ListItemText primary='Classification' />
+      <ListItemText primary='Name' />
       <Typography
         color='primary'
       >
-        {pokemonSpecies?.genera?.[7]?.genus ?? ''}
+        {pascalize(pokemonDetails?.name ?? '')}
       </Typography>
     </ListItem>
   )
 }
 
-export default Classification
+export default Name
