@@ -2,14 +2,34 @@
 import Typography from "@mui/material/Typography"
 import ListItem from "@mui/material/ListItem"
 import ListItemText from "@mui/material/ListItemText"
-import Divider from "@mui/material/Divider"
 
 const NoAbility = () => {
   return (
-    <ListItem>
-      <ListItemText primary='Abilities:' />
-      <Typography>No Abilities</Typography>
-    </ListItem>
+    <>
+      <ListItem
+          sx={{
+            width: '100%',
+          }}
+        >
+          <ListItemText
+            primary='Abilities'
+            primaryTypographyProps={{
+              fontWeight: 600,
+              textAlign: 'center',
+            }}
+          />
+        </ListItem>
+      <ListItem>
+        <Typography
+          sx={{
+            width: '100%',
+            textAlign: 'center',
+          }}
+        >
+          No Abilities
+        </Typography>
+      </ListItem>
+    </>
   )
 }
 

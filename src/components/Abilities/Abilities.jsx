@@ -6,8 +6,8 @@ import Ability from "./Ability"
 import NoAbility from "./NoAbility"
 
 // mui components
-import Typography from "@mui/material/Typography"
-import { Divider, ListItem, ListItemText } from "@mui/material"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -21,8 +21,18 @@ const Abilities = () => {
   if (currentGen < 3) return <NoAbility />
   return (
     <>
-      <ListItem sx={{ width: '100%' }}>
-        <ListItemText primary='Abilities' primaryTypographyProps={{ fontWeight: 600, textAlign: 'center' }} />
+      <ListItem
+        sx={{
+          width: '100%',
+        }}
+      >
+        <ListItemText
+          primary='Abilities'
+          primaryTypographyProps={{
+            fontWeight: 600,
+            textAlign: 'center',
+          }}
+        />
       </ListItem>
       {pokemonDetails?.abilities?.map(ability => (
         <Ability
