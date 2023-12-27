@@ -3,11 +3,11 @@ import { useContext } from "react"
 
 // components
 import Ability from "./Ability"
-import HiddenAbility from "./HiddenAbility"
-import FlexCenterWrapper from "../common/FlexCenterWrapper"
+import NoAbility from "./NoAbility"
 
 // mui components
 import Typography from "@mui/material/Typography"
+import { Divider, ListItem, ListItemText } from "@mui/material"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -18,20 +18,17 @@ const Abilities = () => {
     pokemonDetails,
   } = useContext(PokemonDetailsContext)
 
-  if (currentGen < 3) return <Typography>No Abilities</Typography>
+  if (currentGen < 3) return <NoAbility />
   return (
     <>
+      <ListItem sx={{ width: '100%' }}>
+        <ListItemText primary='Abilities' primaryTypographyProps={{ fontWeight: 600, textAlign: 'center' }} />
+      </ListItem>
       {pokemonDetails?.abilities?.map(ability => (
-        <FlexCenterWrapper
+        <Ability
           key={ability.slot}
-        >
-          <Ability
-            ability={ability}
-          />
-          <HiddenAbility
-            ability={ability}
-          />
-        </FlexCenterWrapper>
+          ability={ability}
+        />
       ))}
     </>
   )

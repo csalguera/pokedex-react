@@ -1,19 +1,46 @@
+// npm modules
+import { useContext } from "react"
+
 // mui components
-import { Typography } from "@mui/material"
+import Typography from "@mui/material/Typography"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
 
 // utilities
 import { removeHyphens } from "../../utilities/utilities"
 
-const Ability = (props) => {
-  const { ability } = props
+// context
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
+import { Divider } from "@mui/material"
 
-  if (ability.is_hidden) return
+const Ability = (props) => {
+  const {
+    ability,
+  } = props
+
+  const {
+    currentGen,
+  } = useContext(PokemonDetailsContext)
+
+  const slot3 = (ability.slot === 3)
+
+  if (ability.is_hidden && currentGen < 5) return
   return (
-    <Typography
-      color='primary'
-    >
-      {removeHyphens(ability.ability.name)}
-    </Typography>
+    <>
+      <ListItem>
+        <ListItemText primary={slot3 ? 'Hidden' : `Slot ${ability.slot}`} />
+        <Typography
+          color='primary'
+        >
+          {removeHyphens(ability.ability.name)}
+        </Typography>
+      </ListItem>
+      {!slot3 ? (
+        <Divider />
+      ) : (
+        <></>
+      )}
+    </>
   )
 }
 
