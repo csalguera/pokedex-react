@@ -35,11 +35,7 @@ const Ability = (props) => {
           {removeHyphens(ability.ability.name)}
         </Typography>
       </ListItem>
-      {!slot3 ? (
-        <Divider />
-      ) : (
-        <></>
-      )}
+      <Divider />
     </>
   )
 }

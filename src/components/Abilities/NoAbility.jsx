@@ -2,6 +2,7 @@
 import Typography from "@mui/material/Typography"
 import ListItem from "@mui/material/ListItem"
 import ListItemText from "@mui/material/ListItemText"
+import Divider from "@mui/material/Divider"
 
 const NoAbility = () => {
   return (
@@ -29,6 +30,7 @@ const NoAbility = () => {
           No Abilities
         </Typography>
       </ListItem>
+      <Divider />
     </>
   )
 }
