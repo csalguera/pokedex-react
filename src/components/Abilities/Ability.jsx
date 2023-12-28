@@ -30,6 +30,9 @@ const Ability = (props) => {
 
   const [ability, setAbility] = useState({})
 
+  const slot3 = (abilityEl.slot === 3)
+  const abilityGen = parseInt(ability?.generation?.url.replace(`${baseURL}/generation`, '').replace('/', ''))
+
   useEffect(() => {
     const fetchAbility = async () => {
       if (abilityEl && abilityEl.ability.name) {
@@ -40,10 +43,8 @@ const Ability = (props) => {
     fetchAbility()
   }, [abilityEl, abilityEl.ability.name])
 
-  const slot3 = (abilityEl.slot === 3)
-
   if (abilityEl.is_hidden && currentGen < 5) return
-  if (parseInt(ability?.generation?.url.replace(`${baseURL}/generation`, '').replace('/', '')) > currentGen) return
+  if (abilityGen > currentGen) return
   return (
     <>
       <ListItem>

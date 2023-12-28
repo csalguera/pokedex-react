@@ -1,3 +1,6 @@
+// environment variables
+import { baseURL } from "../../services/api-calls"
+
 // npm modules
 import { useContext } from "react"
 
@@ -18,6 +21,10 @@ const Abilities = () => {
     pokemonDetails,
   } = useContext(PokemonDetailsContext)
 
+  const pastAbilities = (pokemonDetails?.past_abilities?.[0]?.abilities)
+  const pastAbilitiesGen = parseInt(pokemonDetails?.past_abilities?.[0]?.generation?.url.replace(`${baseURL}/generation/`, '').replace('/', ''))
+  const abilities = (pokemonDetails?.abilities)
+
   if (currentGen < 3) return <NoAbility />
   return (
     <>
@@ -34,12 +41,21 @@ const Abilities = () => {
           }}
         />
       </ListItem>
-      {pokemonDetails?.abilities?.map(abilityEl => (
-        <Ability
-          key={abilityEl.slot}
-          abilityEl={abilityEl}
-        />
-      ))}
+      {pastAbilitiesGen >= currentGen ? (
+        pastAbilities?.map(abilityEl => (
+          <Ability
+            key={abilityEl.slot}
+            abilityEl={abilityEl}
+          />
+        ))
+      ) : (
+        abilities?.map(abilityEl => (
+          <Ability
+            key={abilityEl.slot}
+            abilityEl={abilityEl}
+          />
+        ))
+      )}
     </>
   )
 }
