@@ -32,3 +32,8 @@ export async function getItem(name) {
   const res = await fetch(`${baseURL}/item/${name}`)
   return res.json()
 }
+
+export async function getAbility(name) {
+  const res = await fetch(`${baseURL}/ability/${name}`)
+  return res.json()
+}

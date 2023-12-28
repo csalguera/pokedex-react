@@ -34,10 +34,10 @@ const Abilities = () => {
           }}
         />
       </ListItem>
-      {pokemonDetails?.abilities?.map(ability => (
+      {pokemonDetails?.abilities?.map(abilityEl => (
         <Ability
-          key={ability.slot}
-          ability={ability}
+          key={abilityEl.slot}
+          abilityEl={abilityEl}
         />
       ))}
     </>

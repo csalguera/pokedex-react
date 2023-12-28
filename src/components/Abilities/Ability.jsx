@@ -1,38 +1,57 @@
+// environment variables
+import { baseURL } from "../../services/api-calls"
+
 // npm modules
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 
 // mui components
 import Typography from "@mui/material/Typography"
 import ListItem from "@mui/material/ListItem"
 import ListItemText from "@mui/material/ListItemText"
+import Divider from "@mui/material/Divider"
 
 // utilities
 import { removeHyphens } from "../../utilities/utilities"
 
+// services
+import { getAbility } from "../../services/api-calls"
+
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
-import { Divider } from "@mui/material"
 
 const Ability = (props) => {
   const {
-    ability,
+    abilityEl,
   } = props
 
   const {
     currentGen,
   } = useContext(PokemonDetailsContext)
 
-  const slot3 = (ability.slot === 3)
+  const [ability, setAbility] = useState({})
 
-  if (ability.is_hidden && currentGen < 5) return
+  useEffect(() => {
+    const fetchAbility = async () => {
+      if (abilityEl && abilityEl.ability.name) {
+        const abilityData = await getAbility(abilityEl.ability.name)
+        setAbility(abilityData)
+      }
+    }
+    fetchAbility()
+  }, [abilityEl, abilityEl.ability.name])
+
+  const slot3 = (abilityEl.slot === 3)
+
+  if (abilityEl.is_hidden && currentGen < 5) return
+  if (parseInt(ability?.generation?.url.replace(`${baseURL}/generation`, '').replace('/', '')) > currentGen) return
   return (
     <>
       <ListItem>
-        <ListItemText primary={slot3 ? 'Hidden' : `Slot ${ability.slot}`} />
+        <ListItemText primary={slot3 ? 'Hidden' : `Slot ${abilityEl.slot}`} />
         <Typography
           color='primary'
         >
-          {removeHyphens(ability.ability.name)}
+          {removeHyphens(abilityEl.ability.name)}
         </Typography>
       </ListItem>
       <Divider />
