@@ -36,8 +36,6 @@ const PokemonDetails = () => {
     }
   }, [pokemonDetails])
 
-  console.log(pokemonDetails);
-
   if (!pokemonDetails) return <Loading />
   return (
     <FlexCenterWrapper
