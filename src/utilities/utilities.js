@@ -108,7 +108,7 @@ export function validateDetails(name) {
       return 'giratina-altered'
     case 'shaymin':
       return 'shaymin-land'
-      case 'basculin':
+    case 'basculin':
       return 'basculin-red-striped'
     case 'darmanitan':
       return 'darmanitan-standard'
