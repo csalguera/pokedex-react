@@ -83,6 +83,31 @@ const PokemonDetailsProvider = ({ children }) => {
     updateGenPath()
   }, [location.pathname, pokemonDetails.name])
 
+  useEffect(() => {
+    const pastAbilities = [
+      {
+        abilities: [
+          {
+            ability: {
+              name: 'early-bird',
+              url: 'https://pokeapi.co/api/v2/ability/48/'
+            },
+            is_hidden: false,
+            slot: 2
+          }
+        ],
+        generation: {
+          name: 'generation-viii',
+          url: 'https://pokeapi.co/api/v2/generation/8/'
+        }
+      }
+    ]
+
+    if (pokemonDetails.name === 'shiftry') {
+      pokemonDetails.past_abilities = pastAbilities
+    }
+  }, [pokemonDetails])
+
   const contextValues = {
     location,
     pokemonDetails,
