@@ -106,8 +106,8 @@ export function validateDetails(name) {
       return 'wormadam-plant'
     case 'giratina':
       return 'giratina-altered'
-    case 'shaymin-land':
-      return 'shaymin'
+    case 'shaymin':
+      return 'shaymin-land'
       case 'basculin':
       return 'basculin-red-striped'
     case 'darmanitan':
