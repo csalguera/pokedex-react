@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../services/api-calls"
 
 // utilities
-import { pages } from "../utilities/pages";
+import { pages } from "../utilities/data";
 
 // context
 export const PokemonDetailsContext = createContext()

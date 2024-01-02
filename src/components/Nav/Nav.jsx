@@ -20,7 +20,7 @@ import MenuItem from '@mui/material/MenuItem'
 import ImageXs from "../common/ImageXs"
 
 // utilities
-import { pages } from "../../utilities/pages"
+import { pages } from "../../utilities/data"
 
 const Nav = () => {
   const [anchorElNav, setAnchorElNav] = useState(null)

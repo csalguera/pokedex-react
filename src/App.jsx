@@ -25,7 +25,7 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import { blue, grey } from '@mui/material/colors';
 
 // utilities
-import { pages } from './utilities/pages';
+import { pages } from './utilities/data';
 
 // context
 import PokemonDetailsProvider from './context/PokemonDetailsProvider';

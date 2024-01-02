@@ -17,7 +17,7 @@ import { getPokemonList } from "../services/api-calls"
 
 // utilities
 import { determineLimit, pascalize, validateSpecies, pathForResults, numForResults, leadingZeros, retrieveId } from "../utilities/utilities"
-import { pages } from "../utilities/pages"
+import { pages } from "../utilities/data"
 
 const Results = () => {
   const location = useLocation()

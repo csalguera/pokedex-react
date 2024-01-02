@@ -15,7 +15,7 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 // utilities
 import { leadingZeros, determinePath, determineGenNum, validateSpecies } from "../../utilities/utilities"
-import { pages } from "../../utilities/pages"
+import { pages } from "../../utilities/data"
 
 const NextBtn = () => {
   const {
