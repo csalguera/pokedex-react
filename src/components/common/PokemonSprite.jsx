@@ -10,11 +10,7 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const PokemonSprite = (props) => {
   const {
-    spriteGen1,
-    spriteGen2,
-    spriteGen3,
-    spriteGen4,
-    spriteGen5,
+    sprites,
     genPath,
   } = useContext(PokemonDetailsContext)
 
@@ -22,7 +18,7 @@ const PokemonSprite = (props) => {
     pokemonDetails
   } = props
 
-  function determineSprite(path, gen1Ver, gen2Ver, gen3Ver, gen4Ver, gen5Ver) {
+  function determineSprite(path, sprites) {
     const baseNotation = (pokemonDetails?.sprites?.versions)
 
     let generation = ''
@@ -49,7 +45,7 @@ const PokemonSprite = (props) => {
 
     if (path === 'gen-i') {
       let sprite = ''
-      switch (gen1Ver) {
+      switch (sprites.spriteGen1) {
         case 0:
           sprite = generation?.['red-blue']?.front_transparent
           break
@@ -65,7 +61,7 @@ const PokemonSprite = (props) => {
 
     if (path === 'gen-ii') {
       let sprite = ''
-      switch (gen2Ver) {
+      switch (sprites.spriteGen2) {
         case 0:
           sprite = generation?.gold.front_transparent
           break;
@@ -84,7 +80,7 @@ const PokemonSprite = (props) => {
 
     if (path === 'gen-iii') {
       let sprite = ''
-      switch (gen3Ver) {
+      switch (sprites.spriteGen3) {
         case 0:
           sprite = generation?.['ruby-sapphire'].front_default
           break
@@ -103,7 +99,7 @@ const PokemonSprite = (props) => {
 
     if (path === 'gen-iv') {
       let sprite = ''
-      switch (gen4Ver) {
+      switch (sprites.spriteGen4) {
         case 0:
           sprite = generation?.['diamond-pearl'].front_default
           break;
@@ -122,7 +118,7 @@ const PokemonSprite = (props) => {
 
     if (path === 'gen-v') {
       let sprite = ''
-      switch (gen5Ver) {
+      switch (sprites.spriteGen5) {
         case 0:
           sprite = generation?.['black-white'].animated?.front_default
           break
@@ -146,7 +142,7 @@ const PokemonSprite = (props) => {
       }}
     >
       <ImageWrapper
-        src={determineSprite(genPath, spriteGen1, spriteGen2, spriteGen3, spriteGen4, spriteGen5)}
+        src={determineSprite(genPath, sprites)}
       />
     </FlexCenterWrapper>
   )

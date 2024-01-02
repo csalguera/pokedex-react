@@ -17,11 +17,7 @@ const VersionBtn = (props) => {
   } = props
 
   const {
-    spriteGen1,
-    spriteGen2,
-    spriteGen3,
-    spriteGen4,
-    spriteGen5,
+    sprites,
   } = useContext(PokemonDetailsContext)
 
   let display = ''
@@ -36,11 +32,11 @@ const VersionBtn = (props) => {
   }
 
   const activeVersion = (
-    ((spriteGen1 === versionVal) && (actualPath === 'gen-i')) ||
-    ((spriteGen2 === versionVal) && (actualPath === 'gen-ii')) ||
-    ((spriteGen3 === versionVal) && (actualPath === 'gen-iii')) ||
-    ((spriteGen4 === versionVal) && (actualPath === 'gen-iv')) ||
-    ((spriteGen5 === versionVal) && (actualPath === 'gen-v'))
+    ((sprites.spriteGen1 === versionVal) && (actualPath === 'gen-i')) ||
+    ((sprites.spriteGen2 === versionVal) && (actualPath === 'gen-ii')) ||
+    ((sprites.spriteGen3 === versionVal) && (actualPath === 'gen-iii')) ||
+    ((sprites.spriteGen4 === versionVal) && (actualPath === 'gen-iv')) ||
+    ((sprites.spriteGen5 === versionVal) && (actualPath === 'gen-v'))
   )
 
   return (

@@ -8,23 +8,34 @@ import { useLocation } from "react-router-dom";
 // services
 import { getPokemonDetails, getPokemonSpecies, getEvolutionChainData } from "../services/api-calls"
 
+// utilities
+import { pages } from "../utilities/pages";
+
 // context
 export const PokemonDetailsContext = createContext()
 
 const PokemonDetailsProvider = ({ children }) => {
   const location = useLocation()
+  const spritesInitialState = pages.reduce((acc, page) => {
+    acc[`spriteGen${page.genNum}`] = 0
+    return acc
+  }, {})
+
   const [pokemonDetails, setPokemonDetails] = useState({})
   const [pokemonSpecies, setPokemonSpecies] = useState({})
   const [evolutionChain, setEvolutionChain] = useState({})
-  const [spriteGen1, setSpriteGen1] = useState(0)
-  const [spriteGen2, setSpriteGen2] = useState(0)
-  const [spriteGen3, setSpriteGen3] = useState(0)
-  const [spriteGen4, setSpriteGen4] = useState(0)
-  const [spriteGen5, setSpriteGen5] = useState(0)
+  const [sprites, setSprites] = useState(spritesInitialState)
   const [genPath, setGenPath] = useState('')
   const { genNum } = location.state || {}
   const pastTypes = (pokemonDetails?.past_types?.[0])
   
+  const updateSprites = (key, value) => {
+    setSprites(prevState => ({
+      ...prevState,
+      [key]: value,
+    }))
+  }
+
   let currentGen
 
   switch (genPath) {
@@ -174,16 +185,8 @@ const PokemonDetailsProvider = ({ children }) => {
     genNum,
     pastTypes,
     currentGen,
-    spriteGen1,
-    setSpriteGen1,
-    spriteGen2,
-    setSpriteGen2,
-    spriteGen3,
-    setSpriteGen3,
-    spriteGen4,
-    setSpriteGen4,
-    spriteGen5,
-    setSpriteGen5,
+    sprites,
+    updateSprites,
   }
 
   return (
