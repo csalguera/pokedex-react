@@ -111,6 +111,56 @@ const PokemonDetailsProvider = ({ children }) => {
     }
   }, [pokemonDetails])
 
+  useEffect(() => {
+    const futureAbilities = [
+      {
+        abilities: [
+          {
+            ability: {
+              name: 'drizzle',
+              url: `${baseURL}/ability/2/`
+            },
+            is_hidden: false,
+            slot: 2
+          }
+        ],
+        generation: {
+          name: 'generation-iv',
+          url: `${baseURL}/generation/4/`
+        }
+      }
+    ]
+
+    if (pokemonDetails.name === 'pelipper') {
+      pokemonDetails.future_abilities = futureAbilities
+    }
+  }, [pokemonDetails])
+
+  useEffect(() => {
+    const futureAbilities = [
+      {
+        abilities: [
+          {
+            ability: {
+              name: 'drought',
+              url: `${baseURL}/ability/70/`
+            },
+            is_hidden: false,
+            slot: 2
+          }
+        ],
+        generation: {
+          name: 'generation-iv',
+          url: `${baseURL}/generation/4/`
+        }
+      }
+    ]
+
+    if (pokemonDetails.name === 'torkoal') {
+      pokemonDetails.future_abilities = futureAbilities
+    }
+  }, [pokemonDetails])
+
   const contextValues = {
     location,
     pokemonDetails,

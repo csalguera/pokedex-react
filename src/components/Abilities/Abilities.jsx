@@ -24,6 +24,8 @@ const Abilities = () => {
   const pastAbilities = (pokemonDetails?.past_abilities?.[0]?.abilities)
   const pastAbilitiesSlot = (pokemonDetails?.past_abilities?.[0]?.abilities[0]?.slot)
   const pastAbilitiesGen = parseInt(pokemonDetails?.past_abilities?.[0]?.generation?.url.replace(`${baseURL}/generation/`, '').replace('/', ''))
+  const futureAbilitiesSlot = (pokemonDetails?.future_abilities?.[0]?.abilities[0]?.slot)
+  const futureAbilitiesGen = parseInt(pokemonDetails?.future_abilities?.[0]?.generation?.url.replace(`${baseURL}/generation/`, '').replace('/', ''))
   const abilities = (pokemonDetails?.abilities)
 
   const allAbilities = []
@@ -36,8 +38,8 @@ const Abilities = () => {
     allAbilities.push(...abilities)
   }
 
-  const sameSlotAbilities = allAbilities.filter(ability => ability.slot === pastAbilitiesSlot)
-  const invalidAbility = pastAbilitiesGen > currentGen ? sameSlotAbilities[1] : sameSlotAbilities[0]
+  const sameSlotAbilities = allAbilities.filter(ability => ability.slot === (futureAbilitiesSlot ?? pastAbilitiesSlot))
+  const invalidAbility = currentGen >= futureAbilitiesGen || pastAbilitiesGen > currentGen ? sameSlotAbilities[1] : sameSlotAbilities[0]
 
   const validAbilities = allAbilities.filter(ability => ability !== invalidAbility).sort((a, b) => a.slot - b.slot)
 
