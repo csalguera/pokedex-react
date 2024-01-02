@@ -1,5 +1,6 @@
 // npm modules
 import { Route, Routes } from 'react-router-dom';
+import React from 'react';
 
 // stylesheets
 import './App.css';
@@ -22,6 +23,9 @@ import Nav from './components/Nav/Nav';
 // mui modules
 import { createTheme, ThemeProvider } from '@mui/material';
 import { blue, grey } from '@mui/material/colors';
+
+// utilities
+import { pages } from './utilities/pages';
 
 // context
 import PokemonDetailsProvider from './context/PokemonDetailsProvider';
@@ -50,16 +54,12 @@ function App() {
           <Routes>
             <Route path='/' element={<Landing />} />
             <Route path='results' element={<Results />} />
-            <Route path='gen-i' element={<Region />} />
-            <Route path='gen-i/:pokemonName' element={<PokemonDetails />} />
-            <Route path='gen-ii' element={<Region />} />
-            <Route path='gen-ii/:pokemonName' element={<PokemonDetails />} />
-            <Route path='gen-iii' element={<Region />} />
-            <Route path='gen-iii/:pokemonName' element={<PokemonDetails />} />
-            <Route path='gen-iv' element={<Region />} />
-            <Route path='gen-iv/:pokemonName' element={<PokemonDetails />} />
-            <Route path='gen-v' element={<Region />} />
-            <Route path='gen-v/:pokemonName' element={<PokemonDetails />} />
+            {pages.map(page => (
+              <React.Fragment key={page.genPath}>
+                <Route path={page.genPath} element={<Region />} />
+                <Route path={`${page.genPath}/:pokemonName`} element={<PokemonDetails />} />
+              </React.Fragment>
+            ))}
           </Routes>
         </PokemonDetailsProvider>
       </ThemeProvider>
