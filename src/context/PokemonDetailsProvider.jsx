@@ -1,3 +1,6 @@
+// environment variables
+import { baseURL } from "../services/api-calls";
+
 // npm modules
 import { createContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -90,7 +93,7 @@ const PokemonDetailsProvider = ({ children }) => {
           {
             ability: {
               name: 'early-bird',
-              url: 'https://pokeapi.co/api/v2/ability/48/'
+              url: `${baseURL}/ability/48/`
             },
             is_hidden: false,
             slot: 2
@@ -98,7 +101,7 @@ const PokemonDetailsProvider = ({ children }) => {
         ],
         generation: {
           name: 'generation-viii',
-          url: 'https://pokeapi.co/api/v2/generation/8/'
+          url: `${baseURL}/generation/8/`
         }
       }
     ]
