@@ -22,8 +22,24 @@ const Abilities = () => {
   } = useContext(PokemonDetailsContext)
 
   const pastAbilities = (pokemonDetails?.past_abilities?.[0]?.abilities)
+  const pastAbilitiesSlot = (pokemonDetails?.past_abilities?.[0]?.abilities[0]?.slot)
   const pastAbilitiesGen = parseInt(pokemonDetails?.past_abilities?.[0]?.generation?.url.replace(`${baseURL}/generation/`, '').replace('/', ''))
   const abilities = (pokemonDetails?.abilities)
+
+  const allAbilities = []
+
+  if (pastAbilities) {
+    allAbilities.push(...pastAbilities)
+  }
+
+  if (abilities) {
+    allAbilities.push(...abilities)
+  }
+
+  const sameSlotAbilities = allAbilities.filter(ability => ability.slot === pastAbilitiesSlot)
+  const invalidAbility = pastAbilitiesGen > currentGen ? sameSlotAbilities[1] : sameSlotAbilities[0]
+
+  const validAbilities = allAbilities.filter(ability => ability !== invalidAbility).sort((a, b) => a.slot - b.slot)
 
   if (currentGen < 3) return <NoAbility />
   return (
@@ -41,21 +57,12 @@ const Abilities = () => {
           }}
         />
       </ListItem>
-      {pastAbilitiesGen >= currentGen ? (
-        pastAbilities?.map(abilityEl => (
-          <Ability
-            key={abilityEl.slot}
-            abilityEl={abilityEl}
-          />
-        ))
-      ) : (
-        abilities?.map(abilityEl => (
-          <Ability
-            key={abilityEl.slot}
-            abilityEl={abilityEl}
-          />
-        ))
-      )}
+      {validAbilities.map(abilityEl => (
+        <Ability
+          key={abilityEl.slot}
+          abilityEl={abilityEl}
+        />
+      ))}
     </>
   )
 }
