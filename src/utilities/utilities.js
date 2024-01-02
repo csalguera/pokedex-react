@@ -32,6 +32,12 @@ export function determinePath(path, currPath, currGen) {
     case 'gen-iii':
       pathNum = 3
       break
+    case 'gen-iv':
+      pathNum = 4
+      break
+    case 'gen-v':
+      pathNum = 5
+      break
     default:
       pathNum = 1
       break
