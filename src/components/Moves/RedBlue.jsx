@@ -8,10 +8,6 @@ import Move from './Move'
 // mui components
 import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
-import Divider from "@mui/material/Divider"
-
-// utilities
-import { removeHyphens } from "../../utilities/utilities"
 
 // context
 import { PokemonMovesContext } from "../../context/MovesProvider"
@@ -58,10 +54,10 @@ const RedBlue = () => {
           Class
         </ListItemTextWrapper>
       </ListItem>
-      {movesLevelUp['red-blue']?.map(move => (
+      {movesLevelUp['red-blue']?.map(moveEl => (
         <Move
-          key={move.move.name + move.version_group_details.level_learned_at}
-          move={move}
+          key={moveEl.move.name + moveEl.version_group_details.level_learned_at}
+          moveEl={moveEl}
         />
       ))}
     </List>

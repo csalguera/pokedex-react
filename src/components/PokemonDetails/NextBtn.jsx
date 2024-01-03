@@ -10,12 +10,12 @@ import { Button } from "@mui/material"
 // services
 import { getPokemonDetails, getPokemonSpecies } from "../../services/api-calls"
 
-// context
-import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
-
 // utilities
 import { leadingZeros, determinePath, determineGenNum, validateSpecies } from "../../utilities/utilities"
 import { pages } from "../../utilities/data"
+
+// context
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const NextBtn = () => {
   const {

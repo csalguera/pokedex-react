@@ -10,11 +10,11 @@ import ListItem from "@mui/material/ListItem"
 import ListItemText from "@mui/material/ListItemText"
 import Divider from "@mui/material/Divider"
 
-// utilities
-import { removeHyphens } from "../../utilities/utilities"
-
 // services
 import { getAbility } from "../../services/api-calls"
+
+// utilities
+import { removeHyphens } from "../../utilities/utilities"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"

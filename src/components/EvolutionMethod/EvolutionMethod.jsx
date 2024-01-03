@@ -1,7 +1,3 @@
-// services
-import { useEffect, useState } from "react"
-import { getItem, getEvolutionTrigger } from "../../services/api-calls"
-
 // components
 import ConditionText from "./ConditionText"
 import ConditionImg from "./ConditionImg"
@@ -10,6 +6,10 @@ import FlexCenterWrapper from "../common/FlexCenterWrapper"
 
 // mui components
 import Typography from "@mui/material/Typography"
+
+// services
+import { useEffect, useState } from "react"
+import { getItem, getEvolutionTrigger } from "../../services/api-calls"
 
 // utilities
 import { removeHyphens } from "../../utilities/utilities"

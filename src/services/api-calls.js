@@ -37,3 +37,8 @@ export async function getAbility(name) {
   const res = await fetch(`${baseURL}/ability/${name}`)
   return res.json()
 }
+
+export async function getMove(name) {
+  const res = await fetch(`${baseURL}/move/${name}`)
+  return res.json()
+}
