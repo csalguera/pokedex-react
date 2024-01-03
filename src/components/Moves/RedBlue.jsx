@@ -29,7 +29,7 @@ const RedBlue = () => {
     <List
       sx={{
         width: 1,
-        maxWidth: 600,
+        maxWidth: 800,
       }}
     >
       <ListItem>
@@ -51,7 +51,17 @@ const RedBlue = () => {
         <ListItemTextWrapper
           bold
         >
-          Class
+          Category
+        </ListItemTextWrapper>
+        <ListItemTextWrapper
+          bold
+        >
+          Base Power
+        </ListItemTextWrapper>
+        <ListItemTextWrapper
+          bold
+        >
+          PP
         </ListItemTextWrapper>
       </ListItem>
       {movesLevelUp['red-blue']?.map(moveEl => (

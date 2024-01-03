@@ -43,11 +43,20 @@ const Move = (props) => {
           {removeHyphens(moveEl.move.name)}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
-          
-          <TypeBadge type={move?.type ?? ''} />
+          {move?.past_values?.[0]?.type ? (
+            <TypeBadge type={move?.past_values?.[0]?.type ?? ''} />
+          ) : (
+            <TypeBadge type={move?.type ?? ''} />
+          )}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
           {pascalize(move?.damage_class?.name ?? '')}
+        </ListItemTextWrapper>
+        <ListItemTextWrapper>
+          {move?.power ? move?.power : '-'}
+        </ListItemTextWrapper>
+        <ListItemTextWrapper>
+          {move?.pp}
         </ListItemTextWrapper>
       </ListItem>
       <Divider />
