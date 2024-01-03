@@ -10,7 +10,7 @@ const TypeBadge = (props) => {
 
   let color = ''
 
-  switch (type.type.name) {
+  switch (type.name) {
     case 'normal':
       color = '#a8a878'
       break;
@@ -84,7 +84,7 @@ const TypeBadge = (props) => {
       }}
     >
       <Typography>
-        {pascalize(type.type.name)}
+        {pascalize(type.name) ?? ''}
       </Typography>
     </Box>
   )

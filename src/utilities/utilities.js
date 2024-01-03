@@ -2,7 +2,7 @@
 import { baseURL } from "../services/api-calls"
 
 export function pascalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1)
+  if (str) return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 export function leadingZeros(idx) {

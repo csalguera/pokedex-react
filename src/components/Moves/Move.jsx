@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 // components
 import ListItemTextWrapper from "../common/ListItemTextWrapper"
+import TypeBadge from "../Type/TypeBadge"
 
 // mui components
 import ListItem from "@mui/material/ListItem"
@@ -42,7 +43,8 @@ const Move = (props) => {
           {removeHyphens(moveEl.move.name)}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
-          {pascalize(move?.type?.name ?? '')}
+          
+          <TypeBadge type={move?.type ?? ''} />
         </ListItemTextWrapper>
         <ListItemTextWrapper>
           {pascalize(move?.damage_class?.name ?? '')}
