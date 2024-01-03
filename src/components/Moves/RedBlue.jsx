@@ -3,6 +3,7 @@ import React, { useContext } from "react"
 
 // components
 import ListItemTextWrapper from "../common/ListItemTextWrapper"
+import Move from './Move'
 
 // mui components
 import List from "@mui/material/List"
@@ -46,23 +47,22 @@ const RedBlue = () => {
         >
           Name
         </ListItemTextWrapper>
+        <ListItemTextWrapper
+          bold
+        >
+          Type
+        </ListItemTextWrapper>
+        <ListItemTextWrapper
+          bold
+        >
+          Class
+        </ListItemTextWrapper>
       </ListItem>
       {movesLevelUp['red-blue']?.map(move => (
-        <React.Fragment
+        <Move
           key={move.move.name + move.version_group_details.level_learned_at}
-        >
-          <ListItem>
-            <ListItemTextWrapper>
-              {move.version_group_details.level_learned_at}
-            </ListItemTextWrapper>
-            <ListItemTextWrapper
-              color='primary'
-            >
-              {removeHyphens(move.move.name)}
-            </ListItemTextWrapper>
-          </ListItem>
-          <Divider />
-        </React.Fragment>
+          move={move}
+        />
       ))}
     </List>
   )
