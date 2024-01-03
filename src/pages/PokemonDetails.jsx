@@ -13,6 +13,7 @@ import NextBtn from "../components/PokemonDetails/NextBtn"
 import PrevBtn from "../components/PokemonDetails/PrevBtn"
 import Loading from "../components/common/Loading"
 import Info from "../components/Info/Info"
+import Moves from "../components/Moves/Moves"
 
 // mui components
 import AppBar from "@mui/material/AppBar"
@@ -20,6 +21,7 @@ import Container from "@mui/material/Container"
 
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
+import MovesProvider from "../context/MovesProvider"
 
 // utilities
 import { pascalize } from "../utilities/utilities"
@@ -68,6 +70,9 @@ const PokemonDetails = () => {
         />
         <Info />
         <EvolutionChain />
+        <MovesProvider>
+          <Moves />
+        </MovesProvider>
       </PokemonDetailsProvider>
     </FlexCenterWrapper>
   )
