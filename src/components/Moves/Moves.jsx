@@ -1,17 +1,10 @@
-// npm modules
-import { useContext } from "react"
-
-// context
-import { PokemonMovesContext } from "../../context/MovesProvider"
+// components
+import RedBlue from "./RedBlue"
 
 const Moves = () => {
-  const {
-    movesAll,
-    movesRedBlue,
-  } = useContext(PokemonMovesContext)
-
   return (
     <>
+      <RedBlue />
     </>
   )
 }
