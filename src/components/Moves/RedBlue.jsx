@@ -38,46 +38,30 @@ const RedBlue = () => {
       }}
     >
       <ListItem>
-        <ListItemTextWrapper bold>
+        <ListItemTextWrapper
+          bold
+        >
           Level
         </ListItemTextWrapper>
-        <FlexCenterWrapper
-          additionalStyles={{
-            width: 1
-          }}
+        <ListItemTextWrapper
+          bold
         >
-          <ListItemText
-            primary='Name'
-            primaryTypographyProps={{
-              fontWeight: 600,
-            }}
-          />
-        </FlexCenterWrapper>
+          Name
+        </ListItemTextWrapper>
       </ListItem>
       {movesLevelUp['red-blue']?.map(move => (
         <React.Fragment
           key={move.move.name + move.version_group_details.level_learned_at}
         >
           <ListItem>
-            <FlexCenterWrapper
-              additionalStyles={{
-                width: 1,
-              }}
+            <ListItemTextWrapper>
+              {move.version_group_details.level_learned_at}
+            </ListItemTextWrapper>
+            <ListItemTextWrapper
+              color='primary'
             >
-              <ListItemText primary={move.version_group_details.level_learned_at} />
-            </FlexCenterWrapper>
-            <FlexCenterWrapper
-              additionalStyles={{
-                width: 1,
-              }}
-            >
-              <ListItemText
-                primary={removeHyphens(move.move.name)}
-                primaryTypographyProps={{
-                  color: 'primary'
-                }}
-              />
-            </FlexCenterWrapper>
+              {removeHyphens(move.move.name)}
+            </ListItemTextWrapper>
           </ListItem>
           <Divider />
         </React.Fragment>

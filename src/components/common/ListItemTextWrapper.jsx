@@ -4,7 +4,7 @@ import FlexCenterWrapper from "./FlexCenterWrapper"
 // mui components
 import ListItemText from "@mui/material/ListItemText"
 
-const ListItemTextWrapper = ({ children, bold }) => {
+const ListItemTextWrapper = ({ children, bold, color }) => {
   return (
     <FlexCenterWrapper
       additionalStyles={{
@@ -15,6 +15,7 @@ const ListItemTextWrapper = ({ children, bold }) => {
         primary={children}
         primaryTypographyProps={{
           fontWeight: bold ? 600 : undefined,
+          color: color,
         }}
       />
     </FlexCenterWrapper>
