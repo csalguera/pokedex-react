@@ -13,7 +13,7 @@ import Divider from "@mui/material/Divider"
 import { getMove } from "../../services/api-calls"
 
 // utilities
-import { pascalize, removeHyphens } from "../../utilities/utilities"
+import { determineCategory, pascalize, removeHyphens } from "../../utilities/utilities"
 import { determineMoveGen } from "../../utilities/data"
 
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -23,8 +23,13 @@ const Move = (props) => {
   const { currentGen } = useContext(PokemonDetailsContext)
 
   const [move, setMove] = useState({})
+  const type = (move?.type)
   const pastMoveType = (move?.past_values?.[0]?.type)
   const moveGen = (currentGen < determineMoveGen(move))
+  const level = (moveEl.version_group_details.level_learned_at)
+  const category = (move?.damage_class?.name)
+  const power = (move?.power)
+  const accuracy = (move?.accuracy)
 
   useEffect(() => {
     const fetchMoveData = async () => {
@@ -41,7 +46,7 @@ const Move = (props) => {
     <>
       <ListItem>
         <ListItemTextWrapper>
-          {moveEl.version_group_details.level_learned_at}
+          {level <= 1 ? '-' : level}
         </ListItemTextWrapper>
         <ListItemTextWrapper
           color='primary'
@@ -52,17 +57,21 @@ const Move = (props) => {
           {pastMoveType && moveGen ? (
             <TypeBadge type={pastMoveType ?? ''} />
           ) : (
-            <TypeBadge type={move?.type ?? ''} />
+            <TypeBadge type={type ?? ''} />
           )}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
-          {pascalize(move?.damage_class?.name ?? '')}
+          {currentGen <= 3 && power ? (
+            pascalize(determineCategory(type?.name ?? ''))
+          ) : (
+            pascalize(category ?? '')
+          )}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
-          {move?.power ? move?.power : '-'}
+          {power ? power : '-'}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
-          {move?.accuracy ? `${move?.accuracy}%` : '-'}
+          {accuracy ? `${accuracy}%` : '-'}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
           {move?.pp}

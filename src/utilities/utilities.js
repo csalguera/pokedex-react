@@ -182,3 +182,44 @@ export function numForResults(result) {
     return 5
   }
 }
+
+export function determineCategory(moveType) {
+  switch (moveType) {
+    case 'normal':
+      return 'physical'
+    case 'fighting':
+      return 'physical'
+    case 'flying':
+      return 'physical'
+    case 'poison':
+      return 'physical'
+    case 'ground':
+      return 'physical'
+    case 'rock':
+      return 'physical'
+    case 'bug':
+      return 'physical'
+    case 'ghost':
+      return 'physical'
+    case 'steel':
+      return 'physical'
+    case 'fire':
+      return 'special'
+    case 'water':
+      return 'special'
+    case 'grass':
+      return 'special'
+    case 'electric':
+      return 'special'
+    case 'psychic':
+      return 'special'
+    case 'ice':
+      return 'special'
+    case 'dragon':
+      return 'special'
+    case 'dark':
+      return 'special'
+    default:
+      return 'status'
+  }
+}
