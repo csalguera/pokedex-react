@@ -19,6 +19,9 @@ const MovesProvider = ({ children }) => {
   const [movesRubySapphire, setMovesRubySapphire] = useState([])
   const [movesFireRedLeafGreen, setMovesFireRedLeafGreen] = useState([])
   const [movesEmerald, setMovesEmerald] = useState([])
+  const [movesDiamondPearl, setMovesDiamondPearl] = useState([])
+  const [movesHeartGoldSoulSilver, setMovesHeartGoldSoulSilver] = useState([])
+  const [movesPlatinum, setMovesPlatinum] = useState([])
 
   useEffect(() => {
     if (pokemonDetails && pokemonDetails.moves) {
@@ -61,6 +64,21 @@ const MovesProvider = ({ children }) => {
 
       // emerald level up
     moveData['emerald'] = movesEmerald
+    .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
+    .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
+
+      // diamond-pearl level up
+    moveData['diamond-pearl'] = movesDiamondPearl
+      .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
+      .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
+
+      // heartgold-soulsilver level up
+    moveData['heartgold-soulsilver'] = movesHeartGoldSoulSilver
+      .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
+      .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
+
+      // platinum level up
+    moveData['platinum'] = movesPlatinum
       .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
       .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
 
@@ -73,6 +91,9 @@ const MovesProvider = ({ children }) => {
     movesRubySapphire,
     movesFireRedLeafGreen,
     movesEmerald,
+    movesDiamondPearl,
+    movesHeartGoldSoulSilver,
+    movesPlatinum,
   ])
 
   useEffect(() => {
@@ -228,6 +249,72 @@ const MovesProvider = ({ children }) => {
     setMovesEmerald(moveData)
   }, [movesAll])
 
+  useEffect(() => {
+    const moveData = movesAll
+    .flatMap(move =>
+      move.version_group_details
+        .filter(group => group.version_group.name === 'diamond-pearl')
+        .map(({ level_learned_at, move_learn_method, version_group }) => ({
+          move: {
+            name: move.move.name,
+            url: move.move.url,
+          },
+          version_group_details: {
+            level_learned_at,
+            move_learn_method,
+            version_group: {
+              name: version_group.name,
+            },
+          }
+        }))
+    )
+    setMovesDiamondPearl(moveData)
+  }, [movesAll])
+
+  useEffect(() => {
+    const moveData = movesAll
+    .flatMap(move =>
+      move.version_group_details
+        .filter(group => group.version_group.name === 'heartgold-soulsilver')
+        .map(({ level_learned_at, move_learn_method, version_group }) => ({
+          move: {
+            name: move.move.name,
+            url: move.move.url,
+          },
+          version_group_details: {
+            level_learned_at,
+            move_learn_method,
+            version_group: {
+              name: version_group.name,
+            },
+          }
+        }))
+    )
+    setMovesHeartGoldSoulSilver(moveData)
+  }, [movesAll])
+
+  useEffect(() => {
+    const moveData = movesAll
+    .flatMap(move =>
+      move.version_group_details
+        .filter(group => group.version_group.name === 'platinum')
+        .map(({ level_learned_at, move_learn_method, version_group }) => ({
+          move: {
+            name: move.move.name,
+            url: move.move.url,
+          },
+          version_group_details: {
+            level_learned_at,
+            move_learn_method,
+            version_group: {
+              name: version_group.name,
+            },
+          }
+        }))
+    )
+    setMovesPlatinum(moveData)
+  }, [movesAll])
+
   const contextValues = {
     movesAll,
     movesLevelUp,
@@ -238,6 +325,9 @@ const MovesProvider = ({ children }) => {
     movesRubySapphire,
     movesFireRedLeafGreen,
     movesEmerald,
+    movesDiamondPearl,
+    movesHeartGoldSoulSilver,
+    movesPlatinum,
   }
 
   return (
