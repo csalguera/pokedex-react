@@ -10,7 +10,7 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 const VersionBtn = (props) => {
   const {
     setSprite,
-    versionVal,
+    versionNum,
     chars,
     actualPath,
     thisPath,
@@ -32,11 +32,11 @@ const VersionBtn = (props) => {
   }
 
   const activeVersion = (
-    ((sprites.spriteGen1 === versionVal) && (actualPath === 'gen-i')) ||
-    ((sprites.spriteGen2 === versionVal) && (actualPath === 'gen-ii')) ||
-    ((sprites.spriteGen3 === versionVal) && (actualPath === 'gen-iii')) ||
-    ((sprites.spriteGen4 === versionVal) && (actualPath === 'gen-iv')) ||
-    ((sprites.spriteGen5 === versionVal) && (actualPath === 'gen-v'))
+    ((sprites.spriteGen1 === versionNum) && (actualPath === 'gen-i')) ||
+    ((sprites.spriteGen2 === versionNum) && (actualPath === 'gen-ii')) ||
+    ((sprites.spriteGen3 === versionNum) && (actualPath === 'gen-iii')) ||
+    ((sprites.spriteGen4 === versionNum) && (actualPath === 'gen-iv')) ||
+    ((sprites.spriteGen5 === versionNum) && (actualPath === 'gen-v'))
   )
 
   return (

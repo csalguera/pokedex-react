@@ -21,9 +21,9 @@ const Version = () => {
     <FlexCenterWrapper>
       {versions.map(version => (
         <VersionBtn
-          key={`${version.thisPath}-${version.val}`}
-          setSprite={() => updateSprites(version.setSprite, version.val)}
-          versionVal={version.val}
+          key={`${version.thisPath}-${version.versionNum}`}
+          setSprite={() => updateSprites(version.setSprite, version.versionNum)}
+          versionNum={version.versionNum}
           chars={version.chars}
           actualPath={genPath}
           thisPath={version.thisPath}

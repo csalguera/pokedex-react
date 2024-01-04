@@ -14,6 +14,7 @@ const MovesProvider = ({ children }) => {
   const [movesLevelUp, setMovesLevelUp] = useState({})
   const [movesRedBlue, setMovesRedBlue] = useState([])
   const [movesYellow, setMovesYellow] = useState([])
+  const [movesGoldSilver, setMovesGoldSilver] = useState([])
 
   useEffect(() => {
     if (pokemonDetails && pokemonDetails.moves) {
@@ -24,7 +25,7 @@ const MovesProvider = ({ children }) => {
   useEffect(() => {
     const moveData = {}
 
-    // red/blue level up
+    // red-blue level up
     moveData['red-blue'] = movesRedBlue
       .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
       .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
@@ -34,10 +35,16 @@ const MovesProvider = ({ children }) => {
       .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
       .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
 
+      // gold-silver level up
+    moveData['gold-silver'] = movesGoldSilver
+      .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
+      .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
+
     setMovesLevelUp(moveData)
   }, [
     movesRedBlue,
     movesYellow,
+    movesGoldSilver,
   ])
 
   useEffect(() => {
@@ -83,11 +90,34 @@ const MovesProvider = ({ children }) => {
     setMovesYellow(moveData)
   }, [movesAll])
 
+  useEffect(() => {
+    const moveData = movesAll
+    .flatMap(move =>
+      move.version_group_details
+        .filter(group => group.version_group.name === 'gold-silver')
+        .map(({ level_learned_at, move_learn_method, version_group }) => ({
+          move: {
+            name: move.move.name,
+            url: move.move.url,
+          },
+          version_group_details: {
+            level_learned_at,
+            move_learn_method,
+            version_group: {
+              name: version_group.name,
+            },
+          }
+        }))
+    )
+    setMovesGoldSilver(moveData)
+  }, [movesAll])
+
   const contextValues = {
     movesAll,
     movesLevelUp,
     movesRedBlue,
     movesYellow,
+    movesGoldSilver,
   }
 
   return (

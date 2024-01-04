@@ -1,12 +1,14 @@
 // components
 import HeaderWrapper from "../common/HeaderWrapper"
 import ListItemTextWrapper from "../common/ListItemTextWrapper"
-import RedBlue from "./RedBlue"
-import Yellow from "./Yellow"
+import MoveLevelUp from "./MoveLevelUp"
 
 // mui components
 import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
+
+// utilities
+import { versions } from "../../utilities/data"
 
 const Moves = () => {
   return (
@@ -31,8 +33,14 @@ const Moves = () => {
           <ListItemTextWrapper bold>Accuracy</ListItemTextWrapper>
           <ListItemTextWrapper bold>PP</ListItemTextWrapper>
         </ListItem>
-        <RedBlue />
-        <Yellow />
+        {versions.map(version => (
+          <MoveLevelUp
+            key={version.versionGroup + version.versionNum}
+            versionGroup={version.versionGroup}
+            versionGen={version.versionGen}
+            versionNum={version.versionNum}
+          />
+        ))}
       </List>
     </>
   )
