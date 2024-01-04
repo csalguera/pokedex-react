@@ -15,6 +15,7 @@ const MovesProvider = ({ children }) => {
   const [movesRedBlue, setMovesRedBlue] = useState([])
   const [movesYellow, setMovesYellow] = useState([])
   const [movesGoldSilver, setMovesGoldSilver] = useState([])
+  const [movesCrystal, setMovesCrystal] = useState([])
 
   useEffect(() => {
     if (pokemonDetails && pokemonDetails.moves) {
@@ -40,11 +41,17 @@ const MovesProvider = ({ children }) => {
       .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
       .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
 
+      // crystal level up
+    moveData['crystal'] = movesCrystal
+      .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
+      .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
+
     setMovesLevelUp(moveData)
   }, [
     movesRedBlue,
     movesYellow,
     movesGoldSilver,
+    movesCrystal,
   ])
 
   useEffect(() => {
@@ -112,12 +119,35 @@ const MovesProvider = ({ children }) => {
     setMovesGoldSilver(moveData)
   }, [movesAll])
 
+  useEffect(() => {
+    const moveData = movesAll
+    .flatMap(move =>
+      move.version_group_details
+        .filter(group => group.version_group.name === 'crystal')
+        .map(({ level_learned_at, move_learn_method, version_group }) => ({
+          move: {
+            name: move.move.name,
+            url: move.move.url,
+          },
+          version_group_details: {
+            level_learned_at,
+            move_learn_method,
+            version_group: {
+              name: version_group.name,
+            },
+          }
+        }))
+    )
+    setMovesCrystal(moveData)
+  }, [movesAll])
+
   const contextValues = {
     movesAll,
     movesLevelUp,
     movesRedBlue,
     movesYellow,
     movesGoldSilver,
+    movesCrystal,
   }
 
   return (
