@@ -62,7 +62,7 @@ const Move = (props) => {
           {move?.power ? move?.power : '-'}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
-          {move?.accuracy ? move?.accuracy : '-'}
+          {move?.accuracy ? `${move?.accuracy}%` : '-'}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
           {move?.pp}
