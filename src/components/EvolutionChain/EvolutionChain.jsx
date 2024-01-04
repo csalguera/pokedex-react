@@ -15,13 +15,13 @@ const EvolutionChain = () => {
   return (
     <Box
       sx={{
-        display: 'flex'
+        display: 'flex',
       }}
     >
       <EvolutionChainProvider>
         <FlexCenterWrapper
           additionalStyles={{
-            flexDirection: 'column'
+            flexDirection: 'column',
           }}
         >
           <HeaderWrapper
@@ -29,11 +29,15 @@ const EvolutionChain = () => {
           >
             Evolution Line
           </HeaderWrapper>
-          <FlexCenterWrapper>
+          <Box
+            sx={{
+              display: 'flex',
+            }}
+          >
             <StageOneChain />
             <StageTwoChain />
             <StageThreeChain />
-          </FlexCenterWrapper>
+          </Box>
         </FlexCenterWrapper>
       </EvolutionChainProvider>
     </Box>
