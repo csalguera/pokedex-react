@@ -25,13 +25,13 @@ const Moves = () => {
         }}
       >
         <ListItem>
-          <ListItemTextWrapper bold>Level</ListItemTextWrapper>
-          <ListItemTextWrapper bold>Name</ListItemTextWrapper>
-          <ListItemTextWrapper bold>Type</ListItemTextWrapper>
-          <ListItemTextWrapper bold>Category</ListItemTextWrapper>
-          <ListItemTextWrapper bold>Base Power</ListItemTextWrapper>
-          <ListItemTextWrapper bold>Accuracy</ListItemTextWrapper>
-          <ListItemTextWrapper bold>PP</ListItemTextWrapper>
+          <ListItemTextWrapper bold width={0.5}>Level</ListItemTextWrapper>
+          <ListItemTextWrapper bold width={0.8}>Name</ListItemTextWrapper>
+          <ListItemTextWrapper bold width={0.8}>Type</ListItemTextWrapper>
+          <ListItemTextWrapper bold width={0.8}>Category</ListItemTextWrapper>
+          <ListItemTextWrapper bold width={0.6}>Power</ListItemTextWrapper>
+          <ListItemTextWrapper bold width={0.6}>Accuracy</ListItemTextWrapper>
+          <ListItemTextWrapper bold width={0.1}>PP</ListItemTextWrapper>
         </ListItem>
         {versions.map(version => (
           <MoveLevelUp

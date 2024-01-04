@@ -45,35 +45,48 @@ const Move = (props) => {
   return (
     <>
       <ListItem>
-        <ListItemTextWrapper>
+        <ListItemTextWrapper
+          width={0.5}
+        >
           {level <= 1 ? '-' : level}
         </ListItemTextWrapper>
         <ListItemTextWrapper
           color='primary'
+          width={0.8}
         >
           {removeHyphens(moveEl.move.name)}
         </ListItemTextWrapper>
-        <ListItemTextWrapper>
+        <ListItemTextWrapper
+          width={0.8}
+        >
           {pastMoveType && moveGen ? (
             <TypeBadge type={pastMoveType ?? ''} />
           ) : (
             <TypeBadge type={type ?? ''} />
           )}
         </ListItemTextWrapper>
-        <ListItemTextWrapper>
+        <ListItemTextWrapper
+          width={0.8}
+        >
           {currentGen <= 3 && power ? (
             pascalize(determineCategory(type?.name ?? ''))
           ) : (
             pascalize(category ?? '')
           )}
         </ListItemTextWrapper>
-        <ListItemTextWrapper>
+        <ListItemTextWrapper
+          width={0.6}
+        >
           {power ? power : '-'}
         </ListItemTextWrapper>
-        <ListItemTextWrapper>
+        <ListItemTextWrapper
+          width={0.6}
+        >
           {accuracy ? `${accuracy}%` : '-'}
         </ListItemTextWrapper>
-        <ListItemTextWrapper>
+        <ListItemTextWrapper
+          width={0.1}
+        >
           {move?.pp}
         </ListItemTextWrapper>
       </ListItem>

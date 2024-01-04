@@ -4,11 +4,11 @@ import FlexCenterWrapper from "./FlexCenterWrapper"
 // mui components
 import ListItemText from "@mui/material/ListItemText"
 
-const ListItemTextWrapper = ({ children, bold, color }) => {
+const ListItemTextWrapper = ({ children, bold, color, width }) => {
   return (
     <FlexCenterWrapper
       additionalStyles={{
-        width: 1
+        width: width ? width : 1
       }}
     >
       <ListItemText
