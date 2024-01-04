@@ -20,7 +20,8 @@ export const versions = [
   { versionNum: 0, thisPath: 'gen-iv', chars: 'DP', spriteGen: 'spriteGen4', versionGroup: 'diamond-pearl', versionGen: 4 },
   { versionNum: 1, thisPath: 'gen-iv', chars: 'HGSS', spriteGen: 'spriteGen4', versionGroup: 'heartgold-soulsilver', versionGen: 4 },
   { versionNum: 2, thisPath: 'gen-iv', chars: 'Pt', spriteGen: 'spriteGen4', versionGroup: 'platinum', versionGen: 4 },
-  { versionNum: 0, thisPath: 'gen-v', chars: 'BW / B2W2', spriteGen: 'spriteGen5', versionGroup: 'black-white', versionGen: 5 },
+  { versionNum: 0, thisPath: 'gen-v', chars: 'BW', spriteGen: 'spriteGen5', versionGroup: 'black-white', versionGen: 5 },
+  { versionNum: 1, thisPath: 'gen-v', chars: 'B2W2', spriteGen: 'spriteGen5', versionGroup: 'black-2-white-2', versionGen: 5 },
 ]
 
 export function determineSprite(details, path, sprites) {
@@ -128,7 +129,7 @@ export function determineSprite(details, path, sprites) {
         sprite = generation?.['black-white'].animated?.front_default
         break
       default:
-        sprite = generation?.['black-white'].animated
+        sprite = generation?.['black-white'].animated?.front_default
         break
     }
     return sprite

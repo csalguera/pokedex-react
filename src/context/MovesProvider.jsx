@@ -22,6 +22,8 @@ const MovesProvider = ({ children }) => {
   const [movesDiamondPearl, setMovesDiamondPearl] = useState([])
   const [movesHeartGoldSoulSilver, setMovesHeartGoldSoulSilver] = useState([])
   const [movesPlatinum, setMovesPlatinum] = useState([])
+  const [movesBlackWhite, setMovesBlackWhite] = useState([])
+  const [movesBlack2White2, setMovesBlack2White2] = useState([])
 
   useEffect(() => {
     if (pokemonDetails && pokemonDetails.moves) {
@@ -82,6 +84,16 @@ const MovesProvider = ({ children }) => {
       .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
       .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
 
+      // black-white level up
+    moveData['black-white'] = movesBlackWhite
+      .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
+      .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
+
+      // black-2-white-2 level up
+    moveData['black-2-white-2'] = movesBlack2White2
+      .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
+      .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
+
     setMovesLevelUp(moveData)
   }, [
     movesRedBlue,
@@ -94,6 +106,8 @@ const MovesProvider = ({ children }) => {
     movesDiamondPearl,
     movesHeartGoldSoulSilver,
     movesPlatinum,
+    movesBlackWhite,
+    movesBlack2White2,
   ])
 
   useEffect(() => {
@@ -315,6 +329,50 @@ const MovesProvider = ({ children }) => {
     setMovesPlatinum(moveData)
   }, [movesAll])
 
+  useEffect(() => {
+    const moveData = movesAll
+    .flatMap(move =>
+      move.version_group_details
+        .filter(group => group.version_group.name === 'black-white')
+        .map(({ level_learned_at, move_learn_method, version_group }) => ({
+          move: {
+            name: move.move.name,
+            url: move.move.url,
+          },
+          version_group_details: {
+            level_learned_at,
+            move_learn_method,
+            version_group: {
+              name: version_group.name,
+            },
+          }
+        }))
+    )
+    setMovesBlackWhite(moveData)
+  }, [movesAll])
+
+  useEffect(() => {
+    const moveData = movesAll
+    .flatMap(move =>
+      move.version_group_details
+        .filter(group => group.version_group.name === 'black-2-white-2')
+        .map(({ level_learned_at, move_learn_method, version_group }) => ({
+          move: {
+            name: move.move.name,
+            url: move.move.url,
+          },
+          version_group_details: {
+            level_learned_at,
+            move_learn_method,
+            version_group: {
+              name: version_group.name,
+            },
+          }
+        }))
+    )
+    setMovesBlack2White2(moveData)
+  }, [movesAll])
+
   const contextValues = {
     movesAll,
     movesLevelUp,
@@ -328,6 +386,8 @@ const MovesProvider = ({ children }) => {
     movesDiamondPearl,
     movesHeartGoldSoulSilver,
     movesPlatinum,
+    movesBlackWhite,
+    movesBlack2White2,
   }
 
   return (
