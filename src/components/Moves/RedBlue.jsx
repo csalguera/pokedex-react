@@ -33,36 +33,13 @@ const RedBlue = () => {
       }}
     >
       <ListItem>
-        <ListItemTextWrapper
-          bold
-        >
-          Level
-        </ListItemTextWrapper>
-        <ListItemTextWrapper
-          bold
-        >
-          Name
-        </ListItemTextWrapper>
-        <ListItemTextWrapper
-          bold
-        >
-          Type
-        </ListItemTextWrapper>
-        <ListItemTextWrapper
-          bold
-        >
-          Category
-        </ListItemTextWrapper>
-        <ListItemTextWrapper
-          bold
-        >
-          Base Power
-        </ListItemTextWrapper>
-        <ListItemTextWrapper
-          bold
-        >
-          PP
-        </ListItemTextWrapper>
+        <ListItemTextWrapper bold>Level</ListItemTextWrapper>
+        <ListItemTextWrapper bold>Name</ListItemTextWrapper>
+        <ListItemTextWrapper bold>Type</ListItemTextWrapper>
+        <ListItemTextWrapper bold>Category</ListItemTextWrapper>
+        <ListItemTextWrapper bold>Base Power</ListItemTextWrapper>
+        <ListItemTextWrapper bold>Accuracy</ListItemTextWrapper>
+        <ListItemTextWrapper bold>PP</ListItemTextWrapper>
       </ListItem>
       {movesLevelUp['red-blue']?.map(moveEl => (
         <Move

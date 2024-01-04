@@ -134,3 +134,20 @@ export function determineSprite(details, path, sprites) {
     return sprite
   }
 }
+
+export function determineMoveGen(move) {
+  const group = move?.past_values?.[0]?.version_group?.name
+
+  if (!group) return
+
+  switch (group) {
+    case 'gold-silver':
+      return 2
+    case 'black-white':
+      return 5
+    case 'x-y':
+      return 6
+    default:
+      return null
+  }
+}

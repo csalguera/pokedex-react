@@ -1,5 +1,5 @@
 // npm modules
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 
 // components
 import ListItemTextWrapper from "../common/ListItemTextWrapper"
@@ -14,11 +14,17 @@ import { getMove } from "../../services/api-calls"
 
 // utilities
 import { pascalize, removeHyphens } from "../../utilities/utilities"
+import { determineMoveGen } from "../../utilities/data"
+
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const Move = (props) => {
   const { moveEl } = props
+  const { currentGen } = useContext(PokemonDetailsContext)
 
   const [move, setMove] = useState({})
+  const pastMoveType = (move?.past_values?.[0]?.type)
+  const moveGen = (currentGen < determineMoveGen(move))
 
   useEffect(() => {
     const fetchMoveData = async () => {
@@ -43,8 +49,8 @@ const Move = (props) => {
           {removeHyphens(moveEl.move.name)}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
-          {move?.past_values?.[0]?.type ? (
-            <TypeBadge type={move?.past_values?.[0]?.type ?? ''} />
+          {pastMoveType && moveGen ? (
+            <TypeBadge type={pastMoveType ?? ''} />
           ) : (
             <TypeBadge type={move?.type ?? ''} />
           )}
@@ -54,6 +60,9 @@ const Move = (props) => {
         </ListItemTextWrapper>
         <ListItemTextWrapper>
           {move?.power ? move?.power : '-'}
+        </ListItemTextWrapper>
+        <ListItemTextWrapper>
+          {move?.accuracy ? move?.accuracy : '-'}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
           {move?.pp}
