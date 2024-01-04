@@ -139,7 +139,7 @@ const EvolutionMethod = (props) => {
 
   const beautyCondition = (
     evolutionMethod?.min_beauty ? (
-      'https://archives.bulbagarden.net/media/upload/5/5e/Blue_Pok%C3%A9block_Sprite.png'
+      '/assets/icons/blue-pokeblock.png'
     ) : (
       null
     )
