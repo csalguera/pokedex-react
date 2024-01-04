@@ -4,6 +4,7 @@ import { useEffect, useState, useContext } from "react"
 // components
 import ListItemTextWrapper from "../common/ListItemTextWrapper"
 import TypeBadge from "../Type/TypeBadge"
+import DamageClass from "./DamageClass"
 
 // mui components
 import ListItem from "@mui/material/ListItem"
@@ -16,6 +17,7 @@ import { getMove } from "../../services/api-calls"
 import { determineCategory, pascalize, removeHyphens } from "../../utilities/utilities"
 import { determineMoveGen } from "../../utilities/data"
 
+// context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const Move = (props) => {
@@ -68,11 +70,11 @@ const Move = (props) => {
         <ListItemTextWrapper
           width={0.8}
         >
-          {currentGen <= 3 && power ? (
-            pascalize(determineCategory(type?.name ?? ''))
-          ) : (
-            pascalize(category ?? '')
-          )}
+          <DamageClass
+            power={power}
+            type={type}
+            category={category}
+          />
         </ListItemTextWrapper>
         <ListItemTextWrapper
           width={0.6}

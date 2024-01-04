@@ -38,7 +38,7 @@ const Nav = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <ImageMd
-            src="/pokeball-icon.png"
+            src="/assets/icons/pokeball-icon.png"
             width='30px'
           />
           <Typography
@@ -101,7 +101,7 @@ const Nav = () => {
             </Menu>
           </Box>
           <ImageXs
-            src="/pokeball-icon.png"
+            src="/assets/icons/pokeball-icon.png"
             width='30px'
           />
           <Typography
