@@ -16,6 +16,9 @@ const MovesProvider = ({ children }) => {
   const [movesYellow, setMovesYellow] = useState([])
   const [movesGoldSilver, setMovesGoldSilver] = useState([])
   const [movesCrystal, setMovesCrystal] = useState([])
+  const [movesRubySapphire, setMovesRubySapphire] = useState([])
+  const [movesFireRedLeafGreen, setMovesFireRedLeafGreen] = useState([])
+  const [movesEmerald, setMovesEmerald] = useState([])
 
   useEffect(() => {
     if (pokemonDetails && pokemonDetails.moves) {
@@ -46,12 +49,30 @@ const MovesProvider = ({ children }) => {
       .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
       .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
 
+      // ruby-sapphire level up
+    moveData['ruby-sapphire'] = movesRubySapphire
+      .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
+      .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
+
+      // firered-leafgreen level up
+    moveData['firered-leafgreen'] = movesFireRedLeafGreen
+      .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
+      .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
+
+      // emerald level up
+    moveData['emerald'] = movesEmerald
+      .filter(move => move.version_group_details.move_learn_method.name === 'level-up')
+      .sort((a, b) => a.version_group_details.level_learned_at - b.version_group_details.level_learned_at)
+
     setMovesLevelUp(moveData)
   }, [
     movesRedBlue,
     movesYellow,
     movesGoldSilver,
     movesCrystal,
+    movesRubySapphire,
+    movesFireRedLeafGreen,
+    movesEmerald,
   ])
 
   useEffect(() => {
@@ -141,6 +162,72 @@ const MovesProvider = ({ children }) => {
     setMovesCrystal(moveData)
   }, [movesAll])
 
+  useEffect(() => {
+    const moveData = movesAll
+    .flatMap(move =>
+      move.version_group_details
+        .filter(group => group.version_group.name === 'ruby-sapphire')
+        .map(({ level_learned_at, move_learn_method, version_group }) => ({
+          move: {
+            name: move.move.name,
+            url: move.move.url,
+          },
+          version_group_details: {
+            level_learned_at,
+            move_learn_method,
+            version_group: {
+              name: version_group.name,
+            },
+          }
+        }))
+    )
+    setMovesRubySapphire(moveData)
+  }, [movesAll])
+
+  useEffect(() => {
+    const moveData = movesAll
+    .flatMap(move =>
+      move.version_group_details
+        .filter(group => group.version_group.name === 'firered-leafgreen')
+        .map(({ level_learned_at, move_learn_method, version_group }) => ({
+          move: {
+            name: move.move.name,
+            url: move.move.url,
+          },
+          version_group_details: {
+            level_learned_at,
+            move_learn_method,
+            version_group: {
+              name: version_group.name,
+            },
+          }
+        }))
+    )
+    setMovesFireRedLeafGreen(moveData)
+  }, [movesAll])
+
+  useEffect(() => {
+    const moveData = movesAll
+    .flatMap(move =>
+      move.version_group_details
+        .filter(group => group.version_group.name === 'emerald')
+        .map(({ level_learned_at, move_learn_method, version_group }) => ({
+          move: {
+            name: move.move.name,
+            url: move.move.url,
+          },
+          version_group_details: {
+            level_learned_at,
+            move_learn_method,
+            version_group: {
+              name: version_group.name,
+            },
+          }
+        }))
+    )
+    setMovesEmerald(moveData)
+  }, [movesAll])
+
   const contextValues = {
     movesAll,
     movesLevelUp,
@@ -148,6 +235,9 @@ const MovesProvider = ({ children }) => {
     movesYellow,
     movesGoldSilver,
     movesCrystal,
+    movesRubySapphire,
+    movesFireRedLeafGreen,
+    movesEmerald,
   }
 
   return (
