@@ -2,6 +2,7 @@
 import HeaderWrapper from "../common/HeaderWrapper"
 import ListItemTextWrapper from "../common/ListItemTextWrapper"
 import RedBlue from "./RedBlue"
+import Yellow from "./Yellow"
 
 // mui components
 import List from "@mui/material/List"
@@ -31,6 +32,7 @@ const Moves = () => {
           <ListItemTextWrapper bold>PP</ListItemTextWrapper>
         </ListItem>
         <RedBlue />
+        <Yellow />
       </List>
     </>
   )
