@@ -39,6 +39,7 @@ const Moves = () => {
             versionGroup={version.versionGroup}
             versionGen={version.versionGen}
             versionNum={version.versionNum}
+            spriteGen={version.spriteGen}
           />
         ))}
       </List>

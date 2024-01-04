@@ -22,7 +22,8 @@ const Version = () => {
       {versions.map(version => (
         <VersionBtn
           key={`${version.thisPath}-${version.versionNum}`}
-          setSprite={() => updateSprites(version.setSprite, version.versionNum)}
+          updateSprites={() => updateSprites(version.spriteGen, version.versionNum)}
+          spriteGen={version.spriteGen}
           versionNum={version.versionNum}
           chars={version.chars}
           actualPath={genPath}

@@ -9,18 +9,18 @@ export const pages = [
 ]
 
 export const versions = [
-  { versionNum: 0, thisPath: 'gen-i', chars: 'RB', setSprite: 'spriteGen1', versionGroup: 'red-blue', versionGen: 1 },
-  { versionNum: 1, thisPath: 'gen-i', chars: 'Y', setSprite: 'spriteGen1', versionGroup: 'yellow', versionGen: 1 },
-  { versionNum: 0, thisPath: 'gen-ii', chars: 'G', setSprite: 'spriteGen2', versionGroup: 'gold-silver', versionGen: 2 },
-  { versionNum: 1, thisPath: 'gen-ii', chars: 'S', setSprite: 'spriteGen2', versionGroup: 'gold-silver', versionGen: 2 },
-  { versionNum: 2, thisPath: 'gen-ii', chars: 'C', setSprite: 'spriteGen2', versionGroup: 'crystal', versionGen: 2 },
-  { versionNum: 0, thisPath: 'gen-iii', chars: 'RS', setSprite: 'spriteGen3', versionGroup: 'ruby-sapphire', versionGen: 3 },
-  { versionNum: 1, thisPath: 'gen-iii', chars: 'FRLG', setSprite: 'spriteGen3', versionGroup: 'firered-leafgreen', versionGen: 3 },
-  { versionNum: 2, thisPath: 'gen-iii', chars: 'E', setSprite: 'spriteGen3', versionGroup: 'emerald', versionGen: 3 },
-  { versionNum: 0, thisPath: 'gen-iv', chars: 'DP', setSprite: 'spriteGen4', versionGroup: 'diamond-pearl', versionGen: 4 },
-  { versionNum: 1, thisPath: 'gen-iv', chars: 'HGSS', setSprite: 'spriteGen4', versionGroup: 'heartgold-soulsilver', versionGen: 4 },
-  { versionNum: 2, thisPath: 'gen-iv', chars: 'Pt', setSprite: 'spriteGen4', versionGroup: 'platinum', versionGen: 4 },
-  { versionNum: 0, thisPath: 'gen-v', chars: 'BW / B2W2', setSprite: 'spriteGen5', versionGroup: 'black-white', versionGen: 5 },
+  { versionNum: 0, thisPath: 'gen-i', chars: 'RB', spriteGen: 'spriteGen1', versionGroup: 'red-blue', versionGen: 1 },
+  { versionNum: 1, thisPath: 'gen-i', chars: 'Y', spriteGen: 'spriteGen1', versionGroup: 'yellow', versionGen: 1 },
+  { versionNum: 0, thisPath: 'gen-ii', chars: 'G', spriteGen: 'spriteGen2', versionGroup: 'gold-silver', versionGen: 2 },
+  { versionNum: 1, thisPath: 'gen-ii', chars: 'S', spriteGen: 'spriteGen2', versionGroup: 'gold-silver', versionGen: 2 },
+  { versionNum: 2, thisPath: 'gen-ii', chars: 'C', spriteGen: 'spriteGen2', versionGroup: 'crystal', versionGen: 2 },
+  { versionNum: 0, thisPath: 'gen-iii', chars: 'RS', spriteGen: 'spriteGen3', versionGroup: 'ruby-sapphire', versionGen: 3 },
+  { versionNum: 1, thisPath: 'gen-iii', chars: 'FRLG', spriteGen: 'spriteGen3', versionGroup: 'firered-leafgreen', versionGen: 3 },
+  { versionNum: 2, thisPath: 'gen-iii', chars: 'E', spriteGen: 'spriteGen3', versionGroup: 'emerald', versionGen: 3 },
+  { versionNum: 0, thisPath: 'gen-iv', chars: 'DP', spriteGen: 'spriteGen4', versionGroup: 'diamond-pearl', versionGen: 4 },
+  { versionNum: 1, thisPath: 'gen-iv', chars: 'HGSS', spriteGen: 'spriteGen4', versionGroup: 'heartgold-soulsilver', versionGen: 4 },
+  { versionNum: 2, thisPath: 'gen-iv', chars: 'Pt', spriteGen: 'spriteGen4', versionGroup: 'platinum', versionGen: 4 },
+  { versionNum: 0, thisPath: 'gen-v', chars: 'BW / B2W2', spriteGen: 'spriteGen5', versionGroup: 'black-white', versionGen: 5 },
 ]
 
 export function determineSprite(details, path, sprites) {

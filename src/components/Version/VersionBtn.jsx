@@ -9,7 +9,8 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const VersionBtn = (props) => {
   const {
-    setSprite,
+    updateSprites,
+    spriteGen,
     versionNum,
     chars,
     actualPath,
@@ -46,7 +47,7 @@ const VersionBtn = (props) => {
         margin: '8px',
       }}
       variant={activeVersion ? 'contained' : 'outlined'}
-      onClick={() => setSprite()}
+      onClick={() => updateSprites(spriteGen, versionNum)}
     >
       {chars}
     </Button>

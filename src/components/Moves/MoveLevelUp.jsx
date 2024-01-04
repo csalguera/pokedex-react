@@ -13,6 +13,7 @@ const MoveLevelUp = (props) => {
     versionGroup,
     versionNum,
     versionGen,
+    spriteGen,
   } = props
 
   const {
@@ -25,7 +26,7 @@ const MoveLevelUp = (props) => {
   } = useContext(PokemonDetailsContext)
 
   if (!movesLevelUp) return
-  if (!(currentGen === versionGen && sprites.spriteGen1 === versionNum)) return
+  if (!(currentGen === versionGen && sprites[spriteGen] === versionNum)) return
   return (
     <>
     {movesLevelUp[versionGroup]?.map(moveEl => (
