@@ -33,6 +33,7 @@ const MoveLevelUp = (props) => {
       <Move
         key={moveEl.move.name + moveEl.version_group_details.level_learned_at}
         moveEl={moveEl}
+        versionGroup={versionGroup}
       />
     ))}
     </>

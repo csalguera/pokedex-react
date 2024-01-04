@@ -14,14 +14,14 @@ import Divider from "@mui/material/Divider"
 import { getMove } from "../../services/api-calls"
 
 // utilities
-import { determineCategory, pascalize, removeHyphens } from "../../utilities/utilities"
+import { removeHyphens } from "../../utilities/utilities"
 import { determineMoveGen } from "../../utilities/data"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 const Move = (props) => {
-  const { moveEl } = props
+  const { moveEl, versionGroup } = props
   const { currentGen } = useContext(PokemonDetailsContext)
 
   const [move, setMove] = useState({})
@@ -56,7 +56,7 @@ const Move = (props) => {
           color='primary'
           width={0.8}
         >
-          {removeHyphens(moveEl.move.name)}
+          {removeHyphens(move?.name ?? '')}
         </ListItemTextWrapper>
         <ListItemTextWrapper
           width={0.8}
@@ -74,6 +74,7 @@ const Move = (props) => {
             power={power}
             type={type}
             category={category}
+            versionGroup={versionGroup}
           />
         </ListItemTextWrapper>
         <ListItemTextWrapper
