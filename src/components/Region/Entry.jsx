@@ -1,15 +1,21 @@
+// npm modules
+import { useEffect, useState } from "react"
+
 // components
 import FlexCenterWrapper from "../common/FlexCenterWrapper"
+import ListItemTextWrapper from "../common/ListItemTextWrapper"
 import LinkWrapper from "../common/LinkWrapper"
 import Type from "../Type/Type"
 
 // mui components
-import { Typography } from "@mui/material"
+import ListItem from "@mui/material/ListItem"
+import Divider from "@mui/material/Divider"
+
+// services
+import { getPokemonDetails } from "../../services/api-calls"
 
 // utilities
 import { leadingZeros, pascalize, validateSpecies } from "../../utilities/utilities"
-import { useEffect, useState } from "react"
-import { getPokemonDetails } from "../../services/api-calls"
 
 const Entry = (props) => {
   const {
@@ -35,35 +41,35 @@ const Entry = (props) => {
   }, [pokemon.name])
 
   return (
-    <FlexCenterWrapper
-      key={pokemon.name}
-    >
-      <FlexCenterWrapper
-        additionalStyles={{
-          justifyContent: 'flex-start',
-          width: '500px',
-        }}
-      >
-        <Typography
-          sx={{
-            m: 1,
-          }}
-        >
+    <>
+      <ListItem>
+        <ListItemTextWrapper>
           {leadingZeros(dexOffset + idx + 1)}
-        </Typography>
-        <LinkWrapper
-          to={`/${genPath}/${pokemon.name}`}
-          state={{ ...pokemon, genNum, genPath }}
-          sx={{
-            display: 'flex',
-            width: 'fit-content',
-          }}
-        >
-          {pascalize(validateSpecies(pokemon.name))}
-        </LinkWrapper>
-        <Type pokemonDetails={entry} />
-      </FlexCenterWrapper>
-    </FlexCenterWrapper>
+        </ListItemTextWrapper>
+        <ListItemTextWrapper>
+          <LinkWrapper
+            to={`/${genPath}/${pokemon.name}`}
+            state={{ ...pokemon, genNum, genPath }}
+            sx={{
+              display: 'flex',
+              width: 'fit-content',
+            }}
+          >
+            {pascalize(validateSpecies(pokemon.name))}
+          </LinkWrapper>
+        </ListItemTextWrapper>
+        <ListItemTextWrapper>
+          <FlexCenterWrapper
+            additionalStyles={{
+              justifyContent: 'flex-start'
+            }}
+          >
+            <Type pokemonDetails={entry} />
+          </FlexCenterWrapper>
+        </ListItemTextWrapper>
+      </ListItem>
+      <Divider />
+    </>
   )
 }
 
