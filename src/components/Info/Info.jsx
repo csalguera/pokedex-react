@@ -1,3 +1,6 @@
+// npm modules
+import { useContext } from "react"
+
 // components
 import NationalNo from "./NationalNo"
 import Name from "./Name"
@@ -9,9 +12,15 @@ import Abilities from "../Abilities/Abilities"
 
 // mui components
 import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
 import Divider from "@mui/material/Divider"
 
+// context
+import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
+
 const Info = () => {
+  const { pokemonDetails } = useContext(PokemonDetailsContext)
   return (
     <List
       sx={{
@@ -26,7 +35,10 @@ const Info = () => {
       <Divider />
       <Classification />
       <Divider />
-      <Type />
+      <ListItem>
+        <ListItemText primary='Type' />
+        <Type pokemonDetails={pokemonDetails} />
+      </ListItem>
       <Divider />
       <Height />
       <Divider />

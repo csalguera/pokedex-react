@@ -27,8 +27,7 @@ const PokemonDetailsProvider = ({ children }) => {
   const [sprites, setSprites] = useState(spritesInitialState)
   const [genPath, setGenPath] = useState('')
   const { genNum } = location.state || {}
-  const pastTypes = (pokemonDetails?.past_types?.[0])
-  
+
   const updateSprites = (key, value) => {
     setSprites(prevState => ({
       ...prevState,
@@ -183,7 +182,6 @@ const PokemonDetailsProvider = ({ children }) => {
     genPath,
     setGenPath,
     genNum,
-    pastTypes,
     currentGen,
     sprites,
     updateSprites,

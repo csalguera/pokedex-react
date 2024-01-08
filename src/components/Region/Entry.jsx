@@ -1,12 +1,15 @@
 // components
 import FlexCenterWrapper from "../common/FlexCenterWrapper"
 import LinkWrapper from "../common/LinkWrapper"
+import Type from "../Type/Type"
 
 // mui components
 import { Typography } from "@mui/material"
 
 // utilities
 import { leadingZeros, pascalize, validateSpecies } from "../../utilities/utilities"
+import { useEffect, useState } from "react"
+import { getPokemonDetails } from "../../services/api-calls"
 
 const Entry = (props) => {
   const {
@@ -21,6 +24,16 @@ const Entry = (props) => {
     genNum,
   } = location.state
 
+  const [entry, setEntry] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const pokemonData = await getPokemonDetails(pokemon.name)
+      setEntry(pokemonData)
+    }
+    fetchData()
+  }, [pokemon.name])
+
   return (
     <FlexCenterWrapper
       key={pokemon.name}
@@ -28,7 +41,7 @@ const Entry = (props) => {
       <FlexCenterWrapper
         additionalStyles={{
           justifyContent: 'flex-start',
-          width: '175px',
+          width: '500px',
         }}
       >
         <Typography
@@ -48,6 +61,7 @@ const Entry = (props) => {
         >
           {pascalize(validateSpecies(pokemon.name))}
         </LinkWrapper>
+        <Type pokemonDetails={entry} />
       </FlexCenterWrapper>
     </FlexCenterWrapper>
   )
