@@ -4,7 +4,7 @@ import { useContext } from "react"
 // components
 import NationalNo from "./NationalNo"
 import Name from "./Name"
-import Classification from "../Classification/Classification"
+import Classification from "./Classification"
 import Type from "../Type/Type"
 import Height from "./Height"
 import Weight from "./Weight"

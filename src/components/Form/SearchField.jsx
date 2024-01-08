@@ -29,7 +29,7 @@ const SearchField = (props) => {
       <TextField
         sx={{
           input: { color: 'primary.dark' },
-          backgroundColor: 'background.default',
+          backgroundColor: 'background.search',
           borderRadius: '100px',
           justifyContent: 'center',
           alignItems: 'center',

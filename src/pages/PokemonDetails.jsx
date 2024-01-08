@@ -43,6 +43,7 @@ const PokemonDetails = () => {
     <FlexCenterWrapper
       additionalStyles={{
         flexDirection: 'column',
+        backgroundColor: 'background.default'
       }}
     >
       <PokemonDetailsProvider>

@@ -20,35 +20,17 @@ import Results from './pages/Results';
 // components
 import Nav from './components/Nav/Nav';
 
-// mui modules
-import { createTheme, ThemeProvider } from '@mui/material';
-import { blue, grey } from '@mui/material/colors';
-
 // utilities
 import { pages } from './utilities/data';
 
 // context
 import PokemonDetailsProvider from './context/PokemonDetailsProvider';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: blue[600],
-      dark: blue[900],
-      contrastText: grey[100],
-    },
-    background: {
-      default: grey[100],
-      paper: grey[900],
-      border: grey[200],
-    },
-  }
-})
+import PokemonThemeProvider from './context/PokemonThemeProvider';
 
 function App() {
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <PokemonThemeProvider>
         <PokemonDetailsProvider>
           <Nav />
           <Routes>
@@ -62,7 +44,7 @@ function App() {
             ))}
           </Routes>
         </PokemonDetailsProvider>
-      </ThemeProvider>
+      </PokemonThemeProvider>
     </>
   )
 }

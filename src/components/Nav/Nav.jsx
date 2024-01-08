@@ -11,7 +11,6 @@ import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
 import Menu from '@mui/material/Menu'
 import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
@@ -41,11 +40,9 @@ const Nav = () => {
             src="/assets/icons/pokeball-icon.png"
             width='30px'
           />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
+          <LinkWrapper
+            to='/'
+            variant='h6'
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -57,7 +54,7 @@ const Nav = () => {
             }}
           >
             POKÉDEX
-          </Typography>
+          </LinkWrapper>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -104,11 +101,9 @@ const Nav = () => {
             src="/assets/icons/pokeball-icon.png"
             width='30px'
           />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="/"
+          <LinkWrapper
+            to='/'
+            variant='h5'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -121,7 +116,7 @@ const Nav = () => {
             }}
           >
             POKÉDEX
-          </Typography>
+          </LinkWrapper>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <LinkWrapper
@@ -132,7 +127,7 @@ const Nav = () => {
                 <Button
                   sx={{
                     my: 2,
-                    color: 'white',
+                    color: 'primary.contrastText',
                     display: 'block',
                   }}
                 >

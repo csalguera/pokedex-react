@@ -2,7 +2,7 @@
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 
-const HeaderWrapper = ({ children, otherVariant }) => {
+const HeaderWrapper = ({ children, otherVariant, color }) => {
   return (
     <Box
       sx={{
@@ -17,6 +17,7 @@ const HeaderWrapper = ({ children, otherVariant }) => {
         variant={otherVariant ?? 'h4'}
         sx={{
           fontWeight: '600',
+          color,
         }}
       >
         {children}

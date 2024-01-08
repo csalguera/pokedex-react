@@ -56,7 +56,7 @@ const PrevBtn = () => {
       to={`/${prevPath}/${prevPokemonDetails.name}`}
       state={{ ...prevPokemonDetails, genNum: prevGenNum, prevPath }}
     >
-      <Button sx={{ color: 'primary.contrastText' }}>
+      <Button sx={{ color: 'text.secondary' }}>
         {`Prev - ${leadingZeros(prevPokemonDetails.id)} ${validateSpecies(prevPokemonDetails.name)}`}
       </Button>
     </LinkWrapper>

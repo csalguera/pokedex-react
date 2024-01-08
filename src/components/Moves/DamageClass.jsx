@@ -4,6 +4,9 @@ import { useContext } from "react"
 // components
 import ImageWrapper from "../common/ImageWrapper"
 
+// mui components
+import Typography from "@mui/material/Typography"
+
 // utilities
 import { pascalize, determineCategory } from "../../utilities/utilities"
 
@@ -31,7 +34,9 @@ const DamageClass = (props) => {
   return (
     <>
       {currentGen <= 3 && power ? (
-        pascalize(determineCategory(type?.name ?? ''))
+        <Typography>
+          {pascalize(determineCategory(type?.name ?? ''))}
+        </Typography>
       ) : currentGen >= 4 ? (
         <ImageWrapper
           src={iconHGSSCondition ? iconHGSS : icon}
@@ -39,7 +44,9 @@ const DamageClass = (props) => {
           sx={{ display: 'flex' }}
         />
       ) : (
-        pascalize(category ?? '')
+        <Typography>
+          {pascalize(category ?? '')}
+        </Typography>
       )}
     </>
   )
