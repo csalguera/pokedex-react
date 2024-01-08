@@ -22,24 +22,34 @@ const Landing = () => {
       <HeaderWrapper>
         PokéDex
       </HeaderWrapper>
+      <HeaderWrapper
+        otherVariant='h6'
+      >
+        Welcome to this pokedex app.
+      </HeaderWrapper>
+      <HeaderWrapper
+        otherVariant='h6'
+      >
+        Choose a color theme:
+      </HeaderWrapper>
       <FlexCenterWrapper>
         <ThemeImageWrapper
           src='/assets/logos/team-mystic-logo.png'
           width={300}
           color='blue'
-          disabled={theme === blueTheme}
+          disabled={theme !== blueTheme}
           />
         <ThemeImageWrapper
           src='/assets/logos/team-instinct-logo.png'
           width={300}
           color='yellow'
-          disabled={theme === yellowTheme}
+          disabled={theme !== yellowTheme}
           />
         <ThemeImageWrapper
           src='/assets/logos/team-valor-logo.png'
           width={300}
           color='red'
-          disabled={theme === redTheme}
+          disabled={theme !== redTheme}
         />
       </FlexCenterWrapper>
     </>
