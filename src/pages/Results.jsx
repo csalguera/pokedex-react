@@ -4,19 +4,21 @@ import { useLocation } from "react-router-dom"
 
 // components
 import HeaderWrapper from "../components/common/HeaderWrapper"
-import LinkWrapper from "../components/common/LinkWrapper"
+import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
+import ListItemTextWrapper from "../components/common/ListItemTextWrapper"
 import Loading from "../components/common/Loading"
 import NoResults from "./NoResults"
-import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
+import Entry from "../components/Region/Entry"
 
 // mui components
-import { Typography } from "@mui/material"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
 
 // services
 import { getPokemonList } from "../services/api-calls"
 
 // utilities
-import { determineLimit, pascalize, validateSpecies, pathForResults, numForResults, leadingZeros, retrieveId } from "../utilities/utilities"
+import { determineLimit, pathForResults, numForResults, retrieveId } from "../utilities/utilities"
 import { pages } from "../utilities/data"
 
 const Results = () => {
@@ -47,36 +49,30 @@ const Results = () => {
       <HeaderWrapper>
         Results
       </HeaderWrapper>
-      {filteredResults?.map(result => (
-        <FlexCenterWrapper
-          key={result.name}
+      <FlexCenterWrapper>
+        <List
+          sx={{
+            width: 1,
+            maxWidth: 800,
+          }}
         >
-          <FlexCenterWrapper
-            additionalStyles={{
-              justifyContent: 'flex-start',
-              width: '175px',
-            }}
-          >
-            <Typography
-              sx={{
-                m: 1,
-              }}
-            >
-              {leadingZeros(retrieveId(result))}
-            </Typography>
-            <LinkWrapper
-              to={`/${genPath}/${result.name}`}
-              state={{ ...result, genNum: numForResults(result), genPath }}
-              sx={{
-                display: 'flex',
-                width: 'fit-content',
-              }}
-            >
-              {pascalize(validateSpecies(result?.name))}
-            </LinkWrapper>
-          </FlexCenterWrapper>
-        </FlexCenterWrapper>
-      ))}
+          <ListItem>
+            <ListItemTextWrapper bold>National No.</ListItemTextWrapper>
+            <ListItemTextWrapper bold>Name</ListItemTextWrapper>
+            <ListItemTextWrapper bold>Type</ListItemTextWrapper>
+          </ListItem>
+          {filteredResults?.map(result => (
+            <Entry
+              key={result.name}
+              pokemon={result}
+              resultId={retrieveId(result)}
+              location={location}
+              genPath={genPath}
+              genNum={numForResults(result)}
+            />
+          ))}
+        </List>
+      </FlexCenterWrapper>
     </>
   )
 }

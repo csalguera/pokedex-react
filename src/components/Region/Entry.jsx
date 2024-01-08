@@ -22,13 +22,12 @@ const Entry = (props) => {
     pokemon,
     idx,
     location,
-  } = props
-
-  const {
-    dexOffset,
+    resultId,
     genPath,
     genNum,
-  } = location.state
+  } = props
+
+  const { dexOffset } = location.state
 
   const [entry, setEntry] = useState([])
 
@@ -44,7 +43,11 @@ const Entry = (props) => {
     <>
       <ListItem>
         <ListItemTextWrapper>
-          {leadingZeros(dexOffset + idx + 1)}
+          {resultId ? (
+            leadingZeros(resultId)
+          ) : (
+            leadingZeros(dexOffset + idx + 1)
+          )}
         </ListItemTextWrapper>
         <ListItemTextWrapper>
           <LinkWrapper

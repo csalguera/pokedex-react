@@ -61,6 +61,8 @@ const Region = () => {
               pokemon={pokemon}
               idx={idx}
               location={location}
+              genPath={location.state.genPath}
+              genNum={location.state.genNum}
             />
           ))}
         </List>
