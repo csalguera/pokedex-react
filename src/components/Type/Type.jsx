@@ -24,22 +24,22 @@ const Type = () => {
       {currentGen > 1 && pastTypes?.generation.name === 'generation-i' ? (
         pokemonDetails?.types?.map(type => (
           <TypeBadge
-            type={type.type}
             key={type.slot}
+            type={type.type}
           />
         ))
       ) : currentGen <= 5 && pastTypes ? (
         pastTypes?.types?.map(type => (
           <TypeBadge
-            type={type.type}
             key={type.slot}
+            type={type.type}
           />
         ))
       ) : (
         pokemonDetails?.types?.map(type => (
           <TypeBadge
-            type={type.type}
             key={type.slot}
+            type={type.type}
           />
         ))
       )}
