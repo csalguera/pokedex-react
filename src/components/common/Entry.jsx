@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react"
 
 // components
-import FlexCenterWrapper from "../common/FlexCenterWrapper"
-import ListItemTextWrapper from "../common/ListItemTextWrapper"
-import LinkWrapper from "../common/LinkWrapper"
+import FlexCenterWrapper from "./FlexCenterWrapper"
+import ListItemTextWrapper from "./ListItemTextWrapper"
+import LinkWrapper from "./LinkWrapper"
 import Type from "../Type/Type"
 
 // mui components
