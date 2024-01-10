@@ -10,7 +10,7 @@ import ListItemText from "@mui/material/ListItemText"
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
 // utilities
-import { pascalize } from "../../utilities/utilities"
+import { pascalize, validateSpecies } from "../../utilities/utilities"
 
 const Name = () => {
   const { pokemonDetails } = useContext(PokemonDetailsContext)
@@ -21,7 +21,7 @@ const Name = () => {
       <Typography
         color='primary'
       >
-        {pascalize(pokemonDetails?.name ?? '')}
+        {pascalize(validateSpecies(pokemonDetails?.name) ?? '')}
       </Typography>
     </ListItem>
   )
