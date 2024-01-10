@@ -28,7 +28,6 @@ import { pascalize, validateSpecies } from "../utilities/utilities"
 
 const PokemonDetails = () => {
   const {
-    location,
     pokemonDetails,
   } = useContext(PokemonDetailsContext)
 
@@ -67,7 +66,7 @@ const PokemonDetails = () => {
           pokemonDetails={pokemonDetails}
         />
         <Cry
-          name={location.state.name}
+          name={pokemonDetails.name}
         />
         <Info />
         <EvolutionChain />

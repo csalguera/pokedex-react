@@ -19,6 +19,7 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 const PrevBtn = () => {
   const {
     pokemonDetails,
+    pokemonSpecies,
     genPath,
     currentGen,
   } = useContext(PokemonDetailsContext)
@@ -30,15 +31,15 @@ const PrevBtn = () => {
 
   useEffect(() => {
     const fetchPrevData = async () => {
-      if (pokemonDetails.id && pokemonDetails.id !== 1) {
-        const prevPokemonDetailsData = await getPokemonDetails(pokemonDetails.id - 1)
+      if (pokemonSpecies.id && pokemonSpecies.id !== 1) {
+        const prevPokemonDetailsData = await getPokemonDetails(pokemonSpecies.id - 1)
         setPrevPokemonDetails(prevPokemonDetailsData)
-        const prevPokemonSpeciesData = await getPokemonSpecies(pokemonDetails.id - 1)
+        const prevPokemonSpeciesData = await getPokemonSpecies(pokemonSpecies.id - 1)
         setPrevPokemonSpecies(prevPokemonSpeciesData)
       }
     }
     fetchPrevData()
-  }, [pokemonDetails.id])
+  }, [pokemonSpecies.id])
 
   
   useEffect(() => {

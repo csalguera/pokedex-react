@@ -73,6 +73,12 @@ export function validateSpecies(name) {
   switch (name) {
     case 'deoxys-normal':
       return 'deoxys'
+    case 'deoxys-attack':
+      return 'deoxys'
+    case 'deoxys-defense':
+      return 'deoxys'
+    case 'deoxys-speed':
+      return 'deoxys'
     case 'wormadam-plant':
       return 'wormadam'
     case 'giratina-altered':
@@ -122,6 +128,21 @@ export function validateDetails(name) {
       return 'keldeo-ordinary'
     case 'meloetta':
       return 'meloetta-aria'
+    default:
+      return name
+  }
+}
+
+export function validateCry(name) {
+  switch (name) {
+    case 'deoxys-normal':
+      return 'deoxys'
+    case 'deoxys-attack':
+      return 'deoxys'
+    case 'deoxys-defense':
+      return 'deoxys'
+    case 'deoxys-speed':
+      return 'deoxys'
     default:
       return name
   }
