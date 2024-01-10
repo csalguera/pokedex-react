@@ -24,7 +24,7 @@ import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/Pokemo
 import MovesProvider from "../context/MovesProvider"
 
 // utilities
-import { pascalize } from "../utilities/utilities"
+import { pascalize, validateSpecies } from "../utilities/utilities"
 
 const PokemonDetails = () => {
   const {
@@ -34,7 +34,7 @@ const PokemonDetails = () => {
 
   useEffect(() => {
     if (pokemonDetails && pokemonDetails.name) {
-      document.title = `PokéDex - ${pascalize(pokemonDetails?.name)}`
+      document.title = `PokéDex - ${pascalize(validateSpecies(pokemonDetails?.name))}`
     }
   }, [pokemonDetails])
 

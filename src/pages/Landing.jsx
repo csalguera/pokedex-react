@@ -1,5 +1,5 @@
 // npm modules
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 
 // components
 import FlexCenterWrapper from "../components/common/FlexCenterWrapper"
@@ -16,6 +16,10 @@ const Landing = () => {
     yellowTheme,
     redTheme,
   } = useContext(PokemonThemeContext)
+
+  useEffect(() => {
+    document.title = `PokéDex`
+  }, [])
 
   return (
     <>
