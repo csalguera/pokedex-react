@@ -4,10 +4,6 @@ import { useContext } from "react"
 // components
 import TypeBadge from "./TypeBadge"
 
-// mui components
-import ListItem from "@mui/material/ListItem"
-import ListItemText from "@mui/material/ListItemText"
-
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
