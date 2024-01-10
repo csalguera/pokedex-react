@@ -11,7 +11,7 @@ import { Button } from "@mui/material"
 import { getPokemonDetails, getPokemonSpecies } from "../../services/api-calls"
 
 // utilities
-import { leadingZeros, determinePath, determineGenNum, validateSpecies } from "../../utilities/utilities"
+import { leadingZeros, determinePath, determineGenNum, mapToSpecies } from "../../utilities/utilities"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -58,7 +58,7 @@ const PrevBtn = () => {
       state={{ ...prevPokemonDetails, genNum: prevGenNum, prevPath }}
     >
       <Button sx={{ color: 'text.secondary' }}>
-        {`Prev - ${leadingZeros(prevPokemonDetails.id)} ${validateSpecies(prevPokemonDetails.name)}`}
+        {`Prev - ${leadingZeros(prevPokemonDetails.id)} ${mapToSpecies(prevPokemonDetails.name)}`}
       </Button>
     </LinkWrapper>
   )

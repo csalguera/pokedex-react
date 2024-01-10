@@ -21,7 +21,7 @@ import AppBar from "@mui/material/AppBar"
 import Container from "@mui/material/Container"
 
 // utilities
-import { pascalize, validateSpecies } from "../utilities/utilities"
+import { pascalize, mapToSpecies } from "../utilities/utilities"
 
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
@@ -31,7 +31,7 @@ const PokemonDetails = () => {
 
   useEffect(() => {
     if (pokemonDetails && pokemonDetails.name) {
-      document.title = `PokéDex - ${pascalize(validateSpecies(pokemonDetails?.name))}`
+      document.title = `PokéDex - ${pascalize(mapToSpecies(pokemonDetails?.name))}`
     }
   }, [pokemonDetails])
 

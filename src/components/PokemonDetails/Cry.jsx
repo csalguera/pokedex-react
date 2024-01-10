@@ -8,7 +8,7 @@ import { Button } from "@mui/material"
 import { getPokemonCry } from "../../services/pokemon-cries"
 
 // utilities
-import { validateCry } from "../../utilities/utilities"
+import { mapToCry } from "../../utilities/utilities"
 
 const Cry = (props) => {
   const { name } = props
@@ -16,7 +16,7 @@ const Cry = (props) => {
 
   useEffect(() => {
     const fetchCry = async () => {
-      const cryData = await getPokemonCry(validateCry(name))
+      const cryData = await getPokemonCry(mapToCry(name))
       setPokemonCry(cryData)
     }
     fetchCry()

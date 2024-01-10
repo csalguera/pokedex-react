@@ -69,7 +69,7 @@ export function determineGenNum(path) {
   }
 }
 
-export function validateSpecies(name) {
+export function mapToSpecies(name) {
   switch (name) {
     case 'deoxys-normal':
       return 'deoxys'
@@ -104,7 +104,7 @@ export function validateSpecies(name) {
   }
 }
 
-export function validateDetails(name) {
+export function mapToDetails(name) {
   switch (name) {
     case 'deoxys':
       return 'deoxys-normal'
@@ -133,7 +133,7 @@ export function validateDetails(name) {
   }
 }
 
-export function validateCry(name) {
+export function mapToCry(name) {
   switch (name) {
     case 'deoxys-normal':
       return 'deoxys'
@@ -148,7 +148,7 @@ export function validateCry(name) {
   }
 }
 
-export function validateForm(name) {
+export function mapToForm(name) {
   switch (name) {
     case 'deoxys-normal':
       return 'Normal'
@@ -160,6 +160,21 @@ export function validateForm(name) {
       return 'Speed'
     default:
       return name
+  }
+}
+
+export function mapToName(form) {
+  switch (form) {
+    case 'Normal':
+      return 'deoxys-normal'
+    case 'Attack':
+      return 'deoxys-attack'
+    case 'Defense':
+      return 'deoxys-defense'
+    case 'Speed':
+      return 'deoxys-speed'
+    default:
+      return form
   }
 }
 

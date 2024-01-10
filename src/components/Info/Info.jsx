@@ -6,7 +6,7 @@ import NationalNo from "./NationalNo"
 import Name from "./Name"
 import Classification from "./Classification"
 import Type from "../Type/Type"
-import AlternateForm from "./AlternateForm"
+import AlternateForms from "./AlternateForms"
 import Height from "./Height"
 import Weight from "./Weight"
 import Abilities from "../Abilities/Abilities"
@@ -41,7 +41,7 @@ const Info = () => {
         <Type pokemonDetails={pokemonDetails} />
       </ListItem>
       <Divider />
-      <AlternateForm />
+      <AlternateForms />
       <Divider />
       <Height />
       <Divider />

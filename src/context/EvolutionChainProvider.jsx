@@ -5,7 +5,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { getPokemonDetails, getPokemonSpecies } from "../services/api-calls"
 
 // utilities
-import { validateDetails, validateSpecies } from "../utilities/utilities";
+import { mapToDetails, mapToSpecies } from "../utilities/utilities";
 
 // context
 import { PokemonDetailsContext } from "./PokemonDetailsProvider";
@@ -84,9 +84,9 @@ const EvolutionChainProvider = ({ children }) => {
   useEffect(() => {
     const fetchStageOneData = async () => {
       if (stageOne?.species) {
-        const stageOneDetailsData = await getPokemonDetails(validateDetails(stageOne?.species.name))
+        const stageOneDetailsData = await getPokemonDetails(mapToDetails(stageOne?.species.name))
         setStageOneDetails(stageOneDetailsData)
-        const stageOneSpeciesData = await getPokemonSpecies(validateSpecies(stageOne?.species.name))
+        const stageOneSpeciesData = await getPokemonSpecies(mapToSpecies(stageOne?.species.name))
         setStageOneSpecies(stageOneSpeciesData)
       }
     }
@@ -96,9 +96,9 @@ const EvolutionChainProvider = ({ children }) => {
   useEffect(() => {
     const fetchStageTwoData = async () => {
       if (stageTwo?.species) {
-        const stageTwoDetailsData = await getPokemonDetails(validateDetails(stageTwo?.species.name))
+        const stageTwoDetailsData = await getPokemonDetails(mapToDetails(stageTwo?.species.name))
         setStageTwoDetails(stageTwoDetailsData)
-        const stageTwoSpeciesData = await getPokemonSpecies(validateSpecies(stageTwo?.species.name))
+        const stageTwoSpeciesData = await getPokemonSpecies(mapToSpecies(stageTwo?.species.name))
         setStageTwoSpecies(stageTwoSpeciesData)
       } else {
         setStageTwoDetails({})

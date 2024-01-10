@@ -1,5 +1,5 @@
 // utilities
-import { validateSpecies, validateDetails } from "../utilities/utilities"
+import { mapToSpecies, mapToDetails } from "../utilities/utilities"
 
 export const baseURL = process.env.REACT_APP_API_BASE_URL
 
@@ -9,12 +9,12 @@ export async function getPokemonList(x, y) {
 }
 
 export async function getPokemonDetails(name) {
-  const res = await fetch(`${baseURL}/pokemon/${validateDetails(name)}`)
+  const res = await fetch(`${baseURL}/pokemon/${mapToDetails(name)}`)
   return res.json()
 }
 
 export async function getPokemonSpecies(name) {
-  const res = await fetch(`${baseURL}/pokemon-species/${validateSpecies(name)}`)
+  const res = await fetch(`${baseURL}/pokemon-species/${mapToSpecies(name)}`)
   return res.json()
 }
 
