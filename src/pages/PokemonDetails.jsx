@@ -14,22 +14,20 @@ import PrevBtn from "../components/PokemonDetails/PrevBtn"
 import Loading from "../components/common/Loading"
 import Info from "../components/Info/Info"
 import Moves from "../components/Moves/Moves"
+import MovesProvider from "../context/MovesProvider"
 
 // mui components
 import AppBar from "@mui/material/AppBar"
 import Container from "@mui/material/Container"
 
-// context
-import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
-import MovesProvider from "../context/MovesProvider"
-
 // utilities
 import { pascalize, validateSpecies } from "../utilities/utilities"
 
+// context
+import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
+
 const PokemonDetails = () => {
-  const {
-    pokemonDetails,
-  } = useContext(PokemonDetailsContext)
+  const { pokemonDetails } = useContext(PokemonDetailsContext)
 
   useEffect(() => {
     if (pokemonDetails && pokemonDetails.name) {
@@ -46,11 +44,15 @@ const PokemonDetails = () => {
       }}
     >
       <PokemonDetailsProvider>
-        <AppBar position="static" sx={{ backgroundColor: 'background.paper' }}>
+        <AppBar
+          position="static"
+          sx={{
+            backgroundColor: 'background.paper',
+          }}
+        >
           <Container maxWidth='xl'>
             <FlexCenterWrapper
               additionalStyles={{
-                width: '100%',
                 justifyContent: 'space-between',
               }}
             >

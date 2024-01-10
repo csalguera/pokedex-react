@@ -30,20 +30,18 @@ const Form = () => {
   }
 
   return (
-    <>
-      <form
-        onSubmit={handleSubmit}
-      >
-        <FlexCenterWrapper>
-          <SearchField
-            handleChange={handleChange}
-            search={search}
-            clearSearch={clearSearch}
-            invalidQuery={invalidQuery}
-          />
-        </FlexCenterWrapper>
-      </form>
-    </>
+    <form
+      onSubmit={handleSubmit}
+    >
+      <FlexCenterWrapper>
+        <SearchField
+          handleChange={handleChange}
+          search={search}
+          clearSearch={clearSearch}
+          invalidQuery={invalidQuery}
+        />
+      </FlexCenterWrapper>
+    </form>
   )
 }
 

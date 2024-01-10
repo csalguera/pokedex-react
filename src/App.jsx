@@ -24,25 +24,28 @@ import Nav from './components/Nav/Nav';
 import { pages } from './utilities/data';
 
 // context
-import PokemonDetailsProvider from './context/PokemonDetailsProvider';
 import PokemonThemeProvider from './context/PokemonThemeProvider';
+import PokemonDetailsProvider from './context/PokemonDetailsProvider';
+import OverflowProvider from './context/OverflowProvider';
 
 function App() {
   return (
     <>
       <PokemonThemeProvider>
         <PokemonDetailsProvider>
-          <Nav />
-          <Routes>
-            <Route path='/' element={<Landing />} />
-            <Route path='results' element={<Results />} />
-            {pages.map(page => (
-              <React.Fragment key={page.genPath}>
-                <Route path={page.genPath} element={<Region />} />
-                <Route path={`${page.genPath}/:pokemonName`} element={<PokemonDetails />} />
-              </React.Fragment>
-            ))}
-          </Routes>
+          <OverflowProvider>
+            <Nav />
+            <Routes>
+              <Route path='/' element={<Landing />} />
+              <Route path='results' element={<Results />} />
+              {pages.map(page => (
+                <React.Fragment key={page.genPath}>
+                  <Route path={page.genPath} element={<Region />} />
+                  <Route path={`${page.genPath}/:pokemonName`} element={<PokemonDetails />} />
+                </React.Fragment>
+              ))}
+            </Routes>
+          </OverflowProvider>
         </PokemonDetailsProvider>
       </PokemonThemeProvider>
     </>

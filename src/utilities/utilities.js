@@ -148,6 +148,21 @@ export function validateCry(name) {
   }
 }
 
+export function validateForm(name) {
+  switch (name) {
+    case 'deoxys-normal':
+      return 'Normal'
+    case 'deoxys-attack':
+      return 'Attack'
+    case 'deoxys-defense':
+      return 'Defense'
+    case 'deoxys-speed':
+      return 'Speed'
+    default:
+      return name
+  }
+}
+
 export function determineLimit(arr) {
   let sum = 0
 
