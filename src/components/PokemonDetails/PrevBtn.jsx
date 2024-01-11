@@ -11,7 +11,7 @@ import { Button } from "@mui/material"
 import { getPokemonDetails, getPokemonSpecies } from "../../services/api-calls"
 
 // utilities
-import { leadingZeros, determinePath, determineGenNum, validateSpecies } from "../../utilities/utilities"
+import { leadingZeros, determinePath, determineGenNum, mapToSpecies } from "../../utilities/utilities"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -19,6 +19,7 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 const PrevBtn = () => {
   const {
     pokemonDetails,
+    pokemonSpecies,
     genPath,
     currentGen,
   } = useContext(PokemonDetailsContext)
@@ -30,15 +31,15 @@ const PrevBtn = () => {
 
   useEffect(() => {
     const fetchPrevData = async () => {
-      if (pokemonDetails.id && pokemonDetails.id !== 1) {
-        const prevPokemonDetailsData = await getPokemonDetails(pokemonDetails.id - 1)
+      if (pokemonSpecies.id && pokemonSpecies.id !== 1) {
+        const prevPokemonDetailsData = await getPokemonDetails(pokemonSpecies.id - 1)
         setPrevPokemonDetails(prevPokemonDetailsData)
-        const prevPokemonSpeciesData = await getPokemonSpecies(pokemonDetails.id - 1)
+        const prevPokemonSpeciesData = await getPokemonSpecies(pokemonSpecies.id - 1)
         setPrevPokemonSpecies(prevPokemonSpeciesData)
       }
     }
     fetchPrevData()
-  }, [pokemonDetails.id])
+  }, [pokemonSpecies.id])
 
   
   useEffect(() => {
@@ -57,7 +58,7 @@ const PrevBtn = () => {
       state={{ ...prevPokemonDetails, genNum: prevGenNum, prevPath }}
     >
       <Button sx={{ color: 'text.secondary' }}>
-        {`Prev - ${leadingZeros(prevPokemonDetails.id)} ${validateSpecies(prevPokemonDetails.name)}`}
+        {`Prev - ${leadingZeros(prevPokemonDetails.id)} ${mapToSpecies(prevPokemonDetails.name)}`}
       </Button>
     </LinkWrapper>
   )

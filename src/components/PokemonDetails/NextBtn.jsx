@@ -11,7 +11,7 @@ import { Button } from "@mui/material"
 import { getPokemonDetails, getPokemonSpecies } from "../../services/api-calls"
 
 // utilities
-import { leadingZeros, determinePath, determineGenNum, validateSpecies } from "../../utilities/utilities"
+import { leadingZeros, determinePath, determineGenNum, mapToSpecies } from "../../utilities/utilities"
 import { pages } from "../../utilities/data"
 
 // context
@@ -20,6 +20,7 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 const NextBtn = () => {
   const {
     pokemonDetails,
+    pokemonSpecies,
     currentGen,
     genPath,
   } = useContext(PokemonDetailsContext)
@@ -35,15 +36,15 @@ const NextBtn = () => {
 
   useEffect(() => {
     const fetchNextData = async () => {
-      if (pokemonDetails.id) {
-        const nextPokemonDetailsData = await getPokemonDetails(pokemonDetails.id + 1)
+      if (pokemonSpecies.id) {
+        const nextPokemonDetailsData = await getPokemonDetails(pokemonSpecies.id + 1)
         setNextPokemonDetails(nextPokemonDetailsData)
-        const nextPokemonSpeciesData = await getPokemonSpecies(pokemonDetails.id + 1)
+        const nextPokemonSpeciesData = await getPokemonSpecies(pokemonSpecies.id + 1)
         setNextPokemonSpecies(nextPokemonSpeciesData)
       }
     }
     fetchNextData()
-  }, [pokemonDetails.id])
+  }, [pokemonSpecies.id])
 
   useEffect(() => {
     if (nextPokemonSpecies && nextPokemonSpecies.generation) {
@@ -61,7 +62,7 @@ const NextBtn = () => {
       state={{ ...nextPokemonDetails, genNum: nextGenNum, nextPath }}
     >
       <Button sx={{ color: 'text.secondary' }}>
-        {`Next - ${leadingZeros(nextPokemonDetails.id)} ${validateSpecies(nextPokemonDetails.name)}`}
+        {`Next - ${leadingZeros(nextPokemonDetails.id)} ${mapToSpecies(nextPokemonDetails.name)}`}
       </Button>
     </LinkWrapper>
   )

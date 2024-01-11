@@ -15,7 +15,7 @@ import Divider from "@mui/material/Divider"
 import { getPokemonDetails } from "../../services/api-calls"
 
 // utilities
-import { leadingZeros, pascalize, validateSpecies } from "../../utilities/utilities"
+import { leadingZeros, pascalize, mapToSpecies } from "../../utilities/utilities"
 
 const Entry = (props) => {
   const {
@@ -58,7 +58,7 @@ const Entry = (props) => {
               width: 'fit-content',
             }}
           >
-            {pascalize(validateSpecies(pokemon.name))}
+            {pascalize(mapToSpecies(pokemon.name))}
           </LinkWrapper>
         </ListItemTextWrapper>
         <ListItemTextWrapper>

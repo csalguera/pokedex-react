@@ -69,36 +69,84 @@ export function determineGenNum(path) {
   }
 }
 
-export function validateSpecies(name) {
+export function mapToSpecies(name) {
   switch (name) {
+    case 'castform-sunny':
+      return 'castform'
+    case 'castform-rainy':
+      return 'castform'
+    case 'castform-snowy':
+      return 'castform'
     case 'deoxys-normal':
+      return 'deoxys'
+    case 'deoxys-attack':
+      return 'deoxys'
+    case 'deoxys-defense':
+      return 'deoxys'
+    case 'deoxys-speed':
       return 'deoxys'
     case 'wormadam-plant':
       return 'wormadam'
+    case 'wormadam-sandy':
+      return 'wormadam'
+    case 'wormadam-trash':
+      return 'wormadam'
+    case 'rotom-heat':
+      return 'rotom'
+    case 'rotom-wash':
+      return 'rotom'
+    case 'rotom-frost':
+      return 'rotom'
+    case 'rotom-fan':
+      return 'rotom'
+    case 'rotom-mow':
+      return 'rotom'
     case 'giratina-altered':
+      return 'giratina'
+    case 'giratina-origin':
       return 'giratina'
     case 'shaymin-land':
       return 'shaymin'
+    case 'shaymin-sky':
+      return 'shaymin'
     case 'basculin-red-striped':
+      return 'basculin'
+    case 'basculin-blue-striped':
       return 'basculin'
     case 'darmanitan-standard':
       return 'darmanitan'
+    case 'darmanitan-zen':
+      return 'darmanitan'
     case 'tornadus-incarnate':
+      return 'tornadus'
+    case 'tornadus-therian':
       return 'tornadus'
     case 'thundurus-incarnate':
       return 'thundurus'
+    case 'thundurus-therian':
+      return 'thundurus'
     case 'landorus-incarnate':
       return 'landorus'
+    case 'landorus-therian':
+      return 'landorus'
+    case 'kyurem-black':
+      return 'kyurem'
+    case 'kyurem-white':
+      return 'kyurem'
     case 'keldeo-ordinary':
       return 'keldeo'
+    case 'keldeo-resolute':
+      return 'keldeo'
     case 'meloetta-aria':
+      return 'meloetta'
+    case 'meloetta-pirouette':
       return 'meloetta'
     default:
       return name
   }
 }
 
-export function validateDetails(name) {
+export function mapToDetails(name) {
   switch (name) {
     case 'deoxys':
       return 'deoxys-normal'
@@ -124,6 +172,207 @@ export function validateDetails(name) {
       return 'meloetta-aria'
     default:
       return name
+  }
+}
+
+export function mapToCry(name) {
+  switch (name) {
+    case 'deoxys-normal':
+      return 'deoxys'
+    case 'deoxys-attack':
+      return 'deoxys'
+    case 'deoxys-defense':
+      return 'deoxys'
+    case 'deoxys-speed':
+      return 'deoxys'
+    case 'wormadam-plant':
+      return 'wormadam'
+    case 'wormadam-sandy':
+      return 'wormadam'
+    case 'wormadam-trash':
+      return 'wormadam'
+    case 'rotom-heat':
+      return 'rotom'
+    case 'rotom-wash':
+      return 'rotom'
+    case 'rotom-frost':
+      return 'rotom'
+    case 'rotom-fan':
+      return 'rotom'
+    case 'rotom-mow':
+      return 'rotom'
+    case 'giratina-altered':
+      return 'giratina'
+    case 'giratina-origin':
+      return 'giratina'
+    default:
+      return name
+  }
+}
+
+export function mapToForm(name) {
+  switch (name) {
+    case 'castform':
+      return 'Castform'
+    case 'castform-sunny':
+      return 'Sunny'
+    case 'castform-rainy':
+      return 'Rainy'
+    case 'castform-snowy':
+      return 'Snowy'
+    case 'deoxys-normal':
+      return 'Normal'
+    case 'deoxys-attack':
+      return 'Attack'
+    case 'deoxys-defense':
+      return 'Defense'
+    case 'deoxys-speed':
+      return 'Speed'
+    case 'wormadam-plant':
+      return 'Plant'
+    case 'wormadam-sandy':
+      return 'Sandy'
+    case 'wormadam-trash':
+      return 'Trash'
+    case 'rotom':
+      return 'Rotom'
+    case 'rotom-heat':
+      return 'Heat'
+    case 'rotom-wash':
+      return 'Wash'
+    case 'rotom-frost':
+      return 'Frost'
+    case 'rotom-fan':
+      return 'Fan'
+    case 'rotom-mow':
+      return 'Mow'
+    case 'giratina-altered':
+      return 'Altered'
+    case 'giratina-origin':
+      return 'Origin'
+    case 'shaymin-land':
+      return 'Land'
+    case 'shaymin-sky':
+      return 'Sky'
+    case 'basculin-red-striped':
+      return 'Red-Striped'
+    case 'basculin-blue-striped':
+      return 'Blue-Striped'
+    case 'darmanitan-standard':
+      return 'Standard'
+    case 'darmanitan-zen':
+      return 'Zen'
+    case 'tornadus-incarnate':
+      return 'Tornadus-Incarnate'
+    case 'tornadus-therian':
+      return 'Tornadus-Therian'
+    case 'thundurus-incarnate':
+      return 'Thundurus-Incarnate'
+    case 'thundurus-therian':
+      return 'Thundurus-Therian'
+    case 'landorus-incarnate':
+      return 'Landorus-Incarnate'
+    case 'landorus-therian':
+      return 'Landorus-Therian'
+    case 'kyurem':
+      return 'Kyurem'
+    case 'kyurem-black':
+      return 'Kyurem-Black'
+    case 'kyurem-white':
+      return 'Kyurem-White'
+    case 'keldeo-ordinary':
+      return 'Ordinary'
+    case 'keldeo-resolute':
+      return 'Resolute'
+    case 'meloetta-aria':
+      return 'Aria'
+    case 'meloetta-pirouette':
+      return 'Pirouette'
+    default:
+      return ''
+  }
+}
+
+export function mapToName(form) {
+  switch (form) {
+    case 'Castform':
+      return 'castform'
+    case 'Sunny':
+      return 'castform-sunny'
+    case 'Rainy':
+      return 'castform-rainy'
+    case 'Snowy':
+      return 'castform-snowy'
+    case 'Normal':
+      return 'deoxys-normal'
+    case 'Attack':
+      return 'deoxys-attack'
+    case 'Defense':
+      return 'deoxys-defense'
+    case 'Speed':
+      return 'deoxys-speed'
+    case 'Plant':
+      return 'wormadam-plant'
+    case 'Sandy':
+      return 'wormadam-sandy'
+    case 'Trash':
+      return 'wormadam-trash'
+    case 'Rotom':
+      return 'rotom'
+    case 'Heat':
+      return 'rotom-heat'
+    case 'Wash':
+      return 'rotom-wash'
+    case 'Frost':
+      return 'rotom-frost'
+    case 'Fan':
+      return 'rotom-fan'
+    case 'Mow':
+      return 'rotom-mow'
+    case 'Altered':
+      return 'giratina-altered'
+    case 'Origin':
+      return 'giratina-origin'
+    case 'Land':
+      return 'shaymin-land'
+    case 'Sky':
+      return 'shaymin-sky'
+    case 'Red-Striped':
+      return 'basculin-red-striped'
+    case 'Blue-Striped':
+      return 'basculin-blue-striped'
+    case 'Standard':
+      return 'darmanitan-standard'
+    case 'Zen':
+      return 'darmanitan-zen'
+    case 'Tornadus-Incarnate':
+      return 'tornadus-incarnate'
+    case 'Tornadus-Therian':
+      return 'tornadus-therian'
+    case 'Thundurus-Incarnate':
+      return 'thundurus-incarnate'
+    case 'Thundurus-Therian':
+      return 'thundurus-therian'
+    case 'Landorus-Incarnate':
+      return 'landorus-incarnate'
+    case 'Landorus-Therian':
+      return 'landorus-therian'
+    case 'Kyurem':
+      return 'kyurem'
+    case 'Kyurem-Black':
+      return 'kyurem-black'
+    case 'Kyurem-White':
+      return 'kyurem-white'
+    case 'Ordinary':
+      return 'keldeo-ordinary'
+    case 'Resolute':
+      return 'keldeo-resolute'
+    case 'Aria':
+      return 'meloetta-aria'
+    case  'Pirouette':
+      return 'meloetta-pirouette'
+    default:
+      return form
   }
 }
 

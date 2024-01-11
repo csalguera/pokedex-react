@@ -14,27 +14,25 @@ import PrevBtn from "../components/PokemonDetails/PrevBtn"
 import Loading from "../components/common/Loading"
 import Info from "../components/Info/Info"
 import Moves from "../components/Moves/Moves"
+import MovesProvider from "../context/MovesProvider"
 
 // mui components
 import AppBar from "@mui/material/AppBar"
 import Container from "@mui/material/Container"
 
+// utilities
+import { pascalize, mapToSpecies } from "../utilities/utilities"
+
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
-import MovesProvider from "../context/MovesProvider"
-
-// utilities
-import { pascalize, validateSpecies } from "../utilities/utilities"
+import AlternateFormsProvider from "../context/AlternateFormsProvider"
 
 const PokemonDetails = () => {
-  const {
-    location,
-    pokemonDetails,
-  } = useContext(PokemonDetailsContext)
+  const { pokemonDetails } = useContext(PokemonDetailsContext)
 
   useEffect(() => {
     if (pokemonDetails && pokemonDetails.name) {
-      document.title = `PokéDex - ${pascalize(validateSpecies(pokemonDetails?.name))}`
+      document.title = `PokéDex - ${pascalize(mapToSpecies(pokemonDetails?.name))}`
     }
   }, [pokemonDetails])
 
@@ -47,33 +45,39 @@ const PokemonDetails = () => {
       }}
     >
       <PokemonDetailsProvider>
-        <AppBar position="static" sx={{ backgroundColor: 'background.paper' }}>
-          <Container maxWidth='xl'>
-            <FlexCenterWrapper
-              additionalStyles={{
-                width: '100%',
-                justifyContent: 'space-between',
-              }}
-            >
-              <PrevBtn />
-              <NextBtn />
-            </FlexCenterWrapper>
-          </Container>
-        </AppBar>
-        <Header />
-        <Generation />
-        <Version />
-        <PokemonSprite
-          pokemonDetails={pokemonDetails}
-        />
-        <Cry
-          name={location.state.name}
-        />
-        <Info />
-        <EvolutionChain />
-        <MovesProvider>
-          <Moves />
-        </MovesProvider>
+        <AlternateFormsProvider>
+          <AppBar
+            position="static"
+            sx={{
+              backgroundColor: 'background.paper',
+            }}
+          >
+            <Container maxWidth='xl'>
+              <FlexCenterWrapper
+                additionalStyles={{
+                  justifyContent: 'space-between',
+                }}
+              >
+                <PrevBtn />
+                <NextBtn />
+              </FlexCenterWrapper>
+            </Container>
+          </AppBar>
+          <Header />
+          <Generation />
+          <Version />
+          <PokemonSprite
+            pokemonDetails={pokemonDetails}
+          />
+          <Cry
+            name={pokemonDetails.name}
+          />
+          <Info />
+          <EvolutionChain />
+          <MovesProvider>
+            <Moves />
+          </MovesProvider>
+        </AlternateFormsProvider>
       </PokemonDetailsProvider>
     </FlexCenterWrapper>
   )

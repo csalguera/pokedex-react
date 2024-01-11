@@ -6,6 +6,7 @@ import { Button } from "@mui/material"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
+import { AlternateFormsContext } from "../../context/AlternateFormsProvider"
 
 const VersionBtn = (props) => {
   const {
@@ -17,9 +18,21 @@ const VersionBtn = (props) => {
     thisPath,
   } = props
 
-  const {
-    sprites,
-  } = useContext(PokemonDetailsContext)
+  const { sprites } = useContext(PokemonDetailsContext)
+
+  const { 
+    disableButton : {
+      deoxys,
+      rotom,
+      giratina,
+      shaymin,
+      tornadus,
+      thundurus,
+      landorus,
+      kyurem,
+      keldeo,
+    }
+  } = useContext(AlternateFormsContext)
 
   let display = ''
 
@@ -40,6 +53,20 @@ const VersionBtn = (props) => {
     ((sprites.spriteGen5 === versionNum) && (actualPath === 'gen-v'))
   )
 
+  const disableCondition = (
+    (!activeVersion && deoxys) ||
+    ((!versionNum && (
+      rotom ||
+      giratina ||
+      shaymin ||
+      tornadus ||
+      thundurus ||
+      landorus ||
+      kyurem ||
+      keldeo
+    )))
+  )
+
   return (
     <Button
       sx={{
@@ -48,6 +75,7 @@ const VersionBtn = (props) => {
       }}
       variant={activeVersion ? 'contained' : 'outlined'}
       onClick={() => updateSprites(spriteGen, versionNum)}
+      disabled={disableCondition}
     >
       {chars}
     </Button>

@@ -6,6 +6,7 @@ import NationalNo from "./NationalNo"
 import Name from "./Name"
 import Classification from "./Classification"
 import Type from "../Type/Type"
+import AlternateForms from "./AlternateForms"
 import Height from "./Height"
 import Weight from "./Weight"
 import Abilities from "../Abilities/Abilities"
@@ -26,7 +27,7 @@ const Info = () => {
       sx={{
         width: '100%',
         maxWidth: 360,
-        height: '488px',
+        height: '550px',
       }}
     >
       <NationalNo />
@@ -43,6 +44,8 @@ const Info = () => {
       <Height />
       <Divider />
       <Weight />
+      <Divider />
+      <AlternateForms />
       <Divider />
       <Abilities />
     </List>
