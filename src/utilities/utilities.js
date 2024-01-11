@@ -185,6 +185,12 @@ export function mapToCry(name) {
       return 'deoxys'
     case 'deoxys-speed':
       return 'deoxys'
+    case 'wormadam-plant':
+      return 'wormadam'
+    case 'wormadam-sandy':
+      return 'wormadam'
+    case 'wormadam-trash':
+      return 'wormadam'
     default:
       return name
   }
