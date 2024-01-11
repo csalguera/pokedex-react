@@ -26,23 +26,26 @@ import { pages } from './utilities/data';
 // context
 import PokemonThemeProvider from './context/PokemonThemeProvider';
 import PokemonDetailsProvider from './context/PokemonDetailsProvider';
+import AlternateFormsProvider from './context/AlternateFormsProvider';
 
 function App() {
   return (
     <>
       <PokemonThemeProvider>
         <PokemonDetailsProvider>
-          <Nav />
-          <Routes>
-            <Route path='/' element={<Landing />} />
-            <Route path='results' element={<Results />} />
-            {pages.map(page => (
-              <React.Fragment key={page.genPath}>
-                <Route path={page.genPath} element={<Region />} />
-                <Route path={`${page.genPath}/:pokemonName`} element={<PokemonDetails />} />
-              </React.Fragment>
-            ))}
-          </Routes>
+          <AlternateFormsProvider>
+            <Nav />
+            <Routes>
+              <Route path='/' element={<Landing />} />
+              <Route path='results' element={<Results />} />
+              {pages.map(page => (
+                <React.Fragment key={page.genPath}>
+                  <Route path={page.genPath} element={<Region />} />
+                  <Route path={`${page.genPath}/:pokemonName`} element={<PokemonDetails />} />
+                </React.Fragment>
+              ))}
+            </Routes>
+          </AlternateFormsProvider>
         </PokemonDetailsProvider>
       </PokemonThemeProvider>
     </>

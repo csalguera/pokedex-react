@@ -71,6 +71,12 @@ export function determineGenNum(path) {
 
 export function mapToSpecies(name) {
   switch (name) {
+    case 'castform-sunny':
+      return 'castform'
+    case 'castform-rainy':
+      return 'castform'
+    case 'castform-snowy':
+      return 'castform'
     case 'deoxys-normal':
       return 'deoxys'
     case 'deoxys-attack':
@@ -172,6 +178,14 @@ export function mapToCry(name) {
 
 export function mapToForm(name) {
   switch (name) {
+    case 'castform':
+      return 'Castform'
+    case 'castform-sunny':
+      return 'Sunny'
+    case 'castform-rainy':
+      return 'Rainy'
+    case 'castform-snowy':
+      return 'Snowy'
     case 'deoxys-normal':
       return 'Normal'
     case 'deoxys-attack':
@@ -221,6 +235,14 @@ export function mapToForm(name) {
 
 export function mapToName(form) {
   switch (form) {
+    case 'Castform':
+      return 'castform'
+    case 'Sunny':
+      return 'castform-sunny'
+    case 'Rainy':
+      return 'castform-rainy'
+    case 'Snowy':
+      return 'castform-snowy'
     case 'Normal':
       return 'deoxys-normal'
     case 'Attack':
