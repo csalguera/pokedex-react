@@ -27,12 +27,16 @@ const AlternateFormsProvider = ({ children }) => {
   const wormadam = (mapToSpecies(mapToName(form)) === 'wormadam')
   const shaymin = (mapToSpecies(mapToName(form)) === 'shaymin')
   const giratina = (mapToSpecies(mapToName(form)) === 'giratina')
+  const darmanitan = (mapToName(form) === 'darmanitan-standard')
+  const darmanitanZen = (mapToName(form) === 'darmanitan-zen')
 
   const validForms = (
     deoxys ||
     wormadam ||
     shaymin ||
-    giratina
+    giratina ||
+    darmanitan ||
+    darmanitanZen
   )
 
   const disableSelect = (

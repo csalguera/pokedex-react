@@ -27,6 +27,13 @@ const AlternateForms = () => {
     handleClick,
   } = useContext(AlternateFormsContext)
 
+  const invalidNames = [
+    'darmanitan-galar-standard',
+    'darmanitan-galar-zen',
+  ]
+
+  const validVarieties = pokemonSpecies?.varieties?.filter(variety => !invalidNames.includes(variety?.pokemon?.name))
+
   return (
     <ListItem>
       <ListItemText primary='Forms' />
@@ -39,7 +46,7 @@ const AlternateForms = () => {
             size="small"
             disabled={disableSelect}
           >
-            {pokemonSpecies?.varieties?.map(variety => (
+            {validVarieties.map(variety => (
               <MenuItem
                 key={variety?.pokemon?.name}
                 value={mapToForm(variety?.pokemon?.name)}

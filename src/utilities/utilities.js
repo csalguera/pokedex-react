@@ -97,6 +97,8 @@ export function mapToSpecies(name) {
       return 'basculin'
     case 'darmanitan-standard':
       return 'darmanitan'
+    case 'darmanitan-zen':
+      return 'darmanitan'
     case 'tornadus-incarnate':
       return 'tornadus'
     case 'thundurus-incarnate':
@@ -180,6 +182,10 @@ export function mapToForm(name) {
       return 'Land'
     case 'shaymin-sky':
       return 'Sky'
+    case 'darmanitan-standard':
+      return 'Standard'
+    case 'darmanitan-zen':
+      return 'Zen'
     default:
       return ''
   }
@@ -203,6 +209,10 @@ export function mapToName(form) {
       return 'shaymin-land'
     case 'Sky':
       return 'shaymin-sky'
+    case 'Standard':
+      return 'darmanitan-standard'
+    case 'Zen':
+      return 'darmanitan-zen'
     default:
       return form
   }
