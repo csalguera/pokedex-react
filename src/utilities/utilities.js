@@ -119,9 +119,15 @@ export function mapToSpecies(name) {
       return 'darmanitan'
     case 'tornadus-incarnate':
       return 'tornadus'
+    case 'tornadus-therian':
+      return 'tornadus'
     case 'thundurus-incarnate':
       return 'thundurus'
+    case 'thundurus-therian':
+      return 'thundurus'
     case 'landorus-incarnate':
+      return 'landorus'
+    case 'landorus-therian':
       return 'landorus'
     case 'keldeo-ordinary':
       return 'keldeo'
@@ -228,6 +234,18 @@ export function mapToForm(name) {
       return 'Standard'
     case 'darmanitan-zen':
       return 'Zen'
+    case 'tornadus-incarnate':
+      return 'Tornadus-Incarnate'
+    case 'tornadus-therian':
+      return 'Tornadus-Therian'
+    case 'thundurus-incarnate':
+      return 'Thundurus-Incarnate'
+    case 'thundurus-therian':
+      return 'Thundurus-Therian'
+    case 'landorus-incarnate':
+      return 'Landorus-Incarnate'
+    case 'landorus-therian':
+      return 'Landorus-Therian'
     default:
       return ''
   }
@@ -285,6 +303,18 @@ export function mapToName(form) {
       return 'darmanitan-standard'
     case 'Zen':
       return 'darmanitan-zen'
+    case 'Tornadus-Incarnate':
+      return 'tornadus-incarnate'
+    case 'Tornadus-Therian':
+      return 'tornadus-therian'
+    case 'Thundurus-Incarnate':
+      return 'thundurus-incarnate'
+    case 'Thundurus-Therian':
+      return 'thundurus-therian'
+    case 'Landorus-Incarnate':
+      return 'landorus-incarnate'
+    case 'Landorus-Therian':
+      return 'landorus-therian'
     default:
       return form
   }

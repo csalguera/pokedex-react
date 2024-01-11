@@ -19,7 +19,18 @@ const VersionBtn = (props) => {
   } = props
 
   const { sprites } = useContext(PokemonDetailsContext)
-  const { disableButton : { deoxys, rotom, giratina, shaymin } } = useContext(AlternateFormsContext)
+
+  const { 
+    disableButton : {
+      deoxys,
+      rotom,
+      giratina,
+      shaymin,
+      tornadus,
+      thundurus,
+      landorus,
+    }
+  } = useContext(AlternateFormsContext)
 
   let display = ''
 
@@ -42,7 +53,14 @@ const VersionBtn = (props) => {
 
   const disableCondition = (
     (!activeVersion && deoxys) ||
-    (!versionNum && (rotom || giratina || shaymin))
+    ((!versionNum && (
+      rotom ||
+      giratina ||
+      shaymin ||
+      tornadus ||
+      thundurus ||
+      landorus
+    )))
   )
 
   return (

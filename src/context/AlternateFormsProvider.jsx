@@ -33,6 +33,9 @@ const AlternateFormsProvider = ({ children }) => {
   const basculinBlue = (mapToName(form) === 'basculin-blue-striped')
   const darmanitan = (mapToName(form) === 'darmanitan-standard')
   const darmanitanZen = (mapToName(form) === 'darmanitan-zen')
+  const tornadus = (mapToSpecies(mapToName(form)) === 'tornadus')
+  const thundurus = (mapToSpecies(mapToName(form)) === 'thundurus')
+  const landorus = (mapToSpecies(mapToName(form)) === 'landorus')
 
   const validForms = (
     castform ||
@@ -44,7 +47,10 @@ const AlternateFormsProvider = ({ children }) => {
     basculinRed ||
     basculinBlue ||
     darmanitan ||
-    darmanitanZen
+    darmanitanZen ||
+    tornadus ||
+    thundurus ||
+    landorus
   )
 
   const disableSelect = (
@@ -52,7 +58,10 @@ const AlternateFormsProvider = ({ children }) => {
     (currentGen <= 5 && !validForms) ||
     (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'rotom') ||
     (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'giratina') ||
-    (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'shaymin')
+    (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'shaymin') ||
+    (currentGen === 5 && sprites.spriteGen5 === 0 && mapToSpecies(mapToName(form)) === 'tornadus') ||
+    (currentGen === 5 && sprites.spriteGen5 === 0 && mapToSpecies(mapToName(form)) === 'thundurus') ||
+    (currentGen === 5 && sprites.spriteGen5 === 0 && mapToSpecies(mapToName(form)) === 'landorus')
   )
 
   const disableButton = {
@@ -60,6 +69,9 @@ const AlternateFormsProvider = ({ children }) => {
     rotom: (currentGen === 4 && mapToName(form).includes('rotom-')),
     giratina: (currentGen === 4 && mapToName(form) === 'giratina-origin'),
     shaymin: (currentGen === 4 && mapToName(form) === 'shaymin-sky'),
+    tornadus: (currentGen === 5 && mapToName(form) === 'tornadus-therian'),
+    thundurus: (currentGen === 5 && mapToName(form) === 'thundurus-therian'),
+    landorus: (currentGen === 5 && mapToName(form) === 'landorus-therian'),
   }
 
   const handleChange = (e) => {
