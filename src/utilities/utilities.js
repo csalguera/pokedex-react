@@ -189,6 +189,10 @@ export function mapToName(form) {
       return 'deoxys-defense'
     case 'Speed':
       return 'deoxys-speed'
+    case 'Altered':
+      return 'giratina-altered'
+    case 'Origin':
+      return 'giratina-origin'
     default:
       return form
   }

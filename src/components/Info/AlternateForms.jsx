@@ -10,7 +10,7 @@ import Select from "@mui/material/Select"
 import MenuItem from "@mui/material/MenuItem"
 
 // utilities
-import { mapToForm, mapToName } from "../../utilities/utilities"
+import { mapToForm, mapToName, mapToSpecies } from "../../utilities/utilities"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
@@ -22,13 +22,15 @@ const AlternateForms = () => {
     genPath,
     genNum,
     updateSprites,
+    sprites,
   } = useContext(PokemonDetailsContext)
 
   const navigate = useNavigate()
   const [form, setForm] = useState('')
   const disableSelect = (
     (pokemonSpecies?.varieties?.length === 1) ||
-    (genNum === 3 && mapToName(form) !== 'deoxys')
+    (genNum === 3 && mapToSpecies(mapToName(form)) !== 'deoxys') ||
+    (genNum === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'giratina')
   )
 
   const handleChange = (e) => {
