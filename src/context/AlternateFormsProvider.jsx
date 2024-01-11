@@ -38,6 +38,7 @@ const AlternateFormsProvider = ({ children }) => {
   const landorus = (mapToSpecies(mapToName(form)) === 'landorus')
   const kyurem = (mapToSpecies(mapToName(form)) === 'kyurem')
   const keldeo = (mapToSpecies(mapToName(form)) === 'keldeo')
+  const meloetta = (mapToSpecies(mapToName(form)) === 'meloetta')
 
   const validForms = (
     castform ||
@@ -54,7 +55,8 @@ const AlternateFormsProvider = ({ children }) => {
     thundurus ||
     landorus ||
     kyurem ||
-    keldeo
+    keldeo ||
+    meloetta
   )
 
   const disableSelect = (

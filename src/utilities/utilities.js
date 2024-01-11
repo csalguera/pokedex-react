@@ -139,6 +139,8 @@ export function mapToSpecies(name) {
       return 'keldeo'
     case 'meloetta-aria':
       return 'meloetta'
+    case 'meloetta-pirouette':
+      return 'meloetta'
     default:
       return name
   }
@@ -262,6 +264,10 @@ export function mapToForm(name) {
       return 'Ordinary'
     case 'keldeo-resolute':
       return 'Resolute'
+    case 'meloetta-aria':
+      return 'Aria'
+    case 'meloetta-pirouette':
+      return 'Pirouette'
     default:
       return ''
   }
@@ -341,6 +347,10 @@ export function mapToName(form) {
       return 'keldeo-ordinary'
     case 'Resolute':
       return 'keldeo-resolute'
+    case 'Aria':
+      return 'meloetta-aria'
+    case  'Pirouette':
+      return 'meloetta-pirouette'
     default:
       return form
   }
