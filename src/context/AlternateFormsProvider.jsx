@@ -36,6 +36,7 @@ const AlternateFormsProvider = ({ children }) => {
   const tornadus = (mapToSpecies(mapToName(form)) === 'tornadus')
   const thundurus = (mapToSpecies(mapToName(form)) === 'thundurus')
   const landorus = (mapToSpecies(mapToName(form)) === 'landorus')
+  const kyurem = (mapToSpecies(mapToName(form)) === 'kyurem')
 
   const validForms = (
     castform ||
@@ -50,7 +51,8 @@ const AlternateFormsProvider = ({ children }) => {
     darmanitanZen ||
     tornadus ||
     thundurus ||
-    landorus
+    landorus ||
+    kyurem
   )
 
   const disableSelect = (
@@ -61,7 +63,8 @@ const AlternateFormsProvider = ({ children }) => {
     (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'shaymin') ||
     (currentGen === 5 && sprites.spriteGen5 === 0 && mapToSpecies(mapToName(form)) === 'tornadus') ||
     (currentGen === 5 && sprites.spriteGen5 === 0 && mapToSpecies(mapToName(form)) === 'thundurus') ||
-    (currentGen === 5 && sprites.spriteGen5 === 0 && mapToSpecies(mapToName(form)) === 'landorus')
+    (currentGen === 5 && sprites.spriteGen5 === 0 && mapToSpecies(mapToName(form)) === 'landorus') ||
+    (currentGen === 5 && sprites.spriteGen5 === 0 && mapToSpecies(mapToName(form)) === 'kyurem')
   )
 
   const disableButton = {
@@ -72,6 +75,7 @@ const AlternateFormsProvider = ({ children }) => {
     tornadus: (currentGen === 5 && mapToName(form) === 'tornadus-therian'),
     thundurus: (currentGen === 5 && mapToName(form) === 'thundurus-therian'),
     landorus: (currentGen === 5 && mapToName(form) === 'landorus-therian'),
+    kyurem: (currentGen === 5 && mapToName(form).includes('kyurem-'))
   }
 
   const handleChange = (e) => {

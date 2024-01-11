@@ -129,6 +129,10 @@ export function mapToSpecies(name) {
       return 'landorus'
     case 'landorus-therian':
       return 'landorus'
+    case 'kyurem-black':
+      return 'kyurem'
+    case 'kyurem-white':
+      return 'kyurem'
     case 'keldeo-ordinary':
       return 'keldeo'
     case 'meloetta-aria':
@@ -246,6 +250,12 @@ export function mapToForm(name) {
       return 'Landorus-Incarnate'
     case 'landorus-therian':
       return 'Landorus-Therian'
+    case 'kyurem':
+      return 'Kyurem'
+    case 'kyurem-black':
+      return 'Kyurem-Black'
+    case 'kyurem-white':
+      return 'Kyurem-White'
     default:
       return ''
   }
@@ -315,6 +325,12 @@ export function mapToName(form) {
       return 'landorus-incarnate'
     case 'Landorus-Therian':
       return 'landorus-therian'
+    case 'Kyurem':
+      return 'kyurem'
+    case 'Kyurem-Black':
+      return 'kyurem-black'
+    case 'Kyurem-White':
+      return 'kyurem-white'
     default:
       return form
   }

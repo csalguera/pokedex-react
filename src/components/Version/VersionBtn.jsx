@@ -29,6 +29,7 @@ const VersionBtn = (props) => {
       tornadus,
       thundurus,
       landorus,
+      kyurem,
     }
   } = useContext(AlternateFormsContext)
 
@@ -59,7 +60,8 @@ const VersionBtn = (props) => {
       shaymin ||
       tornadus ||
       thundurus ||
-      landorus
+      landorus ||
+      kyurem
     )))
   )
 
