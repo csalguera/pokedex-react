@@ -81,7 +81,13 @@ export function mapToSpecies(name) {
       return 'deoxys'
     case 'wormadam-plant':
       return 'wormadam'
+    case 'wormadam-sandy':
+      return 'wormadam'
+    case 'wormadam-trash':
+      return 'wormadam'
     case 'giratina-altered':
+      return 'giratina'
+    case 'giratina-origin':
       return 'giratina'
     case 'shaymin-land':
       return 'shaymin'
@@ -158,8 +164,18 @@ export function mapToForm(name) {
       return 'Defense'
     case 'deoxys-speed':
       return 'Speed'
+    case 'wormadam-plant':
+      return 'Plant'
+    case 'wormadam-sandy':
+      return 'Sandy'
+    case 'wormadam-trash':
+      return 'Trash'
+    case 'giratina-altered':
+      return 'Altered'
+    case 'giratina-origin':
+      return 'Origin'
     default:
-      return name
+      return ''
   }
 }
 

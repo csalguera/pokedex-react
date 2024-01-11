@@ -29,6 +29,10 @@ const AlternateForms = () => {
 
   const navigate = useNavigate()
   const [form, setForm] = useState('')
+  const disableSelect = (
+    (pokemonSpecies?.varieties?.length === 1) ||
+    (genNum === 3 && mapToName(form) !== 'deoxys')
+  )
 
   const handleChange = (e) => {
     setForm(e.target.value)
@@ -51,6 +55,8 @@ const AlternateForms = () => {
   useEffect(() => {
     if (pokemonSpecies?.varieties?.length > 1) {
       setForm(mapToForm(location.state.name ?? pokemonSpecies?.varieties?.[0]?.pokemon?.name))
+    } else {
+      setForm('')
     }
   }, [
     location.state.name,
@@ -78,7 +84,7 @@ const AlternateForms = () => {
   return (
     <ListItem>
       <ListItemText primary='Forms' />
-      {pokemonSpecies?.varieties?.length > 1 &&
+      {pokemonSpecies?.varieties?.length &&
         <FormControl>
           <Select
             value={form}
@@ -86,6 +92,8 @@ const AlternateForms = () => {
             onOpen={handleOpen}
             onClose={handleClose}
             displayEmpty
+            size="small"
+            disabled={disableSelect}
           >
             {pokemonSpecies?.varieties?.map(variety => (
               <MenuItem
@@ -94,23 +102,14 @@ const AlternateForms = () => {
                 onClick={() => handleClick(variety)}
                 sx={{
                   color: 'primary.main',
-                  backgroundColor: 'background.paper'
+                  backgroundColor: 'background.paper',
                 }}
               >
-                {mapToForm(variety?.pokemon?.name)}
+                {mapToForm(variety?.pokemon?.name) || 'None'}
               </MenuItem>
             ))}
           </Select>
         </FormControl>
-      }
-      {pokemonSpecies?.varieties?.length === 1 &&
-        <ListItemText
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-end'
-          }}
-          primary='None'
-        />
       }
     </ListItem>
   )

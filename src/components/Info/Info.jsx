@@ -41,11 +41,11 @@ const Info = () => {
         <Type pokemonDetails={pokemonDetails} />
       </ListItem>
       <Divider />
-      <AlternateForms />
-      <Divider />
       <Height />
       <Divider />
       <Weight />
+      <Divider />
+      <AlternateForms />
       <Divider />
       <Abilities />
     </List>
