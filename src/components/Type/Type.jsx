@@ -7,6 +7,9 @@ import TypeBadge from "./TypeBadge"
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 
+// utilities
+import { mapToSpecies } from "../../utilities/utilities"
+
 const Type = (props) => {
   const { pokemonDetails } = props
   const { currentGen } = useContext(PokemonDetailsContext)
@@ -21,7 +24,7 @@ const Type = (props) => {
               type={type.type}
             />
           ))
-        ) : currentGen <= 5 && pastTypes ? (
+        ) : currentGen <= 5 && pastTypes && (mapToSpecies(pokemonDetails.name) !== 'rotom') ? (
           pastTypes?.types?.map(type => (
             <TypeBadge
               key={type.slot}
