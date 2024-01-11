@@ -135,6 +135,8 @@ export function mapToSpecies(name) {
       return 'kyurem'
     case 'keldeo-ordinary':
       return 'keldeo'
+    case 'keldeo-resolute':
+      return 'keldeo'
     case 'meloetta-aria':
       return 'meloetta'
     default:
@@ -256,6 +258,10 @@ export function mapToForm(name) {
       return 'Kyurem-Black'
     case 'kyurem-white':
       return 'Kyurem-White'
+    case 'keldeo-ordinary':
+      return 'Ordinary'
+    case 'keldeo-resolute':
+      return 'Resolute'
     default:
       return ''
   }
@@ -331,6 +337,10 @@ export function mapToName(form) {
       return 'kyurem-black'
     case 'Kyurem-White':
       return 'kyurem-white'
+    case 'Ordinary':
+      return 'keldeo-ordinary'
+    case 'Resolute':
+      return 'keldeo-resolute'
     default:
       return form
   }
