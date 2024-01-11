@@ -85,6 +85,16 @@ export function mapToSpecies(name) {
       return 'wormadam'
     case 'wormadam-trash':
       return 'wormadam'
+    case 'rotom-heat':
+      return 'rotom'
+    case 'rotom-wash':
+      return 'rotom'
+    case 'rotom-frost':
+      return 'rotom'
+    case 'rotom-fan':
+      return 'rotom'
+    case 'rotom-mow':
+      return 'rotom'
     case 'giratina-altered':
       return 'giratina'
     case 'giratina-origin':
@@ -174,6 +184,18 @@ export function mapToForm(name) {
       return 'Sandy'
     case 'wormadam-trash':
       return 'Trash'
+    case 'rotom':
+      return 'Rotom'
+    case 'rotom-heat':
+      return 'Heat'
+    case 'rotom-wash':
+      return 'Wash'
+    case 'rotom-frost':
+      return 'Frost'
+    case 'rotom-fan':
+      return 'Fan'
+    case 'rotom-mow':
+      return 'Mow'
     case 'giratina-altered':
       return 'Altered'
     case 'giratina-origin':
@@ -201,6 +223,24 @@ export function mapToName(form) {
       return 'deoxys-defense'
     case 'Speed':
       return 'deoxys-speed'
+    case 'Plant':
+      return 'wormadam-plant'
+    case 'Sandy':
+      return 'wormadam-sandy'
+    case 'Trash':
+      return 'wormadam-trash'
+    case 'Rotom':
+      return 'rotom'
+    case 'Heat':
+      return 'rotom-heat'
+    case 'Wash':
+      return 'rotom-wash'
+    case 'Frost':
+      return 'rotom-frost'
+    case 'Fan':
+      return 'rotom-fan'
+    case 'Mow':
+      return 'rotom-mow'
     case 'Altered':
       return 'giratina-altered'
     case 'Origin':

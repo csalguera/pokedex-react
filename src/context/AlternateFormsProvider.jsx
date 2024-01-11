@@ -25,6 +25,7 @@ const AlternateFormsProvider = ({ children }) => {
 
   const deoxys = (mapToSpecies(mapToName(form)) === 'deoxys')
   const wormadam = (mapToSpecies(mapToName(form)) === 'wormadam')
+  const rotom = (mapToSpecies(mapToName(form)) === 'rotom')
   const shaymin = (mapToSpecies(mapToName(form)) === 'shaymin')
   const giratina = (mapToSpecies(mapToName(form)) === 'giratina')
   const darmanitan = (mapToName(form) === 'darmanitan-standard')
@@ -33,6 +34,7 @@ const AlternateFormsProvider = ({ children }) => {
   const validForms = (
     deoxys ||
     wormadam ||
+    rotom ||
     shaymin ||
     giratina ||
     darmanitan ||
@@ -42,12 +44,14 @@ const AlternateFormsProvider = ({ children }) => {
   const disableSelect = (
     (pokemonSpecies?.varieties?.length === 1) ||
     (currentGen <= 5 && !validForms) ||
+    (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'rotom') ||
     (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'giratina') ||
     (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'shaymin')
   )
 
   const disableButton = {
     deoxys: (currentGen === 3 && mapToSpecies(mapToName(form)) === 'deoxys'),
+    rotom: (currentGen === 4 && mapToName(form) !== 'rotom'),
     giratina: (currentGen === 4 && mapToName(form) === 'giratina-origin'),
     shaymin: (currentGen === 4 && mapToName(form) === 'shaymin-sky'),
   }
