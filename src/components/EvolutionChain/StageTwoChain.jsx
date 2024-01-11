@@ -64,7 +64,7 @@ const StageTwoChain = () => {
   if (!stageTwo || !(stageTwoGen <= currentGen)) return
   return (
     <>
-      {stageOne && stageOneGen <= currentGen ? (
+      {stageOne && stageOneGen <= currentGen &&
         <FlexCenterWrapper
           additionalStyles={{
             flexDirection: 'column',
@@ -83,9 +83,7 @@ const StageTwoChain = () => {
             />
           ))}
         </FlexCenterWrapper>
-      ) : (
-        <></>
-      )}
+      }
       <FlexCenterWrapper
         additionalStyles={{
           flexDirection: 'column',
