@@ -24,7 +24,7 @@ const Type = (props) => {
               type={type.type}
             />
           ))
-        ) : currentGen <= 5 && pastTypes && (mapToSpecies(pokemonDetails.name) !== 'rotom') ? (
+        ) : (currentGen < 5 && mapToSpecies(pokemonDetails.name) === 'rotom') ?? (currentGen <= 5 && pastTypes) ? (
           pastTypes?.types?.map(type => (
             <TypeBadge
               key={type.slot}
