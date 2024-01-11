@@ -90,7 +90,7 @@ const AlternateFormsProvider = ({ children }) => {
 
   useEffect(() => {
     if (pokemonSpecies?.varieties?.length > 1) {
-      setForm(mapToForm(location.state.name ?? pokemonSpecies?.varieties?.[0]?.pokemon?.name))
+      setForm(mapToForm(location?.state?.name ?? pokemonSpecies?.varieties?.[0]?.pokemon?.name))
     } else {
       setForm('')
     }
