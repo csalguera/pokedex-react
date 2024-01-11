@@ -26,14 +26,17 @@ const AlternateFormsProvider = ({ children }) => {
   const disableSelect = (
     (pokemonSpecies?.varieties?.length === 1) ||
     (currentGen === 3 && mapToSpecies(mapToName(form)) !== 'deoxys') ||
-    (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'giratina')
+    (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'giratina') ||
+    (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'shaymin')
   )
 
   const deoxys = (currentGen === 3 && mapToSpecies(mapToName(form)) === 'deoxys')
   const giratina = (currentGen === 4 && mapToName(form) === 'giratina-origin')
+  const shaymin = (currentGen === 4 && mapToName(form) === 'shaymin-sky')
   const disableButton = {
     deoxys,
     giratina,
+    shaymin,
   }
 
   const handleChange = (e) => {

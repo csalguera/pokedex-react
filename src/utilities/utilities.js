@@ -91,6 +91,8 @@ export function mapToSpecies(name) {
       return 'giratina'
     case 'shaymin-land':
       return 'shaymin'
+    case 'shaymin-sky':
+      return 'shaymin'
     case 'basculin-red-striped':
       return 'basculin'
     case 'darmanitan-standard':
@@ -174,6 +176,10 @@ export function mapToForm(name) {
       return 'Altered'
     case 'giratina-origin':
       return 'Origin'
+    case 'shaymin-land':
+      return 'Land'
+    case 'shaymin-sky':
+      return 'Sky'
     default:
       return ''
   }
@@ -193,6 +199,10 @@ export function mapToName(form) {
       return 'giratina-altered'
     case 'Origin':
       return 'giratina-origin'
+    case 'Land':
+      return 'shaymin-land'
+    case 'Sky':
+      return 'shaymin-sky'
     default:
       return form
   }
