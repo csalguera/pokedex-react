@@ -201,6 +201,10 @@ export function mapToCry(name) {
       return 'rotom'
     case 'rotom-mow':
       return 'rotom'
+    case 'giratina-altered':
+      return 'giratina'
+    case 'giratina-origin':
+      return 'giratina'
     default:
       return name
   }
