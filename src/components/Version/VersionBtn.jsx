@@ -6,6 +6,7 @@ import { Button } from "@mui/material"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
+import { AlternateFormsContext } from "../../context/AlternateFormsProvider"
 
 const VersionBtn = (props) => {
   const {
@@ -20,6 +21,10 @@ const VersionBtn = (props) => {
   const {
     sprites,
   } = useContext(PokemonDetailsContext)
+
+  const {
+    disableButton,
+  } = useContext(AlternateFormsContext)
 
   let display = ''
 
@@ -40,6 +45,8 @@ const VersionBtn = (props) => {
     ((sprites.spriteGen5 === versionNum) && (actualPath === 'gen-v'))
   )
 
+  const giratina = (!versionNum && disableButton)
+
   return (
     <Button
       sx={{
@@ -48,6 +55,7 @@ const VersionBtn = (props) => {
       }}
       variant={activeVersion ? 'contained' : 'outlined'}
       onClick={() => updateSprites(spriteGen, versionNum)}
+      disabled={giratina}
     >
       {chars}
     </Button>

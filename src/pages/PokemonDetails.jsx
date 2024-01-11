@@ -25,6 +25,7 @@ import { pascalize, mapToSpecies } from "../utilities/utilities"
 
 // context
 import PokemonDetailsProvider, { PokemonDetailsContext } from "../context/PokemonDetailsProvider"
+import AlternateFormsProvider from "../context/AlternateFormsProvider"
 
 const PokemonDetails = () => {
   const { pokemonDetails } = useContext(PokemonDetailsContext)
@@ -44,37 +45,39 @@ const PokemonDetails = () => {
       }}
     >
       <PokemonDetailsProvider>
-        <AppBar
-          position="static"
-          sx={{
-            backgroundColor: 'background.paper',
-          }}
-        >
-          <Container maxWidth='xl'>
-            <FlexCenterWrapper
-              additionalStyles={{
-                justifyContent: 'space-between',
-              }}
-            >
-              <PrevBtn />
-              <NextBtn />
-            </FlexCenterWrapper>
-          </Container>
-        </AppBar>
-        <Header />
-        <Generation />
-        <Version />
-        <PokemonSprite
-          pokemonDetails={pokemonDetails}
-        />
-        <Cry
-          name={pokemonDetails.name}
-        />
-        <Info />
-        <EvolutionChain />
-        <MovesProvider>
-          <Moves />
-        </MovesProvider>
+        <AlternateFormsProvider>
+          <AppBar
+            position="static"
+            sx={{
+              backgroundColor: 'background.paper',
+            }}
+          >
+            <Container maxWidth='xl'>
+              <FlexCenterWrapper
+                additionalStyles={{
+                  justifyContent: 'space-between',
+                }}
+              >
+                <PrevBtn />
+                <NextBtn />
+              </FlexCenterWrapper>
+            </Container>
+          </AppBar>
+          <Header />
+          <Generation />
+          <Version />
+          <PokemonSprite
+            pokemonDetails={pokemonDetails}
+          />
+          <Cry
+            name={pokemonDetails.name}
+          />
+          <Info />
+          <EvolutionChain />
+          <MovesProvider>
+            <Moves />
+          </MovesProvider>
+        </AlternateFormsProvider>
       </PokemonDetailsProvider>
     </FlexCenterWrapper>
   )

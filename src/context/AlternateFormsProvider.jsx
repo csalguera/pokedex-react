@@ -28,6 +28,10 @@ const AlternateFormsProvider = ({ children }) => {
     (genNum === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'giratina')
   )
 
+  const disableButton = (
+    genNum === 4 && mapToName(form) === 'giratina-origin'
+  )
+
   const handleChange = (e) => {
     setForm(e.target.value)
   }
@@ -70,6 +74,7 @@ const AlternateFormsProvider = ({ children }) => {
   const contextValues = {
     form,
     disableSelect,
+    disableButton,
     handleChange,
     handleClick,
   }
