@@ -26,7 +26,14 @@ const Type = (props) => {
               type={type.type}
             />
           ))
-        ) : (currentGen === 4 && mapToName(form).includes('rotom-')) ?? (currentGen <= 5 && pastTypes) ? (
+        ) : currentGen === 5 && mapToName(form).includes('rotom-') ? (
+          pokemonDetails?.types?.map(type => (
+            <TypeBadge
+              key={type.slot}
+              type={type.type}
+            />
+          ))
+        ) : currentGen <= 5 && pastTypes ? (
           pastTypes?.types?.map(type => (
             <TypeBadge
               key={type.slot}
