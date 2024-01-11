@@ -30,6 +30,7 @@ const AlternateForms = () => {
   const invalidNames = [
     'darmanitan-galar-standard',
     'darmanitan-galar-zen',
+    'basculin-white-striped',
   ]
 
   const validVarieties = pokemonSpecies?.varieties?.filter(variety => !invalidNames.includes(variety?.pokemon?.name))

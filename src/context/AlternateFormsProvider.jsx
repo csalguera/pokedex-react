@@ -28,6 +28,8 @@ const AlternateFormsProvider = ({ children }) => {
   const rotom = (mapToSpecies(mapToName(form)) === 'rotom')
   const shaymin = (mapToSpecies(mapToName(form)) === 'shaymin')
   const giratina = (mapToSpecies(mapToName(form)) === 'giratina')
+  const basculinRed = (mapToName(form) === 'basculin-red-striped')
+  const basculinBlue = (mapToName(form) === 'basculin-blue-striped')
   const darmanitan = (mapToName(form) === 'darmanitan-standard')
   const darmanitanZen = (mapToName(form) === 'darmanitan-zen')
 
@@ -37,6 +39,8 @@ const AlternateFormsProvider = ({ children }) => {
     rotom ||
     shaymin ||
     giratina ||
+    basculinRed ||
+    basculinBlue ||
     darmanitan ||
     darmanitanZen
   )

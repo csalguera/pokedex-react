@@ -105,6 +105,8 @@ export function mapToSpecies(name) {
       return 'shaymin'
     case 'basculin-red-striped':
       return 'basculin'
+    case 'basculin-blue-striped':
+      return 'basculin'
     case 'darmanitan-standard':
       return 'darmanitan'
     case 'darmanitan-zen':
@@ -204,6 +206,10 @@ export function mapToForm(name) {
       return 'Land'
     case 'shaymin-sky':
       return 'Sky'
+    case 'basculin-red-striped':
+      return 'Red-Striped'
+    case 'basculin-blue-striped':
+      return 'Blue-Striped'
     case 'darmanitan-standard':
       return 'Standard'
     case 'darmanitan-zen':
@@ -249,6 +255,10 @@ export function mapToName(form) {
       return 'shaymin-land'
     case 'Sky':
       return 'shaymin-sky'
+    case 'Red-Striped':
+      return 'basculin-red-striped'
+    case 'Blue-Striped':
+      return 'basculin-blue-striped'
     case 'Standard':
       return 'darmanitan-standard'
     case 'Zen':
