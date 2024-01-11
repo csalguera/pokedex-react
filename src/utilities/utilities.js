@@ -191,6 +191,16 @@ export function mapToCry(name) {
       return 'wormadam'
     case 'wormadam-trash':
       return 'wormadam'
+    case 'rotom-heat':
+      return 'rotom'
+    case 'rotom-wash':
+      return 'rotom'
+    case 'rotom-frost':
+      return 'rotom'
+    case 'rotom-fan':
+      return 'rotom'
+    case 'rotom-mow':
+      return 'rotom'
     default:
       return name
   }
