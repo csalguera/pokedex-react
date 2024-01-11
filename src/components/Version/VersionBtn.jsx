@@ -18,13 +18,8 @@ const VersionBtn = (props) => {
     thisPath,
   } = props
 
-  const {
-    sprites,
-  } = useContext(PokemonDetailsContext)
-
-  const {
-    disableButton,
-  } = useContext(AlternateFormsContext)
+  const { sprites } = useContext(PokemonDetailsContext)
+  const { disableButton : { deoxys, giratina } } = useContext(AlternateFormsContext)
 
   let display = ''
 
@@ -45,7 +40,7 @@ const VersionBtn = (props) => {
     ((sprites.spriteGen5 === versionNum) && (actualPath === 'gen-v'))
   )
 
-  const giratina = (!versionNum && disableButton)
+  const disableCondition = ((!activeVersion && deoxys) || (!versionNum && giratina))
 
   return (
     <Button
@@ -55,7 +50,7 @@ const VersionBtn = (props) => {
       }}
       variant={activeVersion ? 'contained' : 'outlined'}
       onClick={() => updateSprites(spriteGen, versionNum)}
-      disabled={giratina}
+      disabled={disableCondition}
     >
       {chars}
     </Button>

@@ -15,6 +15,7 @@ const AlternateFormsProvider = ({ children }) => {
     pokemonSpecies,
     genPath,
     genNum,
+    currentGen,
     updateSprites,
     sprites,
   } = useContext(PokemonDetailsContext)
@@ -24,13 +25,16 @@ const AlternateFormsProvider = ({ children }) => {
 
   const disableSelect = (
     (pokemonSpecies?.varieties?.length === 1) ||
-    (genNum === 3 && mapToSpecies(mapToName(form)) !== 'deoxys') ||
-    (genNum === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'giratina')
+    (currentGen === 3 && mapToSpecies(mapToName(form)) !== 'deoxys') ||
+    (currentGen === 4 && sprites.spriteGen4 === 0 && mapToSpecies(mapToName(form)) === 'giratina')
   )
 
-  const disableButton = (
-    genNum === 4 && mapToName(form) === 'giratina-origin'
-  )
+  const deoxys = (currentGen === 3 && mapToSpecies(mapToName(form)) === 'deoxys')
+  const giratina = (currentGen === 4 && mapToName(form) === 'giratina-origin')
+  const disableButton = {
+    deoxys,
+    giratina,
+  }
 
   const handleChange = (e) => {
     setForm(e.target.value)
@@ -54,7 +58,7 @@ const AlternateFormsProvider = ({ children }) => {
   ])
 
   useEffect(() => {
-    if (genNum !== 3) return
+    if (currentGen !== 3) return
   
     if (mapToName(form) === 'deoxys-normal') {
       updateSprites('spriteGen3', 0)
@@ -66,7 +70,7 @@ const AlternateFormsProvider = ({ children }) => {
       updateSprites('spriteGen3', 2)
     }
   }, [
-    genNum,
+    currentGen,
     form,
     updateSprites,
   ])
