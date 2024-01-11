@@ -27,7 +27,7 @@ const Info = () => {
       sx={{
         width: '100%',
         maxWidth: 360,
-        height: '488px',
+        height: '550px',
       }}
     >
       <NationalNo />
