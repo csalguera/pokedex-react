@@ -14,7 +14,6 @@ import { mapToForm, mapToName } from "../../utilities/utilities"
 
 // context
 import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
-import { OverflowContext } from "../../context/OverflowProvider"
 
 const AlternateForms = () => {
   const {
@@ -25,8 +24,6 @@ const AlternateForms = () => {
     updateSprites,
   } = useContext(PokemonDetailsContext)
 
-  const { setHidden } = useContext(OverflowContext)
-
   const navigate = useNavigate()
   const [form, setForm] = useState('')
   const disableSelect = (
@@ -36,14 +33,6 @@ const AlternateForms = () => {
 
   const handleChange = (e) => {
     setForm(e.target.value)
-  }
-
-  const handleOpen = () => {
-    setHidden(true)
-  }
-
-  const handleClose = () => {
-    setHidden(false)
   }
 
   const handleClick = (variety) => {
@@ -89,8 +78,6 @@ const AlternateForms = () => {
           <Select
             value={form}
             onChange={handleChange}
-            onOpen={handleOpen}
-            onClose={handleClose}
             displayEmpty
             size="small"
             disabled={disableSelect}
