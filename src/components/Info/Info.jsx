@@ -10,6 +10,7 @@ import AlternateForms from "./AlternateForms"
 import Height from "./Height"
 import Weight from "./Weight"
 import Abilities from "../Abilities/Abilities"
+import AlternateFormsProvider from "../../context/AlternateFormsProvider"
 
 // mui components
 import List from "@mui/material/List"
@@ -45,7 +46,9 @@ const Info = () => {
       <Divider />
       <Weight />
       <Divider />
-      <AlternateForms />
+      <AlternateFormsProvider>
+        <AlternateForms />
+      </AlternateFormsProvider>
       <Divider />
       <Abilities />
     </List>
