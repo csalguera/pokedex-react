@@ -95,7 +95,7 @@ const AlternateFormsProvider = ({ children }) => {
       setForm('')
     }
   }, [
-    location.state.name,
+    location?.state?.name,
     pokemonSpecies?.varieties
   ])
 
