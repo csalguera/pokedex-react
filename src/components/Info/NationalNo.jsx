@@ -13,14 +13,14 @@ import { PokemonDetailsContext } from "../../context/PokemonDetailsProvider"
 import { leadingZeros } from "../../utilities/utilities"
 
 const NationalNo = () => {
-  const { pokemonDetails } = useContext(PokemonDetailsContext)
+  const { pokemonSpecies } = useContext(PokemonDetailsContext)
   return (
     <ListItem>
       <ListItemText primary='National No.' />
       <Typography
         color='primary'
       >
-        {leadingZeros(pokemonDetails?.id)}
+        {leadingZeros(pokemonSpecies?.id)}
       </Typography>
     </ListItem>
   )
