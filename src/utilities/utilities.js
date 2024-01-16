@@ -205,6 +205,10 @@ export function mapToCry(name) {
       return 'giratina'
     case 'giratina-origin':
       return 'giratina'
+    case 'basculin-red-striped':
+      return 'basculin'
+    case 'basculin-blue-striped':
+      return 'basculin'
     default:
       return name
   }
