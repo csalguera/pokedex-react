@@ -17,6 +17,8 @@ const PokemonTypes = (props) => {
   const { form } = useContext(AlternateFormsContext)
   const pastTypes = (pokemonDetails?.past_types?.[0])
 
+  let conditionRendered = false
+
   const conditionTypes = [
     {
       condition: currentGen > 1 && pastTypes?.generation?.name === 'generation-i',
@@ -38,18 +40,17 @@ const PokemonTypes = (props) => {
 
   return (
     <>
-      {conditionTypes.map(({ condition, types }) => (
-        condition && types ? (
-          types.map(type => (
+      {conditionTypes.map(({ condition, types }) => {
+        if (condition && types && !conditionRendered) {
+          conditionRendered = true
+          return types.map(type => (
             <TypeBadge
               key={type.slot}
               type={type.type}
             />
           ))
-        ) : (
-          null
-        )
-      ))}
+        }
+      })}
     </>
   )
 }
