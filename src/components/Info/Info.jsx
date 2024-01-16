@@ -5,7 +5,7 @@ import { useContext } from "react"
 import NationalNo from "./NationalNo"
 import Name from "./Name"
 import Classification from "./Classification"
-import Type from "../Type/Type"
+import PokemonTypes from "../PokemonTypes/PokemonTypes"
 import AlternateForms from "./AlternateForms"
 import Height from "./Height"
 import Weight from "./Weight"
@@ -38,7 +38,7 @@ const Info = () => {
       <Divider />
       <ListItem>
         <ListItemText primary='Type' />
-        <Type pokemonDetails={pokemonDetails} />
+        <PokemonTypes pokemonDetails={pokemonDetails} />
       </ListItem>
       <Divider />
       <Height />

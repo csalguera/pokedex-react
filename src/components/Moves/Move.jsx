@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react"
 
 // components
 import ListItemTextWrapper from "../common/ListItemTextWrapper"
-import TypeBadge from "../Type/TypeBadge"
+import TypeBadge from "../PokemonTypes/TypeBadge"
 import DamageClass from "./DamageClass"
 
 // mui components

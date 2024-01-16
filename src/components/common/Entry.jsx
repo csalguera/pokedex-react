@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import FlexCenterWrapper from "./FlexCenterWrapper"
 import ListItemTextWrapper from "./ListItemTextWrapper"
 import LinkWrapper from "./LinkWrapper"
-import Type from "../Type/Type"
+import PokemonTypes from "../PokemonTypes/PokemonTypes"
 
 // mui components
 import ListItem from "@mui/material/ListItem"
@@ -67,7 +67,7 @@ const Entry = (props) => {
               justifyContent: 'flex-start'
             }}
           >
-            <Type pokemonDetails={entry} />
+            <PokemonTypes pokemonDetails={entry} />
           </FlexCenterWrapper>
         </ListItemTextWrapper>
       </ListItem>
