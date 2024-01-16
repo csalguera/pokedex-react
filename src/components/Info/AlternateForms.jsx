@@ -18,6 +18,7 @@ import { AlternateFormsContext } from "../../context/AlternateFormsProvider"
 const AlternateForms = () => {
   const {
     pokemonSpecies,
+    pokemonDetails,
   } = useContext(PokemonDetailsContext)
 
   const {
@@ -35,6 +36,7 @@ const AlternateForms = () => {
 
   const validVarieties = pokemonSpecies?.varieties?.filter(variety => !invalidNames.includes(variety?.pokemon?.name))
 
+  if (form !== mapToForm(pokemonDetails?.name)) return
   return (
     <ListItem>
       <ListItemText primary='Forms' />

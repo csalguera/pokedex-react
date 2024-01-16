@@ -209,6 +209,18 @@ export function mapToCry(name) {
       return 'basculin'
     case 'basculin-blue-striped':
       return 'basculin'
+    case 'darmanitan-standard':
+      return 'darmanitan'
+    case 'darmanitan-zen':
+      return 'darmanitan'
+    case 'keldeo-ordinary':
+      return 'keldeo'
+    case 'keldeo-resolute':
+      return 'keldeo'
+      case 'meloetta-aria':
+      return 'meloetta'
+      case 'meloetta-pirouette':
+      return 'meloetta'
     default:
       return name
   }
