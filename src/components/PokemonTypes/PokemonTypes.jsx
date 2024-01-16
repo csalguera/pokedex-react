@@ -50,6 +50,7 @@ const PokemonTypes = (props) => {
             />
           ))
         }
+        return null
       })}
     </>
   )
