@@ -177,6 +177,12 @@ export function mapToDetails(name) {
 
 export function mapToCry(name) {
   switch (name) {
+    case 'castform-sunny':
+      return 'castform'
+    case 'castform-rainy':
+      return 'castform'
+    case 'castform-snowy':
+      return 'castform'
     case 'deoxys-normal':
       return 'deoxys'
     case 'deoxys-attack':
