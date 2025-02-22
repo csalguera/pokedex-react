@@ -2,8 +2,6 @@
 
 ## Pokedex React App
 
-___
-
 * This is a decoupled full stack application where users can view various information about their favorite pokemon.
 * Users have the ability to toggle between three different color variations. (Shown Below)
 
@@ -17,7 +15,6 @@ ___
 ## [Launch App](https://pokdex-react.netlify.app/)
 
 ##### [Planning Materials](https://trello.com/b/53fueOZ4/pokedex)
-___
 
 ## Technologies Used:
 
