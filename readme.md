@@ -40,7 +40,7 @@
 
 ## Next Steps:
 
-* [ ] Add an interface for users and admins to sign * up and log in
+* [ ] Add an interface for users and admins to sign up and log in
 * [ ] Add an interface that allows admins to perform CRUD operations to the api
 * [ ] Allow users to save their preferred color variation
 * [ ] Create pages for the index and details of abilities and moves
