@@ -37,7 +37,7 @@ const DamageClass = (props) => {
         <Typography>
           {pascalize(determineCategory(type?.name ?? ''))}
         </Typography>
-      ) : currentGen >= 4 && (icon || iconHGSS) ? (
+      ) : currentGen >= 4 && category ? (
         <ImageWrapper
           src={iconHGSSCondition ? iconHGSS : icon}
           width='50px'
