@@ -1,5 +1,5 @@
 // npm modules
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 // mui components
 import { Button } from "@mui/material"
@@ -13,17 +13,18 @@ import { mapToCry } from "../../utilities/utilities"
 const Cry = (props) => {
   const { name } = props
   const [pokemonCry, setPokemonCry] = useState({})
+  const audioRef = useRef(null)
 
   useEffect(() => {
     const fetchCry = async () => {
       const cryData = await getPokemonCry(mapToCry(name))
-      setPokemonCry(cryData)
+      if (cryData && cryData.url) {
+        setPokemonCry(cryData)
+        audioRef.current = new Audio(cryData.url)
+      }
     }
     fetchCry()
   }, [name])
-
-  if (!pokemonCry) return
-  const cry = new Audio(pokemonCry.url)
 
   return (
     <Button
@@ -31,7 +32,8 @@ const Cry = (props) => {
         m: 1,
       }}
       variant="contained"
-      onClick={() => cry.play()}
+      onClick={() => audioRef.current && audioRef.current.play()}
+      disabled={!pokemonCry.url}
     >
       Play Cry
     </Button>
