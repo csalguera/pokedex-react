@@ -27,7 +27,7 @@
 
 ### Back-end:
 
-* Node
+* Nodev
 * Express
 * MongoDB
 * Mongoose
@@ -45,3 +45,28 @@
 * [ ] Allow users to save their preferred color variation
 * [ ] Create pages for the index and details of abilities and moves
 * [ ] Create pages for the remaining pokemon beyond #0649
+
+## Running on Your Local Machine
+
+#### Dependencies
+
+* Node v18.12.1 or higher
+
+#### Installation Steps
+
+* Clone this repository to your local machine.
+
+* ```cd``` into your cloned repository and run the command ```npm install```
+
+
+#### Launching the Application
+
+* Run the command ```npm start```
+
+* Navigate to http://localhost:3000/
+
+#### Running the Tests
+
+* Run the command ```npm test```
+
+> Due to using create-react-app, the tests directory and the setupTests.js file are located within the src directory.
