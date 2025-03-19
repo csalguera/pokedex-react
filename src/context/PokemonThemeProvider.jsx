@@ -8,7 +8,7 @@ import { blue, grey, red, yellow } from '@mui/material/colors';
 // context
 export const PokemonThemeContext = createContext()
 
-const blueTheme = createTheme({
+export const blueTheme = createTheme({
   palette: {
     primary: {
       main: blue[600],
@@ -27,7 +27,7 @@ const blueTheme = createTheme({
   }
 })
 
-const yellowTheme = createTheme({
+export const yellowTheme = createTheme({
   palette: {
     primary: {
       main: yellow[600],
@@ -47,7 +47,7 @@ const yellowTheme = createTheme({
   }
 })
 
-const redTheme = createTheme({
+export const redTheme = createTheme({
   palette: {
     primary: {
       main: red[600],
