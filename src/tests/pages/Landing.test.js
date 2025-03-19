@@ -41,10 +41,11 @@ describe('Landing', () => {
     renderWithTheme(<Landing />, { theme: 'blue' })
 
     const blueImage = screen.getByAltText('articuno-blue-theme');
-    expect(blueImage).toHaveStyle('filter: grayscale(0)')
     const yellowImage = screen.getByAltText('zapdos-yellow-theme');
-    expect(yellowImage).toHaveStyle('filter: grayscale(1)')
     const redImage = screen.getByAltText('moltres-red-theme');
+
+    expect(blueImage).toHaveStyle('filter: grayscale(0)')
+    expect(yellowImage).toHaveStyle('filter: grayscale(1)')
     expect(redImage).toHaveStyle('filter: grayscale(1)')
   })
 
@@ -52,10 +53,11 @@ describe('Landing', () => {
     renderWithTheme(<Landing />, { theme: 'yellow' })
 
     const blueImage = screen.getByAltText('articuno-blue-theme');
-    expect(blueImage).toHaveStyle('filter: grayscale(1)')
     const yellowImage = screen.getByAltText('zapdos-yellow-theme');
-    expect(yellowImage).toHaveStyle('filter: grayscale(0)')
     const redImage = screen.getByAltText('moltres-red-theme');
+
+    expect(blueImage).toHaveStyle('filter: grayscale(1)')
+    expect(yellowImage).toHaveStyle('filter: grayscale(0)')
     expect(redImage).toHaveStyle('filter: grayscale(1)')
   })
 
@@ -63,10 +65,11 @@ describe('Landing', () => {
     renderWithTheme(<Landing />, { theme: 'red' })
 
     const blueImage = screen.getByAltText('articuno-blue-theme');
-    expect(blueImage).toHaveStyle('filter: grayscale(1)')
     const yellowImage = screen.getByAltText('zapdos-yellow-theme');
-    expect(yellowImage).toHaveStyle('filter: grayscale(1)')
     const redImage = screen.getByAltText('moltres-red-theme');
+
+    expect(blueImage).toHaveStyle('filter: grayscale(1)')
+    expect(yellowImage).toHaveStyle('filter: grayscale(1)')
     expect(redImage).toHaveStyle('filter: grayscale(0)')
   })
 })

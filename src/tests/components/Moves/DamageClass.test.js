@@ -30,9 +30,9 @@ describe("DamageClass", () => {
     renderComponent()
 
     const categoryLabel = screen.getByText(/special/i)
-    expect(categoryLabel).toBeInTheDocument()
-
     const categoryImage = screen.queryByRole('img');
+
+    expect(categoryLabel).toBeInTheDocument()
     expect(categoryImage).not.toBeInTheDocument()
   })
 
@@ -40,9 +40,9 @@ describe("DamageClass", () => {
     renderComponent({ versionGroup: 'v4' }, { currentGen: 4, genPath: 'gen-iv' })
 
     const categoryImage = screen.getByRole('img');
-    expect(categoryImage).toBeInTheDocument()
-    
     const imageRoute = '/assets/icons/gen-iv-physical.png'
+
+    expect(categoryImage).toBeInTheDocument()
     expect(categoryImage).toHaveAttribute('src', imageRoute)
   })
 
@@ -50,6 +50,7 @@ describe("DamageClass", () => {
     renderComponent({ power: null })
 
     const categoryLabel = screen.getByText(/physical/i)
+
     expect(categoryLabel).toBeInTheDocument()
   })
 })
