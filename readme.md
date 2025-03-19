@@ -58,6 +58,17 @@
 
 * ```cd``` into your cloned repository and run the command ```npm install```
 
+* Set up your ```.env``` file
+
+#### .env
+
+> REACT_APP_API_BASE_URL='https://pokeapi.co/api/v2'
+
+* This application uses the open source [PokéAPI](https://pokeapi.co/api/v2) for fetching pokemon data such as name, types, and abilities.
+
+> REACT_APP_POKEMON_CRIES_BASE_URL='contact_me_for_url'
+
+* In addition, a private database which contains various CRUD actions on pokemon audio files is needed. To access this API, contact me via [email](mailto:carlos.e.salguera@gmail.com).
 
 #### Launching the Application
 
