@@ -42,6 +42,7 @@ const DamageClass = (props) => {
           src={iconHGSSCondition ? iconHGSS : icon}
           width='50px'
           sx={{ display: 'flex' }}
+          alt={`${category}-image`}
         />
       ) : (
         <Typography>
