@@ -27,7 +27,7 @@
 
 ### Back-end:
 
-* Nodev
+* Node
 * Express
 * MongoDB
 * Mongoose
